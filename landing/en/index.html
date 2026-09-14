@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BistroTech, Google review intelligence for restaurants</title>
+<meta name="description" content="BistroTech reads your restaurant's Google reviews, sends one message every morning, drafts the replies, and reports the recurring themes. Request a demo.">
+<link rel="alternate" hreflang="hu" href="../index.html">
+<link rel="alternate" hreflang="en" href="index.html">
+<link rel="stylesheet" href="../style.css">
+<!-- BistroTech landing, en, v0.1.0, 2026-09-15. -->
+<!-- The service runs in Hungarian: the product is sold in Hungary, the daily message and
+     the legal documents are Hungarian. This page exists for readers who are not, and it
+     says so rather than pretending to an English product. -->
+<!-- TODO-PROOF: canonical URL and absolute hreflang links wait for the decision on the
+     public domain. -->
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="index.html">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V9a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12"/><path d="M2 21h20"/><path d="M8 7V3"/><path d="M12 7V3"/><path d="M16 7V3"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>
+      BistroTech
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#daily-message">The daily message</a>
+      <a href="#onboarding">Onboarding</a>
+      <a href="#demo">Demo</a>
+      <a href="https://zsombp.github.io/npi-review-system/">Belépés</a>
+      <span class="lang">
+        <a href="../index.html" hreflang="hu" lang="hu">HU</a><span aria-current="true">EN</span>
+      </span>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap">
+      <h1>We read your restaurant's Google reviews and tell you every morning, in one message, what happened.</h1>
+      <p class="lead">BistroTech is built for Hungarian hospitality operators. It watches the Google Business Profile of every venue, drafts a reply to each review, and shows what keeps coming back in what guests write. There is no dashboard to open. The message arrives whether you asked for it or not.</p>
+      <div class="cta-row">
+        <a class="btn" href="#demo">Request a demo</a>
+        <a class="btn secondary" href="#daily-message">See the daily message</a>
+      </div>
+      <ul class="hero-facts">
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Every venue, every day, in one message.</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>A person approves every reply by default.</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Hungarian throughout, for Hungarian restaurants.</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Running daily across eleven venues in production.</li>
+      </ul>
+      <!-- TODO-PROOF: no customer quote, no logo wall, no headline metric on this page.
+           Proof is collected from paying customers after they onboard (D-009), so there is
+           nothing true to put here yet. -->
+    </div>
+  </section>
+
+  <section id="daily-message">
+    <div class="wrap">
+      <p class="eyebrow">The product</p>
+      <h2>The daily message</h2>
+      <div class="msg-grid">
+        <div>
+          <p>One message arrives every morning in the Telegram chat or group you name. Per venue: how many reviews came in, the star breakdown, the day's average and the current Google rating. At the end, the negative reviews nobody has answered yet.</p>
+          <p>That message is the product. The account exists so you can approve drafts, look back at history and manage your venues, not so you open it every day.</p>
+          <p class="small muted">A red dot marks a venue that took a one or two star review that day. If a venue could not be checked, the message says so, because a zero there means missing data rather than a quiet day.</p>
+        </div>
+        <div>
+          <div class="phone">
+            <div class="phone-head">
+              <span class="dot" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+              <span class="who">BistroTech</span>
+              <span class="when">07:45</span>
+            </div>
+<!-- Same mock as the Hungarian page: the structure of the real message built by
+     supabase/functions/daily-report/lib.ts buildDailyReport. Left in Hungarian because
+     that is the language the message actually goes out in. The pictograms are the
+     product's own Telegram output, not page copy. -->
+<pre class="bubble">📊 <b>BISTROTECH NAPI JELENTÉS</b>
+🗓 2026-09-15
+
+<span class="sep">━━━━━━━━━━━━</span>
+
+📍 <b>Példa Bisztró</b> — <b>3</b> új · átlag <b>4.33</b>
+⭐5: <b>2</b> · ⭐4: 0 · ⭐3: 1 · ⭐2: <b>0</b> · ⭐1: <b>0</b>
+Google: 4.6 (1 284)
+
+📍 <b>Minta Étterem</b> — <b>1</b> új · átlag <b>2.00</b> 🔴
+⭐5: <b>0</b> · ⭐4: 0 · ⭐3: 0 · ⭐2: <b>1</b> · ⭐1: <b>0</b>
+Google: 4.4 (612)
+
+📍 <b>Teszt Kávézó</b> — 0 új · Google: 4.7 (238)
+
+<span class="sep">━━━━━━━━━━━━</span>
+
+Σ <b>Összesen: 4 új értékelés</b>
+⭐5: <b>2</b> · ⭐4: 0 · ⭐3: 1 · ⭐2: <b>1</b> · ⭐1: <b>0</b>
+
+<span class="sep">━━━━━━━━━━━━</span>
+
+⚠️ <b>Megválaszolatlan negatívok</b> · 1
+
+🔴 Minta Étterem · 2⭐ · 2026-09-12<span class="q">A leves langyos volt, és húsz percet vártunk a számlára.</span></pre>
+            <p class="caption">Illustration. The venue names, the quoted text and the numbers are invented. The layout is the real daily report, and it goes out in Hungarian: venue name, new reviews, daily average, star line, Google rating, then the totals and the unanswered negatives.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="what-it-does">
+    <div class="wrap">
+      <p class="eyebrow">Three things</p>
+      <h2>What BistroTech does</h2>
+      <div class="cards">
+        <div class="card">
+          <span class="ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></span>
+          <h3>Daily monitoring</h3>
+          <p>We check the Google Business Profile of every venue each day and collect the new reviews into a single message. It lands in a channel you already read. No email per review, and nothing you have to open to find out what happened.</p>
+        </div>
+        <div class="card">
+          <span class="ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></span>
+          <h3>Reply drafts</h3>
+          <p>Every review gets a drafted reply in the venue's own tone. By default a person approves it: reads it, edits it, and only then does it go to Google. Fully automatic answering is a separate module you switch on yourself, and the consequence is spelled out at the moment you switch it on.</p>
+        </div>
+        <div class="card">
+          <span class="ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg></span>
+          <h3>Reporting</h3>
+          <p>Rating trend per venue, the themes that recur in what guests write, venues compared against each other, and the staff named in reviews, quoted verbatim. Not a sentence instead of the data, but what is actually in the text.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="onboarding">
+    <div class="wrap">
+      <p class="eyebrow">Getting started</p>
+      <h2>How onboarding works</h2>
+      <p class="lead">Four steps. We do most of the work and stay with you through it.</p>
+      <ol class="steps">
+        <li>
+          <div>
+            <h3>You add your venues</h3>
+            <p>You tell us which places to watch. We find and match the Google Business Profile from the name and address.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>You add our manager account</h3>
+            <p>You add our manager account to each Google Business Profile with Manager permission. That is how we read the reviews and publish the approved replies, through Google's own interface. You can revoke it at any time.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>We connect Telegram</h3>
+            <p>You tell us which chat or group the daily message should go to. Connecting takes a few minutes and we walk you through it.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>The first report arrives next morning</h3>
+            <p>The first daily message comes the following morning, and then every day at the same time.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="reference">
+    <div class="wrap">
+      <p class="eyebrow">Reference</p>
+      <h2>In production across eleven venues</h2>
+      <div class="reference">
+        <p>An eleven-venue Budapest restaurant group runs the system every day. That installation is where the product comes from: the daily monitoring runs there, the reports come from there, and every change works there before it works anywhere else.</p>
+        <p class="muted">We do not name the group or its venues, and we show no review content from them. That is our own decision, not a condition the customer imposed.</p>
+      </div>
+      <!-- D-004: the eleven-venue reference installation is anonymous in all public
+           marketing. No group name, no venue names, no real review content. D-010: the
+           partner appears nowhere in anything the venture publishes. -->
+      <!-- TODO-PROOF: no running-cost, time-saved, response-rate or rating-improvement
+           figure here. D-006 forbids an illustrative number that could quietly become the
+           plan. A measured figure can be added once someone has measured it. -->
+    </div>
+  </section>
+
+  <section id="demo">
+    <div class="wrap">
+      <p class="eyebrow">Contact</p>
+      <h2>Request a demo</h2>
+      <div class="form-grid">
+        <div>
+          <p>We look at your venues' Google profiles, show you what the first daily message would look like with your own data, and answer your questions. Onboarding is done with you, not handed to you.</p>
+          <p class="muted small">BistroTech is operated by Netpromotion Invest Kft. The service, the daily message and the legal documents are in Hungarian.</p>
+          <!-- TODO-PROOF: no response-time promise is made here. Nobody has committed to
+               one. The thank-you state says "one business day", the operator's working
+               intention; if it cannot be held, change it. -->
+        </div>
+
+        <div id="form-panel">
+          <form class="demo" id="demo-form" novalidate
+                data-endpoint="https://jumaxvgckuxbwaiwjdte.supabase.co/functions/v1/lead"
+                data-key="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1bWF4dmdja3V4YndhaXdqZHRlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc1NzkwMTQsImV4cCI6MjEwMzE1NTAxNH0.fh_xIhYKBGY_RbcG-9giQ9ZM9X1ODhbVa1QW5nbp00Y"
+                data-source="landing-en"
+                data-sending="Sending"
+                data-error="The message could not be sent. Please try again, or call the number at the bottom of this page."
+                data-error-rate="Too many attempts from this connection. Please wait an hour, or call the number at the bottom of this page.">
+            <label>Name
+              <input type="text" name="name" autocomplete="name" maxlength="120" required>
+            </label>
+            <label>Restaurant or company name
+              <input type="text" name="restaurant" autocomplete="organization" maxlength="160" required>
+            </label>
+            <div class="two">
+              <label>Email address
+                <input type="email" name="email" autocomplete="email" maxlength="254" required>
+              </label>
+              <label>Phone number (optional)
+                <input type="tel" name="phone" autocomplete="tel" maxlength="40">
+              </label>
+            </div>
+            <label>Number of venues
+              <input type="number" name="venues" min="1" max="500" step="1" inputmode="numeric" required>
+            </label>
+            <label>Message (optional)
+              <textarea name="message" maxlength="2000" rows="4"></textarea>
+            </label>
+            <!-- Honeypot. Hidden from people, filled in by bots, rejected by the function. -->
+            <div class="hp" aria-hidden="true">
+              <label>Website
+                <input type="text" name="company_website" tabindex="-1" autocomplete="off">
+              </label>
+            </div>
+            <button class="btn" type="submit">Request a demo</button>
+            <p class="status" id="form-status" role="status" aria-live="polite"></p>
+            <p class="formnote">We use what you send here to get in touch and to prepare an offer. Details in the <a href="../legal/adatkezeles.html">privacy notice</a>, which is in Hungarian.</p>
+          </form>
+        </div>
+
+        <div class="thanks" id="thanks" hidden>
+          <span class="ico" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.1V12a10 10 0 1 1-5.9-9.1"/><path d="M22 4 12 14.01l-3-3"/></svg></span>
+          <h3>We have it.</h3>
+          <p>Thank you. We will come back to you within one business day on the contact details you gave, and arrange a time for the demo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h2>Operator</h2>
+        <dl>
+          <dt>Company</dt><dd>Netpromotion Invest Kereskedelmi és Szolgáltató Korlátolt Felelősségű Társaság (Netpromotion Invest Kft.)</dd>
+          <dt>Seat</dt><dd>1056 Budapest, Duna utca 3. földszint 1., Hungary</dd>
+          <dt>Company number</dt><dd>01-09-269936, Court of Registration of the Budapest-Capital Regional Court</dd>
+          <dt>VAT number</dt><dd>10907850-2-41</dd>
+          <dt>Phone</dt><dd><a href="tel:+36302222444">+36 30 2222 444</a></dd>
+        </dl>
+        <!-- TODO-PROOF: company number to be checked against the official company extract
+             before publication (carried over from docs/legal/aszf-hu.md section 1). -->
+        <!-- TODO-PROOF: no email address is published. The company's general address is a
+             personal Gmail account; the BistroTech address on a company domain does not
+             exist yet. Same TODO as in aszf-hu.md section 1. -->
+      </div>
+      <div>
+        <h2>BistroTech</h2>
+        <ul>
+          <li><a href="#daily-message">The daily message</a></li>
+          <li><a href="#what-it-does">What it does</a></li>
+          <li><a href="#onboarding">Onboarding</a></li>
+          <li><a href="#demo">Request a demo</a></li>
+          <li><a href="https://zsombp.github.io/npi-review-system/">Belépés</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Documents</h2>
+        <ul>
+          <li><a href="../legal/aszf.html" hreflang="hu" lang="hu">ÁSZF</a></li>
+          <li><a href="../legal/adatkezeles.html" hreflang="hu" lang="hu">Adatkezelés</a></li>
+          <li><a href="../index.html" hreflang="hu" lang="hu">Magyar</a></li>
+        </ul>
+        <p class="small muted">The legal documents are in Hungarian.</p>
+      </div>
+    </div>
+    <p class="colophon">
+      <span>BistroTech, a service of Netpromotion Invest Kft.</span>
+      <span>Page v0.1.0, 2026-09-15.</span>
+      <span>The legal documents are drafts, not yet reviewed by a lawyer.</span>
+    </p>
+  </div>
+</footer>
+
+<script src="../script.js" defer></script>
+</body>
+</html>
