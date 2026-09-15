@@ -15,7 +15,9 @@
 <link rel="alternate" hreflang="en" href="index.html">
 <link rel="stylesheet" href="../style.css">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<!-- BistroTech landing, en, v0.2.0, 2026-09-15 (brand pass): header lockup, footer
+<!-- BistroTech landing, en, v0.3.0, 2026-09-15: the "What it looks like" section,
+     three real screenshots of the live app between the three pillars and the
+     onboarding steps. v0.2.0, 2026-09-15 (brand pass): header lockup, footer
      mark, favicon link and Open Graph title. Inline SVG throughout, for the reason
      given in ../index.html. No copy changed. -->
 <!-- The service runs in Hungarian: the product is sold in Hungary, the daily message and
@@ -159,6 +161,42 @@ Google: 4.4 (612)
           <p>Rating trend per venue, the themes that recur in what guests write, venues compared against each other, and the staff named in reviews, quoted verbatim. Not a sentence instead of the data, but what is actually in the text.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- The same three screenshots as the Hungarian page, from ../img/. Captured by
+       scripts/screenshots.mjs from the demo account (scripts/README-demo.md), with
+       nothing masked: every venue name, guest text and number in that account is
+       fictional by design, and the caption under the grid says so. The interface in
+       the shots is Hungarian, which is the language the product is sold and delivered
+       in; the caption says that too rather than mocking up an English screen that no
+       customer is looking at. Files are 2880x1800 (1440x900 at device scale 2), so the
+       width and height attributes are the real pixel sizes.
+       The mobile captures exist and are deliberately not shown, for the reason given
+       in ../index.html. -->
+  <section id="what-it-looks-like">
+    <div class="wrap">
+      <p class="eyebrow">The interface</p>
+      <h2>What it looks like</h2>
+      <p class="lead">There is an interface as well as the daily message. You open it to approve a reply, to look back over a month, or to read what guests actually wrote. Three screens from it.</p>
+      <div class="shots">
+        <figure>
+          <img src="../img/app-overview-desktop.png" width="2880" height="1800" loading="lazy" decoding="async"
+               alt="The Overview page: the totals for the period at the top, and below them a table with one row per venue.">
+          <figcaption>Overview. New reviews for the period, the star breakdown, the average and the unanswered negatives, one row per venue.</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/app-insights-desktop.png" width="2880" height="1800" loading="lazy" decoding="async"
+               alt="The Insights page: the numbers for the period, and under them a line chart of the Google rating per venue.">
+          <figcaption>Insights. How the Google rating moves per venue, day by day, with the totals for the period.</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/app-drafts-desktop.png" width="2880" height="1800" loading="lazy" decoding="async"
+               alt="The Reply drafts page: a guest review, below it the editable reply text, with an Approve and a Skip button.">
+          <figcaption>Reply drafts. A written reply waiting for every review, editable before you approve it, and published only after that.</figcaption>
+        </figure>
+      </div>
+      <p class="caption">The screenshots come from the BistroTech demo account. The venue names, the guest texts and the numbers are invented, and no real restaurant's data appears in them. The interface is shown in Hungarian, which is the language the service runs in; it also runs in English.</p>
     </div>
   </section>
 
@@ -317,7 +355,7 @@ Google: 4.4 (612)
     </div>
     <p class="colophon">
       <span class="colo-brand"><svg class="foot-mark" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M 4.01 13.41 A 8.5 8.5 0 1 1 6.31 16.82 L 2.6 20.4 Z M 7.2 14.6 V 11.8 A 1.2 1.2 0 0 1 9.6 11.8 V 14.6 Z M 10.8 14.6 V 9.8 A 1.2 1.2 0 0 1 13.2 9.8 V 14.6 Z M 14.4 14.6 V 7.8 A 1.2 1.2 0 0 1 16.8 7.8 V 14.6 Z"/></svg>BistroTech, a service of Netpromotion Invest Kft.</span>
-      <span>Page v0.2.0, 2026-09-15.</span>
+      <span>Page v0.3.0, 2026-09-15.</span>
       <span>The legal documents are drafts, not yet reviewed by a lawyer.</span>
     </p>
   </div>

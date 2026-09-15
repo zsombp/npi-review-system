@@ -1,4 +1,7 @@
-/* BistroTech landing, style.css, v0.2.0, 2026-09-15 */
+/* BistroTech landing, style.css, v0.3.0, 2026-09-15 */
+/* v0.3.0 adds .shots, the screenshot grid on both landing pages: one column on a
+   phone, three from 720px, each figure a card with the capture bled to its top
+   corners. No new colour and no new breakpoint; it rides on the two that exist. */
 /* One stylesheet for the Hungarian page, the English page and the legal pages.
    Colours and type are the app's (web/src/styles.css) so the site and the
    product read as one thing. No fonts are loaded: the system stack only.
@@ -126,6 +129,20 @@ p:last-child { margin-bottom: 0; }
 .card ul { margin: .6rem 0 0; padding-left: 1.1rem; color: var(--muted); font-size: .92rem; }
 .card li { margin-bottom: .25rem; }
 
+/* --- screenshots ------------------------------------------------------- */
+/* Three real captures of the app, from landing/img/. Each <img> carries its own pixel
+   width and height, so aspect-ratio holds the box open before the file arrives and
+   nothing below the grid jumps when three lazy images land at once. The figure is the
+   same card as .card, with the image bled to the rounded top corners. */
+.shots { display: grid; gap: 1rem; margin-top: 1.2rem; }
+.shots figure {
+  margin: 0; background: var(--card); border: 1px solid var(--line);
+  border-radius: 10px; overflow: hidden;
+}
+.shots img { display: block; width: 100%; height: auto; border-bottom: 1px solid var(--line); }
+.shots figcaption { padding: .8rem .9rem; color: var(--muted); font-size: .9rem; }
+#igy-nez-ki .caption, #what-it-looks-like .caption { margin-top: 1rem; }
+
 /* --- steps ------------------------------------------------------------- */
 .steps { list-style: none; counter-reset: step; padding: 0; margin: 0; display: grid; gap: .9rem; }
 .steps li { counter-increment: step; display: flex; gap: .8rem; align-items: flex-start; }
@@ -198,6 +215,7 @@ footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .35rem;
   h1 { font-size: 2.3rem; }
   h2 { font-size: 1.45rem; }
   .cards { grid-template-columns: repeat(3, 1fr); }
+  .shots { grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
   .form-grid { grid-template-columns: 1.1fr 1fr; gap: 2.4rem; }
   form.demo .two { grid-template-columns: 1fr 1fr; }
   .foot-grid { grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem; }

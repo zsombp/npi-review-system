@@ -15,7 +15,9 @@
 <link rel="alternate" hreflang="en" href="en/index.html">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<!-- BistroTech landing, hu, v0.2.0, 2026-09-15 (brand pass): the lockup replaces the
+<!-- BistroTech landing, hu, v0.3.0, 2026-09-15: the "Igy nez ki" section, three real
+     screenshots of the live app between the three pillars and the onboarding steps.
+     v0.2.0, 2026-09-15 (brand pass): the lockup replaces the
      generic table icon in the header, the mark sits in front of the company line in
      the footer, the favicon is linked, and og:title and og:description are emitted.
      Every logo is inline SVG, not an <img>: the site is served from a project-site
@@ -165,6 +167,41 @@ Google: 4.4 (612)
           <p>A csillagátlag alakulása egységenként, a vendégszövegekből kiolvasott visszatérő témák, az egységek összehasonlítása egymással, és a név szerint említett munkatársak, szó szerinti idézettel. Nem összesítés helyett mondat, hanem az, ami a szövegekben tényleg ott van.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Real screenshots of the live app, captured by scripts/screenshots.mjs from the
+       demo account (scripts/README-demo.md). Nothing in them is masked: every venue
+       name, guest text and number in that account is fictional by design, and the
+       caption under the grid says so. The files are 2880x1800 (1440x900 at device
+       scale 2), so the width and height attributes below are the real pixel sizes and
+       the browser reserves the right box before the image arrives.
+       The mobile captures exist (img/app-*-mobile.png) and are deliberately not shown:
+       at 390px the app's sidebar becomes a top bar, and the top half of the shot is
+       chrome, the language select and the sign-out link rather than the product. -->
+  <section id="igy-nez-ki">
+    <div class="wrap">
+      <p class="eyebrow">A felület</p>
+      <h2>Így néz ki</h2>
+      <p class="lead">A napi üzenet mellett van egy felület is. Akkor nyitja meg, ha jóvá akar hagyni egy választ, vissza akar nézni egy hónapot, vagy el akarja olvasni, mit írtak a vendégek. Három képernyő belőle.</p>
+      <div class="shots">
+        <figure>
+          <img src="img/app-overview-desktop.png" width="2880" height="1800" loading="lazy" decoding="async"
+               alt="Az Áttekintés oldal: fent az időszak összesített számai, alatta egy táblázat egy sorral éttermenként.">
+          <figcaption>Áttekintés. Az időszak új értékelései, a csillagbontás, az átlag és a megválaszolatlan negatívok, egységenként egy sorban.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/app-insights-desktop.png" width="2880" height="1800" loading="lazy" decoding="async"
+               alt="Az Elemzés oldal: az időszak számai, alattuk vonaldiagram a Google-értékelés alakulásáról éttermenként.">
+          <figcaption>Elemzés. A Google-értékelés alakulása egységenként, napi bontásban, az időszak összesített számaival.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/app-drafts-desktop.png" width="2880" height="1800" loading="lazy" decoding="async"
+               alt="A Válaszjavaslatok oldal: egy vendég értékelése, alatta a szerkeszthető válaszszöveg, Jóváhagyás és Kihagyás gombbal.">
+          <figcaption>Válaszjavaslatok. Minden értékeléshez kész válaszszöveg, amit jóváhagyás előtt átírhat, és amit csak azután teszünk ki.</figcaption>
+        </figure>
+      </div>
+      <p class="caption">A képek a BistroTech bemutatófiókjáról készültek. Az egységek nevei, a vendégek szövegei és a számok kitaláltak, valódi étterem adata nem szerepel rajtuk.</p>
     </div>
   </section>
 
@@ -325,7 +362,7 @@ Google: 4.4 (612)
     </div>
     <p class="colophon">
       <span class="colo-brand"><svg class="foot-mark" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M 4.01 13.41 A 8.5 8.5 0 1 1 6.31 16.82 L 2.6 20.4 Z M 7.2 14.6 V 11.8 A 1.2 1.2 0 0 1 9.6 11.8 V 14.6 Z M 10.8 14.6 V 9.8 A 1.2 1.2 0 0 1 13.2 9.8 V 14.6 Z M 14.4 14.6 V 7.8 A 1.2 1.2 0 0 1 16.8 7.8 V 14.6 Z"/></svg>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span>
-      <span>Oldal v0.2.0, 2026-09-15.</span>
+      <span>Oldal v0.3.0, 2026-09-15.</span>
       <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span>
     </p>
   </div>
