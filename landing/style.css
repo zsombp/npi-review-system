@@ -1,8 +1,17 @@
-/* BistroTech landing, style.css, v0.1.0, 2026-09-15 */
+/* BistroTech landing, style.css, v0.2.0, 2026-09-15 */
 /* One stylesheet for the Hungarian page, the English page and the legal pages.
    Colours and type are the app's (web/src/styles.css) so the site and the
    product read as one thing. No fonts are loaded: the system stack only.
    Mobile first, one breakpoint at 720px and one at 1000px. */
+/* v0.2.0 (brand pass) styles the logo. No brand tokens file exists yet
+   (docs/brand/tokens.css is absent), so the palette below is unchanged and the logo is
+   mapped onto it: the mark takes --accent and the letterforms --fg. The brand files'
+   own hard-coded values, #0f4c81 and #8fbcec, are not introduced here, because the
+   app's --accent is what the contrast work in web/src/styles.css measured and the two
+   sites are meant to read as one thing. The lockup's and the mark's own <style> blocks
+   are dropped when they are inlined, and their three classes are styled once here
+   instead, so dark mode rides on the existing --accent / --fg switch above rather than
+   on a fifth copy of a prefers-color-scheme query. */
 
 :root {
   color-scheme: light dark;
@@ -42,9 +51,16 @@ a:hover { text-decoration: underline; }
 /* --- header ------------------------------------------------------------ */
 .top { border-bottom: 1px solid var(--line); background: var(--card); }
 .top .wrap { display: flex; flex-wrap: wrap; gap: .6rem 1rem; align-items: center; padding-top: .8rem; padding-bottom: .8rem; }
-.logo { display: flex; align-items: center; gap: .5rem; font-weight: 700; font-size: 1.05rem; color: var(--fg); }
+.logo { display: flex; align-items: center; color: var(--fg); }
 .logo:hover { text-decoration: none; }
-.logo svg { color: var(--accent); flex: none; }
+/* 162px is the lockup's own stated minimum width, 160px, with a hair to spare; below
+   that the brand kit says to use the mark alone. It still fits the 343px content column
+   of a 375px phone, so the header never has to fall back. */
+.logo .lockup { width: 162px; height: auto; flex: none; }
+/* The three classes the inlined lockup and mark carry, painted from the site palette. */
+.bt-mark { fill: var(--accent); }
+.bt-word { fill: none; stroke: var(--fg); stroke-width: 12; stroke-linecap: butt; stroke-linejoin: round; }
+.bt-dot { fill: var(--fg); stroke: none; }
 .top nav { margin-left: auto; display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .9rem; font-size: .92rem; }
 .lang { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
 .lang a, .lang span { padding: .2rem .6rem; font-size: .85rem; color: var(--muted); }
@@ -152,6 +168,12 @@ footer dt { color: var(--muted); }
 footer dd { margin: 0; }
 footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .35rem; }
 .colophon { margin-top: 1.6rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .82rem; display: flex; flex-wrap: wrap; gap: .4rem 1rem; }
+/* The mark in front of the company line. 20px, not the 16px floor the brand kit gives:
+   the bars are knocked out of the disc, so below about 20px on a light ground they stop
+   reading as three rising bars and turn into texture. inline-flex keeps the mark on the
+   line when the colophon wraps. */
+.colophon .colo-brand { display: inline-flex; align-items: center; gap: .4rem; }
+.colophon .foot-mark { color: var(--accent); flex: none; }
 
 /* --- legal pages ------------------------------------------------------- */
 .doc { max-width: 46rem; padding: 2rem 0 3rem; }
