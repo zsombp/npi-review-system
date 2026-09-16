@@ -7,19 +7,22 @@
 <meta name="robots" content="noindex">
 <link rel="stylesheet" href="../style.css">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<!-- BistroTech landing, legal page, v0.1.1, 2026-09-15 (brand pass: the same header
-     lockup, footer mark and favicon link as the marketing pages. The document text
-     below is untouched, so regenerating it from the markdown still only rewrites the
-     body and this chrome has to be reapplied).
-     Generated from platform/docs/legal/aszf-hu.md without editing the text. The source is a
-     draft: the STATUS line below is part of the document and stays visible on the page.
-     When the lawyer's version lands, regenerate this file from the markdown. -->
+<!-- BistroTech landing, legal page, v0.4.0, 2026-09-17. The same header, the same
+     footer and the same self-hosted faces as the marketing pages, so the site reads
+     as one thing: style.css carries the two @font-face families and the palette.
+     The document text below is generated from platform/docs/legal/*-hu.md and is
+     untouched here, so regenerating it from the markdown rewrites only the body and
+     this chrome has to be reapplied. The source is a draft: the STATUS line is part
+     of the document and stays visible on the page. When the lawyer's version lands,
+     regenerate this file from the markdown. -->
 </head>
 <body>
+<a class="skip" href="#main">Ugrás a tartalomra</a>
+
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="../index.html">
-      <svg class="lockup" width="162" height="28" viewBox="0 0 760 131" role="img" aria-label="BistroTech" focusable="false">
+    <a class="logo" href="../index.html" aria-label="BistroTech, főoldal">
+      <svg class="lockup" width="162" height="28" viewBox="0 0 760 131" aria-hidden="true" focusable="false">
         <g transform="translate(-8.1,-4.4) scale(6.2)">
           <path class="bt-mark" fill-rule="evenodd" d="M 4.01 13.41 A 8.5 8.5 0 1 1 6.31 16.82 L 2.6 20.4 Z M 7.2 14.6 V 11.8 A 1.2 1.2 0 0 1 9.6 11.8 V 14.6 Z M 10.8 14.6 V 9.8 A 1.2 1.2 0 0 1 13.2 9.8 V 14.6 Z M 14.4 14.6 V 7.8 A 1.2 1.2 0 0 1 16.8 7.8 V 14.6 Z"/>
         </g>
@@ -40,15 +43,19 @@
         </g>
       </svg>
     </a>
-    <nav aria-label="Dokumentumok">
-      <a href="aszf.html">ÁSZF</a>
-      <a href="adatkezeles.html">Adatkezelés</a>
-      <a href="../index.html">Vissza a főoldalra</a>
+    <nav aria-label="Fő navigáció">
+      <a href="../index.html#indulas">Hogyan indul</a>
+      <a href="../index.html#csomagok">Csomagok</a>
+      <a href="../index.html#bemutato">Kérj bemutatót</a>
+      <a href="https://zsombp.github.io/npi-review-system/">Belépés</a>
+      <span class="lang">
+        <span aria-current="true">HU</span><a href="../en/index.html" hreflang="en" lang="en">EN</a>
+      </span>
     </nav>
   </div>
 </header>
 
-<main class="wrap doc">
+<main class="wrap doc" id="main">
   <a class="back" href="../index.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>Vissza a főoldalra</a>
   <h1>BistroTech Általános Szerződési Feltételek (ÁSZF)</h1>
   <p class="status-line">v0.1.0, 2026-09-15<br><strong>STATUS: DRAFT, not reviewed by a lawyer. Do not publish before review.</strong><br>Ez a dokumentum tervezet. Ügyvédi ellenőrzés előtt nem hatályos.</p>
@@ -135,8 +142,43 @@
 
 <footer>
   <div class="wrap">
-    <p class="small muted">Netpromotion Invest Kereskedelmi és Szolgáltató Kft., 1056 Budapest, Duna utca 3. földszint 1. Cégjegyzékszám: 01-09-269936, Fővárosi Törvényszék Cégbírósága. Adószám: 10907850-2-41.</p>
-    <p class="colophon"><span class="colo-brand"><svg class="foot-mark" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M 4.01 13.41 A 8.5 8.5 0 1 1 6.31 16.82 L 2.6 20.4 Z M 7.2 14.6 V 11.8 A 1.2 1.2 0 0 1 9.6 11.8 V 14.6 Z M 10.8 14.6 V 9.8 A 1.2 1.2 0 0 1 13.2 9.8 V 14.6 Z M 14.4 14.6 V 7.8 A 1.2 1.2 0 0 1 16.8 7.8 V 14.6 Z"/></svg>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span><span>Oldal v0.1.1, 2026-09-15.</span></p>
+    <div class="foot-grid">
+      <div>
+        <h2>Üzemeltető</h2>
+        <dl>
+          <dt>Cég</dt><dd>Netpromotion Invest Kereskedelmi és Szolgáltató Korlátolt Felelősségű Társaság (Netpromotion Invest Kft.)</dd>
+          <dt>Székhely</dt><dd>1056 Budapest, Duna utca 3. földszint 1.</dd>
+          <dt>Cégjegyzékszám</dt><dd>01-09-269936, Fővárosi Törvényszék Cégbírósága</dd>
+          <dt>Adószám</dt><dd>10907850-2-41</dd>
+          <dt>Telefon</dt><dd><a href="tel:+36302222444">+36 30 2222 444</a></dd>
+        </dl>
+      </div>
+      <div>
+        <h2>BistroTech</h2>
+        <ul>
+          <li><a href="../index.html#napi-jelentes">A napi jelentés</a></li>
+          <li><a href="../index.html#az-oldal">Az oldal</a></li>
+          <li><a href="../index.html#indulas">Hogyan indul</a></li>
+          <li><a href="../index.html#csomagok">Csomagok</a></li>
+          <li><a href="../index.html#bemutato">Kérj bemutatót</a></li>
+          <li><a href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen</a></li>
+          <li><a href="https://zsombp.github.io/npi-review-system/">Belépés</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Dokumentumok</h2>
+        <ul>
+          <li><a href="aszf.html">ÁSZF</a></li>
+          <li><a href="adatkezeles.html">Adatkezelés</a></li>
+          <li><a href="../en/index.html" hreflang="en" lang="en">English</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="colophon">
+      <span class="colo-brand"><svg class="foot-mark" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M 4.01 13.41 A 8.5 8.5 0 1 1 6.31 16.82 L 2.6 20.4 Z M 7.2 14.6 V 11.8 A 1.2 1.2 0 0 1 9.6 11.8 V 14.6 Z M 10.8 14.6 V 9.8 A 1.2 1.2 0 0 1 13.2 9.8 V 14.6 Z M 14.4 14.6 V 7.8 A 1.2 1.2 0 0 1 16.8 7.8 V 14.6 Z"/></svg>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span>
+      <span>Oldal v0.4.0, 2026-09-17.</span>
+      <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span>
+    </p>
   </div>
 </footer>
 </body>

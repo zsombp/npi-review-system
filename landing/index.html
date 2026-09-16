@@ -3,38 +3,56 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BistroTech, Google-értékelések magyar éttermeknek</title>
-<meta name="description" content="A BistroTech naponta egy üzenetben összefoglalja az étterem Google-értékeléseit, válaszjavaslatot ír, és kimutatja a visszatérő témákat. Demó kérhető.">
+<title>BistroTech, az éttermeid Google-értékelései egy helyen</title>
+<meta name="description" content="Egy helyen minden éttermed Google-értékelése, a válaszok és a számok. Reggelente jön a jelentés. 14 napig ingyen.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BistroTech">
 <meta property="og:locale" content="hu_HU">
 <meta property="og:locale:alternate" content="en_GB">
-<meta property="og:title" content="BistroTech, Google-értékelések magyar éttermeknek">
-<meta property="og:description" content="A BistroTech naponta egy üzenetben összefoglalja az étterem Google-értékeléseit, válaszjavaslatot ír, és kimutatja a visszatérő témákat. Demó kérhető.">
+<meta property="og:title" content="BistroTech, az éttermeid Google-értékelései egy helyen">
+<meta property="og:description" content="Egy helyen minden éttermed Google-értékelése, a válaszok és a számok. Reggelente jön a jelentés. 14 napig ingyen.">
 <link rel="alternate" hreflang="hu" href="index.html">
 <link rel="alternate" hreflang="en" href="en/index.html">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<!-- BistroTech landing, hu, v0.3.0, 2026-09-15: the "Igy nez ki" section, three real
-     screenshots of the live app between the three pillars and the onboarding steps.
-     v0.2.0, 2026-09-15 (brand pass): the lockup replaces the
-     generic table icon in the header, the mark sits in front of the company line in
-     the footer, the favicon is linked, and og:title and og:description are emitted.
-     Every logo is inline SVG, not an <img>: the site is served from a project-site
-     sub-path (/npi-review-system/landing/), where a root-relative asset path 404s and
-     a relative one breaks the moment a page moves a directory deeper. No copy changed. -->
-<!-- TODO-PROOF: canonical URL and hreflang absolute links wait for the decision on the
-     public domain. Until then the links are relative and no canonical tag is emitted. -->
-<!-- TODO-PROOF: no Open Graph image. A share card needs a real brand asset; inventing one
-     is not a placeholder, it is a design decision nobody has taken. -->
+<!-- BistroTech landing, hu, v0.4.0, 2026-09-17.
+     Rewritten against docs/design/DESIGN-BRIEF-v0.1.0.md section 8 and
+     docs/design/COPY-GUIDE-v0.1.0.md, under D-029 (the platform is the product and
+     the daily report is the free channel that points at it), D-031 (self-serve:
+     sign up, trial, a demo for groups) and D-034 (tegezés on every surface).
+     What went, and why, is in the changelog note at the foot of this file.
+     Every path is relative: the site is served from a project sub-path,
+     /npi-review-system/landing/, where a root-relative asset path 404s. -->
+<!-- TODO-PROOF: no canonical tag and no absolute hreflang, because the public
+     domain is not decided. Relative links until it is. -->
+<!-- TODO-PROOF: no Open Graph image. A share card needs a real brand asset and
+     inventing one is a design decision nobody has taken. -->
+<!-- TODO-PROOF: no metric, no customer quote, no logo, nowhere on this page.
+     D-006 forbids an unmeasured number and D-009 collects proof after a customer
+     is paying, so there is nothing true to put here yet. When the first customer
+     gives permission, the quote goes in the reference section, attributed, with
+     the date the permission was given. -->
 </head>
 <body>
 <a class="skip" href="#main">Ugrás a tartalomra</a>
 
+<!-- The pictogram set. Redrawn from the emoji the product sends to Telegram,
+     because published material never pastes an emoji (BRAND section 8 rule 3).
+     24px grid, 1.5 stroke, currentColor, round caps. The star is the one filled
+     shape besides the mark: a stroked star does not read at 12px. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <symbol id="g-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20v-6M12 20V7M19 20v-9"/></symbol>
+  <symbol id="g-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+  <symbol id="g-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="g-warn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5 21 19.5H3z"/><path d="M12 10v4M12 17h.01"/></symbol>
+  <symbol id="g-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="g-star" viewBox="0 0 12 12"><path fill="currentColor" d="M 6 .4 7.41 4.06 11.33 4.27 8.28 6.74 9.29 10.53 6 8.4 2.71 10.53 3.72 6.74 .67 4.27 4.59 4.06 Z"/></symbol>
+</svg>
+
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="index.html">
-      <svg class="lockup" width="162" height="28" viewBox="0 0 760 131" role="img" aria-label="BistroTech" focusable="false">
+    <a class="logo" href="index.html" aria-label="BistroTech, főoldal">
+      <svg class="lockup" width="162" height="28" viewBox="0 0 760 131" aria-hidden="true" focusable="false">
         <g transform="translate(-8.1,-4.4) scale(6.2)">
           <path class="bt-mark" fill-rule="evenodd" d="M 4.01 13.41 A 8.5 8.5 0 1 1 6.31 16.82 L 2.6 20.4 Z M 7.2 14.6 V 11.8 A 1.2 1.2 0 0 1 9.6 11.8 V 14.6 Z M 10.8 14.6 V 9.8 A 1.2 1.2 0 0 1 13.2 9.8 V 14.6 Z M 14.4 14.6 V 7.8 A 1.2 1.2 0 0 1 16.8 7.8 V 14.6 Z"/>
         </g>
@@ -56,9 +74,9 @@
       </svg>
     </a>
     <nav aria-label="Fő navigáció">
-      <a href="#napi-uzenet">A napi üzenet</a>
-      <a href="#indulas">Indulás</a>
-      <a href="#demo">Demó</a>
+      <a href="#indulas">Hogyan indul</a>
+      <a href="#csomagok">Csomagok</a>
+      <a href="#bemutato">Kérj bemutatót</a>
       <a href="https://zsombp.github.io/npi-review-system/">Belépés</a>
       <span class="lang">
         <span aria-current="true">HU</span><a href="en/index.html" hreflang="en" lang="en">EN</a>
@@ -69,231 +87,351 @@
 
 <main id="main">
 
-  <section class="hero">
-    <div class="wrap">
-      <h1>Elolvassuk az étterme Google-értékeléseit, és minden reggel egy üzenetben megírjuk, mi történt.</h1>
-      <p class="lead">A BistroTech magyar vendéglátóhelyeknek készült. Figyeli minden egység Google Cégprofilját, válaszjavaslatot ír az értékelésekre, és kimutatja, mi ismétlődik a vendégek szövegeiben. Nincs műszerfal, amit meg kell nyitni. Az üzenet akkor is megérkezik, ha nem kérte.</p>
-      <div class="cta-row">
-        <a class="btn" href="#demo">Demót kérek</a>
-        <a class="btn secondary" href="#napi-uzenet">Mutassa a napi üzenetet</a>
-      </div>
-      <ul class="hero-facts">
-        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Minden egység, minden nap, egy üzenetben.</li>
-        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>A válaszokat alapértelmezés szerint ember hagyja jóvá.</li>
-        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Magyar nyelven, magyar éttermeknek.</li>
-        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Tizenegy egységen fut naponta, éles üzemben.</li>
-      </ul>
-      <!-- TODO-PROOF: no customer quote, no logo wall, no headline metric anywhere on this
-           page. D-009 collects proof from paying customers after onboarding, so there is
-           nothing true to put here yet. When the first customer gives permission, the
-           quote goes in this block, attributed, with the date it was given. -->
-    </div>
-  </section>
-
-  <section id="napi-uzenet">
-    <div class="wrap">
-      <p class="eyebrow">A termék</p>
-      <h2>A napi üzenet</h2>
-      <div class="msg-grid">
-        <div>
-          <p>Minden reggel egy üzenet érkezik arra a Telegram-csevegésre vagy csoportba, amit megad. Egységenként az aznapi új értékelések száma, a csillageloszlás, a napi átlag és az aktuális Google-átlag. A végén azok a negatív értékelések, amelyekre még nem ment válasz.</p>
-          <p>Ez a termék. A fiók azért van, hogy jóváhagyja a válaszokat, visszanézze az előzményeket és kezelje az egységeit, nem azért, hogy naponta megnyissa.</p>
-          <p class="small muted">Piros pont jelzi, ha egy- vagy kétcsillagos értékelés érkezett aznap. Ha egy egységnél elmaradt a lekérés, az üzenet külön kiírja, hogy ott a nulla nem nyugalmat jelent, hanem hiányzó adatot.</p>
+  <section class="hero" id="napi-jelentes" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 id="hero-title">Egy helyen minden éttermed Google-értékelése, a válaszok és a számok. Reggelente jön a jelentés.</h1>
+        <p class="lede">A BistroTech minden reggel megírja, mi történt tegnap az éttermeidnél. A válaszokat mi írjuk meg, te jóváhagyod, és kimennek a Google-re. A számokat és az értékeléseket bármikor visszanézed az oldalon.</p>
+        <div class="cta-row">
+          <a class="btn" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen, 14 napig</a>
+          <a class="btn secondary" href="#bemutato">Kérj bemutatót</a>
         </div>
-        <div>
-          <div class="phone">
-            <div class="phone-head">
-              <span class="dot" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
-              <span class="who">BistroTech</span>
-              <span class="when">07:45</span>
-            </div>
-<!-- The mock reproduces the structure of the real message built by
-     supabase/functions/daily-report/lib.ts buildDailyReport: title, date, separator,
-     one block per active venue (new count, daily average, star line, Google rating and
-     total), the quiet venues on one line each, the totals block, then the unanswered
-     negatives with an expandable quote. The internal working title of the message is
-     replaced by the brand here; BistroTech is the only name that appears in public.
-     The pictograms below are the product's own Telegram output, not page copy. -->
-<pre class="bubble">📊 <b>BISTROTECH NAPI JELENTÉS</b>
-🗓 2026-09-15
+        <ul class="facts">
+          <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Minden étterem, minden nap, egy jelentésben.</li>
+          <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Minden választ te hagysz jóvá, mielőtt kimegy.</li>
+          <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Magyarul, magyar éttermeknek.</li>
+          <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>14 napig ingyen, kötöttség nélkül.</li>
+        </ul>
+      </div>
 
-<span class="sep">━━━━━━━━━━━━</span>
-
-📍 <b>Példa Bisztró</b> — <b>3</b> új · átlag <b>4.33</b>
-⭐5: <b>2</b> · ⭐4: 0 · ⭐3: 1 · ⭐2: <b>0</b> · ⭐1: <b>0</b>
-Google: 4.6 (1 284)
-
-📍 <b>Minta Étterem</b> — <b>1</b> új · átlag <b>2.00</b> 🔴
-⭐5: <b>0</b> · ⭐4: 0 · ⭐3: 0 · ⭐2: <b>1</b> · ⭐1: <b>0</b>
-Google: 4.4 (612)
-
-📍 <b>Teszt Kávézó</b> — 0 új · Google: 4.7 (238)
-
-<span class="sep">━━━━━━━━━━━━</span>
-
-Σ <b>Összesen: 4 új értékelés</b>
-⭐5: <b>2</b> · ⭐4: 0 · ⭐3: 1 · ⭐2: <b>1</b> · ⭐1: <b>0</b>
-
-<span class="sep">━━━━━━━━━━━━</span>
-
-⚠️ <b>Megválaszolatlan negatívok</b> · 1
-
-🔴 Minta Étterem · 2⭐ · 2026-09-12<span class="q">A leves langyos volt, és húsz percet vártunk a számlára.</span></pre>
-            <p class="caption">Illusztráció. Az egységek nevei, a szövegek és a számok kitaláltak. Az üzenet felépítése a valódi napi jelentésé.</p>
+      <!-- The daily report is the hero image and there is no other. It is the real
+           message set as type: no phone frame, no angle, no shadow under a floating
+           slab. The structure is buildDailyReport in
+           supabase/functions/daily-report/lib.ts, line for line: header, date,
+           rule, a block per active venue (new count, daily average, the five star
+           line, the Google overall and total), the quiet venues on one line each,
+           rule, the totals, rule, the unanswered negatives with the quote.
+           Three deliberate differences from the running product, all from
+           BRAND-v0.1.0.md section 8: the pictograms are redrawn as inline SVG, the
+           separator is a middle dot rather than an em dash, and the header carries
+           the brand rather than the parent group's internal name. Numbers and dates
+           are formatted per COPY-GUIDE section 4.1, which is the form a Hungarian
+           reader expects and not the ISO key the product still prints.
+           The counts add up: 2+0+1+0+0 = 3 at Példa Bisztró, 0+0+0+1+0 = 1 at Minta
+           Étterem, and 3+1+0 = 4 in the totals. -->
+      <figure class="report-figure">
+        <div class="report">
+          <div class="report-head">
+            <svg class="glyph" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-chart"/></svg>
+            <span class="report-title">BISTROTECH NAPI JELENTÉS</span>
           </div>
+          <p class="line" style="margin-top:4px">
+            <svg class="glyph quiet" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-cal"/></svg>
+            <span class="muted sm">2026. szept. 15., kedd</span>
+          </p>
+
+          <hr>
+
+          <div class="venue">
+            <p class="line">
+              <svg class="glyph" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-pin"/></svg>
+              <span><b>Példa Bisztró</b> · <b>3</b> új · átlag <b>4,33</b></span>
+            </p>
+            <p class="stars">
+              <span class="s5"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>5: <b>2</b></span>
+              <span class="s4"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>4: 0</span>
+              <span class="s3"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>3: 1</span>
+              <span class="s2"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>2: <b>0</b></span>
+              <span class="s1"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>1: <b>0</b></span>
+            </p>
+            <p class="google">Google: 4,6 (1284)</p>
+          </div>
+
+          <div class="venue">
+            <p class="line">
+              <svg class="glyph" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-pin"/></svg>
+              <span><b>Minta Étterem</b> · <b>1</b> új · átlag <b>2,00</b><span class="dot-neg" aria-hidden="true"></span></span>
+            </p>
+            <p class="stars">
+              <span class="s5"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>5: <b>0</b></span>
+              <span class="s4"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>4: 0</span>
+              <span class="s3"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>3: 0</span>
+              <span class="s2"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>2: <b>1</b></span>
+              <span class="s1"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>1: <b>0</b></span>
+            </p>
+            <p class="google">Google: 4,4 (612)</p>
+          </div>
+
+          <div class="venue">
+            <p class="line quiet-venue">
+              <svg class="glyph quiet" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-pin"/></svg>
+              <span><b>Teszt Kávézó</b> · 0 új · Google: 4,7 (238)</span>
+            </p>
+          </div>
+
+          <hr>
+
+          <p class="line total"><span>Σ Összesen: 4 új értékelés</span></p>
+          <p class="stars">
+            <span class="s5"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>5: <b>2</b></span>
+            <span class="s4"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>4: 0</span>
+            <span class="s3"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>3: 1</span>
+            <span class="s2"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>2: <b>1</b></span>
+            <span class="s1"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>1: <b>0</b></span>
+          </p>
+
+          <hr>
+
+          <p class="line">
+            <svg class="glyph warn" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-warn"/></svg>
+            <span><b>Megválaszolatlan negatívok</b> · 1</span>
+          </p>
+          <p class="line" style="margin-top:12px">
+            <span class="dot-neg" aria-hidden="true" style="margin:0 4px 0 0"></span>
+            <span>Minta Étterem · 2<svg width="12" height="12" aria-hidden="true" focusable="false" style="color:var(--bt-negative)"><use href="#g-star"/></svg> · szept. 12.</span>
+          </p>
+          <p class="quote">„A leves langyos volt, és húsz percet vártunk a számlára.”</p>
         </div>
-      </div>
+        <p class="report-meta">7:45</p>
+        <figcaption class="caption">Illusztráció. Az éttermek nevei, a szövegek és a számok kitaláltak. A felépítés a valódi napi jelentésé.</figcaption>
+      </figure>
     </div>
   </section>
 
-  <section id="mit-csinal">
+  <!-- Two real captures of the running app, from landing/img/, taken by
+       scripts/screenshots.mjs against the demo account. Nothing is masked: every
+       venue name, guest text and number in that account is fictional by design, and
+       the note under the pair says so. The files are 2880x1800 (1440x900 at device
+       scale 2), so the width and height below are the real pixel sizes and the
+       browser holds the right box before the file arrives.
+       The other ten captures in img/ are deliberately not shown. Section 8.1 of the
+       brief allows two, at full width, and the page is a column of argument rather
+       than a gallery. -->
+  <section id="az-oldal" aria-labelledby="oldal-title">
     <div class="wrap">
-      <p class="eyebrow">Három dolog</p>
-      <h2>Mit csinál a BistroTech</h2>
-      <div class="cards">
-        <div class="card">
-          <span class="ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></span>
-          <h3>Napi figyelés</h3>
-          <p>Minden egység Google Cégprofilját naponta ellenőrizzük, és az új értékeléseket egyetlen üzenetbe gyűjtjük. Az üzenet oda érkezik, amit amúgy is olvas. Nincs értékelésenkénti e-mail, és nincs felület, amit meg kell nyitni ahhoz, hogy tudja, mi történt.</p>
-        </div>
-        <div class="card">
-          <span class="ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></span>
-          <h3>Válaszjavaslatok</h3>
-          <p>Minden értékeléshez elkészül egy válaszszöveg, az egység hangnemében. Alapértelmezés szerint ember hagyja jóvá: elolvassa, szerkeszti, és csak azután kerül ki a Google-re. A teljesen automatikus válasz külön modul, amit külön kell bekapcsolni, és a következményeit a bekapcsolás pillanatában kiírjuk.</p>
-        </div>
-        <div class="card">
-          <span class="ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg></span>
-          <h3>Jelentések</h3>
-          <p>A csillagátlag alakulása egységenként, a vendégszövegekből kiolvasott visszatérő témák, az egységek összehasonlítása egymással, és a név szerint említett munkatársak, szó szerinti idézettel. Nem összesítés helyett mondat, hanem az, ami a szövegekben tényleg ott van.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Real screenshots of the live app, captured by scripts/screenshots.mjs from the
-       demo account (scripts/README-demo.md). Nothing in them is masked: every venue
-       name, guest text and number in that account is fictional by design, and the
-       caption under the grid says so. The files are 2880x1800 (1440x900 at device
-       scale 2), so the width and height attributes below are the real pixel sizes and
-       the browser reserves the right box before the image arrives.
-       The mobile captures exist (img/app-*-mobile.png) and are deliberately not shown:
-       at 390px the app's sidebar becomes a top bar, and the top half of the shot is
-       chrome, the language select and the sign-out link rather than the product. -->
-  <section id="igy-nez-ki">
-    <div class="wrap">
-      <p class="eyebrow">A felület</p>
-      <h2>Így néz ki</h2>
-      <p class="lead">A napi üzenet mellett van egy felület is. Akkor nyitja meg, ha jóvá akar hagyni egy választ, vissza akar nézni egy hónapot, vagy el akarja olvasni, mit írtak a vendégek. Három képernyő belőle.</p>
+      <h2 id="oldal-title">Az oldal</h2>
+      <p class="lede">Akkor nyitod meg, ha jóvá akarsz hagyni egy választ, vissza akarsz nézni egy hónapot, vagy el akarod olvasni, mit írtak a vendégek.</p>
       <div class="shots">
         <figure>
           <img src="img/app-overview-desktop.png" width="2880" height="1800" loading="lazy" decoding="async"
-               alt="Az Áttekintés oldal: fent az időszak összesített számai, alatta egy táblázat egy sorral éttermenként.">
-          <figcaption>Áttekintés. Az időszak új értékelései, a csillagbontás, az átlag és a megválaszolatlan negatívok, egységenként egy sorban.</figcaption>
-        </figure>
-        <figure>
-          <img src="img/app-insights-desktop.png" width="2880" height="1800" loading="lazy" decoding="async"
-               alt="Az Elemzés oldal: az időszak számai, alattuk vonaldiagram a Google-értékelés alakulásáról éttermenként.">
-          <figcaption>Elemzés. A Google-értékelés alakulása egységenként, napi bontásban, az időszak összesített számaival.</figcaption>
+               alt="Az Áttekintés oldal a BistroTechben: fent az időszak hat száma, alatta éttermenként egy sor a csillagbontással és az átlaggal.">
+          <figcaption><b>Áttekintés.</b> Az időszak új értékelései, a csillagbontás, az átlag és a megválaszolatlan negatívok, éttermenként egy sorban.</figcaption>
         </figure>
         <figure>
           <img src="img/app-drafts-desktop.png" width="2880" height="1800" loading="lazy" decoding="async"
                alt="A Válaszjavaslatok oldal: egy vendég értékelése, alatta a szerkeszthető válaszszöveg, Jóváhagyás és Kihagyás gombbal.">
-          <figcaption>Válaszjavaslatok. Minden értékeléshez kész válaszszöveg, amit jóváhagyás előtt átírhat, és amit csak azután teszünk ki.</figcaption>
+          <figcaption><b>Válaszjavaslatok.</b> Minden értékeléshez kész válasz, amit jóváhagyás előtt átírhatsz. Amíg nem hagyod jóvá, nem megy ki a Google-re.</figcaption>
         </figure>
       </div>
-      <p class="caption">A képek a BistroTech bemutatófiókjáról készültek. Az egységek nevei, a vendégek szövegei és a számok kitaláltak, valódi étterem adata nem szerepel rajtuk.</p>
+      <p class="caption">A képek a bemutatófiókról készültek. Az éttermek nevei, a vendégek szövegei és a számok kitaláltak.</p>
     </div>
   </section>
 
-  <section id="indulas">
+  <section id="indulas" aria-labelledby="indulas-title">
     <div class="wrap">
-      <p class="eyebrow">Bevezetés</p>
-      <h2>Hogyan indul</h2>
-      <p class="lead">Négy lépés. A munka nagyobbik részét mi végezzük, és végigkísérjük.</p>
+      <h2 id="indulas-title">Hogyan indul</h2>
+      <p class="lede">Négy lépés. A harmadikhoz kell a Google-fiókod, a többihez semmi.</p>
       <ol class="steps">
         <li>
           <div>
-            <h3>Felveszi az egységeket</h3>
-            <p>Megmondja, melyik vendéglátóhelyeit figyeljük. A Google Cégprofilt név és cím alapján mi keressük meg és mi párosítjuk össze.</p>
+            <h3>Regisztrálsz</h3>
+            <p>Megadod az e-mail-címed és egy jelszót. A próbaidőszak 14 napig tart, és alatta nem állítunk ki számlát.</p>
           </div>
         </li>
         <li>
           <div>
-            <h3>Hozzáadja a menedzser fiókunkat</h3>
-            <p>A Google Cégprofilon kezelői (Manager) jogosultsággal hozzáadja a menedzser fiókunkat. Ezen keresztül olvassuk az értékeléseket és tesszük ki a jóváhagyott válaszokat, a Google hivatalos felületén. A hozzáférés bármikor visszavonható.</p>
+            <h3>Felveszed az éttermet</h3>
+            <p>Beírod a nevét és a címét, mi pedig megkeressük a Google cégprofilját. Több étterem is mehet egy fiókba.</p>
           </div>
         </li>
         <li>
           <div>
-            <h3>Összekötjük a Telegramot</h3>
-            <p>Megadja, melyik csevegésbe vagy csoportba menjen a napi üzenet. Az összekötés néhány perc, és végigvezetjük rajta.</p>
+            <h3>Kezelőnek felveszel minket</h3>
+            <p>A Google cégprofilon kezelőként felveszed a mi fiókunkat. Innentől olvassuk az értékeléseket, és innen tesszük ki a jóváhagyott válaszokat. A hozzáférést bármikor visszaveheted.</p>
           </div>
         </li>
         <li>
           <div>
-            <h3>Másnap reggel jön az első jelentés</h3>
-            <p>Az első napi üzenet a következő reggelen megérkezik. Onnantól minden nap ugyanabban az időben jön.</p>
+            <h3>Holnap reggel jön az első jelentés</h3>
+            <p>Az első napi jelentés a következő reggelen érkezik. Utána minden nap ugyanabban az órában, amit te állítasz be.</p>
           </div>
         </li>
       </ol>
     </div>
   </section>
 
-  <section id="referencia">
+  <!-- D-006: no price is shown until Q-017 and Q-023 are settled. The grid lives in
+       script.js and reaches the page only when data-prices below reads "on". Until
+       then every price slot reads "Ár hamarosan", which is also what a reader with
+       JavaScript off sees. Flipping the one word publishes all nine cells and the
+       add-on, in both languages.
+       A "Contact us for pricing" block is not the alternative: every Hungarian
+       competitor has one, it is why the market is quote-led, and the buyer reads it
+       as expensive (DESIGN-BRIEF section 8.3). -->
+  <section id="csomagok" data-prices="off" aria-labelledby="csomagok-title">
     <div class="wrap">
-      <p class="eyebrow">Referencia</p>
-      <h2>Éles üzemben, tizenegy egységen</h2>
-      <div class="reference">
-        <p>A rendszert egy tizenegy egységet üzemeltető budapesti éttermcsoport használja, minden nap. Ez a telepítés a termék eredete: ott fut a napi figyelés, onnan jönnek a jelentések, és minden változás előbb működik ott, mint bárhol máshol.</p>
-        <p class="muted">A csoportot és az egységeit nem nevezzük meg, és értékelésszöveget nem mutatunk belőlük. Ez a saját döntésünk, nem az ügyfél kérése.</p>
+      <h2 id="csomagok-title">Mi van a csomagokban</h2>
+      <p class="lede">Három csomag. A figyelés, a napi jelentés és a válaszok mindháromban benne vannak. A különbség az, hogy mennyit olvasunk ki a vendégek szövegeiből.</p>
+
+      <div class="plans">
+        <div class="plan">
+          <h3>Induló</h3>
+          <p class="sub">Az alap, minden étteremhez.</p>
+          <ul>
+            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Minden éttermed Google-értékelése, naponta</li>
+            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Napi jelentés abban az órában, amit beállítasz</li>
+            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Válasz minden értékeléshez, te hagyod jóvá</li>
+            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Válaszkövetés: ki vár még válaszra, és mióta</li>
+            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Riasztás, ha egycsillagos sorozat jön vagy esik az átlag</li>
+            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Listafigyelő: ha a Google értékeléseket vesz le a profilról</li>
+            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Ütem és helyezés: hány értékelés jön, és hol állsz a keresésben</li>
+            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Módosításfigyelő: ha egy vendég utólag átírja az értékelését</li>
+          </ul>
+          <p class="plan-price" data-plan="indulo" data-band-2-9="2–9 étterem" data-band-10plus="10 vagy több étterem">
+            <span class="label">Havi díj éttermenként, + áfa</span>
+            <span class="value">Ár hamarosan</span>
+            <span class="band"></span>
+          </p>
+        </div>
+
+        <div class="plan">
+          <h3>Elemző</h3>
+          <p class="sub">Arra válaszol, mit mondanak folyton.</p>
+          <ul>
+            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Minden, ami az Indulóban</li>
+            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Témák: mi ismétlődik a vendégek szövegeiben, és hányszor</li>
+            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Az éttermek összehasonlítása egymással</li>
+            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>A negatívok napszak szerint: ebéd, délután, este</li>
+            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Vendégösszetétel: milyen nyelven írnak a vendégek</li>
+            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Heti összefoglaló</li>
+          </ul>
+          <p class="plan-price" data-plan="elemzo" data-band-2-9="2–9 étterem" data-band-10plus="10 vagy több étterem">
+            <span class="label">Havi díj éttermenként, + áfa</span>
+            <span class="value">Ár hamarosan</span>
+            <span class="band"></span>
+          </p>
+        </div>
+
+        <div class="plan">
+          <h3>Teljes</h3>
+          <p class="sub">Arra válaszol, kiről és miről beszélnek.</p>
+          <ul>
+            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Minden, ami az Elemzőben</li>
+            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Névemlítés: kit dicsérnek név szerint, és hányszor</li>
+            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Ételemlítés: melyik fogásról mit írnak</li>
+            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Havi összefoglaló: mi változott a hónapban, egy oldalon</li>
+            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Panaszcsomag: dátumozott bizonyíték a Google felé, ha értékelés-roham ér</li>
+          </ul>
+          <p class="plan-price" data-plan="teljes" data-band-2-9="2–9 étterem" data-band-10plus="10 vagy több étterem">
+            <span class="label">Havi díj éttermenként, + áfa</span>
+            <span class="value">Ár hamarosan</span>
+            <span class="band"></span>
+          </p>
+        </div>
       </div>
-      <!-- D-004: the eleven-venue reference installation is described anonymously. No group
-           name, no venue names, no real review content, on any public page. D-010: the
-           partner appears nowhere in anything the venture publishes. -->
-      <!-- TODO-PROOF: no running-cost, time-saved, response-rate or rating-improvement
-           figure appears here. D-006 forbids an illustrative number that could quietly
-           become the plan. A measured figure from the reference installation can be added
-           once someone has actually measured it. -->
+
+      <div class="addon">
+        <h3>Automata válasz</h3>
+        <p>Bármelyik csomaghoz bekapcsolható. Alapból csak a pozitív értékelésekre megy ki válasz úgy, hogy előtte senki nem olvassa el. Az egy- és kétcsillagosakra csak akkor, ha te kapcsolod be, és a következményét a bekapcsolás pillanatában kiírjuk.</p>
+        <p class="plan-price">
+          <span class="label">Havi díj éttermenként, + áfa</span>
+          <span class="value" data-addon data-band-1="1 étterem" data-band-2-9="2–9 étterem" data-band-10plus="10 vagy több">Ár hamarosan</span>
+        </p>
+      </div>
+
+      <p class="note">Tíz étterem fölött a csomagot és az árat végigvesszük veled. Kérj bemutatót.</p>
     </div>
   </section>
 
-  <section id="demo">
+  <section id="asszisztens" aria-labelledby="asszisztens-title">
     <div class="wrap">
-      <p class="eyebrow">Kapcsolat</p>
-      <h2>Kérjen demót</h2>
+      <h2 id="asszisztens-title">Az asszisztens</h2>
+      <p class="lede">Kérdezhetsz tőle. A választ a saját értékeléseidből adja, és megmondja, mennyiből.</p>
+
+      <div class="chat">
+        <p class="ask"><span class="sr-only">Kérdés: </span>Mire panaszkodtak a legtöbbet a Példa Bisztróban szeptemberben?</p>
+        <div class="answer">
+          <p><span class="sr-only">Válasz: </span>Három téma ismétlődik.</p>
+          <ul>
+            <li><span>Várakozás</span><b>14 értékelés · átlag 3,1</b></li>
+            <li><span>Ár</span><b>9 értékelés · átlag 3,4</b></li>
+            <li><span>Hangerő</span><b>5 értékelés · átlag 3,8</b></li>
+          </ul>
+          <p style="margin-top:12px">A várakozás péntek és szombat este jön elő.</p>
+          <p class="source">A Példa Bisztró 84 szeptemberi értékeléséből.</p>
+        </div>
+      </div>
+      <p class="caption">Illusztráció. Az étterem neve és a számok kitaláltak.</p>
+    </div>
+  </section>
+
+  <!-- D-004: the eleven-venue reference installation is described anonymously, with
+       no group name, no venue names and no real review content, on any public page.
+       D-010: the partner appears nowhere in anything the venture publishes. -->
+  <!-- TODO-PROOF: no running-cost, time-saved, response-rate or rating-improvement
+       figure here. D-006 forbids an illustrative number that could quietly become
+       the plan. A measured figure can go in once somebody has measured it. -->
+  <section id="referencia" aria-labelledby="referencia-title">
+    <div class="wrap reference">
+      <h2 id="referencia-title">Tizenegy étterem, minden reggel</h2>
+      <p class="lede">A BistroTech egy tizenegy éttermet üzemeltető budapesti csoportnál fut, minden reggel. Ott kezdődött, és ott megy élesben azóta is: minden változás előbb működik náluk, mint bárhol máshol.</p>
+      <p class="muted">A csoportot és az éttermeit nem nevezzük meg, és nem mutatunk tőlük értékelést. Ez a mi döntésünk, nem az ügyfél kérése.</p>
+    </div>
+  </section>
+
+  <section class="start" id="kezdes" aria-labelledby="kezdes-title">
+    <div class="wrap">
+      <h2 id="kezdes-title">Kezdd el ingyen, 14 napig</h2>
+      <p class="lede">Regisztrálsz, felveszed az éttermet, és holnap reggel megjön az első jelentés. A próbaidőszak alatt nem állítunk ki számlát, és nem kell felmondanod semmit.</p>
+      <div class="cta-row">
+        <a class="btn" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen, 14 napig</a>
+        <a class="btn secondary" href="#bemutato">Kérj bemutatót</a>
+      </div>
+      <p class="note">Több étterem, vagy egy csoport? Kérj bemutatót, és végigvesszük veled.</p>
+    </div>
+  </section>
+
+  <section id="bemutato" aria-labelledby="bemutato-title">
+    <div class="wrap">
+      <h2 id="bemutato-title">Kérj bemutatót</h2>
       <div class="form-grid">
         <div>
-          <p>Megnézzük az egységei Google-profilját, megmutatjuk, hogyan nézne ki az első napi üzenet a saját adataival, és válaszolunk a kérdéseire. A bevezetést személyesen kísérjük végig.</p>
-          <p class="muted small">A BistroTechet a Netpromotion Invest Kft. üzemelteti. Magyarul beszélünk, és van, aki felveszi a telefont.</p>
-          <!-- TODO-PROOF: no response-time promise ("we call back within 24 hours") is made
-               anywhere on this page. Nobody has committed to one. The thank-you state says
-               "egy munkanapon belül", which is the operator's own working intention and is
-               the weakest claim that is still useful; if it cannot be held, change it. -->
+          <p>Megnézzük az éttermeid Google-profilját, megmutatjuk, hogyan nézne ki az első napi jelentés a saját adataiddal, és válaszolunk a kérdéseidre.</p>
+          <p class="muted sm">A BistroTechet a Netpromotion Invest Kft. üzemelteti. Magyarul beszélünk, és van, aki felveszi a telefont.</p>
+          <!-- TODO-PROOF: no response-time promise on this page. The thank-you state
+               says "egy munkanapon belül", which is the operator's own working
+               intention and the weakest claim that is still useful. If it cannot be
+               held, change it. -->
         </div>
 
         <div id="form-panel">
+          <!-- The contract is supabase/functions/lead/README.md and is unchanged:
+               the same endpoint, the same public anon key in both headers, the same
+               field names and limits, the same company_website honeypot, the same
+               429 answer. Only the source tag and the wording of the two error
+               lines belong to this page. -->
           <form class="demo" id="demo-form" novalidate
                 data-endpoint="https://jumaxvgckuxbwaiwjdte.supabase.co/functions/v1/lead"
                 data-key="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1bWF4dmdja3V4YndhaXdqZHRlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc1NzkwMTQsImV4cCI6MjEwMzE1NTAxNH0.fh_xIhYKBGY_RbcG-9giQ9ZM9X1ODhbVa1QW5nbp00Y"
                 data-source="landing-hu"
                 data-sending="Küldés folyamatban"
-                data-error="Az üzenetet most nem sikerült elküldeni. Próbálja meg újra, vagy hívjon minket a lap alján megadott számon."
-                data-error-rate="Túl sok próbálkozás érkezett erről a kapcsolatról. Várjon egy órát, vagy hívjon minket a lap alján megadott számon.">
-            <label>Név
+                data-error="Az üzenetet most nem sikerült elküldeni. Próbáld meg újra, vagy hívj minket a lap alján megadott számon."
+                data-error-rate="Túl sok próbálkozás érkezett erről a kapcsolatról. Várj egy órát, vagy hívj minket a lap alján megadott számon.">
+            <label>Neved
               <input type="text" name="name" autocomplete="name" maxlength="120" required>
             </label>
-            <label>Étterem vagy cég neve
+            <label>Az étterem vagy a cég neve
               <input type="text" name="restaurant" autocomplete="organization" maxlength="160" required>
             </label>
             <div class="two">
-              <label>E-mail cím
+              <label>E-mail-cím
                 <input type="email" name="email" autocomplete="email" maxlength="254" required>
               </label>
               <label>Telefonszám (nem kötelező)
                 <input type="tel" name="phone" autocomplete="tel" maxlength="40">
               </label>
             </div>
-            <label>Egységek száma
+            <label>Hány étterem
               <input type="number" name="venues" min="1" max="500" step="1" inputmode="numeric" required>
             </label>
             <label>Üzenet (nem kötelező)
@@ -305,16 +443,15 @@ Google: 4.4 (612)
                 <input type="text" name="company_website" tabindex="-1" autocomplete="off">
               </label>
             </div>
-            <button class="btn" type="submit">Demót kérek</button>
+            <button class="btn" type="submit">Kérj bemutatót</button>
             <p class="status" id="form-status" role="status" aria-live="polite"></p>
-            <p class="formnote">A megadott adatokat a kapcsolatfelvételhez és az ajánlatadáshoz használjuk. Részletek az <a href="legal/adatkezeles.html">Adatkezelési tájékoztatóban</a>.</p>
+            <p class="formnote">Amit ideírsz, a kapcsolatfelvételhez és az ajánlathoz használjuk. A részletek az <a href="legal/adatkezeles.html">Adatkezelési tájékoztatóban</a> vannak.</p>
           </form>
         </div>
 
         <div class="thanks" id="thanks" hidden>
-          <span class="ico" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.1V12a10 10 0 1 1-5.9-9.1"/><path d="M22 4 12 14.01l-3-3"/></svg></span>
           <h3>Megkaptuk.</h3>
-          <p>Köszönjük. Egy munkanapon belül jelentkezünk a megadott elérhetőségen, és megbeszélünk egy időpontot a demóra.</p>
+          <p>Egy munkanapon belül jelentkezünk a megadott elérhetőségen, és megbeszélünk egy időpontot.</p>
         </div>
       </div>
     </div>
@@ -334,20 +471,22 @@ Google: 4.4 (612)
           <dt>Adószám</dt><dd>10907850-2-41</dd>
           <dt>Telefon</dt><dd><a href="tel:+36302222444">+36 30 2222 444</a></dd>
         </dl>
-        <!-- TODO-PROOF: cégjegyzékszám to be checked against the official cégkivonat before
-             publication (carried over from docs/legal/aszf-hu.md section 1). -->
-        <!-- TODO-PROOF: no e-mail address is published here. The company's general address
-             is a personal Gmail account; the BistroTech address on a company domain has not
-             been set up. Until it exists, the form and the phone number are the only
-             contact routes. Same TODO as in aszf-hu.md section 1. -->
+        <!-- TODO-PROOF: cégjegyzékszám to be checked against the official cégkivonat
+             before publication (carried over from docs/legal/aszf-hu.md section 1). -->
+        <!-- TODO-PROOF: no e-mail address is published here. The company's general
+             address is a personal Gmail account; the BistroTech address on a company
+             domain does not exist yet. Until it does, the form and the phone number
+             are the only contact routes. Same TODO as in aszf-hu.md section 1. -->
       </div>
       <div>
         <h2>BistroTech</h2>
         <ul>
-          <li><a href="#napi-uzenet">A napi üzenet</a></li>
-          <li><a href="#mit-csinal">Mit csinál</a></li>
+          <li><a href="#napi-jelentes">A napi jelentés</a></li>
+          <li><a href="#az-oldal">Az oldal</a></li>
           <li><a href="#indulas">Hogyan indul</a></li>
-          <li><a href="#demo">Demót kérek</a></li>
+          <li><a href="#csomagok">Csomagok</a></li>
+          <li><a href="#bemutato">Kérj bemutatót</a></li>
+          <li><a href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen</a></li>
           <li><a href="https://zsombp.github.io/npi-review-system/">Belépés</a></li>
         </ul>
       </div>
@@ -362,12 +501,25 @@ Google: 4.4 (612)
     </div>
     <p class="colophon">
       <span class="colo-brand"><svg class="foot-mark" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M 4.01 13.41 A 8.5 8.5 0 1 1 6.31 16.82 L 2.6 20.4 Z M 7.2 14.6 V 11.8 A 1.2 1.2 0 0 1 9.6 11.8 V 14.6 Z M 10.8 14.6 V 9.8 A 1.2 1.2 0 0 1 13.2 9.8 V 14.6 Z M 14.4 14.6 V 7.8 A 1.2 1.2 0 0 1 16.8 7.8 V 14.6 Z"/></svg>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span>
-      <span>Oldal v0.3.0, 2026-09-15.</span>
+      <span>Oldal v0.4.0, 2026-09-17.</span>
       <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span>
     </p>
   </div>
 </footer>
 
+<!-- Changelog for this file.
+     v0.4.0, 2026-09-17. Rewritten to the design brief and to D-029 and D-031.
+     Removed: the floating phone mock and its chat chrome, replaced by the real
+     report set as type; the three-up card row with an icon on each card, which is
+     the most reproduced block in generated pages; the eyebrow labels above every
+     heading; one of the three screenshots, the remaining two now full width; the
+     magázó register throughout (D-034); "demó kérése" as the only call to action,
+     replaced by sign-up and a 14 day trial with the demo kept for groups; the word
+     "felület"; "napi üzenet" as a second name for the daily report; the "Három
+     dolog" framing. Added: self-hosted Newsreader and Source Sans 3, the presets
+     with a price switch that is off, the assistant, and the sign-up path.
+     v0.3.0, 2026-09-15: three app screenshots. v0.2.0: the brand lockup and mark.
+     v0.1.0: first page. -->
 <script src="script.js" defer></script>
 </body>
 </html>
