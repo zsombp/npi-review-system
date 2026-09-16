@@ -1,1 +1,0 @@
-import{C as e,b as t,h as n,m as r}from"./index-DH3IFJI_.js";var i=r();n(`hu`,{"help.link.label":`Súgó ehhez az oldalhoz`}),n(`en`,{"help.link.label":`Help for this page`});function a({section:n}){let{t:r}=t(),a=r(`help.link.label`);return(0,i.jsx)(e,{className:`help-link`,to:`/help#${n}`,title:a,"aria-label":a,children:`?`})}export{a as t};

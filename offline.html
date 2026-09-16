@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>BistroTech</title>
+<!-- The page the service worker serves when a navigation cannot reach the network.
+     v0.1.0, 2026-09-17 (public/sw.js).
+
+     It is one file with no request of its own: the palette, the type and the mark are
+     inline, because the one thing this page can rely on is that nothing can be fetched.
+     The font is the system stack rather than the product's self-hosted faces for the
+     same reason; a page about a missing connection that waits on a webfont is a joke at
+     the reader's expense.
+
+     The palette is the app's own, src/styles.css, hex for hex, so the screen the reader
+     lands on is recognisably the screen they left. Hungarian first and English under it,
+     both always visible: the worker has no way to know which locale the account is in,
+     and guessing from the browser would get it wrong for a Hungarian restaurant whose
+     phone is set to English.
+
+     Why this and not the cached shell. Every screen in the product is server data behind
+     a login. A shell booted with no network spends a few seconds loading and then says
+     the list of accounts did not arrive, which is the same news later and in worse
+     words. -->
+<style>
+  :root { color-scheme: light dark; --bg: #f6f6f4; --fg: #1d1d1b; --muted: #6b6b66; --line: #e2e2dd; --card: #ffffff; --accent: #1a5fb4; --on-accent: #ffffff; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #151514; --fg: #ececea; --muted: #9a9a94; --line: #2c2c2a; --card: #1f1f1d; --accent: #6ea8ff; --on-accent: #0d1b30; } }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  /* Flex rather than a centred grid: in a place-items:center grid the single column is
+     sized from the item's own 26rem, so max-width:100% resolves against 26rem and a
+     390 px phone is handed a page 45 px wider than itself. A flex container's width is
+     the viewport's, and the item is capped against that. */
+  body { font: 15px/1.5 -apple-system, system-ui, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--fg); display: flex; align-items: center; justify-content: center; padding: 2rem 1.2rem; }
+  main { width: 26rem; max-width: 100%; }
+  .mark { color: var(--accent); display: block; margin-bottom: 1.4rem; }
+  h1 { font-size: 1.4rem; font-weight: 600; margin: 0 0 .6rem; }
+  h2 { font-size: 1.05rem; font-weight: 600; margin: 0 0 .5rem; }
+  p { margin: 0 0 1.2rem; max-width: 34em; }
+  .en { border-top: 1px solid var(--line); padding-top: 1.2rem; margin-top: 1.6rem; color: var(--muted); }
+  .en h2 { color: var(--fg); }
+  button { font: inherit; padding: .5rem .9rem; border-radius: 6px; border: 1px solid var(--accent); background: var(--accent); color: var(--on-accent); cursor: pointer; min-height: 40px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<main>
+  <svg class="mark" width="34" height="34" viewBox="0 0 24 24" role="img" aria-label="BistroTech" focusable="false">
+    <path fill="currentColor" fill-rule="evenodd" d="M 4.01 13.41 A 8.5 8.5 0 1 1 6.31 16.82 L 2.6 20.4 Z M 7.2 14.6 V 11.8 A 1.2 1.2 0 0 1 9.6 11.8 V 14.6 Z M 10.8 14.6 V 9.8 A 1.2 1.2 0 0 1 13.2 9.8 V 14.6 Z M 14.4 14.6 V 7.8 A 1.2 1.2 0 0 1 16.8 7.8 V 14.6 Z"/>
+  </svg>
+  <h1>Nincs internetkapcsolat</h1>
+  <p>A BistroTech az interneten keresztül olvassa be az értékeléseket, kapcsolat nélkül tehát nincs mit mutatnia. Ellenőrizd a wifit vagy a mobilnetet, aztán próbáld újra. A beállításaid és az adataid a helyükön vannak.</p>
+  <button type="button" id="retry">Újra</button>
+  <div class="en" lang="en">
+    <h2>No internet connection</h2>
+    <p>BistroTech reads your reviews over the internet, so with no connection there is nothing for it to show. Check the wifi or the mobile data, then try again. Your settings and your data are where you left them.</p>
+  </div>
+</main>
+<script>
+  document.getElementById("retry").addEventListener("click", function () { location.reload(); });
+  // The connection coming back is the same news as the button, so the reader does not
+  // have to notice it twice.
+  addEventListener("online", function () { location.reload(); });
+</script>
+</body>
+</html>

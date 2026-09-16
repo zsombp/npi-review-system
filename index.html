@@ -1,14 +1,35 @@
 <!doctype html>
-<html lang="en">
+<html lang="hu">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/npi-review-system/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="BistroTech, Google review intelligence for restaurants." />
+    <!-- The copy pass owns this line. It is left exactly as it shipped, although
+         "review intelligence" is on the copy guide's banned list and the page is now
+         declared Hungarian. Changing it is a copy change, not a design one. -->
+    <meta name="description" content="Egy helyen minden éttermed Google-értékelése, a válaszok és a számok. Reggelente jön a jelentés." />
+    <!-- Both modes are real modes, so the browser is told before the first paint. -->
+    <meta name="color-scheme" content="light dark" />
+    <!--
+      The two files a first screen is set in: the display face for the page title and
+      the figures, the text face for everything else. 74.7 KB together, self-hosted, no
+      third party. The two -lat-ext twins are deliberately not preloaded: they are
+      fetched the moment the page sets its first ő or ű, which on a Hungarian page is
+      immediately, and preloading them would cost the first paint 39.6 KB it does not
+      need on an English one. The italics are never on a first screen at all; the brand
+      allows italic only inside a quoted review.
+      crossorigin is required even for a same-origin font preload, or the browser
+      fetches the file twice.
+    -->
+    <link rel="preload" href="/npi-review-system/fonts/newsreader-display-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/npi-review-system/fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="manifest" href="/npi-review-system/manifest.webmanifest" />
+    <meta name="theme-color" content="#FFFFFF" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/npi-review-system/icons/apple-touch-icon-180.png" />
     <title>BistroTech</title>
     <script>try{const r=sessionStorage.getItem('npi.redirect');if(r){sessionStorage.removeItem('npi.redirect');history.replaceState(null,'',r);}}catch(e){}</script>
-    <script type="module" crossorigin src="/npi-review-system/assets/index-DH3IFJI_.js"></script>
-    <link rel="stylesheet" crossorigin href="/npi-review-system/assets/index-DdWBw3Ge.css">
+    <script type="module" crossorigin src="/npi-review-system/assets/index-CRj9XTz-.js"></script>
+    <link rel="stylesheet" crossorigin href="/npi-review-system/assets/index-CzsbWCdf.css">
   </head>
   <body>
     <div id="root"></div>

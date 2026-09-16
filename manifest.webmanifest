@@ -1,0 +1,33 @@
+{
+  "id": "/npi-review-system/",
+  "name": "BistroTech",
+  "short_name": "BistroTech",
+  "description": "Az étterem Google-értékelései egy helyen, és minden reggel egy üzenet.",
+  "lang": "hu",
+  "dir": "ltr",
+  "start_url": "/npi-review-system/",
+  "scope": "/npi-review-system/",
+  "display": "standalone",
+  "theme_color": "#FFFFFF",
+  "background_color": "#F6F6F4",
+  "icons": [
+    {
+      "src": "/npi-review-system/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/npi-review-system/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/npi-review-system/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
