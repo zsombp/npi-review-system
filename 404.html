@@ -1,6 +1,7 @@
 <!doctype html><html><head><meta charset="utf-8"><title>BistroTech</title>
 <script>
 // GitHub Pages serves this for unknown paths; hand the path to the app and let the router take it.
-sessionStorage.setItem("npi.redirect", location.pathname + location.search + location.hash);
+// v0.2.0: storage can throw (a private window, an in-app webview); the redirect must still happen.
+try { sessionStorage.setItem("npi.redirect", location.pathname + location.search + location.hash); } catch (e) {}
 location.replace("/npi-review-system/");
 </script></head><body></body></html>

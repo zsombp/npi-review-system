@@ -1,0 +1,1 @@
+import{T as e,h as t,m as n,x as r}from"./index-DX7x7ti9.js";var i=n();t(`hu`,{"help.link.label":`Súgó ehhez az oldalhoz`}),t(`en`,{"help.link.label":`Help for this page`});function a({section:t}){let{t:n}=r(),a=n(`help.link.label`);return(0,i.jsx)(e,{className:`help-link`,to:`/help#${t}`,title:a,"aria-label":a,children:`?`})}export{a as t};
