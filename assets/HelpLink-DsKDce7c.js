@@ -1,1 +1,0 @@
-import{l as e,r as t,t as n}from"./jsx-runtime-Dinh7eFr.js";import{h as r}from"./index-Dx11Ybl6.js";var i=n();t(`hu`,{"help.link.label":`Súgó ehhez az oldalhoz`}),t(`en`,{"help.link.label":`Help for this page`});function a({section:t}){let{t:n}=e(),a=n(`help.link.label`);return(0,i.jsx)(r,{className:`help-link`,to:`/help#${t}`,title:a,"aria-label":a,children:`?`})}export{a as t};
