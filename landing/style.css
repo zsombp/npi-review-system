@@ -485,3 +485,48 @@ footer a:hover { color: var(--bt-primary-strong); }
   a { color: #000; }
   a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 9pt; color: #444; }
 }
+
+/* === The default look, v0.5.0, 2026-09-21 (D-040) ===========================
+   The app's default appearance is Piac by day and Paprika éjjel at night, glass on
+   the chrome. The page that sells the app wears the same skin, so nobody signs up
+   from one product and lands in another. Only tokens and a handful of shapes change;
+   the structure, the copy and the accessibility work above are untouched. The values
+   are the contrast-checked ones from platform/scripts/looks_build.py. The brief's
+   "no gradient, no glass, radius under 10px" rules are superseded by D-040. */
+@font-face { font-family: "Bricolage Grotesque"; font-style: normal; font-weight: 600 800; font-display: swap; src: url(fonts/bricolage-display-latin.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Bricolage Grotesque"; font-style: normal; font-weight: 600 800; font-display: swap; src: url(fonts/bricolage-display-lat-ext.woff2) format("woff2");
+  unicode-range: U+0100-017F, U+0218-021B, U+1E9E, U+2020, U+2113, U+20A0-20AB, U+20AD-20C0; }
+@font-face { font-family: "Fraunces"; font-style: normal; font-weight: 600 800; font-display: swap; src: url(fonts/fraunces-display-latin.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Fraunces"; font-style: normal; font-weight: 600 800; font-display: swap; src: url(fonts/fraunces-display-lat-ext.woff2) format("woff2");
+  unicode-range: U+0100-017F, U+0218-021B, U+1E9E, U+2020, U+2113, U+20A0-20AB, U+20AD-20C0; }
+:root {
+  --bt-font-display: "Bricolage Grotesque", "BT Display fallback", system-ui, sans-serif;
+  --bt-paper: #fff6ea; --bt-card: #ffffff; --bt-ink: #2a1a12; --bt-muted: #73594b;
+  --bt-primary: #c2321b; --bt-primary-strong: #9c2612; --bt-positive: #15703f; --bt-negative: #b3261a; --bt-attention: #8a5a00;
+  --bt-line: #efdcc6; --bt-field: #a0826e; --bt-tint-primary: #ffe9df; --bt-tint-positive: #dcf3e5; --bt-tint-negative: #ffe1d6; --bt-tint-attention: #fff0c2;
+  --bt-on-fill: #ffffff; --bt-glow-1: #ffb347; --bt-glow-2: #ff6b4a; --bt-glow-3: #ffd86b; --bt-glass-edge: rgba(255,255,255,.55);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bt-font-display: "Fraunces", "BT Display fallback", Georgia, serif;
+    --bt-paper: #1a0f14; --bt-card: #291820; --bt-ink: #fdeee6; --bt-muted: #c2a3ab;
+    --bt-primary: #ff7a5c; --bt-primary-strong: #ffa28c; --bt-positive: #7bd88f; --bt-negative: #ff8f8f; --bt-attention: #ffc247;
+    --bt-line: #3d2630; --bt-field: #8d6f79; --bt-tint-primary: #3a1d18; --bt-tint-positive: #1c3327; --bt-tint-negative: #3b1a1c; --bt-tint-attention: #3a2a12;
+    --bt-on-fill: #1a0f14; --bt-glow-1: #ff4d2e; --bt-glow-2: #ffb703; --bt-glow-3: #b5179e; --bt-glass-edge: rgba(255,255,255,.14);
+  }
+}
+body { isolation: isolate; }
+body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .36;
+  background: radial-gradient(38vmax 38vmax at 0% 0%, var(--bt-glow-1), transparent 70%), radial-gradient(34vmax 34vmax at 100% 20%, var(--bt-glow-2), transparent 70%), radial-gradient(40vmax 40vmax at 30% 115%, var(--bt-glow-3), transparent 70%); }
+h1, h2, h3 { font-weight: 800; letter-spacing: -.02em; }
+h1 { font-size: clamp(36px, 5.2vw, 56px); line-height: 1.04; }
+.btn { border-radius: 999px; }
+header.top { position: sticky; top: 8px; z-index: 20; margin: 8px 12px 0; border-radius: 22px; border: 1px solid var(--bt-glass-edge);
+  background: color-mix(in srgb, var(--bt-card) 55%, transparent); -webkit-backdrop-filter: blur(18px) saturate(180%); backdrop-filter: blur(18px) saturate(180%);
+  box-shadow: inset 0 1px 0 var(--bt-glass-edge), 0 6px 20px rgba(0,0,0,.10); }
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { header.top { background: var(--bt-card); } }
+@media (prefers-reduced-transparency: reduce) { header.top { background: var(--bt-card); -webkit-backdrop-filter: none; backdrop-filter: none; } body::before { display: none; } }
+.plan { border: 1px solid var(--bt-line); border-radius: 22px; padding: 20px; background: var(--bt-card); }
+figure img, .shot img { border-radius: 18px; }
