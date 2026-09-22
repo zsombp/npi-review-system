@@ -1,4 +1,4 @@
-// Service worker, v0.1.0, 2026-09-17. Registered by src/lib/pwa.ts.
+// Service worker, v0.2.0, 2026-09-22 (push and notification click; v0.1.0, 2026-09-17). Registered by src/lib/pwa.ts.
 //
 // Written by hand, not generated. Workbox would be a build step, a dependency and a
 // generated file nobody reads, for four rules that fit on one screen. These four:
@@ -163,4 +163,35 @@ self.addEventListener("message", (event) => {
     const port = event.ports && event.ports[0];
     if (port) port.postMessage({ type: "VERSION", version: BUILD });
   }
+});
+
+// ---------------------------------------------------------------------------
+// v0.2.0, 2026-09-22 (completeness audit 5.3): push. The payload is ours (title, body,
+// path); the path is opened inside the app's own base only, so a payload can never
+// send a person to another site. A tap focuses an open window if there is one.
+// ---------------------------------------------------------------------------
+self.addEventListener("push", (event) => {
+  let data = { title: "BistroTech", body: "", path: "/", tag: "bt" };
+  try { data = { ...data, ...event.data.json() }; } catch { /* a push with no body */ }
+  const path = typeof data.path === "string" && data.path.startsWith("/") && !data.path.startsWith("//") ? data.path : "/";
+  event.waitUntil(self.registration.showNotification(String(data.title).slice(0, 80), {
+    body: String(data.body).slice(0, 160),
+    tag: String(data.tag).slice(0, 60),
+    icon: BASE + "icons/icon-192.png",
+    badge: BASE + "icons/icon-192.png",
+    data: { url: BASE.replace(/\/$/, "") + path },
+    renotify: false,
+  }));
+});
+
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+  const url = (event.notification.data && event.notification.data.url) || BASE;
+  event.waitUntil((async () => {
+    const all = await self.clients.matchAll({ type: "window", includeUncontrolled: true });
+    for (const c of all) {
+      if (new URL(c.url).pathname.startsWith(BASE)) { await c.focus(); if ("navigate" in c) { try { await c.navigate(url); } catch { /* ignore */ } } return; }
+    }
+    await self.clients.openWindow(url);
+  })());
 });
