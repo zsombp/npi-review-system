@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Napi jelentés: nyugta">
+<title>Napi jelentés: nyugta</title>
+<!-- BistroTech Pop spot illustration, v0.1.0, 2026-09-26. Source: tools/build_svg.py.
+     Outline 2.5 and a 7 px hard shadow in currentColor (ink by default, white on a dark
+     ground when the page sets color: #fff); details ink 6 px; fills from the Pop blocks. -->
+<g id="art" stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g transform="rotate(-5 120 120)">
+      <path d="M70 30H170A10 10 0 0 1 180 40V190L169 199L158 190L147 199L136 190L125 199L114 190L103 199L92 190L81 199L70 190L60 199V40A10 10 0 0 1 70 30Z"/>
+      <circle cx="180" cy="46" r="22"/>
+    </g>
+  </g>
+  <g transform="rotate(-5 120 120)" stroke="currentColor" stroke-width="2.5">
+    <path d="M70 30H170A10 10 0 0 1 180 40V190L169 199L158 190L147 199L136 190L125 199L114 190L103 199L92 190L81 199L70 190L60 199V40A10 10 0 0 1 70 30Z" fill="#ffe500"/>
+    <path d="M80 58H140" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M78 78H164" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-dasharray="1 8"/>
+    <path d="M80 98H122" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M146 98H160" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M80 116H114" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M146 116H160" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M80 134H128" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M146 134H160" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M78 154H164" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-dasharray="1 8"/>
+    <path d="M80 172H106" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M136 172H160" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <circle cx="180" cy="46" r="22" fill="#ff2d9b"/>
+    <path d="M180 34V46L188 52" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+  </g>
+</g>
+</svg>

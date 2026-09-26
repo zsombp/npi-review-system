@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Csiptetős tábla ellenőrzőlistával">
+<title>Csiptetős tábla ellenőrzőlistával</title>
+<!-- BistroTech Pop spot illustration, v0.1.0, 2026-09-26. Source: tools/build_svg.py.
+     Outline 2.5 and a 7 px hard shadow in currentColor (ink by default, white on a dark
+     ground when the page sets color: #fff); details ink 6 px; fills from the Pop blocks. -->
+<g id="art" stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g transform="rotate(-4 120 120)">
+      <rect x="50" y="34" width="140" height="178" rx="16"/>
+      <rect x="92" y="22" width="56" height="28" rx="9"/>
+    </g>
+  </g>
+  <g transform="rotate(-4 120 120)" stroke="currentColor" stroke-width="2.5">
+    <rect x="50" y="34" width="140" height="178" rx="16" fill="#a78bfa"/>
+    <rect x="64" y="58" width="112" height="140" rx="8" fill="#ffe500"/>
+    <rect x="92" y="22" width="56" height="28" rx="9" fill="#ff2d9b"/>
+    <rect x="110" y="29" width="20" height="8" rx="4" fill="#0a0a0a" stroke="none"/>
+    <rect x="80" y="85" width="22" height="22" rx="6" fill="#9be15d"/>
+    <path d="M83.4 95.1L89 100L98.1 90.2" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M116 96H160" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <rect x="80" y="121" width="22" height="22" rx="6" fill="#9be15d"/>
+    <path d="M83.4 131.1L89 136L98.1 126.2" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M116 132H150" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <rect x="80" y="157" width="22" height="22" rx="6" fill="#ffffff"/>
+    <path d="M116 168H142" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+  </g>
+</g>
+</svg>

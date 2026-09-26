@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Riasztás: csengő">
+<title>Riasztás: csengő</title>
+<!-- BistroTech Pop spot illustration, v0.1.0, 2026-09-26. Source: tools/build_svg.py.
+     Outline 2.5 and a 7 px hard shadow in currentColor (ink by default, white on a dark
+     ground when the page sets color: #fff); details ink 6 px; fills from the Pop blocks. -->
+<g id="art" stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g transform="rotate(-10 120 120)">
+      <circle cx="120" cy="40" r="10"/>
+      <path d="M120 46C150 46 166 68 166 98C166 122 170 140 188 154H52C70 140 74 122 74 98C74 68 90 46 120 46Z"/>
+      <rect x="42" y="150" width="156" height="20" rx="10"/>
+      <circle cx="120" cy="180" r="14"/>
+      <circle cx="168" cy="66" r="17"/>
+    </g>
+  </g>
+  <g transform="rotate(-10 120 120)" stroke="currentColor" stroke-width="2.5">
+    <circle cx="120" cy="40" r="10" fill="#ffe500"/>
+    <circle cx="120" cy="180" r="14" fill="#ff7a3d"/>
+    <path d="M120 46C150 46 166 68 166 98C166 122 170 140 188 154H52C70 140 74 122 74 98C74 68 90 46 120 46Z" fill="#ffe500"/>
+    <rect x="42" y="150" width="156" height="20" rx="10" fill="#ffe500"/>
+    <circle cx="168" cy="66" r="17" fill="#ff2d9b"/>
+  </g>
+</g>
+</svg>

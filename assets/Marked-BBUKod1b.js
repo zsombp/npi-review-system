@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-64LW_T1K.js";var t=e();function n({text:e}){let n=e.split(/\[(.+?)\]/);return(0,t.jsx)(t.Fragment,{children:n.map((e,n)=>n%2?(0,t.jsx)(`mark`,{className:`hl`,children:e},n):e)})}export{n as t};
