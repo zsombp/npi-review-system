@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Nap">
+<title>Nap</title>
+<!-- BistroTech Pop spot illustration, v0.2.0, 2026-09-26. Source: tools/build_svg.py.
+     Outline 2.5 and a 7 px hard shadow in currentColor (ink by default, white on a dark
+     ground when the page sets color: #fff); details ink 6 px; fills from the Pop blocks. -->
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g>
+      <rect x="-8" y="-104" width="16" height="34" rx="8" transform="translate(120 120) rotate(0)"/>
+      <rect x="-8" y="-94" width="16" height="22" rx="8" transform="translate(120 120) rotate(45)"/>
+      <rect x="-8" y="-104" width="16" height="34" rx="8" transform="translate(120 120) rotate(90)"/>
+      <rect x="-8" y="-94" width="16" height="22" rx="8" transform="translate(120 120) rotate(135)"/>
+      <rect x="-8" y="-104" width="16" height="34" rx="8" transform="translate(120 120) rotate(180)"/>
+      <rect x="-8" y="-94" width="16" height="22" rx="8" transform="translate(120 120) rotate(225)"/>
+      <rect x="-8" y="-104" width="16" height="34" rx="8" transform="translate(120 120) rotate(270)"/>
+      <rect x="-8" y="-94" width="16" height="22" rx="8" transform="translate(120 120) rotate(315)"/>
+      <circle cx="120" cy="120" r="56"/>
+    </g>
+  </g>
+  <g stroke="currentColor" stroke-width="2.5">
+    <rect x="-8" y="-104" width="16" height="34" rx="8" transform="translate(120 120) rotate(0)" fill="#ff7a3d"/>
+    <rect x="-8" y="-94" width="16" height="22" rx="8" transform="translate(120 120) rotate(45)" fill="#ff7a3d"/>
+    <rect x="-8" y="-104" width="16" height="34" rx="8" transform="translate(120 120) rotate(90)" fill="#ff7a3d"/>
+    <rect x="-8" y="-94" width="16" height="22" rx="8" transform="translate(120 120) rotate(135)" fill="#ff7a3d"/>
+    <rect x="-8" y="-104" width="16" height="34" rx="8" transform="translate(120 120) rotate(180)" fill="#ff7a3d"/>
+    <rect x="-8" y="-94" width="16" height="22" rx="8" transform="translate(120 120) rotate(225)" fill="#ff7a3d"/>
+    <rect x="-8" y="-104" width="16" height="34" rx="8" transform="translate(120 120) rotate(270)" fill="#ff7a3d"/>
+    <rect x="-8" y="-94" width="16" height="22" rx="8" transform="translate(120 120) rotate(315)" fill="#ff7a3d"/>
+    <circle cx="120" cy="120" r="56" fill="#ffe500"/>
+  </g>
+</g>
+</svg>

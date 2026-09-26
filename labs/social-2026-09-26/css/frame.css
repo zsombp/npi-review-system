@@ -1,0 +1,361 @@
+/* BistroTech social kit: frame.css, v0.1.0, 2026-09-26.
+   The styles of every post, story, carousel slide, ad, cover and profile picture in this folder.
+   The pages in pages/ are written by tools/build.mjs from kit.json and templates/, and shot at a
+   device scale of 2: a frame is designed at half its pixel size (a 1080 x 1350 post is 540 x 675
+   here), so the website's own measures (2 px outlines, 4 to 9 px hard shadows, 16 px captions)
+   come out at the weight the website has on a phone. Nothing here loads from outside this folder.
+
+   Identity: docs/brand/POP-IDENTITY-v1.0.0.md (D-050). Tokens copied from docs/brand/pop-tokens.json
+   v1.1.0; components after platform/website/static/css/site.css (.hl, .mk, .sticker, .btn, .snip,
+   .report, the phone frame). The BistroTech mark is a flat single-colour shape: it is only placed,
+   scaled and recoloured here, through --bt-mark and --bt-ink, never outlined, shadowed or turned.
+
+   Contrast, computed (WCAG 2.x), for every text colour on every ground this file allows:
+     ink #0a0a0a on white 19.80, yellow 15.52, green 12.56, cyan 11.18, orange 7.64, lilac 7.27,
+     pink 5.75; white on blue #2a48f5 6.28, on ink 19.80; yellow on ink 15.52;
+     muted #555555 on white 7.46; neg #b80f0f on white 6.75; warn #7a5c00 on white 6.25.
+   tools/build.mjs measures every text of every frame again and stops below 4.5.
+
+   Changelog, newest first:
+     v0.1.0, 2026-09-26  First version. */
+
+/* --- type: self-hosted, split by unicode-range, metric-matched fallbacks --------------------- */
+@font-face {
+  font-family: "Space Grotesk"; font-style: normal; font-weight: 500 700; font-display: block;
+  src: url(../fonts/spacegrotesk-display-latin.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
+    U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Space Grotesk"; font-style: normal; font-weight: 500 700; font-display: block;
+  src: url(../fonts/spacegrotesk-display-lat-ext.woff2) format("woff2");
+  unicode-range: U+0100-017F, U+0218-021B, U+1E9E, U+2020, U+2113, U+20A0-20AB, U+20AD-20C0;
+}
+@font-face {
+  font-family: "Source Sans 3"; font-style: normal; font-weight: 400 700; font-display: block;
+  src: url(../fonts/sourcesans3-latin.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
+    U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Source Sans 3"; font-style: normal; font-weight: 400 700; font-display: block;
+  src: url(../fonts/sourcesans3-lat-ext.woff2) format("woff2");
+  unicode-range: U+0100-017F, U+0218-021B, U+1E9E, U+2020, U+2113, U+20A0-20AB, U+20AD-20C0;
+}
+@font-face {
+  font-family: "Source Sans 3"; font-style: italic; font-weight: 400 700; font-display: block;
+  src: url(../fonts/sourcesans3-italic-latin.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
+    U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Source Sans 3"; font-style: italic; font-weight: 400 700; font-display: block;
+  src: url(../fonts/sourcesans3-italic-lat-ext.woff2) format("woff2");
+  unicode-range: U+0100-017F, U+0218-021B, U+1E9E, U+2020, U+2113, U+20A0-20AB, U+20AD-20C0;
+}
+@font-face { font-family: "BT Text fallback"; src: local("Arial"); size-adjust: 92.18%; ascent-override: 111.09%; descent-override: 43.39%; line-gap-override: 0%; }
+@font-face { font-family: "BT Display fallback"; src: local("Arial"); size-adjust: 93.7%; ascent-override: 105%; descent-override: 31.2%; line-gap-override: 0%; }
+
+/* --- tokens ------------------------------------------------------------------------------------ */
+:root {
+  --ink: #0a0a0a;
+  --paper: #ffffff;
+  --muted: #555555;
+  --yellow: #ffe500;
+  --pink: #ff2d9b;
+  --green: #9be15d;
+  --cyan: #38d6e0;
+  --lilac: #a78bfa;
+  --orange: #ff7a3d;
+  --blue: #2a48f5;
+  --pos: #00734a;
+  --neg: #b80f0f;
+  --warn: #7a5c00;
+  --font-d: "Space Grotesk", "BT Display fallback", sans-serif;
+  --font-t: "Source Sans 3", "BT Text fallback", sans-serif;
+  /* The Pop outline and hard shadows at post scale. A post is seen at about 0.72 of this size on a
+     phone, so 2.5 px lands close to the website's 2 px. Shadows: 4 px small parts, 6 px cards,
+     9 px the big picture cards. No blur, ever. */
+  --ol: 2.5px;
+  --sh-s: 4px;
+  --sh-m: 6px;
+  --sh-l: 9px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #6b6b6b; }
+body {
+  font: 400 20px/1.35 var(--font-t);
+  color: var(--ink);
+  font-synthesis: none;
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+img, svg { display: block; }
+p, h1, h2, ol, ul { margin: 0; }
+
+/* --- the frame: one block of colour at the exact size -------------------------------------------- */
+.frame {
+  position: relative;
+  overflow: hidden;
+  width: var(--w);
+  height: var(--h);
+  background: var(--bg);
+  color: var(--fg);
+}
+.f-post-1x1, .f-ad-1x1, .f-profile { --w: 540px; --h: 540px; }
+.f-post-4x5, .f-ad-4x5, .f-carousel-4x5 { --w: 540px; --h: 675px; }
+.f-story-9x16, .f-ad-9x16 { --w: 540px; --h: 960px; }
+.f-cover-fb { --w: 820px; --h: 312px; }
+
+.bg-yellow { --bg: var(--yellow); --fg: var(--ink); --bt-mark: var(--blue); --bt-ink: var(--ink); }
+.bg-white { --bg: var(--paper); --fg: var(--ink); --bt-mark: var(--blue); --bt-ink: var(--ink); }
+.bg-green { --bg: var(--green); --fg: var(--ink); --bt-mark: var(--ink); --bt-ink: var(--ink); }
+.bg-cyan { --bg: var(--cyan); --fg: var(--ink); --bt-mark: var(--ink); --bt-ink: var(--ink); }
+.bg-pink { --bg: var(--pink); --fg: var(--ink); --bt-mark: var(--ink); --bt-ink: var(--ink); }
+.bg-orange { --bg: var(--orange); --fg: var(--ink); --bt-mark: var(--ink); --bt-ink: var(--ink); }
+.bg-lilac { --bg: var(--lilac); --fg: var(--ink); --bt-mark: var(--ink); --bt-ink: var(--ink); }
+.bg-blue { --bg: var(--blue); --fg: #fff; --bt-mark: #fff; --bt-ink: #fff; }
+.bg-ink { --bg: var(--ink); --fg: #fff; --bt-mark: var(--yellow); --bt-ink: #fff; }
+
+/* --- the words: kicker, headline, sub --------------------------------------------------------------- */
+.copy { position: absolute; z-index: 5; left: var(--cx); top: var(--cy); width: var(--cw); }
+.copy.is-center { text-align: center; }
+.copy.is-center .kicker { margin-left: auto; margin-right: auto; }
+.h {
+  font: 700 var(--hs, 64px)/.92 var(--font-d);
+  letter-spacing: -.045em;
+  color: var(--fg);
+}
+.h .line { display: block; }
+.h.is-long { line-height: 1; letter-spacing: -.03em; text-wrap: balance; }
+.kicker { display: table; margin-bottom: 18px; }
+.sub {
+  margin-top: var(--sg, 16px);
+  font: 400 var(--ss, 21px)/1.32 var(--font-t);
+  color: var(--fg);
+  text-wrap: pretty;
+  max-width: var(--sw, none);
+}
+.copy.is-center .sub { margin-left: auto; margin-right: auto; }
+
+/* One word set apart per headline: a colour block with the outline ... */
+.hl {
+  display: inline-block;
+  padding: 0 .1em .04em;
+  margin: 0 .02em;
+  background: var(--hl);
+  color: var(--ink);
+  border: var(--ol) solid var(--ink);
+  border-radius: .12em;
+  box-shadow: .05em .05em 0 var(--ink);
+  transform: rotate(-1.5deg);
+}
+.hl-yellow { --hl: var(--yellow); }
+.hl-pink { --hl: var(--pink); }
+.hl-white { --hl: var(--paper); }
+.hl-green { --hl: var(--green); }
+/* ... or a thick marker stroke drawn in SVG under it. */
+.mk { position: relative; display: inline-block; z-index: 0; white-space: nowrap; }
+.mk-line {
+  position: absolute; z-index: -1;
+  left: -.03em; bottom: -.1em; width: calc(100% + .06em); height: .2em;
+  overflow: visible;
+}
+.mk-line path {
+  fill: none; stroke: var(--mk); stroke-width: .15em;
+  stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke;
+}
+.mk-pink { --mk: var(--pink); }
+.mk-yellow { --mk: var(--yellow); }
+.mk-blue { --mk: var(--blue); }
+
+/* --- stickers ------------------------------------------------------------------------------------ */
+.sticker {
+  display: inline-block;
+  padding: 7px 14px 8px;
+  font: 700 var(--ks, 19px)/1.15 var(--font-d);
+  letter-spacing: -.01em;
+  color: var(--ink);
+  background: var(--c, var(--paper));
+  border: var(--ol) solid var(--ink);
+  border-radius: 12px;
+  box-shadow: var(--sh-s) var(--sh-s) 0 var(--ink);
+  transform: rotate(var(--rot, -4deg));
+  white-space: nowrap;
+}
+.sticker.free { position: absolute; z-index: 6; left: var(--x); top: var(--y); }
+.sticker.wrap { white-space: normal; max-width: var(--sw, 300px); }
+.c-white { --c: var(--paper); }
+.c-yellow { --c: var(--yellow); }
+.c-pink { --c: var(--pink); }
+.c-green { --c: var(--green); }
+.c-cyan { --c: var(--cyan); }
+.c-lilac { --c: var(--lilac); }
+.c-orange { --c: var(--orange); }
+.sticker.c-ink { --c: var(--ink); color: var(--yellow); box-shadow: var(--sh-s) var(--sh-s) 0 var(--pink); }
+.sticker.c-blue { --c: var(--blue); color: #fff; }
+/* The app's stamp (Drafts.tsx drafts.done.stamp): lower case, bigger, turned a little further. */
+.sticker.stamp { font-size: var(--ks, 34px); padding: 6px 18px 9px; border-radius: 14px; }
+
+/* --- the foot: the call to action and the caption --------------------------------------------------- */
+.foot {
+  position: absolute; z-index: 5;
+  left: var(--fx, 32px); right: var(--fr, 32px); bottom: var(--fb, 30px); top: var(--ft, auto);
+  display: flex; flex-direction: column; align-items: flex-start; gap: var(--fgap, 14px);
+}
+.foot.is-center { align-items: center; text-align: center; }
+.cap {
+  font: 400 16px/1.3 var(--font-t);
+  color: var(--fg);
+  max-width: var(--capw, 100%);
+  text-wrap: pretty;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 11px 20px 12px 22px;
+  font: 700 var(--bs, 20px)/1.1 var(--font-d); letter-spacing: -.01em;
+  color: var(--btn-fg); background: var(--btn-bg);
+  border: var(--ol) solid var(--ink); border-radius: 999px;
+  box-shadow: var(--sh-s) var(--sh-s) 0 var(--ink);
+  white-space: nowrap;
+}
+.btn-blue { --btn-bg: var(--blue); --btn-fg: #fff; }
+.btn-yellow { --btn-bg: var(--yellow); --btn-fg: var(--ink); }
+.btn-white { --btn-bg: var(--paper); --btn-fg: var(--ink); }
+.btn-ink { --btn-bg: var(--ink); --btn-fg: #fff; }
+.ic { width: 22px; height: 22px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* --- the brand: the flat mark, or the lockup --------------------------------------------------------- */
+.brand { position: absolute; z-index: 5; left: var(--x); top: var(--y); width: var(--bw); height: auto; }
+.bt-mark { fill: var(--bt-mark); }
+.bt-word { fill: none; stroke: var(--bt-ink); stroke-width: 12; stroke-linecap: butt; stroke-linejoin: round; }
+.bt-dot { fill: var(--bt-ink); stroke: none; }
+
+/* --- pictures: renders, drawings, frames, screenshots ------------------------------------------------ */
+.art {
+  position: absolute; z-index: var(--z, 2);
+  left: var(--x); top: var(--y); width: var(--aw);
+  transform: rotate(var(--rot, 0deg));
+}
+.art img { width: 100%; height: auto; }
+.art.flip img, .art.flip svg { transform: scaleX(-1); }
+.art.draw svg { width: 100%; height: auto; overflow: visible; color: var(--fg); }
+.bg-blue .art.draw svg { color: var(--ink); }
+
+/* A picture from the demo account, in the website's phone frame (site.css .vid-screen): ink bezel,
+   hard shadow in a block colour. --ph cuts the screen off at that height, as if it ran on. */
+.phone {
+  padding: 8px;
+  background: var(--ink);
+  border-radius: 36px;
+  box-shadow: var(--sh-l) var(--sh-l) 0 var(--pc, var(--pink));
+}
+.phone-screen { height: var(--ph, auto); overflow: hidden; border-radius: 28px; background: var(--paper); }
+.phone-screen img { width: 100%; height: auto; }
+
+/* --- the example review card (site.css .snip), bigger for a phone ------------------------------------
+   The "Példa" tag sits on the card's top edge like a sticker, so the venue and the stars get the whole
+   first row. A card with Tripadvisor as its source needs 260 px or more. */
+.snip {
+  position: relative;
+  padding: 19px 15px 14px;
+  background: var(--c, var(--paper));
+  color: var(--ink);
+  border: var(--ol) solid var(--ink);
+  border-radius: 18px;
+  box-shadow: var(--sh-m) var(--sh-m) 0 var(--ink);
+}
+.bg-ink .snip { box-shadow: var(--sh-m) var(--sh-m) 0 #fff; }
+.snip-tag {
+  position: absolute; left: 13px; top: -15px;
+  padding: 4px 9px 5px;
+  font: 700 16px/1 var(--font-d); letter-spacing: -.01em;
+  background: var(--ink); color: #fff;
+  border: 2px solid var(--ink); border-radius: 8px;
+  transform: rotate(-4deg);
+}
+.snip-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; font: 700 17px/1.1 var(--font-d); letter-spacing: -.01em; }
+.snip-where { white-space: nowrap; }
+.rate {
+  flex: none; display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 9px 4px 7px;
+  font: 700 16px/1 var(--font-d);
+  background: var(--paper); border: 2px solid var(--ink); border-radius: 999px;
+}
+.rate svg { width: 15px; height: 15px; }
+.rate.r5 svg, .rate.r4 svg { color: var(--warn); }
+.rate.r3 svg { color: var(--muted); }
+.rate.r2 svg, .rate.r1 svg { color: var(--neg); }
+.snip-q { margin-top: 9px; font: 500 var(--qs, 18px)/1.26 var(--font-d); letter-spacing: -.01em; }
+.snip-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 11px; }
+.snip-who { font: 600 16px/1.2 var(--font-t); white-space: nowrap; }
+.snip-src {
+  flex: none;
+  padding: 4px 10px 5px;
+  background: var(--paper); border: 2px solid var(--ink); border-radius: 999px;
+  font: 700 16px/1 var(--font-d);
+}
+
+/* --- the daily report, the one section a picture needs (site.css .report) ----------------------------- */
+.report {
+  background: var(--paper); color: var(--ink);
+  border: var(--ol) solid var(--ink);
+  border-radius: 24px 24px 24px 6px;
+  box-shadow: var(--sh-l) var(--sh-l) 0 var(--ink);
+  padding: 18px 20px 14px;
+  font: 400 17px/1.42 var(--font-t);
+}
+.report-head { display: flex; align-items: center; gap: 8px; font: 700 16px/1.2 var(--font-d); letter-spacing: .03em; }
+.report .line { display: flex; flex-wrap: wrap; align-items: center; gap: 0 7px; }
+.report .line-date { margin-top: 5px; color: var(--muted); }
+.report .glyph { flex: none; width: 18px; height: 18px; color: var(--blue); fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.report hr { border: 0; border-top: 2px dashed var(--ink); margin: 13px 0; }
+.report .sec { font-weight: 700; }
+.report .note { margin-top: 4px; color: var(--muted); font-style: italic; }
+.report .change { margin-top: 12px; }
+.report .dot-neg { flex: none; width: 11px; height: 11px; border-radius: 50%; background: var(--neg); }
+.report .star { display: inline-flex; align-items: center; gap: 2px; font-weight: 700; white-space: nowrap; }
+.report .star svg { width: 15px; height: 15px; color: var(--warn); }
+.report .star.low svg { color: var(--neg); }
+.report .arrow { font-weight: 700; }
+.report .quote { margin-top: 6px; padding-left: 12px; border-left: 3px solid var(--pink); color: var(--muted); font-style: italic; }
+.report-time { margin-top: 10px; text-align: right; font: 600 16px/1 var(--font-d); color: var(--muted); }
+
+/* --- steps: huge numerals on the edge of their cards (site.css .step-n) ------------------------------- */
+.steps { position: absolute; z-index: 4; left: var(--sx); top: var(--sy); width: var(--sw); display: grid; gap: var(--sgap, 16px); list-style: none; padding: 0; }
+.step { display: flex; align-items: center; }
+.step-n {
+  position: relative; z-index: 1;
+  flex: none; width: 74px; margin-right: -22px;
+  font: 700 var(--ns, 112px)/.8 var(--font-d);
+  letter-spacing: -.06em;
+  color: var(--ink);
+  text-shadow: 5px 5px 0 var(--paper);
+}
+.step-card {
+  flex: 1; min-width: 0;
+  padding: 18px 18px 19px 36px;
+  background: var(--c, var(--paper));
+  border: var(--ol) solid var(--ink); border-radius: 18px;
+  box-shadow: var(--sh-m) var(--sh-m) 0 var(--ink);
+  font: 700 var(--ts, 25px)/1.08 var(--font-d); letter-spacing: -.02em;
+  color: var(--ink);
+}
+
+/* --- the carousel's place in the walk, drawn, not written ---------------------------------------------- */
+.dots { position: absolute; z-index: 5; display: flex; gap: 7px; left: var(--x); top: var(--y); }
+.dots i { width: 13px; height: 13px; border: 2px solid var(--fg); border-radius: 50%; }
+.dots i.on { width: 30px; border-radius: 999px; background: var(--fg); }
+.next {
+  position: absolute; z-index: 6; left: var(--x); top: var(--y);
+  display: grid; place-items: center; width: 54px; height: 54px;
+  background: var(--paper); color: var(--ink);
+  border: var(--ol) solid var(--ink); border-radius: 50%;
+  box-shadow: var(--sh-s) var(--sh-s) 0 var(--ink);
+}
+.next .ic { width: 28px; height: 28px; stroke-width: 2.25; }
+
+/* --- the profile picture: the flat mark on a Pop block, nothing else ---------------------------------- */
+.f-profile .brand { z-index: 1; }

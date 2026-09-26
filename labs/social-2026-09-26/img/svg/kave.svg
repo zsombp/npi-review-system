@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Kávéscsésze">
+<title>Kávéscsésze</title>
+<!-- BistroTech Pop spot illustration, v0.1.0, 2026-09-26. Source: tools/build_svg.py.
+     Outline 2.5 and a 7 px hard shadow in currentColor (ink by default, white on a dark
+     ground when the page sets color: #fff); details ink 6 px; fills from the Pop blocks. -->
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g>
+      <path d="M166 112C200 106 204 162 160 156Z"/>
+      <path d="M36 184H204Q204 198 190 200H50Q36 198 36 184Z"/>
+      <path d="M58 100H174L166 162Q162 184 140 184H92Q70 184 66 162Z"/>
+      <ellipse cx="116" cy="100" rx="58" ry="12"/>
+    </g>
+  </g>
+  <g stroke="currentColor" stroke-width="2.5">
+    <path d="M166 112C200 106 204 162 160 156Z" fill="#38d6e0"/>
+    <ellipse cx="180" cy="134" rx="7" ry="11" fill="#0a0a0a" stroke="none"/>
+    <path d="M36 184H204Q204 198 190 200H50Q36 198 36 184Z" fill="#ffe500"/>
+    <path d="M58 100H174L166 162Q162 184 140 184H92Q70 184 66 162Z" fill="#38d6e0"/>
+    <ellipse cx="116" cy="100" rx="58" ry="12" fill="#38d6e0"/>
+    <ellipse cx="116" cy="101" rx="46" ry="7" fill="#0a0a0a" stroke="none"/>
+    <g class="p-steam"><path d="M96 76C88 64 104 58 96 44" fill="none" stroke-width="6"/></g>
+    <g class="p-steam"><path d="M120 74C112 60 128 54 120 38" fill="none" stroke-width="6"/></g>
+    <g class="p-steam"><path d="M144 76C136 64 152 58 144 44" fill="none" stroke-width="6"/></g>
+  </g>
+</g>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Ceruza">
+<title>Ceruza</title>
+<!-- BistroTech Pop spot illustration, v0.2.0, 2026-09-26. Source: tools/build_svg.py.
+     Outline 2.5 and a 7 px hard shadow in currentColor (ink by default, white on a dark
+     ground when the page sets color: #fff); details ink 6 px; fills from the Pop blocks. -->
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g transform="rotate(-40 120 120)">
+      <path d="M26 120L68 97V143Z"/>
+      <rect x="68" y="97" width="106" height="46"/>
+      <rect x="174" y="95" width="24" height="50" rx="4"/>
+      <path d="M198 97H206A16 16 0 0 1 222 113V127A16 16 0 0 1 206 143H198Z"/>
+    </g>
+  </g>
+  <g transform="rotate(-40 120 120)" stroke="currentColor" stroke-width="2.5">
+    <path d="M26 120L68 97V143Z" fill="#ff7a3d"/>
+    <path d="M26 120L40 112.3V127.7Z" fill="#0a0a0a"/>
+    <rect x="68" y="97" width="106" height="46" fill="#ffe500"/>
+    <path d="M82 112L160 112" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M82 128L160 128" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <rect x="174" y="95" width="24" height="50" rx="4" fill="#a78bfa"/>
+    <path d="M186 103L186 137" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M198 97H206A16 16 0 0 1 222 113V127A16 16 0 0 1 206 143H198Z" fill="#ff2d9b"/>
+  </g>
+</g>
+</svg>

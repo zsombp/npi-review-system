@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Pecsét pipával">
+<title>Pecsét pipával</title>
+<!-- BistroTech Pop spot illustration, v0.2.0, 2026-09-26. Source: tools/build_svg.py.
+     Outline 2.5 and a 7 px hard shadow in currentColor (ink by default, white on a dark
+     ground when the page sets color: #fff); details ink 6 px; fills from the Pop blocks. -->
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g transform="rotate(-10 120 120)">
+      <circle cx="120" cy="50" r="24"/>
+      <path d="M108 70H132L138 110H102Z"/>
+      <rect x="58" y="106" width="124" height="40" rx="14"/>
+      <rect x="66" y="146" width="108" height="14" rx="4"/>
+      <circle cx="188" cy="192" r="22"/>
+    </g>
+  </g>
+  <g transform="rotate(-10 120 120)" stroke="currentColor" stroke-width="2.5">
+    <path d="M108 70H132L138 110H102Z" fill="#ffe500"/>
+    <circle cx="120" cy="50" r="24" fill="#ff2d9b"/>
+    <rect x="58" y="106" width="124" height="40" rx="14" fill="#38d6e0"/>
+    <rect x="66" y="146" width="108" height="14" rx="4" fill="#0a0a0a"/>
+    <circle cx="188" cy="192" r="22" fill="#9be15d"/>
+    <path d="M178.6 192.4L185 198L195.4 186.8" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+  </g>
+</g>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Étlap">
+<title>Étlap</title>
+<!-- BistroTech Pop spot illustration, v0.2.0, 2026-09-26. Source: tools/build_svg.py.
+     Outline 2.5 and a 7 px hard shadow in currentColor (ink by default, white on a dark
+     ground when the page sets color: #fff); details ink 6 px; fills from the Pop blocks. -->
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g>
+      <path d="M114 186H126V216L120 210L114 216Z"/>
+      <path d="M120 38V198L34 186V52Z"/>
+      <path d="M120 38L206 52V186L120 198Z"/>
+    </g>
+  </g>
+  <g stroke="currentColor" stroke-width="2.5">
+    <path d="M114 186H126V216L120 210L114 216Z" fill="#ff2d9b"/>
+    <path d="M120 38V198L34 186V52Z" fill="#9be15d"/>
+    <path d="M120 38L206 52V186L120 198Z" fill="#9be15d"/>
+    <path d="M114 48V188L42 178V60Z" fill="#ffffff"/>
+    <path d="M126 48L198 60V178L126 188Z" fill="#ffffff"/>
+    <path d="M50.6 75.4L89.5 70.6" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M50.6 102L83.8 100.1" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M96.7 99.4L105.4 98.9" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M50.6 123.7L78 123.7" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M96.7 123.6L105.4 123.6" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M50.6 145.4L86.6 147.3" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M96.7 147.9L105.4 148.3" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M136.1 68.8L169.2 73" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M136.1 99L163.4 100.5" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M180.7 101.5L189.4 102" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M136.1 123.6L172.1 123.7" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M180.7 123.7L189.4 123.7" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M136.1 148.3L159.1 147" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M180.7 145.9L189.4 145.4" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+  </g>
+</g>
+</svg>

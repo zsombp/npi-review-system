@@ -1,0 +1,624 @@
+{
+  "_about": "BistroTech social kit: every post, story, carousel slide, ad, cover and profile picture, as data. tools/build.mjs turns each piece into pages/<lang>/<file>.html (templates/poster.html in the frame of its format) and shoots it to png/<lang>/<file>.png. To make a new post, copy a piece, give it a new id, change its words and pictures, run node tools/build.mjs --only <id>. Every word must already stand in COPY.md (the build stops otherwise). Positions are CSS pixels at half the picture size (a 1080 x 1350 post is 540 x 675 here). See README.md.",
+  "version": "0.1.0",
+  "date": "2026-09-26",
+
+  "formats": {
+    "post-1x1": { "w": 540, "h": 540, "label": "Poszt, négyzet", "px": "1080 × 1080", "text": [28, 28, 484, 484], "grid": [67.5, 0, 405, 540], "where": "Instagram és Facebook hírfolyam" },
+    "post-4x5": { "w": 540, "h": 675, "label": "Poszt, álló", "px": "1080 × 1350", "text": [28, 28, 484, 619], "where": "Instagram és Facebook hírfolyam" },
+    "story-9x16": { "w": 540, "h": 960, "label": "Sztori és reel-borító", "px": "1080 × 1920", "text": [30, 125, 480, 665], "where": "Instagram és Facebook sztori, reel-borító" },
+    "carousel-4x5": { "w": 540, "h": 675, "label": "Körhinta, öt kártya", "px": "1080 × 1350", "text": [28, 28, 484, 619], "where": "Instagram és Facebook körhinta" },
+    "ad-1x1": { "w": 540, "h": 540, "label": "Hirdetés 1:1", "px": "1080 × 1080", "text": [28, 28, 484, 484], "where": "Meta hirdetés, hírfolyam" },
+    "ad-4x5": { "w": 540, "h": 675, "label": "Hirdetés 4:5", "px": "1080 × 1350", "text": [28, 28, 484, 619], "where": "Meta hirdetés, hírfolyam" },
+    "ad-9x16": { "w": 540, "h": 960, "label": "Hirdetés 9:16", "px": "1080 × 1920", "text": [30, 125, 480, 665], "where": "Meta hirdetés, sztori és reels" },
+    "cover-fb": { "w": 820, "h": 312, "label": "Facebook-borítókép", "px": "1640 × 624", "text": [133, 14, 554, 284], "where": "Facebook-oldal, borítókép" },
+    "profile": { "w": 540, "h": 540, "label": "Profilkép", "px": "1080 × 1080", "text": [0, 0, 0, 0], "where": "Instagram és Facebook, kör alakban" }
+  },
+
+  "snips": {
+    "s1": { "color": "white", "stars": 5, "source": "Google",
+      "hu": { "venue": "Példa Bisztró", "text": "„Isteni volt a rántott csirke, és gyorsan kihozták.”", "who": "Teszt Anna" },
+      "en": { "venue": "Példa Bisztró", "text": "“The fried chicken was divine, and it came out fast.”", "who": "Teszt Anna" } },
+    "s2": { "color": "yellow", "stars": 2, "source": "Google",
+      "hu": { "venue": "Minta Étterem", "text": "„Húsz percet vártunk az asztalra, pedig foglaltunk.”", "who": "Példa Gergő" },
+      "en": { "venue": "Minta Étterem", "text": "“We waited twenty minutes for our table, and we had booked.”", "who": "Példa Gergő" } },
+    "s3": { "color": "cyan", "stars": 4, "source": "Tripadvisor",
+      "hu": { "venue": "Teszt Kávézó", "text": "„Jó a kávé. A sütit legközelebb melegebben kérném.”", "who": "Minta Dóra" },
+      "en": { "venue": "Teszt Kávézó", "text": "“Good coffee. Next time I'd like the cake warmer.”", "who": "Minta Dóra" } },
+    "s4": { "color": "white", "stars": 5, "source": "Google",
+      "hu": { "venue": "Minta Étterem", "text": "„Kedves kiszolgálás, a gyerekeknek is volt menü.”", "who": "Példa Réka" },
+      "en": { "venue": "Minta Étterem", "text": "“Kind service, and there was a children's menu too.”", "who": "Példa Réka" } },
+    "s5": { "color": "pink", "stars": 1, "source": "Google",
+      "hu": { "venue": "Példa Bisztró", "text": "„Hideg volt a köret, és senki nem kérdezte, milyen volt.”", "who": "Teszt Bence" },
+      "en": { "venue": "Példa Bisztró", "text": "“The side dish was cold, and nobody asked how it was.”", "who": "Teszt Bence" } },
+    "s6": { "color": "white", "stars": 3, "source": "Google",
+      "hu": { "venue": "Teszt Kávézó", "text": "„Rendben volt minden, csak hangos a zene.”", "who": "Minta Péter" },
+      "en": { "venue": "Teszt Kávézó", "text": "“Everything was fine, only the music is loud.”", "who": "Minta Péter" } },
+    "s7": { "color": "green", "stars": 5, "source": "Tripadvisor", "lang": "en",
+      "hu": { "venue": "Példa Bisztró", "text": "„Lovely goulash and very friendly staff.”", "who": "Teszt Emma" },
+      "en": { "venue": "Példa Bisztró", "text": "“Lovely goulash and very friendly staff.”", "who": "Teszt Emma" } },
+    "s8": { "color": "white", "stars": 4, "source": "Google", "lang": "de",
+      "hu": { "venue": "Minta Étterem", "text": "„Gutes Essen, aber etwas laut.”", "who": "Minta Lili" },
+      "en": { "venue": "Minta Étterem", "text": "“Gutes Essen, aber etwas laut.”", "who": "Minta Lili" } }
+  },
+
+  "pieces": [
+    {
+      "id": "post-4x5-01-reviews", "group": "posts", "format": "post-4x5", "bg": "yellow",
+      "hu": {
+        "headline": { "text": "Minden\nértékelés.\nEgy helyen.", "mark": "helyen.", "style": "mk-pink", "size": 64 },
+        "caption": "Illusztráció. A vendégek, az éttermek és a szövegek kitaláltak."
+      },
+      "en": {
+        "headline": { "text": "Every\nreview.\nOne place.", "mark": "place.", "style": "mk-pink", "size": 64 },
+        "caption": "Illustration. The guests, the venues and the texts are made up."
+      },
+      "copy": { "x": 32, "y": 44, "w": 476 },
+      "art": [
+        { "type": "render", "src": "img/3d/terkeptu.png", "x": 364, "y": 14, "w": 172 },
+        { "type": "snip", "ref": "s1", "x": 28, "y": 250, "w": 238, "rot": -3 },
+        { "type": "snip", "ref": "s5", "x": 272, "y": 244, "w": 238, "rot": 2.5 },
+        { "type": "snip", "ref": "s7", "x": 116, "y": 430, "w": 300, "rot": 1.5 }
+      ],
+      "foot": { "capw": 400 },
+      "brand": { "kind": "mark", "x": 478, "y": 614, "w": 30 }
+    },
+    {
+      "id": "post-1x1-02-report", "group": "posts", "format": "post-1x1", "bg": "blue",
+      "hu": {
+        "headline": { "text": "Minden reggel\negy jelentés.", "mark": "jelentés.", "style": "hl-yellow", "size": 50 },
+        "caption": "Illusztráció. Az éttermek nevei, a szövegek és a számok kitaláltak."
+      },
+      "en": {
+        "headline": { "text": "One report\nevery morning.", "mark": "morning.", "style": "hl-yellow", "size": 50 },
+        "caption": "Illustration. The venue names, the texts and the numbers are made up."
+      },
+      "copy": { "x": 67, "y": 44, "w": 406 },
+      "art": [
+        { "type": "frame", "src": "img/frames/{lang}-report.png", "x": 262, "y": 150, "w": 240 },
+        { "type": "render", "src": "img/3d/ebreszto.png", "x": 38, "y": 232, "w": 224, "z": 3 }
+      ],
+      "foot": { "capw": 470 },
+      "brand": { "kind": "mark", "x": 443, "y": 48, "w": 28 }
+    },
+    {
+      "id": "post-4x5-03-approve", "group": "posts", "format": "post-4x5", "bg": "pink",
+      "hu": {
+        "headline": { "text": "Minden választ\nte hagysz jóvá.", "mark": "te", "style": "hl-yellow", "size": 60 },
+        "sub": { "text": "A válaszok sorban állnak, elöl a legrosszabb értékelés. Elolvasod, ha kell, átírod, jóváhagyod.", "size": 20 },
+        "caption": "Illusztráció. A vendég, az étterem és a szöveg kitalált."
+      },
+      "en": {
+        "headline": { "text": "You approve\nevery reply.", "mark": "You", "style": "hl-yellow", "size": 60 },
+        "sub": { "text": "The replies wait in a queue, the worst review first. You read it, rewrite it if you need to, and approve it.", "size": 20 },
+        "caption": "Illustration. The guest, the venue and the text are made up."
+      },
+      "copy": { "x": 32, "y": 42, "w": 476 },
+      "art": [
+        { "type": "frame", "src": "img/frames/{lang}-stack.png", "x": 30, "y": 272, "w": 312 },
+        { "type": "render", "src": "img/3d/papirrepulo.png", "x": 328, "y": 296, "w": 208, "rot": -6 }
+      ],
+      "foot": { "capw": 420 },
+      "brand": { "kind": "mark", "x": 478, "y": 614, "w": 30 }
+    },
+    {
+      "id": "post-1x1-04-today", "group": "posts", "format": "post-1x1", "bg": "cyan",
+      "hu": {
+        "headline": { "text": "Egy mondatban\nmegmondja,\nmi a teendő.", "mark": "teendő.", "style": "mk-blue", "size": 42 },
+        "caption": "Illusztráció. Az éttermek nevei, a szövegek és a számok kitaláltak."
+      },
+      "en": {
+        "headline": { "text": "One sentence\ntells you what\nneeds doing.", "mark": "doing.", "style": "mk-blue", "size": 42 },
+        "caption": "Illustration. The venue names, the texts and the numbers are made up."
+      },
+      "copy": { "x": 67, "y": 40, "w": 406 },
+      "art": [
+        { "type": "frame", "src": "img/frames/{lang}-today.png", "x": 214, "y": 166, "w": 298 },
+        { "type": "render", "src": "img/3d/kave.png", "x": 18, "y": 264, "w": 212 }
+      ],
+      "foot": { "capw": 470 },
+      "brand": { "kind": "mark", "x": 445, "y": 44, "w": 28 }
+    },
+    {
+      "id": "post-1x1-05-alert", "group": "posts", "format": "post-1x1", "bg": "orange",
+      "hu": {
+        "kicker": { "text": "Riasztás", "color": "white" },
+        "headline": { "text": "Szólunk, ha egy étteremnél egycsillagos sorozat jön, vagy esik az átlag.", "mark": "Szólunk,", "style": "hl-yellow", "size": 36, "long": true }
+      },
+      "en": {
+        "kicker": { "text": "Alert", "color": "white" },
+        "headline": { "text": "We tell you when one-star reviews come in a run at a venue, or its average slips.", "mark": "tell", "style": "hl-yellow", "size": 33, "long": true }
+      },
+      "copy": { "x": 67, "y": 36, "w": 406 },
+      "art": [
+        { "type": "render", "src": "img/3d/bell.png", "x": 126, "y": 238, "w": 288 }
+      ],
+      "brand": { "kind": "mark", "x": 445, "y": 480, "w": 28 }
+    },
+    {
+      "id": "post-4x5-06-analysis", "group": "posts", "format": "post-4x5", "bg": "green",
+      "hu": {
+        "kicker": { "text": "Kimutatások", "color": "white" },
+        "headline": { "text": "Megnézed, mi ismétlődik: témák, éttermek egymás mellett, napszakok.", "mark": "ismétlődik:", "style": "hl-yellow", "size": 40, "long": true },
+        "caption": "A kép a bemutatófiókról készült. Az éttermek nevei, a vendégek szövegei és a számok kitaláltak."
+      },
+      "en": {
+        "kicker": { "text": "Analysis", "color": "white" },
+        "headline": { "text": "You see what keeps repeating: themes, venues side by side, times of day.", "mark": "repeating:", "style": "hl-yellow", "size": 40, "long": true },
+        "caption": "The picture is from the demo account, in the Hungarian version of the app. The venue names, the guest texts and the numbers are made up."
+      },
+      "copy": { "x": 32, "y": 36, "w": 476 },
+      "art": [
+        { "type": "shot", "src": "img/app/app-insights-mobile.png", "x": 240, "y": 262, "w": 272, "pc": "pink" },
+        { "type": "draw", "src": "img/svg/naptar.svg", "x": 36, "y": 272, "w": 180, "rot": -4 }
+      ],
+      "foot": { "capw": 206 },
+      "brand": { "kind": "mark", "x": 478, "y": 40, "w": 30 }
+    },
+    {
+      "id": "post-4x5-07-language", "group": "posts", "format": "post-4x5", "bg": "lilac",
+      "hu": {
+        "headline": { "text": "A választ azon a nyelven írjuk meg, amelyen a vendég írt.", "mark": "nyelven", "style": "hl-yellow", "size": 38, "long": true },
+        "caption": "Illusztráció. A vendégek, az éttermek és a szövegek kitaláltak."
+      },
+      "en": {
+        "headline": { "text": "We write the reply in the language the guest wrote in.", "mark": "language", "style": "hl-yellow", "size": 38, "long": true },
+        "caption": "Illustration. The guests, the venues and the texts are made up."
+      },
+      "copy": { "x": 32, "y": 40, "w": 476 },
+      "art": [
+        { "type": "snip", "ref": "s1", "orig": true, "compact": true, "qs": 20, "x": 28, "y": 184, "w": 440, "rot": -1.2 },
+        { "type": "snip", "ref": "s7", "compact": true, "qs": 20, "x": 64, "y": 336, "w": 444, "rot": 1 },
+        { "type": "snip", "ref": "s8", "compact": true, "qs": 20, "x": 28, "y": 464, "w": 350, "rot": -1.2 },
+        { "type": "draw", "src": "img/svg/buborek.svg", "x": 392, "y": 452, "w": 124, "rot": 6 }
+      ],
+      "foot": { "capw": 400 },
+      "brand": { "kind": "mark", "x": 478, "y": 614, "w": 30 }
+    },
+
+    {
+      "id": "story-9x16-08-reviews", "group": "stories", "format": "story-9x16", "bg": "yellow",
+      "hu": {
+        "headline": { "text": "Minden\nértékelés.\nEgy helyen.", "mark": "helyen.", "style": "mk-pink", "size": 76 },
+        "caption": "Illusztráció. A vendégek, az éttermek és a szövegek kitaláltak."
+      },
+      "en": {
+        "headline": { "text": "Every\nreview.\nOne place.", "mark": "place.", "style": "mk-pink", "size": 76 },
+        "caption": "Illustration. The guests, the venues and the texts are made up."
+      },
+      "copy": { "x": 36, "y": 142, "w": 468 },
+      "art": [
+        { "type": "snip", "ref": "s1", "x": 30, "y": 394, "w": 236, "rot": -3 },
+        { "type": "snip", "ref": "s5", "x": 274, "y": 388, "w": 236, "rot": 2.5 },
+        { "type": "snip", "ref": "s3", "x": 116, "y": 578, "w": 300, "rot": 1.5 },
+        { "type": "render", "src": "img/3d/terkeptu.png", "x": 330, "y": 772, "w": 204 }
+      ],
+      "foot": { "capw": 380 },
+      "brand": { "kind": "mark", "x": 474, "y": 146, "w": 30 }
+    },
+    {
+      "id": "story-9x16-09-report", "group": "stories", "format": "story-9x16", "bg": "blue",
+      "hu": {
+        "headline": { "text": "Minden reggel\negy jelentés.", "mark": "jelentés.", "style": "hl-yellow", "size": 64 },
+        "sub": { "text": "Abban az órában érkezik, amit beállítasz. Telegramon, ha összekötöd, és mindig a fiókodban.", "size": 22 },
+        "caption": "Illusztráció. Az éttermek nevei, a szövegek és a számok kitaláltak."
+      },
+      "en": {
+        "headline": { "text": "One report\nevery morning.", "mark": "morning.", "style": "hl-yellow", "size": 64 },
+        "sub": { "text": "It arrives at the hour you set. On Telegram if you connect it, and always in your account.", "size": 22 },
+        "caption": "Illustration. The venue names, the texts and the numbers are made up."
+      },
+      "copy": { "x": 36, "y": 142, "w": 468 },
+      "art": [
+        { "type": "frame", "src": "img/frames/{lang}-report.png", "x": 226, "y": 392, "w": 262 },
+        { "type": "render", "src": "img/3d/ebreszto.png", "x": 12, "y": 526, "w": 206, "z": 3 },
+        { "type": "render", "src": "img/3d/kave.png", "x": 262, "y": 790, "w": 246 }
+      ],
+      "foot": { "capw": 420 },
+      "brand": { "kind": "mark", "x": 474, "y": 756, "w": 30 }
+    },
+    {
+      "id": "story-9x16-10-groups", "group": "stories", "format": "story-9x16", "bg": "orange",
+      "hu": {
+        "kicker": { "text": "Csoportoknak", "color": "white" },
+        "headline": { "text": "Több étterem\negy fiókban,\negymás mellett.", "mark": "mellett.", "style": "mk-blue", "size": 52 },
+        "sub": { "text": "Te döntöd el, ki melyik éttermet látja.", "size": 23 },
+        "caption": "Illusztráció. Az éttermek nevei, a szövegek és a számok kitaláltak."
+      },
+      "en": {
+        "kicker": { "text": "For groups", "color": "white" },
+        "headline": { "text": "Several venues\nin one account,\nside by side.", "mark": "side.", "style": "mk-blue", "size": 52 },
+        "sub": { "text": "You decide who sees which venue.", "size": 23 },
+        "caption": "Illustration. The venue names, the texts and the numbers are made up."
+      },
+      "copy": { "x": 36, "y": 134, "w": 468 },
+      "art": [
+        { "type": "frame", "src": "img/frames/{lang}-cards-col.png", "x": 60, "y": 418, "w": 420 },
+        { "type": "render", "src": "img/3d/terkeptu.png", "x": 20, "y": 786, "w": 190 }
+      ],
+      "foot": { "capw": 420 },
+      "brand": { "kind": "mark", "x": 474, "y": 756, "w": 30 }
+    },
+    {
+      "id": "story-9x16-11-start", "group": "stories", "format": "story-9x16", "bg": "green",
+      "hu": {
+        "headline": { "text": "Hogyan indul", "mark": "indul", "style": "mk-blue", "size": 70 },
+        "sub": { "text": "Négy lépés. Az étterem felvétele után pár perccel már látod az értékeléseidet.", "size": 22 },
+        "steps": ["Regisztrálsz", "Felveszed az éttermet", "Kezelőnek felveszel minket", "Beállítod a napi jelentést"]
+      },
+      "en": {
+        "headline": { "text": "How it starts", "mark": "starts", "style": "mk-blue", "size": 70 },
+        "sub": { "text": "Four steps. A few minutes after you add the venue, you can see your reviews.", "size": 22 },
+        "steps": ["You sign up", "You add the venue", "You add us as a manager", "You set up the daily report"]
+      },
+      "copy": { "x": 36, "y": 142, "w": 468 },
+      "steps": { "x": 36, "y": 334, "w": 462, "gap": 22, "colors": ["white", "white", "white", "white"] },
+      "art": [
+        { "type": "draw", "src": "img/svg/tabla.svg", "x": 368, "y": 788, "w": 150, "rot": 6 }
+      ],
+      "brand": { "kind": "mark", "x": 474, "y": 146, "w": 30 }
+    },
+    {
+      "id": "story-9x16-12-phone", "group": "stories", "format": "story-9x16", "bg": "pink",
+      "hu": {
+        "kicker": { "text": "Telefonon", "color": "white" },
+        "headline": { "text": "Felteheted a telefonod kezdőképernyőjére, és úgy nyílik, mint egy alkalmazás.", "mark": "alkalmazás.", "style": "hl-yellow", "size": 42, "long": true },
+        "sub": { "text": "Böngészőben megy, telefonon és gépen is.", "size": 22 },
+        "caption": "A kép a bemutatófiókról készült. Az éttermek nevei, a vendégek szövegei és a számok kitaláltak."
+      },
+      "en": {
+        "kicker": { "text": "On your phone", "color": "white" },
+        "headline": { "text": "You can put it on your phone's home screen, and it opens like an app.", "mark": "app.", "style": "hl-yellow", "size": 42, "long": true },
+        "sub": { "text": "It runs in the browser, on your phone and on a computer.", "size": 22 },
+        "caption": "The picture is from the demo account, in the Hungarian version of the app. The venue names, the guest texts and the numbers are made up."
+      },
+      "copy": { "x": 36, "y": 134, "w": 468 },
+      "art": [
+        { "type": "render", "src": "img/3d/phone-ma.png", "x": -44, "y": 452, "w": 420 }
+      ],
+      "foot": { "x": 358, "r": 36 },
+      "brand": { "kind": "mark", "x": 474, "y": 138, "w": 30 }
+    },
+    {
+      "id": "story-9x16-13-edits", "group": "stories", "format": "story-9x16", "bg": "lilac",
+      "hu": {
+        "kicker": { "text": "Módosításfigyelő", "color": "white" },
+        "headline": { "text": "Látod, ha egy vendég utólag átírja az értékelését, és azt is, miről mire.", "mark": "átírja", "style": "hl-yellow", "size": 42, "long": true },
+        "caption": "Illusztráció. Az éttermek nevei, a szövegek és a számok kitaláltak. A felépítés a valódi napi jelentésé."
+      },
+      "en": {
+        "kicker": { "text": "Edit watch", "color": "white" },
+        "headline": { "text": "You see when a guest rewrites a review afterwards, and what changed into what.", "mark": "rewrites", "style": "hl-yellow", "size": 42, "long": true },
+        "caption": "Illustration. The venue names, the texts and the numbers are made up. The structure is the real daily report."
+      },
+      "copy": { "x": 36, "y": 134, "w": 468 },
+      "art": [
+        { "type": "changes", "x": 42, "y": 388, "w": 452, "rot": 2, "from": 4, "to": 1, "count": 1,
+          "hu": { "title": "BISTROTECH NAPI JELENTÉS", "date": "2026. szept. 15., kedd", "section": "Módosított értékelések", "note": "Már beszámolt értékelések, amelyeket a vendég utólag átírt. Az összesítésben nem szerepelnek.", "venue": "Példa Bisztró", "guest": "Teszt Bence", "quote": "„Hideg volt a köret, és senki nem kérdezte, milyen volt.”", "time": "7:45" },
+          "en": { "title": "BISTROTECH DAILY REPORT", "date": "15 Sep 2026, Tuesday", "section": "Changed reviews", "note": "Reviews already counted that the guest rewrote afterwards. They are not in the totals.", "venue": "Példa Bisztró", "guest": "Teszt Bence", "quote": "“The side dish was cold, and nobody asked how it was.”", "time": "07:45" } },
+        { "type": "draw", "src": "img/svg/ceruza.svg", "x": 364, "y": 792, "w": 150, "rot": -8 }
+      ],
+      "foot": { "capw": 468 },
+      "brand": { "kind": "mark", "x": 474, "y": 138, "w": 30 }
+    },
+
+    {
+      "id": "carousel-4x5-1of5-reviews", "group": "carousel", "format": "carousel-4x5", "bg": "yellow",
+      "hu": {
+        "kicker": { "text": "Egy reggel a BistroTechhel", "color": "ink" },
+        "headline": { "text": "Minden\nértékelés.\nEgy helyen.", "mark": "helyen.", "style": "mk-pink", "size": 64 },
+        "sub": "Így jönnek az értékelések, minden étteremből egy helyre.",
+        "caption": "Illusztráció. A vendégek, az éttermek és a szövegek kitaláltak."
+      },
+      "en": {
+        "kicker": { "text": "A morning with BistroTech", "color": "ink" },
+        "headline": { "text": "Every\nreview.\nOne place.", "mark": "place.", "style": "mk-pink", "size": 64 },
+        "sub": "This is how the reviews come in, from every venue to one place.",
+        "caption": "Illustration. The guests, the venues and the texts are made up."
+      },
+      "copy": { "x": 32, "y": 36, "w": 476 },
+      "art": [
+        { "type": "snip", "ref": "s1", "x": 28, "y": 366, "w": 238, "rot": -3 },
+        { "type": "snip", "ref": "s2", "x": 272, "y": 358, "w": 238, "rot": 2.5 }
+      ],
+      "foot": { "capw": 380 },
+      "next": { "x": 454, "y": 590 }
+    },
+    {
+      "id": "carousel-4x5-2of5-report", "group": "carousel", "format": "carousel-4x5", "bg": "blue",
+      "hu": {
+        "headline": { "text": "Minden reggel\negy jelentés.", "mark": "jelentés.", "style": "hl-yellow", "size": 58 },
+        "sub": "Abban az órában érkezik, amit beállítasz. Telegramon, ha összekötöd, és mindig a fiókodban.",
+        "caption": "Illusztráció. Az éttermek nevei, a szövegek és a számok kitaláltak."
+      },
+      "en": {
+        "headline": { "text": "One report\nevery morning.", "mark": "morning.", "style": "hl-yellow", "size": 58 },
+        "sub": "It arrives at the hour you set. On Telegram if you connect it, and always in your account.",
+        "caption": "Illustration. The venue names, the texts and the numbers are made up."
+      },
+      "copy": { "x": 32, "y": 44, "w": 476 },
+      "art": [
+        { "type": "frame", "src": "img/frames/{lang}-report.png", "x": 258, "y": 276, "w": 228 },
+        { "type": "render", "src": "img/3d/ebreszto.png", "x": 28, "y": 330, "w": 222, "z": 3 }
+      ],
+      "foot": { "capw": 380 },
+      "next": { "x": 454, "y": 590 }
+    },
+    {
+      "id": "carousel-4x5-3of5-approve", "group": "carousel", "format": "carousel-4x5", "bg": "pink",
+      "hu": {
+        "headline": { "text": "Elolvasod, ha kell,\nátírod, jóváhagyod.", "mark": "jóváhagyod.", "style": "hl-yellow", "size": 50 },
+        "stickers": [ { "text": "Minden választ te hagysz jóvá.", "color": "yellow", "x": 36, "y": 162, "rot": -3 } ],
+        "caption": "Illusztráció. A vendég, az étterem és a szöveg kitalált."
+      },
+      "en": {
+        "headline": { "text": "You read it, rewrite it\nif you need to,\nand approve it.", "mark": "approve", "style": "hl-yellow", "size": 44 },
+        "stickers": [ { "text": "You approve every reply.", "color": "yellow", "x": 36, "y": 190, "rot": -3 } ],
+        "caption": "Illustration. The guest, the venue and the text are made up."
+      },
+      "copy": { "x": 32, "y": 42, "w": 476 },
+      "art": [
+        { "type": "frame", "src": "img/frames/{lang}-stack.png", "x": 30, "y": 216, "w": 322, "en": { "y": 244, "w": 310 } },
+        { "type": "render", "src": "img/3d/papirrepulo.png", "x": 336, "y": 246, "w": 198, "rot": -6 }
+      ],
+      "foot": { "capw": 380 },
+      "next": { "x": 454, "y": 590 }
+    },
+    {
+      "id": "carousel-4x5-4of5-done", "group": "carousel", "format": "carousel-4x5", "bg": "green",
+      "hu": {
+        "headline": { "text": "Ma nincs\nteendőd.", "mark": "nincs", "style": "hl-white", "size": 80 },
+        "sub": "Nincs több jóváhagyásra váró válasz.",
+        "stickers": [ { "text": "kész", "color": "white", "x": 378, "y": 300, "rot": 8, "stamp": true } ]
+      },
+      "en": {
+        "headline": { "text": "Nothing\nneeds you\ntoday.", "mark": "Nothing", "style": "hl-white", "size": 70 },
+        "sub": "No more replies are waiting for approval.",
+        "stickers": [ { "text": "done", "color": "white", "x": 372, "y": 342, "rot": 8, "stamp": true } ]
+      },
+      "copy": { "x": 32, "y": 44, "w": 476 },
+      "art": [
+        { "type": "render", "src": "img/3d/bubble.png", "x": 70, "y": 246, "w": 400, "en": { "x": 104, "y": 300, "w": 340 } }
+      ],
+      "next": { "x": 454, "y": 590 }
+    },
+    {
+      "id": "carousel-4x5-5of5-groups", "group": "carousel", "format": "carousel-4x5", "bg": "orange",
+      "hu": {
+        "kicker": { "text": "Csoportoknak", "color": "white" },
+        "headline": { "text": "Több étterem\negy fiókban,\negymás mellett.", "mark": "mellett.", "style": "mk-blue", "size": 50 },
+        "cta": { "text": "Nézd meg, hogyan működik", "color": "ink" },
+        "caption": "Illusztráció. Az éttermek nevei, a szövegek és a számok kitaláltak."
+      },
+      "en": {
+        "kicker": { "text": "For groups", "color": "white" },
+        "headline": { "text": "Several venues\nin one account,\nside by side.", "mark": "side.", "style": "mk-blue", "size": 50 },
+        "cta": { "text": "See how it works", "color": "ink" },
+        "caption": "Illustration. The venue names, the texts and the numbers are made up."
+      },
+      "copy": { "x": 32, "y": 36, "w": 476 },
+      "art": [
+        { "type": "frame", "src": "img/frames/{lang}-cards-col.png", "x": 208, "y": 250, "w": 300 },
+        { "type": "render", "src": "img/3d/terkeptu.png", "x": 8, "y": 262, "w": 196 }
+      ],
+      "foot": { "capw": 330 },
+      "brand": { "kind": "mark", "x": 478, "y": 614, "w": 30 }
+    },
+
+    {
+      "id": "ad-1x1-a1-reviews", "group": "ads", "concept": "a1", "format": "ad-1x1", "bg": "yellow",
+      "hu": {
+        "headline": { "text": "Minden értékelés.\nEgy helyen.", "mark": "helyen.", "style": "mk-pink", "size": 50 },
+        "cta": { "text": "Nézd meg, hogyan működik", "color": "blue" },
+        "caption": "Illusztráció. A vendégek, az éttermek és a szövegek kitaláltak."
+      },
+      "en": {
+        "headline": { "text": "Every review.\nOne place.", "mark": "place.", "style": "mk-pink", "size": 50 },
+        "cta": { "text": "See how it works", "color": "blue" },
+        "caption": "Illustration. The guests, the venues and the texts are made up."
+      },
+      "copy": { "x": 32, "y": 118, "w": 476 },
+      "art": [
+        { "type": "snip", "ref": "s1", "x": 32, "y": 234, "w": 420, "rot": -2 },
+        { "type": "render", "src": "img/3d/terkeptu.png", "x": 364, "y": 370, "w": 168 }
+      ],
+      "foot": { "capw": 320 },
+      "brand": { "kind": "lockup", "x": 34, "y": 34, "w": 230 }
+    },
+    {
+      "id": "ad-4x5-a1-reviews", "group": "ads", "concept": "a1", "format": "ad-4x5", "bg": "yellow",
+      "hu": {
+        "headline": { "text": "Minden értékelés.\nEgy helyen.", "mark": "helyen.", "style": "mk-pink", "size": 54 },
+        "sub": "Így jönnek az értékelések, minden étteremből egy helyre.",
+        "cta": { "text": "Nézd meg, hogyan működik", "color": "blue" },
+        "caption": "Illusztráció. A vendégek, az éttermek és a szövegek kitaláltak."
+      },
+      "en": {
+        "headline": { "text": "Every review.\nOne place.", "mark": "place.", "style": "mk-pink", "size": 54 },
+        "sub": "This is how the reviews come in, from every venue to one place.",
+        "cta": { "text": "See how it works", "color": "blue" },
+        "caption": "Illustration. The guests, the venues and the texts are made up."
+      },
+      "copy": { "x": 32, "y": 118, "w": 476 },
+      "art": [
+        { "type": "snip", "ref": "s1", "x": 28, "y": 318, "w": 238, "rot": -3 },
+        { "type": "snip", "ref": "s5", "x": 272, "y": 310, "w": 238, "rot": 2.5 }
+      ],
+      "foot": { "capw": 470 },
+      "brand": { "kind": "lockup", "x": 34, "y": 34, "w": 230 }
+    },
+    {
+      "id": "ad-9x16-a1-reviews", "group": "ads", "concept": "a1", "format": "ad-9x16", "bg": "yellow",
+      "hu": {
+        "headline": { "text": "Minden\nértékelés.\nEgy helyen.", "mark": "helyen.", "style": "mk-pink", "size": 70 },
+        "cta": { "text": "Nézd meg, hogyan működik", "color": "blue" },
+        "caption": "Illusztráció. A vendégek, az éttermek és a szövegek kitaláltak."
+      },
+      "en": {
+        "headline": { "text": "Every\nreview.\nOne place.", "mark": "place.", "style": "mk-pink", "size": 70 },
+        "cta": { "text": "See how it works", "color": "blue" },
+        "caption": "Illustration. The guests, the venues and the texts are made up."
+      },
+      "copy": { "x": 36, "y": 222, "w": 468 },
+      "art": [
+        { "type": "snip", "ref": "s1", "x": 30, "y": 458, "w": 236, "rot": -3 },
+        { "type": "snip", "ref": "s5", "x": 274, "y": 452, "w": 236, "rot": 2.5 },
+        { "type": "render", "src": "img/3d/phone-rep.png", "x": 276, "y": 780, "w": 280, "rot": 8 }
+      ],
+      "foot": { "capw": 330 },
+      "brand": { "kind": "lockup", "x": 36, "y": 140, "w": 230 }
+    },
+    {
+      "id": "ad-1x1-a2-report", "group": "ads", "concept": "a2", "format": "ad-1x1", "bg": "blue",
+      "hu": {
+        "headline": { "text": "Minden\nreggel egy\njelentés.", "mark": "jelentés.", "style": "hl-yellow", "size": 46 },
+        "cta": { "text": "Nézd meg, hogyan működik", "color": "yellow" },
+        "caption": "Illusztráció. Az éttermek nevei, a szövegek és a számok kitaláltak."
+      },
+      "en": {
+        "headline": { "text": "One report\nevery\nmorning.", "mark": "morning.", "style": "hl-yellow", "size": 46 },
+        "cta": { "text": "See how it works", "color": "yellow" },
+        "caption": "Illustration. The venue names, the texts and the numbers are made up."
+      },
+      "copy": { "x": 32, "y": 118, "w": 250 },
+      "art": [
+        { "type": "frame", "src": "img/frames/{lang}-report.png", "x": 292, "y": 60, "w": 214 },
+        { "type": "render", "src": "img/3d/ebreszto.png", "x": 350, "y": 350, "w": 170, "z": 3 }
+      ],
+      "foot": { "t": 356, "capw": 250 },
+      "brand": { "kind": "lockup", "x": 34, "y": 34, "w": 230 }
+    },
+    {
+      "id": "ad-4x5-a2-report", "group": "ads", "concept": "a2", "format": "ad-4x5", "bg": "blue",
+      "hu": {
+        "headline": { "text": "Minden reggel\negy jelentés.", "mark": "jelentés.", "style": "hl-yellow", "size": 56 },
+        "sub": "Minden étterem, minden nap, egy jelentésben.",
+        "cta": { "text": "Nézd meg, hogyan működik", "color": "yellow" },
+        "caption": "Illusztráció. Az éttermek nevei, a szövegek és a számok kitaláltak."
+      },
+      "en": {
+        "headline": { "text": "One report\nevery morning.", "mark": "morning.", "style": "hl-yellow", "size": 56 },
+        "sub": "Every venue, every day, in one report.",
+        "cta": { "text": "See how it works", "color": "yellow" },
+        "caption": "Illustration. The venue names, the texts and the numbers are made up."
+      },
+      "copy": { "x": 32, "y": 118, "w": 476 },
+      "art": [
+        { "type": "frame", "src": "img/frames/{lang}-report.png", "x": 268, "y": 268, "w": 214 },
+        { "type": "render", "src": "img/3d/ebreszto.png", "x": 40, "y": 290, "w": 214, "z": 3 }
+      ],
+      "foot": { "capw": 470 },
+      "brand": { "kind": "lockup", "x": 34, "y": 34, "w": 230 }
+    },
+    {
+      "id": "ad-9x16-a2-report", "group": "ads", "concept": "a2", "format": "ad-9x16", "bg": "blue",
+      "hu": {
+        "headline": { "text": "Minden reggel\negy jelentés.", "mark": "jelentés.", "style": "hl-yellow", "size": 62 },
+        "sub": { "text": "Minden étterem, minden nap, egy jelentésben.", "size": 22 },
+        "cta": { "text": "Nézd meg, hogyan működik", "color": "yellow" },
+        "caption": "Illusztráció. Az éttermek nevei, a szövegek és a számok kitaláltak."
+      },
+      "en": {
+        "headline": { "text": "One report\nevery morning.", "mark": "morning.", "style": "hl-yellow", "size": 62 },
+        "sub": { "text": "Every venue, every day, in one report.", "size": 22 },
+        "cta": { "text": "See how it works", "color": "yellow" },
+        "caption": "Illustration. The venue names, the texts and the numbers are made up."
+      },
+      "copy": { "x": 36, "y": 222, "w": 468 },
+      "art": [
+        { "type": "frame", "src": "img/frames/{lang}-report.png", "x": 272, "y": 402, "w": 208 },
+        { "type": "render", "src": "img/3d/ebreszto.png", "x": 30, "y": 418, "w": 226, "z": 3 },
+        { "type": "render", "src": "img/3d/kave.png", "x": 280, "y": 792, "w": 236 }
+      ],
+      "foot": { "capw": 330 },
+      "brand": { "kind": "lockup", "x": 36, "y": 140, "w": 230 }
+    },
+    {
+      "id": "ad-1x1-a3-approve", "group": "ads", "concept": "a3", "format": "ad-1x1", "bg": "pink",
+      "hu": {
+        "headline": { "text": "Minden\nválaszt te\nhagysz jóvá.", "mark": "te", "style": "hl-yellow", "size": 44 },
+        "cta": { "text": "Nézd meg, hogyan működik", "color": "white" },
+        "caption": "Illusztráció. A vendég, az étterem és a szöveg kitalált."
+      },
+      "en": {
+        "headline": { "text": "You\napprove\nevery reply.", "mark": "You", "style": "hl-yellow", "size": 46 },
+        "cta": { "text": "See how it works", "color": "white" },
+        "caption": "Illustration. The guest, the venue and the text are made up."
+      },
+      "copy": { "x": 32, "y": 118, "w": 250 },
+      "art": [
+        { "type": "frame", "src": "img/frames/{lang}-stack.png", "x": 286, "y": 52, "w": 222 },
+        { "type": "render", "src": "img/3d/papirrepulo.png", "x": 318, "y": 308, "w": 200, "rot": -6 }
+      ],
+      "foot": { "t": 292, "capw": 250 },
+      "brand": { "kind": "lockup", "x": 34, "y": 34, "w": 230 }
+    },
+    {
+      "id": "ad-4x5-a3-approve", "group": "ads", "concept": "a3", "format": "ad-4x5", "bg": "pink",
+      "hu": {
+        "headline": { "text": "Minden választ\nte hagysz jóvá.", "mark": "te", "style": "hl-yellow", "size": 54 },
+        "sub": "Elolvasod, ha kell, átírod, jóváhagyod.",
+        "cta": { "text": "Nézd meg, hogyan működik", "color": "white" },
+        "caption": "Illusztráció. A vendég, az étterem és a szöveg kitalált."
+      },
+      "en": {
+        "headline": { "text": "You approve\nevery reply.", "mark": "You", "style": "hl-yellow", "size": 54 },
+        "sub": "You read it, rewrite it if you need to, and approve it.",
+        "cta": { "text": "See how it works", "color": "white" },
+        "caption": "Illustration. The guest, the venue and the text are made up."
+      },
+      "copy": { "x": 32, "y": 118, "w": 476 },
+      "art": [
+        { "type": "frame", "src": "img/frames/{lang}-stack.png", "x": 30, "y": 284, "w": 236 },
+        { "type": "render", "src": "img/3d/papirrepulo.png", "x": 280, "y": 296, "w": 230, "rot": -6 }
+      ],
+      "foot": { "capw": 470 },
+      "brand": { "kind": "lockup", "x": 34, "y": 34, "w": 230 }
+    },
+    {
+      "id": "ad-9x16-a3-approve", "group": "ads", "concept": "a3", "format": "ad-9x16", "bg": "pink",
+      "hu": {
+        "headline": { "text": "Minden választ\nte hagysz jóvá.", "mark": "te", "style": "hl-yellow", "size": 60 },
+        "sub": { "text": "Elolvasod, ha kell, átírod, jóváhagyod.", "size": 22 },
+        "cta": { "text": "Nézd meg, hogyan működik", "color": "white" },
+        "caption": "Illusztráció. A vendég, az étterem és a szöveg kitalált."
+      },
+      "en": {
+        "headline": { "text": "You approve\nevery reply.", "mark": "You", "style": "hl-yellow", "size": 60 },
+        "sub": { "text": "You read it, rewrite it if you need to, and approve it.", "size": 22 },
+        "cta": { "text": "See how it works", "color": "white" },
+        "caption": "Illustration. The guest, the venue and the text are made up."
+      },
+      "copy": { "x": 36, "y": 222, "w": 468 },
+      "art": [
+        { "type": "frame", "src": "img/frames/{lang}-stack.png", "x": 32, "y": 396, "w": 262 },
+        { "type": "render", "src": "img/3d/papirrepulo.png", "x": 300, "y": 430, "w": 226, "rot": -6 }
+      ],
+      "foot": { "capw": 330 },
+      "brand": { "kind": "lockup", "x": 36, "y": 140, "w": 230 }
+    },
+
+    {
+      "id": "cover-fb-reviews", "group": "profile", "format": "cover-fb", "bg": "yellow",
+      "hu": {
+        "headline": { "text": "Minden értékelés.\nEgy helyen.", "mark": "helyen.", "style": "mk-pink", "size": 54 },
+        "sub": { "text": "Értékeléskezelés éttermeknek.", "size": 22 }
+      },
+      "en": {
+        "headline": { "text": "Every review.\nOne place.", "mark": "place.", "style": "mk-pink", "size": 54 },
+        "sub": { "text": "Review management for restaurants.", "size": 22 }
+      },
+      "copy": { "x": 150, "y": 82, "w": 520, "center": true },
+      "art": [
+        { "type": "render", "src": "img/3d/phone-rep.png", "x": -66, "y": 20, "w": 280, "rot": -6 },
+        { "type": "render", "src": "img/3d/ebreszto.png", "x": 648, "y": 10, "w": 190 },
+        { "type": "render", "src": "img/3d/kave.png", "x": 656, "y": 168, "w": 172 }
+      ]
+    },
+    {
+      "id": "profile-mark", "group": "profile", "format": "profile", "bg": "yellow", "neutral": true,
+      "hu": { "title": "BistroTech" },
+      "brand": { "kind": "mark", "x": 105, "y": 103, "w": 330, "ink": true }
+    }
+  ]
+}

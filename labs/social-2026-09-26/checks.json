@@ -1,0 +1,653 @@
+{
+ "_about": "Written by tools/build.mjs. One entry per picture with the problems found (none means it passed), every text colour and ground pair with its computed contrast, and the website copy check.",
+ "version": "0.1.0",
+ "date": "2026-09-26",
+ "when": "2026-09-26T18:52:32.316Z",
+ "pictures": 57,
+ "failed": 0,
+ "copy_check": {
+  "summary": "75 file(s), 0 error(s), 0 warning(s)",
+  "findings": []
+ },
+ "index": [],
+ "contrast": [
+  {
+   "pair": "#0a0a0a on #ff2d9b",
+   "ratio": 5.75,
+   "example": "Példa Bisztró",
+   "pictures": 20
+  },
+  {
+   "pair": "#ffffff on #2a48f5",
+   "ratio": 6.28,
+   "example": "Minden reggel",
+   "pictures": 18
+  },
+  {
+   "pair": "#0a0a0a on #a78bfa",
+   "ratio": 7.27,
+   "example": "A választ azon a",
+   "pictures": 4
+  },
+  {
+   "pair": "#555555 on #ffffff",
+   "ratio": 7.46,
+   "example": "2026. szept. 15., kedd",
+   "pictures": 2
+  },
+  {
+   "pair": "#0a0a0a on #ff7a3d",
+   "ratio": 7.64,
+   "example": "ha egy étteremnél egycsillagos sorozat jön, vagy esik az átlag.",
+   "pictures": 6
+  },
+  {
+   "pair": "#0a0a0a on #38d6e0",
+   "ratio": 11.18,
+   "example": "Egy mondatban",
+   "pictures": 4
+  },
+  {
+   "pair": "#0a0a0a on #9be15d",
+   "ratio": 12.56,
+   "example": "Példa Bisztró",
+   "pictures": 10
+  },
+  {
+   "pair": "#0a0a0a on #ffe500",
+   "ratio": 15.52,
+   "example": "Minden",
+   "pictures": 46
+  },
+  {
+   "pair": "#ffe500 on #0a0a0a",
+   "ratio": 15.52,
+   "example": "Egy reggel a BistroTechhel",
+   "pictures": 2
+  },
+  {
+   "pair": "#ffffff on #0a0a0a",
+   "ratio": 19.8,
+   "example": "Példa",
+   "pictures": 16
+  },
+  {
+   "pair": "#0a0a0a on #ffffff",
+   "ratio": 19.8,
+   "example": "Példa Bisztró",
+   "pictures": 36
+  }
+ ],
+ "results": [
+  {
+   "id": "post-4x5-01-reviews",
+   "lang": "hu",
+   "file": "png/hu/BistroTech-hu-post-4x5-01-reviews.png",
+   "px": "1080 x 1350",
+   "bytes": 221326,
+   "texts": 23,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "post-4x5-01-reviews",
+   "lang": "en",
+   "file": "png/en/BistroTech-en-post-4x5-01-reviews.png",
+   "px": "1080 x 1350",
+   "bytes": 216739,
+   "texts": 23,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "post-1x1-02-report",
+   "lang": "hu",
+   "file": "png/hu/BistroTech-hu-post-1x1-02-report.png",
+   "px": "1080 x 1080",
+   "bytes": 230490,
+   "texts": 4,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "post-1x1-02-report",
+   "lang": "en",
+   "file": "png/en/BistroTech-en-post-1x1-02-report.png",
+   "px": "1080 x 1080",
+   "bytes": 221236,
+   "texts": 4,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "post-4x5-03-approve",
+   "lang": "hu",
+   "file": "png/hu/BistroTech-hu-post-4x5-03-approve.png",
+   "px": "1080 x 1350",
+   "bytes": 342198,
+   "texts": 5,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "post-4x5-03-approve",
+   "lang": "en",
+   "file": "png/en/BistroTech-en-post-4x5-03-approve.png",
+   "px": "1080 x 1350",
+   "bytes": 331823,
+   "texts": 5,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "post-1x1-04-today",
+   "lang": "hu",
+   "file": "png/hu/BistroTech-hu-post-1x1-04-today.png",
+   "px": "1080 x 1080",
+   "bytes": 286198,
+   "texts": 5,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "post-1x1-04-today",
+   "lang": "en",
+   "file": "png/en/BistroTech-en-post-1x1-04-today.png",
+   "px": "1080 x 1080",
+   "bytes": 286977,
+   "texts": 5,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "post-1x1-05-alert",
+   "lang": "hu",
+   "file": "png/hu/BistroTech-hu-post-1x1-05-alert.png",
+   "px": "1080 x 1080",
+   "bytes": 112777,
+   "texts": 3,
+   "minText": 19,
+   "problems": []
+  },
+  {
+   "id": "post-1x1-05-alert",
+   "lang": "en",
+   "file": "png/en/BistroTech-en-post-1x1-05-alert.png",
+   "px": "1080 x 1080",
+   "bytes": 101482,
+   "texts": 4,
+   "minText": 19,
+   "problems": []
+  },
+  {
+   "id": "post-4x5-06-analysis",
+   "lang": "hu",
+   "file": "png/hu/BistroTech-hu-post-4x5-06-analysis.png",
+   "px": "1080 x 1350",
+   "bytes": 221383,
+   "texts": 5,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "post-4x5-06-analysis",
+   "lang": "en",
+   "file": "png/en/BistroTech-en-post-4x5-06-analysis.png",
+   "px": "1080 x 1350",
+   "bytes": 230347,
+   "texts": 5,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "post-4x5-07-language",
+   "lang": "hu",
+   "file": "png/hu/BistroTech-hu-post-4x5-07-language.png",
+   "px": "1080 x 1350",
+   "bytes": 176785,
+   "texts": 16,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "post-4x5-07-language",
+   "lang": "en",
+   "file": "png/en/BistroTech-en-post-4x5-07-language.png",
+   "px": "1080 x 1350",
+   "bytes": 174167,
+   "texts": 16,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "story-9x16-08-reviews",
+   "lang": "hu",
+   "file": "png/hu/BistroTech-hu-story-9x16-08-reviews.png",
+   "px": "1080 x 1920",
+   "bytes": 237640,
+   "texts": 23,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "story-9x16-08-reviews",
+   "lang": "en",
+   "file": "png/en/BistroTech-en-story-9x16-08-reviews.png",
+   "px": "1080 x 1920",
+   "bytes": 227865,
+   "texts": 23,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "story-9x16-09-report",
+   "lang": "hu",
+   "file": "png/hu/BistroTech-hu-story-9x16-09-report.png",
+   "px": "1080 x 1920",
+   "bytes": 309709,
+   "texts": 5,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "story-9x16-09-report",
+   "lang": "en",
+   "file": "png/en/BistroTech-en-story-9x16-09-report.png",
+   "px": "1080 x 1920",
+   "bytes": 297314,
+   "texts": 5,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "story-9x16-10-groups",
+   "lang": "hu",
+   "file": "png/hu/BistroTech-hu-story-9x16-10-groups.png",
+   "px": "1080 x 1920",
+   "bytes": 406999,
+   "texts": 7,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "story-9x16-10-groups",
+   "lang": "en",
+   "file": "png/en/BistroTech-en-story-9x16-10-groups.png",
+   "px": "1080 x 1920",
+   "bytes": 407894,
+   "texts": 7,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "story-9x16-11-start",
+   "lang": "hu",
+   "file": "png/hu/BistroTech-hu-story-9x16-11-start.png",
+   "px": "1080 x 1920",
+   "bytes": 118560,
+   "texts": 11,
+   "minText": 22,
+   "problems": []
+  },
+  {
+   "id": "story-9x16-11-start",
+   "lang": "en",
+   "file": "png/en/BistroTech-en-story-9x16-11-start.png",
+   "px": "1080 x 1920",
+   "bytes": 117665,
+   "texts": 11,
+   "minText": 22,
+   "problems": []
+  },
+  {
+   "id": "story-9x16-12-phone",
+   "lang": "hu",
+   "file": "png/hu/BistroTech-hu-story-9x16-12-phone.png",
+   "px": "1080 x 1920",
+   "bytes": 264664,
+   "texts": 5,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "story-9x16-12-phone",
+   "lang": "en",
+   "file": "png/en/BistroTech-en-story-9x16-12-phone.png",
+   "px": "1080 x 1920",
+   "bytes": 266797,
+   "texts": 5,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "story-9x16-13-edits",
+   "lang": "hu",
+   "file": "png/hu/BistroTech-hu-story-9x16-13-edits.png",
+   "px": "1080 x 1920",
+   "bytes": 203712,
+   "texts": 16,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "story-9x16-13-edits",
+   "lang": "en",
+   "file": "png/en/BistroTech-en-story-9x16-13-edits.png",
+   "px": "1080 x 1920",
+   "bytes": 197514,
+   "texts": 16,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "carousel-4x5-1of5-reviews",
+   "lang": "hu",
+   "file": "png/hu/BistroTech-hu-carousel-4x5-1of5-reviews.png",
+   "px": "1080 x 1350",
+   "bytes": 183207,
+   "texts": 19,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "carousel-4x5-1of5-reviews",
+   "lang": "en",
+   "file": "png/en/BistroTech-en-carousel-4x5-1of5-reviews.png",
+   "px": "1080 x 1350",
+   "bytes": 180682,
+   "texts": 19,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "carousel-4x5-2of5-report",
+   "lang": "hu",
+   "file": "png/hu/BistroTech-hu-carousel-4x5-2of5-report.png",
+   "px": "1080 x 1350",
+   "bytes": 255876,
+   "texts": 5,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "carousel-4x5-2of5-report",
+   "lang": "en",
+   "file": "png/en/BistroTech-en-carousel-4x5-2of5-report.png",
+   "px": "1080 x 1350",
+   "bytes": 245242,
+   "texts": 5,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "carousel-4x5-3of5-approve",
+   "lang": "hu",
+   "file": "png/hu/BistroTech-hu-carousel-4x5-3of5-approve.png",
+   "px": "1080 x 1350",
+   "bytes": 354931,
+   "texts": 5,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "carousel-4x5-3of5-approve",
+   "lang": "en",
+   "file": "png/en/BistroTech-en-carousel-4x5-3of5-approve.png",
+   "px": "1080 x 1350",
+   "bytes": 333811,
+   "texts": 7,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "carousel-4x5-4of5-done",
+   "lang": "hu",
+   "file": "png/hu/BistroTech-hu-carousel-4x5-4of5-done.png",
+   "px": "1080 x 1350",
+   "bytes": 128860,
+   "texts": 5,
+   "minText": 21,
+   "problems": []
+  },
+  {
+   "id": "carousel-4x5-4of5-done",
+   "lang": "en",
+   "file": "png/en/BistroTech-en-carousel-4x5-4of5-done.png",
+   "px": "1080 x 1350",
+   "bytes": 132558,
+   "texts": 5,
+   "minText": 21,
+   "problems": []
+  },
+  {
+   "id": "carousel-4x5-5of5-groups",
+   "lang": "hu",
+   "file": "png/hu/BistroTech-hu-carousel-4x5-5of5-groups.png",
+   "px": "1080 x 1350",
+   "bytes": 286841,
+   "texts": 7,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "carousel-4x5-5of5-groups",
+   "lang": "en",
+   "file": "png/en/BistroTech-en-carousel-4x5-5of5-groups.png",
+   "px": "1080 x 1350",
+   "bytes": 287408,
+   "texts": 7,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "ad-1x1-a1-reviews",
+   "lang": "hu",
+   "file": "png/hu/BistroTech-hu-ad-1x1-a1-reviews.png",
+   "px": "1080 x 1080",
+   "bytes": 131988,
+   "texts": 11,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "ad-1x1-a1-reviews",
+   "lang": "en",
+   "file": "png/en/BistroTech-en-ad-1x1-a1-reviews.png",
+   "px": "1080 x 1080",
+   "bytes": 126205,
+   "texts": 11,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "ad-4x5-a1-reviews",
+   "lang": "hu",
+   "file": "png/hu/BistroTech-hu-ad-4x5-a1-reviews.png",
+   "px": "1080 x 1350",
+   "bytes": 179401,
+   "texts": 18,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "ad-4x5-a1-reviews",
+   "lang": "en",
+   "file": "png/en/BistroTech-en-ad-4x5-a1-reviews.png",
+   "px": "1080 x 1350",
+   "bytes": 174852,
+   "texts": 18,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "ad-9x16-a1-reviews",
+   "lang": "hu",
+   "file": "png/hu/BistroTech-hu-ad-9x16-a1-reviews.png",
+   "px": "1080 x 1920",
+   "bytes": 244008,
+   "texts": 18,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "ad-9x16-a1-reviews",
+   "lang": "en",
+   "file": "png/en/BistroTech-en-ad-9x16-a1-reviews.png",
+   "px": "1080 x 1920",
+   "bytes": 235739,
+   "texts": 18,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "ad-1x1-a2-report",
+   "lang": "hu",
+   "file": "png/hu/BistroTech-hu-ad-1x1-a2-report.png",
+   "px": "1080 x 1080",
+   "bytes": 219099,
+   "texts": 5,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "ad-1x1-a2-report",
+   "lang": "en",
+   "file": "png/en/BistroTech-en-ad-1x1-a2-report.png",
+   "px": "1080 x 1080",
+   "bytes": 209584,
+   "texts": 5,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "ad-4x5-a2-report",
+   "lang": "hu",
+   "file": "png/hu/BistroTech-hu-ad-4x5-a2-report.png",
+   "px": "1080 x 1350",
+   "bytes": 241585,
+   "texts": 6,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "ad-4x5-a2-report",
+   "lang": "en",
+   "file": "png/en/BistroTech-en-ad-4x5-a2-report.png",
+   "px": "1080 x 1350",
+   "bytes": 230327,
+   "texts": 6,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "ad-9x16-a2-report",
+   "lang": "hu",
+   "file": "png/hu/BistroTech-hu-ad-9x16-a2-report.png",
+   "px": "1080 x 1920",
+   "bytes": 275746,
+   "texts": 6,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "ad-9x16-a2-report",
+   "lang": "en",
+   "file": "png/en/BistroTech-en-ad-9x16-a2-report.png",
+   "px": "1080 x 1920",
+   "bytes": 266022,
+   "texts": 6,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "ad-1x1-a3-approve",
+   "lang": "hu",
+   "file": "png/hu/BistroTech-hu-ad-1x1-a3-approve.png",
+   "px": "1080 x 1080",
+   "bytes": 241179,
+   "texts": 6,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "ad-1x1-a3-approve",
+   "lang": "en",
+   "file": "png/en/BistroTech-en-ad-1x1-a3-approve.png",
+   "px": "1080 x 1080",
+   "bytes": 231566,
+   "texts": 5,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "ad-4x5-a3-approve",
+   "lang": "hu",
+   "file": "png/hu/BistroTech-hu-ad-4x5-a3-approve.png",
+   "px": "1080 x 1350",
+   "bytes": 274251,
+   "texts": 6,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "ad-4x5-a3-approve",
+   "lang": "en",
+   "file": "png/en/BistroTech-en-ad-4x5-a3-approve.png",
+   "px": "1080 x 1350",
+   "bytes": 264459,
+   "texts": 6,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "ad-9x16-a3-approve",
+   "lang": "hu",
+   "file": "png/hu/BistroTech-hu-ad-9x16-a3-approve.png",
+   "px": "1080 x 1920",
+   "bytes": 305856,
+   "texts": 6,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "ad-9x16-a3-approve",
+   "lang": "en",
+   "file": "png/en/BistroTech-en-ad-9x16-a3-approve.png",
+   "px": "1080 x 1920",
+   "bytes": 298547,
+   "texts": 6,
+   "minText": 16,
+   "problems": []
+  },
+  {
+   "id": "cover-fb-reviews",
+   "lang": "hu",
+   "file": "png/hu/BistroTech-hu-cover-fb-reviews.png",
+   "px": "1640 x 624",
+   "bytes": 197467,
+   "texts": 4,
+   "minText": 22,
+   "problems": []
+  },
+  {
+   "id": "cover-fb-reviews",
+   "lang": "en",
+   "file": "png/en/BistroTech-en-cover-fb-reviews.png",
+   "px": "1640 x 624",
+   "bytes": 201763,
+   "texts": 4,
+   "minText": 22,
+   "problems": []
+  },
+  {
+   "id": "profile-mark",
+   "lang": "hu",
+   "file": "png/common/BistroTech-profile-mark.png",
+   "px": "1080 x 1080",
+   "bytes": 22392,
+   "texts": 0,
+   "minText": 999,
+   "problems": []
+  }
+ ]
+}

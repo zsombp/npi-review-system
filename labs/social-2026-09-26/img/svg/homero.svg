@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Hőmérő">
+<title>Hőmérő</title>
+<!-- BistroTech Pop spot illustration, v0.2.0, 2026-09-26. Source: tools/build_svg.py.
+     Outline 2.5 and a 7 px hard shadow in currentColor (ink by default, white on a dark
+     ground when the page sets color: #fff); details ink 6 px; fills from the Pop blocks. -->
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g>
+      <rect x="68" y="22" width="104" height="194" rx="26"/>
+    </g>
+  </g>
+  <g stroke="currentColor" stroke-width="2.5">
+    <rect x="68" y="22" width="104" height="194" rx="26" fill="#a78bfa"/>
+    <rect x="104" y="40" width="32" height="130" rx="16" fill="#ffffff"/>
+    <path d="M112 157.5V100A8 8 0 0 1 128 100V157.5A22 22 0 1 1 112 157.5Z" fill="#ff2d9b"/>
+    <path d="M80 56L94 56" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M84 80L94 80" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M80 104L94 104" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M84 128L94 128" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M80 152L94 152" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+  </g>
+</g>
+</svg>

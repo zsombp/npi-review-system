@@ -1,0 +1,441 @@
+{
+ "_about": "Where every picture and font in this folder came from. Written by tools/material.mjs; do not edit.",
+ "version": "0.1.0",
+ "date": "2026-09-26",
+ "files": [
+  {
+   "file": "fonts/OFL-SourceSans3.txt",
+   "from": "docs/design/lab/video-2026-09-26/fonts/OFL-SourceSans3.txt",
+   "bytes": 4579,
+   "sha256": "09746787287a289323b0ec3cff4d1a4a801331b82b7207c1e186f5d26619a392",
+   "note": ""
+  },
+  {
+   "file": "fonts/OFL-SpaceGrotesk.txt",
+   "from": "docs/design/lab/video-2026-09-26/fonts/OFL-SpaceGrotesk.txt",
+   "bytes": 4495,
+   "sha256": "564ce565c371c5e5bbf286006565a7c9aa55a9f56e7ca58d56e05d649dd61a72",
+   "note": ""
+  },
+  {
+   "file": "fonts/sourcesans3-italic-lat-ext.woff2",
+   "from": "docs/design/lab/video-2026-09-26/fonts/sourcesans3-italic-lat-ext.woff2",
+   "bytes": 17744,
+   "sha256": "57a6daf034e758edc4bd846eafd16cfb267dc92aea40077b3b67ff430a5cc06f",
+   "note": ""
+  },
+  {
+   "file": "fonts/sourcesans3-italic-latin.woff2",
+   "from": "docs/design/lab/video-2026-09-26/fonts/sourcesans3-italic-latin.woff2",
+   "bytes": 28776,
+   "sha256": "53560e7c25628bda69c00bd0b44f0883439c52250aa1c9837e284100063941a2",
+   "note": ""
+  },
+  {
+   "file": "fonts/sourcesans3-lat-ext.woff2",
+   "from": "docs/design/lab/video-2026-09-26/fonts/sourcesans3-lat-ext.woff2",
+   "bytes": 22556,
+   "sha256": "46a7dcdb219ffa52b957c680142eab9126d0b8c7898cfeadffae2d49a5ea4bda",
+   "note": ""
+  },
+  {
+   "file": "fonts/sourcesans3-latin.woff2",
+   "from": "docs/design/lab/video-2026-09-26/fonts/sourcesans3-latin.woff2",
+   "bytes": 36256,
+   "sha256": "4494a617a6a028c49e1ab41d1fd22c78a60d1347b0d6996aa856c44ee2d93130",
+   "note": ""
+  },
+  {
+   "file": "fonts/spacegrotesk-display-lat-ext.woff2",
+   "from": "docs/design/lab/video-2026-09-26/fonts/spacegrotesk-display-lat-ext.woff2",
+   "bytes": 10608,
+   "sha256": "f7347ed38578d54d72b665d03d1cc8bb7921477abed312e9f167d93875917dfc",
+   "note": ""
+  },
+  {
+   "file": "fonts/spacegrotesk-display-latin.woff2",
+   "from": "docs/design/lab/video-2026-09-26/fonts/spacegrotesk-display-latin.woff2",
+   "bytes": 20188,
+   "sha256": "18ec4291aba5c8e1c080c6688bd15311e05a7a5cef875e81b74ab9daf5a52cf2",
+   "note": ""
+  },
+  {
+   "file": "img/svg/asztali-kartya.svg",
+   "from": "docs/design/lab/illustration-2026-09-26/svg/asztali-kartya.svg",
+   "bytes": 3830,
+   "sha256": "f65d6f2817049cda1205c0d93ab7714cb52e583884ff726ff4b8882b6a5bf490",
+   "note": ""
+  },
+  {
+   "file": "img/svg/boritek.svg",
+   "from": "docs/design/lab/illustration-2026-09-26/svg/boritek.svg",
+   "bytes": 1036,
+   "sha256": "b9199fd877ef95e68b1027a22becf946dc96a82d900d5d857bda783b871c0a9b",
+   "note": ""
+  },
+  {
+   "file": "img/svg/borravalo.svg",
+   "from": "docs/design/lab/illustration-2026-09-26/svg/borravalo.svg",
+   "bytes": 1350,
+   "sha256": "9402f98b0dddb590a5e13fa38842d3a755d25926e1afa6a7547c9dc6bbd96283",
+   "note": ""
+  },
+  {
+   "file": "img/svg/buborek.svg",
+   "from": "docs/design/lab/illustration-2026-09-26/svg/buborek.svg",
+   "bytes": 1593,
+   "sha256": "d7a390881d0fd64d0e48e64fce960a7a77ba4c2870c82eb2e5107cb5244be13e",
+   "note": ""
+  },
+  {
+   "file": "img/svg/ceruza.svg",
+   "from": "docs/design/lab/illustration-2026-09-26/svg/ceruza.svg",
+   "bytes": 1506,
+   "sha256": "ff1d55d511124fa08f843b99eaad95cdfdbc8fdb44bb70c75353d73b48a6f455",
+   "note": ""
+  },
+  {
+   "file": "img/svg/cetli.svg",
+   "from": "docs/design/lab/illustration-2026-09-26/svg/cetli.svg",
+   "bytes": 1365,
+   "sha256": "17ab0603168675f5282f8fca7cb83a7e45ad37d0ac7f4b92c25b29080301006e",
+   "note": ""
+  },
+  {
+   "file": "img/svg/csengo.svg",
+   "from": "docs/design/lab/illustration-2026-09-26/svg/csengo.svg",
+   "bytes": 1553,
+   "sha256": "920cad909a50dcccb3484a798bf69695a21851a9b1a361909e20d2af2c117c83",
+   "note": ""
+  },
+  {
+   "file": "img/svg/ebreszto.svg",
+   "from": "docs/design/lab/illustration-2026-09-26/svg/ebreszto.svg",
+   "bytes": 2241,
+   "sha256": "4564627e1ca1c8a6ba03df1af2c40cc81a57c0eee8667865c16dcdf03aeee317",
+   "note": ""
+  },
+  {
+   "file": "img/svg/etlap.svg",
+   "from": "docs/design/lab/illustration-2026-09-26/svg/etlap.svg",
+   "bytes": 2264,
+   "sha256": "ba986224f42148f35ac221a5e3228dcccffbc7d9850d38b88c059b67527a531f",
+   "note": ""
+  },
+  {
+   "file": "img/svg/hold.svg",
+   "from": "docs/design/lab/illustration-2026-09-26/svg/hold.svg",
+   "bytes": 1031,
+   "sha256": "3ed7016689e4ebab3258e3f1e75681592269fc1e2a32847fc17afe1ae452417f",
+   "note": ""
+  },
+  {
+   "file": "img/svg/homero.svg",
+   "from": "docs/design/lab/illustration-2026-09-26/svg/homero.svg",
+   "bytes": 1335,
+   "sha256": "5664f05028a17b04ea0506f1f396b12fa90518bb3da27aac73e04ebd65224726",
+   "note": ""
+  },
+  {
+   "file": "img/svg/izzo.svg",
+   "from": "docs/design/lab/illustration-2026-09-26/svg/izzo.svg",
+   "bytes": 1622,
+   "sha256": "a54151b5a70289c4df2c14f61824fc9902555225c2275be8436dbd5ad2edcdba",
+   "note": ""
+  },
+  {
+   "file": "img/svg/kave.svg",
+   "from": "docs/design/lab/illustration-2026-09-26/svg/kave.svg",
+   "bytes": 1634,
+   "sha256": "892f7867165e29fa5b6d695ddadf70f797e3264801d47a91de72808194b21310",
+   "note": ""
+  },
+  {
+   "file": "img/svg/kokarda.svg",
+   "from": "docs/design/lab/illustration-2026-09-26/svg/kokarda.svg",
+   "bytes": 1644,
+   "sha256": "7aba55e787d0add26520f15b27b32b724f8dbb3a94dab24e7914ab070d476947",
+   "note": ""
+  },
+  {
+   "file": "img/svg/nagyito.svg",
+   "from": "docs/design/lab/illustration-2026-09-26/svg/nagyito.svg",
+   "bytes": 1664,
+   "sha256": "196bc4c8586dbde40470e18fe4b635c3da45f7ad3481afc2f2012a9699004ab5",
+   "note": ""
+  },
+  {
+   "file": "img/svg/nap.svg",
+   "from": "docs/design/lab/illustration-2026-09-26/svg/nap.svg",
+   "bytes": 2471,
+   "sha256": "1318dabc1b4cc873110bb636c119cbcf440246e69d58e83242b29ca25ba89bf7",
+   "note": ""
+  },
+  {
+   "file": "img/svg/naptar.svg",
+   "from": "docs/design/lab/illustration-2026-09-26/svg/naptar.svg",
+   "bytes": 2254,
+   "sha256": "7a9e7fe468fe2024748608c441dd49daafa8a81e384af29fff027c0fda4da9fd",
+   "note": ""
+  },
+  {
+   "file": "img/svg/nyitva.svg",
+   "from": "docs/design/lab/illustration-2026-09-26/svg/nyitva.svg",
+   "bytes": 1526,
+   "sha256": "14cda632d1182d31b184e94ec2867aae1287b7c73e66f9a1c00030d53515f4a5",
+   "note": ""
+  },
+  {
+   "file": "img/svg/nyugta.svg",
+   "from": "docs/design/lab/illustration-2026-09-26/svg/nyugta.svg",
+   "bytes": 2447,
+   "sha256": "958d0f32131f8ead5510551134a9e1e4b7c729e361ef47f8562e605d1d41aec8",
+   "note": ""
+  },
+  {
+   "file": "img/svg/papirrepulo.svg",
+   "from": "docs/design/lab/illustration-2026-09-26/svg/papirrepulo.svg",
+   "bytes": 958,
+   "sha256": "3a95cafd0f7d165815031256279fa1b101ff731c10264b3907614aa812492680",
+   "note": ""
+  },
+  {
+   "file": "img/svg/pecset.svg",
+   "from": "docs/design/lab/illustration-2026-09-26/svg/pecset.svg",
+   "bytes": 1380,
+   "sha256": "872c8d3c89c674543f5571e07eaa32963cd3e709a7cd829f4edbde64a18d5648",
+   "note": ""
+  },
+  {
+   "file": "img/svg/tabla.svg",
+   "from": "docs/design/lab/illustration-2026-09-26/svg/tabla.svg",
+   "bytes": 1815,
+   "sha256": "7b8355ee7e37ac7804a20274648eca19f4ce211c4688217316f0f8d8eccc51e7",
+   "note": ""
+  },
+  {
+   "file": "img/svg/talca.svg",
+   "from": "docs/design/lab/illustration-2026-09-26/svg/talca.svg",
+   "bytes": 1639,
+   "sha256": "ec293854a6ba7d8fb73c536850d0f9d8c511527a5bb03e0cf77e0d376cdc629b",
+   "note": ""
+  },
+  {
+   "file": "img/svg/telefon.svg",
+   "from": "docs/design/lab/illustration-2026-09-26/svg/telefon.svg",
+   "bytes": 1559,
+   "sha256": "aac61ced3de138a30098649f77a53394ac62355bee05f8dd41a72a028dad71e6",
+   "note": ""
+  },
+  {
+   "file": "img/svg/terkeptu.svg",
+   "from": "docs/design/lab/illustration-2026-09-26/svg/terkeptu.svg",
+   "bytes": 1021,
+   "sha256": "6c124c59a1a1241a5befbb92cc8cabaaaa79cb92617f1fe06d1a494e278e807c",
+   "note": ""
+  },
+  {
+   "file": "img/svg/zacsko.svg",
+   "from": "docs/design/lab/illustration-2026-09-26/svg/zacsko.svg",
+   "bytes": 1144,
+   "sha256": "2191ed4ab4e74a1b01889d3eeedb4161736cfc07745f14bb71d068dbb62403ad",
+   "note": ""
+  },
+  {
+   "file": "img/3d/phone-rep.png",
+   "from": "docs/design/lab/illustration-2026-09-26/renders/phone-rep.png",
+   "bytes": 471567,
+   "sha256": "0cdca8ea9d622938e45c20799a88d2b4c743691c86b0b9d3fb195a3d1a475eb0",
+   "note": ""
+  },
+  {
+   "file": "img/3d/phone-ma.png",
+   "from": "docs/design/lab/illustration-2026-09-26/renders/phone-ma.png",
+   "bytes": 475044,
+   "sha256": "98bc0a035db800d80c039cf6e540f785008c76d9dc70f7c93fcb9858a8a7b144",
+   "note": ""
+  },
+  {
+   "file": "img/3d/bubble.png",
+   "from": "docs/design/lab/illustration-2026-09-26/renders/bubble.png",
+   "bytes": 228942,
+   "sha256": "604a602373ab4ceb3bb1ece9c695366fe5a8f9e382513add0df5d160b37bdb2e",
+   "note": ""
+  },
+  {
+   "file": "img/3d/bell.png",
+   "from": "docs/design/lab/illustration-2026-09-26/renders/bell.png",
+   "bytes": 245862,
+   "sha256": "53e43e60bd0776e21ccfc6350ea93d1b702c060843ae969088bdf9b252b4230f",
+   "note": ""
+  },
+  {
+   "file": "img/3d/tent.png",
+   "from": "docs/design/lab/illustration-2026-09-26/renders/tent.png",
+   "bytes": 311684,
+   "sha256": "881c1369c2e0ae82f9d6873e15d2f29673267537886137ec89255bcd16002a20",
+   "note": ""
+  },
+  {
+   "file": "img/3d/ebreszto.png",
+   "from": "docs/design/lab/illustration-2026-09-26/renders/ebreszto.png",
+   "bytes": 324267,
+   "sha256": "c0876f3c1f6a07f98c681bfc39098c8b844526b6402cc21ed9f2c7d530ca9103",
+   "note": ""
+  },
+  {
+   "file": "img/3d/kave.png",
+   "from": "docs/design/lab/illustration-2026-09-26/renders/kave.png",
+   "bytes": 222893,
+   "sha256": "1e73f1de9d4d2ab3631ffcd976276b923a5d53169e668a97992d131940fb0d1e",
+   "note": ""
+  },
+  {
+   "file": "img/3d/terkeptu.png",
+   "from": "docs/design/lab/illustration-2026-09-26/renders/terkeptu.png",
+   "bytes": 224315,
+   "sha256": "60cea523aef58f5178be8d6cf5dc1c7c58e86d84f8ae0d8c8782750947c52075",
+   "note": ""
+  },
+  {
+   "file": "img/3d/papirrepulo.png",
+   "from": "docs/design/lab/illustration-2026-09-26/renders/papirrepulo.png",
+   "bytes": 307235,
+   "sha256": "254a84e697f2b6d99ce9ce9d54d66ebd4740e5d27e7641ff0f655abb40ba6ace",
+   "note": ""
+  },
+  {
+   "file": "img/3d/pecset.png",
+   "from": "docs/design/lab/illustration-2026-09-26/renders/pecset.png",
+   "bytes": 227214,
+   "sha256": "8f05cb2180e8807cb07fd34f9a9c578147554d2dcb71a08ec0f0f4acb9a740d3",
+   "note": ""
+  },
+  {
+   "file": "img/app/app-overview-mobile.png",
+   "from": "platform/website/static/img/help/app-overview-mobile.png",
+   "bytes": 164513,
+   "sha256": "130c459274d7350aa829479e39b9426ee3fe19ae72b55b939c8fcfb9a560904a",
+   "note": ""
+  },
+  {
+   "file": "img/app/app-drafts-mobile.png",
+   "from": "platform/website/static/img/help/app-drafts-mobile.png",
+   "bytes": 153929,
+   "sha256": "7102b32ca918a76df0f21b51d5998b0502a37bab7adb0761543899832dffc7ef",
+   "note": ""
+  },
+  {
+   "file": "img/app/app-reviews-mobile.png",
+   "from": "platform/website/static/img/help/app-reviews-mobile.png",
+   "bytes": 140711,
+   "sha256": "5df3e9ddf17bcb8f22c22b0bcce35d8f0316160174d9224fa412799e0e655123",
+   "note": ""
+  },
+  {
+   "file": "img/app/app-insights-mobile.png",
+   "from": "platform/website/static/img/help/app-insights-mobile.png",
+   "bytes": 210623,
+   "sha256": "8e67f4d98b458214d41a4ffea53242938778a7d82da92f0c5dcfda02c2db48b2",
+   "note": ""
+  },
+  {
+   "file": "img/app/app-rank-mobile.png",
+   "from": "platform/website/static/img/help/app-rank-mobile.png",
+   "bytes": 158028,
+   "sha256": "8757c0836b143f6d7c7cc834984ec9c7990ad9195f9b33bf2172db730a0ca983",
+   "note": ""
+  },
+  {
+   "file": "img/app/app-settings-mobile.png",
+   "from": "platform/website/static/img/help/app-settings-mobile.png",
+   "bytes": 164079,
+   "sha256": "39cdcdcd59cfd51036af99476260608929ff522cfabb6668aff9438859773881",
+   "note": ""
+  },
+  {
+   "file": "img/frames/hu-report.png",
+   "from": "docs/design/lab/video-2026-09-26/intro-hu-silent.mp4",
+   "bytes": 252389,
+   "sha256": "ea5cbeacdb42bfcab7a830a7eb07c029ca5ed4cca218c2e3af3e03fce494f4bb",
+   "note": "S2, the daily report card, tilted; 16:9 cut at 11.4 s, crop 772x1004+1084+76, ground #2a48f5"
+  },
+  {
+   "file": "img/frames/hu-today.png",
+   "from": "docs/design/lab/video-2026-09-26/intro-hu-silent.mp4",
+   "bytes": 433478,
+   "sha256": "a07d78bd4cb84e4d859f2da7cf9afaa1776f0431b83c2535a21687416c4d08ac",
+   "note": "S3, the Ma screen in the phone frame and yesterday's three numbers; 16:9 cut at 17.4 s, crop 1018x1042+884+32, ground #38d6e0"
+  },
+  {
+   "file": "img/frames/hu-stack.png",
+   "from": "docs/design/lab/video-2026-09-26/intro-hu-silent.mp4",
+   "bytes": 438734,
+   "sha256": "103c29c3f311297ec5aefef6a55d8904a5e25706e4fc472fb2162f17ef8c33e3",
+   "note": "S4, the queue of six with the first reply stamped Jóváhagyva; 16:9 cut at 23.8 s, crop 1012x1066+30+14, ground #ff2d9b"
+  },
+  {
+   "file": "img/frames/hu-undo.png",
+   "from": "docs/design/lab/video-2026-09-26/intro-hu-silent.mp4",
+   "bytes": 30102,
+   "sha256": "44e07dd339a2f51eba69ae7c0c243501005422a89983333beff338ec4bbec628",
+   "note": "S4, the undo bar under the approved reply; 16:9 cut at 23.8 s, crop 736x150+1138+898, ground #ff2d9b"
+  },
+  {
+   "file": "img/frames/hu-cards-row.png",
+   "from": "docs/design/lab/video-2026-09-26/intro-hu-silent.mp4",
+   "bytes": 362480,
+   "sha256": "8397b72e1c843e99ba5b2c02aa5e16710e54a08354f319a5fa4d6b0ea8435e00",
+   "note": "S6, three venue cards side by side; 16:9 cut at 37.4 s, crop 1785x556+72+464, ground #ff7a3d"
+  },
+  {
+   "file": "img/frames/hu-cards-col.png",
+   "from": "docs/design/lab/video-2026-09-26/intro-vertical-hu-silent.mp4",
+   "bytes": 333166,
+   "sha256": "78619980be5ed9497234e7399f82349d1d8dc0cef7e0a9a393ec474e623afb5c",
+   "note": "S6, three venue cards one under the other; 9:16 cut at 37.4 s, crop 976x742+58+766, ground #ff7a3d, lifted by 2"
+  },
+  {
+   "file": "img/frames/en-report.png",
+   "from": "docs/design/lab/video-2026-09-26/intro-en-silent.mp4",
+   "bytes": 245042,
+   "sha256": "dca38f1609b2761e6e477de6a9199d9e6d77c2ad12e30988bdac6fc6116e891a",
+   "note": "S2, the daily report card, tilted; 16:9 cut at 11.4 s, crop 772x1004+1084+76, ground #2a48f5"
+  },
+  {
+   "file": "img/frames/en-today.png",
+   "from": "docs/design/lab/video-2026-09-26/intro-en-silent.mp4",
+   "bytes": 436231,
+   "sha256": "d7af9b506a33e0b9fd7765f70e160a1ac435fbb3387da080f212490a6ab35c81",
+   "note": "S3, the Ma screen in the phone frame and yesterday's three numbers; 16:9 cut at 17.4 s, crop 1018x1042+884+32, ground #38d6e0"
+  },
+  {
+   "file": "img/frames/en-stack.png",
+   "from": "docs/design/lab/video-2026-09-26/intro-en-silent.mp4",
+   "bytes": 434515,
+   "sha256": "579cbfbfa1db1906ba1a0578edc7eab5f5891f5a814bca75f9fb3a5017da81b3",
+   "note": "S4, the queue of six with the first reply stamped Jóváhagyva; 16:9 cut at 23.8 s, crop 1012x1066+30+14, ground #ff2d9b"
+  },
+  {
+   "file": "img/frames/en-undo.png",
+   "from": "docs/design/lab/video-2026-09-26/intro-en-silent.mp4",
+   "bytes": 24627,
+   "sha256": "fa159647009c7966546a115ab7da710d90deddafb7e2a66826cc490127a64442",
+   "note": "S4, the undo bar under the approved reply; 16:9 cut at 23.8 s, crop 736x150+1138+898, ground #ff2d9b"
+  },
+  {
+   "file": "img/frames/en-cards-row.png",
+   "from": "docs/design/lab/video-2026-09-26/intro-en-silent.mp4",
+   "bytes": 373050,
+   "sha256": "eda1d40f184bdce38420cd19152780a515cdf2c4f7d097aa4eb44819d0facd2e",
+   "note": "S6, three venue cards side by side; 16:9 cut at 37.4 s, crop 1785x556+72+464, ground #ff7a3d"
+  },
+  {
+   "file": "img/frames/en-cards-col.png",
+   "from": "docs/design/lab/video-2026-09-26/intro-vertical-en-silent.mp4",
+   "bytes": 334453,
+   "sha256": "d0b6dd7449cd474968bd6febc9dddb0f87936b480f7252c046e3f227bf26d66d",
+   "note": "S6, three venue cards one under the other; 9:16 cut at 37.4 s, crop 976x742+58+766, ground #ff7a3d, lifted by 2"
+  }
+ ]
+}
