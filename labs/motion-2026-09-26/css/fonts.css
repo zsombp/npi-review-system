@@ -1,0 +1,20 @@
+/* fonts.css, v0.1.0, 2026-09-26. Motion lab: the two Pop faces only, self-hosted in ../fonts (SIL OFL 1.1,
+   licences beside the files), copied from docs/design/lab/app-pop-2026-09-26/fonts. The rules are the
+   website's (platform/website/static/css/site.css): latin and latin-ext split by unicode-range, and the
+   metric-matched Arial stand-ins so a late font does not move the page. No request leaves the folder. */
+
+@font-face { font-family: "Space Grotesk"; font-style: normal; font-weight: 500 700; font-display: swap; src: url(../fonts/spacegrotesk-display-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Space Grotesk"; font-style: normal; font-weight: 500 700; font-display: swap; src: url(../fonts/spacegrotesk-display-lat-ext.woff2) format("woff2"); unicode-range: U+0100-017F, U+0218-021B, U+1E9E, U+2020, U+2113, U+20A0-20AB, U+20AD-20C0; }
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 400 700; font-display: swap; src: url(../fonts/sourcesans3-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 400 700; font-display: swap; src: url(../fonts/sourcesans3-lat-ext.woff2) format("woff2"); unicode-range: U+0100-017F, U+0218-021B, U+1E9E, U+2020, U+2113, U+20A0-20AB, U+20AD-20C0; }
+@font-face { font-family: "Source Sans 3"; font-style: italic; font-weight: 400 700; font-display: swap; src: url(../fonts/sourcesans3-italic-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Source Sans 3"; font-style: italic; font-weight: 400 700; font-display: swap; src: url(../fonts/sourcesans3-italic-lat-ext.woff2) format("woff2"); unicode-range: U+0100-017F, U+0218-021B, U+1E9E, U+2020, U+2113, U+20A0-20AB, U+20AD-20C0; }
+@font-face { font-family: "BT Text fallback"; src: local("Arial"), local("Helvetica"), local("Liberation Sans"); size-adjust: 92.18%; ascent-override: 111.09%; descent-override: 43.39%; line-gap-override: 0%; }
+@font-face { font-family: "BT Display fallback"; src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold"), local("Arial"); font-weight: 100 900; size-adjust: 101.13%; ascent-override: 97.3%; descent-override: 28.87%; line-gap-override: 0%; }
+
+:root {
+  --font-display: "Space Grotesk", "BT Display fallback", system-ui, sans-serif;
+  --font-text: "Source Sans 3", "BT Text fallback", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --display-weight: 700;
+  --display-scale: 1;
+}

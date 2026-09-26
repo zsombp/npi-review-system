@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Kokárda">
+<title>Kokárda</title>
+<!-- BistroTech Pop spot illustration, v0.2.0, 2026-09-26. Source: tools/build_svg.py.
+     Outline 2.5 and a 7 px hard shadow in currentColor (ink by default, white on a dark
+     ground when the page sets color: #fff); details ink 6 px; fills from the Pop blocks. -->
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g>
+      <path d="M98 126L126 138L106 212L92 198L74 208Z"/>
+      <path d="M142 126L114 138L134 212L148 198L166 208Z"/>
+      <path d="M120 32A16 16 0 0 1 147.8 38.3A16 16 0 0 1 170 56.1A16 16 0 0 1 182.4 81.8A16 16 0 0 1 182.4 110.2A16 16 0 0 1 170 135.9A16 16 0 0 1 147.8 153.7A16 16 0 0 1 120 160A16 16 0 0 1 92.2 153.7A16 16 0 0 1 70 135.9A16 16 0 0 1 57.6 110.2A16 16 0 0 1 57.6 81.8A16 16 0 0 1 70 56.1A16 16 0 0 1 92.2 38.3A16 16 0 0 1 120 32Z"/>
+    </g>
+  </g>
+  <g stroke="currentColor" stroke-width="2.5">
+    <path d="M98 126L126 138L106 212L92 198L74 208Z" fill="#38d6e0"/>
+    <path d="M142 126L114 138L134 212L148 198L166 208Z" fill="#38d6e0"/>
+    <path d="M120 32A16 16 0 0 1 147.8 38.3A16 16 0 0 1 170 56.1A16 16 0 0 1 182.4 81.8A16 16 0 0 1 182.4 110.2A16 16 0 0 1 170 135.9A16 16 0 0 1 147.8 153.7A16 16 0 0 1 120 160A16 16 0 0 1 92.2 153.7A16 16 0 0 1 70 135.9A16 16 0 0 1 57.6 110.2A16 16 0 0 1 57.6 81.8A16 16 0 0 1 70 56.1A16 16 0 0 1 92.2 38.3A16 16 0 0 1 120 32Z" fill="#ff2d9b"/>
+    <circle cx="120" cy="96" r="40" fill="#ffe500"/>
+  </g>
+</g>
+</svg>

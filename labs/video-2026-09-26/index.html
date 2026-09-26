@@ -1,0 +1,193 @@
+<!doctype html>
+<!-- BistroTech introduction video: the page that shows it. v0.2.0, 2026-09-26 (v0.1.0 the same day; v0.2.0: the
+     9:16 cut, the music, the silent copies as files). Self-contained: the fonts, the posters and the videos are in
+     this folder; nothing loads from anywhere else. The players never start by themselves. All example data is
+     fictional. The music is CC0 (docs/brand/music/loyalty-freak-music-positive-attitude/README.md). -->
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BistroTech bemutatkozó videó</title>
+<meta name="description" content="A BistroTech bemutatkozó videója: 44 másodperc zenével, magyarul és angolul, fekvő (16:9) és álló (9:16) változatban, a Pop arculatban.">
+<link rel="preload" href="fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family: "Space Grotesk"; font-style: normal; font-weight: 500 700; font-display: swap; src: url(fonts/spacegrotesk-display-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Space Grotesk"; font-style: normal; font-weight: 500 700; font-display: swap; src: url(fonts/spacegrotesk-display-lat-ext.woff2) format("woff2"); unicode-range: U+0100-017F, U+0218-021B, U+1E9E, U+2020, U+2113, U+20A0-20AB, U+20AD-20C0; }
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 400 700; font-display: swap; src: url(fonts/sourcesans3-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 400 700; font-display: swap; src: url(fonts/sourcesans3-lat-ext.woff2) format("woff2"); unicode-range: U+0100-017F, U+0218-021B, U+1E9E, U+2020, U+2113, U+20A0-20AB, U+20AD-20C0; }
+/* Pop, Citrom (docs/brand/POP-IDENTITY-v1.0.0.md). Text is ink on the light blocks (yellow 15.52, pink 5.75,
+   lilac 7.27, cyan 11.18, paper 19.80) and white on ink (19.80); muted #555 only on paper (7.46). */
+:root {
+  color-scheme: light;
+  --ink: #0a0a0a; --paper: #ffffff; --muted: #555555;
+  --yellow: #ffe500; --pink: #ff2d9b; --green: #9be15d; --cyan: #38d6e0; --lilac: #a78bfa; --orange: #ff7a3d; --blue: #2a48f5;
+  --font-d: "Space Grotesk", system-ui, sans-serif; --font-t: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --gutter: 16px;
+}
+@media (min-width: 600px) { :root { --gutter: 32px; } }
+@media (min-width: 1024px) { :root { --gutter: 48px; } }
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 18px/1.55 var(--font-t); -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: var(--font-d); font-weight: 700; margin: 0; text-wrap: balance; }
+p { margin: 0 0 1em; text-wrap: pretty; }
+p:last-child { margin-bottom: 0; }
+a { color: inherit; text-decoration-thickness: 2px; text-underline-offset: .18em; }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.wrap { max-width: calc(1180px + 2 * var(--gutter)); margin: 0 auto; padding: 0 var(--gutter); }
+.skip { position: absolute; left: 12px; top: -80px; padding: 10px 16px; background: var(--yellow); border: 2px solid var(--ink); border-radius: 12px; font: 700 16px/1.2 var(--font-d); }
+.skip:focus { top: 12px; }
+.blk { border-top: 2px solid var(--ink); padding: clamp(48px, 7vw, 96px) 0; }
+.blk-yellow { background: var(--yellow); } .blk-pink { background: var(--pink); } .blk-cyan { background: var(--cyan); } .blk-lilac { background: var(--lilac); }
+.blk-black { background: var(--ink); color: #fff; }
+.kicker { display: inline-block; margin: 0 0 18px; padding: 8px 14px; font: 700 16px/1.15 var(--font-d); background: var(--paper); border: 2px solid var(--ink); border-radius: 12px; box-shadow: 3px 3px 0 var(--ink); transform: rotate(-3deg); }
+h1 { font-size: clamp(46px, 30px + 5vw, 104px); line-height: .94; letter-spacing: -.045em; }
+h2 { font-size: clamp(34px, 24px + 3vw, 64px); line-height: .98; letter-spacing: -.035em; }
+.hl { display: inline-block; padding: 0 .1em .04em; background: var(--paper); border: 2px solid var(--ink); border-radius: .12em; box-shadow: .05em .05em 0 var(--ink); transform: rotate(-1.5deg); }
+.lead { max-width: 40em; margin-top: 22px; font-size: clamp(19px, 16px + .55vw, 23px); line-height: 1.45; }
+.facts { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; margin: 26px 0 0; padding: 0; }
+.facts li { padding: 7px 14px; font: 700 16px/1.2 var(--font-d); background: var(--paper); border: 2px solid var(--ink); border-radius: 999px; box-shadow: 3px 3px 0 var(--ink); }
+.films { display: grid; gap: 36px; margin-top: 40px; }
+@media (min-width: 1000px) { .films { grid-template-columns: 1fr 1fr; gap: 30px; } }
+.films-v { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 360px)); justify-content: start; }
+@media (min-width: 1000px) { .films-v { grid-template-columns: repeat(2, 360px); gap: 44px; } }
+.film { margin: 0; padding: 16px 16px 18px; background: var(--paper); border: 2px solid var(--ink); border-radius: 22px; box-shadow: 8px 8px 0 var(--ink); }
+.film:nth-child(odd) { transform: rotate(-.6deg); } .film:nth-child(even) { transform: rotate(.5deg); }
+.film video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: var(--yellow); border: 2px solid var(--ink); border-radius: 12px; }
+.films-v .film video { aspect-ratio: 9 / 16; border-radius: 26px; }
+.film figcaption { margin-top: 14px; }
+.film h3 { font-size: 26px; letter-spacing: -.02em; }
+.files { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 8px 0 0; padding: 0; list-style: none; font-size: 16px; }
+.files a { font-weight: 600; }
+.credit { margin: 10px 0 0; font-size: 15px; color: var(--muted); }
+.note { margin-top: 26px; font-size: 16px; max-width: 52em; }
+.sub { margin-top: 18px; max-width: 44em; font-size: 18px; }
+.scenes { list-style: none; margin: 34px 0 0; padding: 0; display: grid; gap: 18px; }
+@media (min-width: 800px) { .scenes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1150px) { .scenes { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.scene { position: relative; padding: 18px 20px 18px; background: var(--c); border: 2px solid var(--ink); border-radius: 18px; box-shadow: 6px 6px 0 var(--ink); }
+.scene .n { position: absolute; right: 16px; top: 12px; font: 700 15px/1 var(--font-d); }
+.scene h3 { font-size: 23px; line-height: 1.1; letter-spacing: -.02em; padding-right: 76px; }
+.scene p { margin-top: 8px; font-size: 16px; line-height: 1.45; }
+.scene .en { font-style: italic; }
+.c-yellow { --c: var(--yellow); } .c-blue { --c: #c9d3ff; } .c-cyan { --c: var(--cyan); } .c-pink { --c: var(--pink); } .c-green { --c: var(--green); } .c-orange { --c: var(--orange); } .c-white { --c: var(--paper); }
+.how { margin-top: 24px; max-width: 46em; }
+.how li { margin-top: 8px; }
+.btn { display: inline-flex; align-items: center; min-height: 50px; padding: 11px 22px; font: 700 17px/1.15 var(--font-d); color: #fff; background: var(--blue); border: 2px solid var(--ink); border-radius: 999px; box-shadow: 4px 4px 0 var(--ink); text-decoration: none; }
+.btn:active { transform: translate(4px, 4px); box-shadow: none; }
+.actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+.btn-white { color: var(--ink); background: var(--paper); }
+.foot { padding: 34px 0 44px; font-size: 15px; }
+.foot p { max-width: 60em; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Ugrás a videókhoz</a>
+<main id="main">
+  <section class="blk blk-yellow" aria-labelledby="h1">
+    <div class="wrap">
+      <p class="kicker">Labor, 2026. szeptember 26.</p>
+      <h1 id="h1">Bemutatkozó <span class="hl">videó</span></h1>
+      <p class="lead">A weboldal, ahogy megmozdul, a zene ütemére: hét jelenet egy idővonalon, a Pop arculat blokkjaival, matricáival és pattanó mozgásával. A szavak a képen vannak, ezért felirat sem kell hozzá. Minden mondata a weboldalról vagy a termékből való.</p>
+      <ul class="facts" aria-label="A videó adatai">
+        <li>44 másodperc</li><li>fekvő és álló</li><li>zenével</li><li>magyarul és angolul</li>
+      </ul>
+      <div class="films">
+        <figure class="film">
+          <video controls preload="metadata" playsinline poster="intro-hu-poster.png" aria-label="A BistroTech bemutatkozó videója, magyarul, 16:9">
+            <source src="intro-hu.webm" type="video/webm">
+            <source src="intro-hu.mp4" type="video/mp4">
+          </video>
+          <figcaption>
+            <h3 lang="hu">Magyarul, 16:9</h3>
+            <ul class="files"><li><a href="intro-hu.mp4">MP4</a></li><li><a href="intro-hu.webm">WebM</a></li><li><a href="intro-hu-silent.mp4">MP4 hang nélkül</a></li><li><a href="intro-hu-silent.webm">WebM hang nélkül</a></li><li><a href="intro-hu-poster.png">Borítókép</a></li></ul>
+            <p class="credit">Zene: Loyalty Freak Music, Love Train (CC0)</p>
+          </figcaption>
+        </figure>
+        <figure class="film">
+          <video controls preload="metadata" playsinline poster="intro-en-poster.png" aria-label="The BistroTech introduction video, in English, 16:9" lang="en">
+            <source src="intro-en.webm" type="video/webm">
+            <source src="intro-en.mp4" type="video/mp4">
+          </video>
+          <figcaption lang="en">
+            <h3>In English, 16:9</h3>
+            <ul class="files"><li><a href="intro-en.mp4">MP4</a></li><li><a href="intro-en.webm">WebM</a></li><li><a href="intro-en-silent.mp4">MP4 without sound</a></li><li><a href="intro-en-silent.webm">WebM without sound</a></li><li><a href="intro-en-poster.png">Poster</a></li></ul>
+            <p class="credit">Music: Loyalty Freak Music, Love Train (CC0)</p>
+          </figcaption>
+        </figure>
+      </div>
+      <p class="note">Illusztráció. Az éttermek, a vendégek, a szövegek és a számok kitaláltak. Ár, próbaidő, ügyfélszám és webcím szándékosan nincs a videóban.</p>
+    </div>
+  </section>
+
+  <section class="blk blk-lilac" aria-labelledby="h-vert">
+    <div class="wrap">
+      <h2 id="h-vert">Állóban, telefonra</h2>
+      <p class="sub">Ugyanaz a hét jelenet, ugyanazok a mondatok és ugyanaz az ütem, állóra komponálva: nagy betűk, nagy képernyők. A felső 250 és az alsó 350 képpontban nincs szöveg, ott a telefonos alkalmazások gombjai és feliratai ülnek.</p>
+      <div class="films films-v">
+        <figure class="film">
+          <video controls preload="metadata" playsinline poster="intro-vertical-hu-poster.png" aria-label="A BistroTech bemutatkozó videója, magyarul, álló">
+            <source src="intro-vertical-hu.webm" type="video/webm">
+            <source src="intro-vertical-hu.mp4" type="video/mp4">
+          </video>
+          <figcaption>
+            <h3 lang="hu">Magyarul, 9:16</h3>
+            <ul class="files"><li><a href="intro-vertical-hu.mp4">MP4</a></li><li><a href="intro-vertical-hu.webm">WebM</a></li><li><a href="intro-vertical-hu-silent.mp4">MP4 hang nélkül</a></li><li><a href="intro-vertical-hu-silent.webm">WebM hang nélkül</a></li><li><a href="intro-vertical-hu-poster.png">Borítókép</a></li></ul>
+            <p class="credit">Zene: Loyalty Freak Music, Love Train (CC0)</p>
+          </figcaption>
+        </figure>
+        <figure class="film">
+          <video controls preload="metadata" playsinline poster="intro-vertical-en-poster.png" aria-label="The BistroTech introduction video, in English, vertical" lang="en">
+            <source src="intro-vertical-en.webm" type="video/webm">
+            <source src="intro-vertical-en.mp4" type="video/mp4">
+          </video>
+          <figcaption lang="en">
+            <h3>In English, 9:16</h3>
+            <ul class="files"><li><a href="intro-vertical-en.mp4">MP4</a></li><li><a href="intro-vertical-en.webm">WebM</a></li><li><a href="intro-vertical-en-silent.mp4">MP4 without sound</a></li><li><a href="intro-vertical-en-silent.webm">WebM without sound</a></li><li><a href="intro-vertical-en-poster.png">Poster</a></li></ul>
+            <p class="credit">Music: Loyalty Freak Music, Love Train (CC0)</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk blk-pink" aria-labelledby="h-scenes">
+    <div class="wrap">
+      <h2 id="h-scenes">A hét jelenet</h2>
+      <ol class="scenes">
+        <li class="scene c-yellow"><span class="n">0:00</span><h3>Minden értékelés. Egy helyen.</h3><p>Tíz példa-értékelés érkezik párosával, ütemre, Google és Tripadvisor felirattal, aztán mind beül a weboldal fekete szalagjába.</p><p class="en" lang="en">Every review. One place.</p></li>
+        <li class="scene c-blue"><span class="n">0:06</span><h3>Minden reggel egy jelentés.</h3><p>A kék blokk a zene belépésére ér be. Szól a 3D ébresztőóra, 7:45-öt mutat, és kinyomtatódik a napi jelentés. Mellé érkezik a kávé.</p><p class="en" lang="en">One report every morning.</p></li>
+        <li class="scene c-cyan"><span class="n">0:12</span><h3>Egy mondatban megmondja, mi a teendő.</h3><p>A telefonon a valódi Ma képernyő: „Ma 6 válasz vár rád.” Ütemre ugrik ki a tegnap három száma, aztán egy koppintás a Válasz átnézésére.</p><p class="en" lang="en">One sentence tells you what needs doing.</p></li>
+        <li class="scene c-pink"><span class="n">0:18</span><h3>Elolvasod, ha kell, átírod, jóváhagyod.</h3><p>A válasz magától megíródik, a Melegebb gombbal átíródik, a pecsét a nagy ütemre csap le, a következőn papírrepülő viszi tovább. Aztán jön a következő.</p><p class="en" lang="en">You read it, rewrite it if you need to, and approve it.</p></li>
+        <li class="scene c-green"><span class="n">0:26</span><h3>Ma nincs teendőd.</h3><p>A 3D buborék, a „kész” matrica és egy kis ünnep, ahogy az alkalmazásban is.</p><p class="en" lang="en">Nothing needs you today.</p></li>
+        <li class="scene c-orange"><span class="n">0:32</span><h3>Több étterem egy fiókban, egymás mellett.</h3><p>Három étterem tegnapi számai egymás mellett, csillagonként öttől egyig.</p><p class="en" lang="en">Several venues in one account, side by side.</p></li>
+        <li class="scene c-white"><span class="n">0:38</span><h3>BistroTech. Értékeléskezelés éttermeknek.</h3><p>A logó laposan, 2D-ben ér be a frázis elejére, alatta a weboldal lábléc-mondata. A zene az utolsó három másodpercben elhalkul.</p><p class="en" lang="en">Review management for restaurants.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="blk blk-cyan" aria-labelledby="h-how">
+    <div class="wrap">
+      <h2 id="h-how">Hogyan készült</h2>
+      <ul class="how">
+        <li>A jelenetek HTML, CSS és JavaScript: egyetlen idővonal a böngésző saját animációs eszközén (Web Animations API). Az alkalmazás képernyői az App Pop labor saját kódjával futnak, ezért élesek, és bármi mozdulhat rajtuk.</li>
+        <li>Az idővonal a zenére épül: 120 BPM, minden ütem 0,5 másodperc, minden jelenetváltás ütemsor elejére esik, minden belépő ütemre ér földet, a nagy pillanatok a hangsúlyos ütemekre. Ezt program ellenőrzi, kockáról kockára.</li>
+        <li>A felvétel képkockánként készül: a böngésző minden kockánál megáll a pontos időn, kép készül róla, és az ffmpeg ebből kódol MP4-et és WebM-et. A zene hangereje -16 LUFS körül van.</li>
+        <li>Nincs benne fizetős eszköz. A zene CC0 (Loyalty Freak Music, Love Train), a betűk SIL OFL alatt vannak, a rajzok és a 3D a sajátjaink.</li>
+        <li>Átnézéshez kétmásodpercenként egy kocka a kész videókból: <a href="qa/contact-hu.png">magyar</a>, <a href="qa/contact-en.png" lang="en">English</a>, <a href="qa/contact-vertical-hu.png">álló magyar</a>, <a href="qa/contact-vertical-en.png">álló angol</a>.</li>
+      </ul>
+      <div class="actions">
+        <a class="btn" href="intro.html">A jelenetek élőben, csúszkával</a>
+        Forgatókönyv (STORYBOARD.md)
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="blk blk-black foot">
+  <div class="wrap">
+    <p>BistroTech bemutatkozó videó, második vágás, v0.2.0, 2026. szept. 26. A jelenetek oldala: intro.html. A felvétel: tools/render.mjs. Zene: Loyalty Freak Music, Love Train (CC0). Az oldal semmit nem kér le máshonnan.</p>
+  </div>
+</footer>
+</body>
+</html>

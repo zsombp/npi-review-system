@@ -1,0 +1,126 @@
+/* motion.css, v0.1.0, 2026-09-26. The motion system of docs/design/MOTION-v0.1.0.md, as CSS.
+
+   Who decides what moves:
+     html[data-motion="full" | "reduce"]  the device's prefers-reduced-motion, or the lab's switch. Every
+                                          rule that moves anything below needs "full"; without it (and
+                                          without script) nothing moves at all.
+     [data-surface][data-lvl]             the level of one surface: "nyugodt", "elenk" or "jatekos". The
+                                          website slice and each phone frame carry their own, so the lab's
+                                          "Javasolt" setting can put the website on Játékos and the app on
+                                          Élénk at the same time.
+     html[data-paused="true"]             the lab's Szünet: every loop stops where it is.
+     html[data-asleep="true"]             60 s without input: every loop stops until the next input.
+     .loop-host.in-view                   set by an IntersectionObserver: loops run only in view.
+   One-shot moments (arrivals, feedback, idles) are played by js/motion.js with the same tokens, so they
+   can be replayed; this file holds the transitions (press, hover, snap) and the loops.
+
+   Only transform (translate, rotate, scale), opacity, and the two named exceptions: the hard shadow's
+   offset on a pressed or lifted control, and stroke-dashoffset on a short line (played by the script). */
+
+:root {
+  --k: 1; /* the lab's "Lassítva" sets 4 */
+  --m-tap: calc(120ms * var(--k)); --m-snap: calc(180ms * var(--k)); --m-lift: calc(220ms * var(--k));
+  --m-slide: calc(240ms * var(--k)); --m-rise: calc(280ms * var(--k)); --m-stamp: calc(340ms * var(--k));
+  --m-land: calc(420ms * var(--k)); --m-stick: calc(500ms * var(--k)); --m-draw: calc(520ms * var(--k));
+  --m-roll: calc(600ms * var(--k)); --m-toy: calc(620ms * var(--k)); --m-line: calc(700ms * var(--k));
+  --m-idle: calc(1100ms * var(--k)); --m-puff: calc(1600ms * var(--k)); --m-rock: calc(6s * var(--k));
+  --m-band-web: calc(64s * var(--k)); --m-band-app: calc(80s * var(--k)); --m-undo: calc(8s * var(--k));
+  --e-tap: ease; --e-pop: cubic-bezier(.2, .9, .3, 1.3); --e-slam: cubic-bezier(.2, 1.5, .4, 1);
+  --e-out: cubic-bezier(.2, 0, 0, 1); --e-in: cubic-bezier(.4, 0, 1, 1); --e-swing: cubic-bezier(.37, 0, .63, 1); --e-line: linear;
+}
+
+/* ---- S1 press-in: every level. The pressed state is a state, so it exists without motion too: under
+   reduced motion the shadow goes and nothing travels. ------------------------------------------------ */
+html[data-motion="full"] [data-surface] :is(.btn, .chip, .seg button, .menu-btn, .toast-undo, .band-toggle, .switch, .tb) {
+  transition: transform var(--m-tap) var(--e-tap), box-shadow var(--m-tap) var(--e-tap), background-color var(--m-tap) var(--e-tap), color var(--m-tap) var(--e-tap);
+}
+html[data-motion="full"] .web .btn:active { transform: translate(var(--sh), var(--sh)); }
+html[data-motion="full"] .app .btn:not(:disabled):active { transform: translate(4px, 4px); }
+html[data-motion="full"] .app :is(.btn-2, .btn-sm):not(:disabled):active, html[data-motion="full"] .app :is(.chip, .seg button, .menu-btn):active { transform: translate(3px, 3px); }
+html[data-motion="full"] .app .toast-undo:active { transform: translate(2px, 2px); }
+
+/* ---- S2 lift on hover: Élénk and Játékos; the shadow grows in place at Nyugodt and under reduced motion. */
+@media (hover: hover) {
+  html[data-motion="full"] :is([data-lvl="elenk"], [data-lvl="jatekos"]).web .btn:not(:active):hover { transform: translate(-2px, -2px); box-shadow: calc(var(--sh) + 2px) calc(var(--sh) + 2px) 0 var(--sh-c, var(--ink)); }
+  html[data-motion="full"] :is([data-lvl="elenk"], [data-lvl="jatekos"]).app .btn:not(:disabled):not(:active):hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--s-btn-sh); }
+  html[data-motion="full"] :is([data-lvl="elenk"], [data-lvl="jatekos"]).app .btn-2:not(:disabled):not(:active):hover { box-shadow: 5px 5px 0 var(--s-sh); }
+  html[data-motion="full"] :is([data-lvl="elenk"], [data-lvl="jatekos"]).app :is(.chip, .seg button):not([aria-pressed="true"]):not(:active):hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--s-sh); }
+  html[data-motion="full"] :is([data-lvl="elenk"], [data-lvl="jatekos"]) :is(.tile, .art-tile, .report-tilt, .snip-in) { transition: transform var(--m-lift) var(--e-pop), box-shadow var(--m-lift) var(--e-tap); }
+  html[data-motion="full"] :is([data-lvl="elenk"], [data-lvl="jatekos"]).app .tile:hover { transform: rotate(calc(var(--tilt, 0deg) * -1.4)) translate(-3px, -3px); box-shadow: 9px 9px 0 var(--s-mb-sh); }
+  html[data-motion="full"] :is([data-lvl="elenk"], [data-lvl="jatekos"]).web .art-tile:hover { transform: rotate(-1.4deg) translate(-3px, -3px); box-shadow: 10px 10px 0 var(--ink); }
+  html[data-motion="full"] :is([data-lvl="elenk"], [data-lvl="jatekos"]).web .report-tilt:hover { transform: rotate(-1deg) translate(-4px, -4px); }
+  html[data-motion="full"] :is([data-lvl="elenk"], [data-lvl="jatekos"]).app .snip-in:hover { transform: rotate(0deg) translate(-2px, -3px); }
+  /* S10 arrow nudge */
+  html[data-motion="full"] :is([data-lvl="elenk"], [data-lvl="jatekos"]) .btn .ic-arrow { transition: translate calc(150ms * var(--k)) var(--e-tap); }
+  html[data-motion="full"] :is([data-lvl="elenk"], [data-lvl="jatekos"]) .btn:hover .ic-arrow { translate: 4px 0; }
+  /* S6 the website's highlight wiggles once on hover, Játékos */
+  html[data-motion="full"] [data-lvl="jatekos"].web .hl:hover { animation: bt-wiggle calc(300ms * var(--k)) var(--e-swing); }
+  html[data-motion="full"] [data-lvl="jatekos"].web .sticker-free:hover { rotate: 8deg; transition: rotate var(--m-snap) var(--e-pop); }
+  /* Nyugodt and reduced motion: the shadow grows in place, nothing travels */
+  html[data-motion="full"] [data-lvl="nyugodt"].web .btn:not(:active):hover, html[data-motion="reduce"] .web .btn:not(:active):hover { box-shadow: calc(var(--sh) + 2px) calc(var(--sh) + 2px) 0 var(--sh-c, var(--ink)); }
+  html[data-motion="full"] [data-lvl="nyugodt"].app .btn:not(:disabled):not(:active):hover, html[data-motion="reduce"] .app .btn:not(:disabled):not(:active):hover { box-shadow: 6px 6px 0 var(--s-btn-sh); }
+  html[data-motion="full"] [data-lvl="nyugodt"].app .tile:hover, html[data-motion="reduce"] .app .tile:hover { box-shadow: 8px 8px 0 var(--s-mb-sh); }
+}
+@keyframes bt-wiggle { 40% { rotate: -2.5deg; } 100% { rotate: 0deg; } }
+
+/* ---- S3 chips and the switch --------------------------------------------------------------------- */
+html[data-motion="full"] [data-lvl="nyugodt"].app .switch .knob { transition: translate var(--m-tap) var(--e-out), background-color var(--m-tap) var(--e-tap); }
+html[data-motion="full"] :is([data-lvl="elenk"], [data-lvl="jatekos"]).app .switch .knob { transition: translate var(--m-snap) var(--e-pop), background-color var(--m-tap) var(--e-tap); }
+
+/* ---- S8 a fold: the plus turns into an x (the content settles, played by the script) ------------- */
+html[data-motion="full"] [data-lvl="nyugodt"].app .fold-ic .ic { transition: rotate var(--m-tap) var(--e-out); }
+html[data-motion="full"] :is([data-lvl="elenk"], [data-lvl="jatekos"]).app .fold-ic .ic { transition: rotate var(--m-snap) var(--e-pop); }
+
+/* ---- S4 the done line strikes through from the left (Játékos); the tick itself is the script's --- */
+html[data-motion="full"] [data-lvl="jatekos"].app .check-list .strike { transition: transform calc(200ms * var(--k)) var(--e-out); }
+
+/* ---- S9 the tab pill slides to the new tab and takes its colour ------------------------------------ */
+html[data-motion="full"] :is([data-lvl="elenk"], [data-lvl="jatekos"]).app .pill { transition: translate var(--m-slide) var(--e-pop), background-color var(--m-slide) var(--e-tap); }
+
+/* ---- L4 the import meter ------------------------------------------------------------------------ */
+html[data-motion="full"] [data-surface].app .meter span { transition: transform calc(300ms * var(--k)) var(--e-out); }
+
+/* ---- T3 the undo line: 8 s, pauses with the timer on hover and focus. Under reduced motion the script
+   steps it once a second instead (--left), so nothing glides. --------------------------------------- */
+html[data-motion="full"] .app .toast-bar.is-running { animation: bt-drain var(--m-undo) var(--e-line) forwards; }
+html[data-motion="full"] .app .toast.is-held .toast-bar.is-running { animation-play-state: paused; }
+@keyframes bt-drain { from { transform: scaleX(1); } to { transform: scaleX(0); } }
+
+/* ================================================================ loops: Játékos only */
+/* A1 drifting stickers: each its own period, never in step */
+html[data-motion="full"] [data-lvl="jatekos"] .loop-drift { animation: bt-drift calc(var(--drift, 7.2s) * var(--k)) var(--e-swing) infinite alternate; }
+@keyframes bt-drift { from { translate: 0 1.5px; rotate: -.75deg; } to { translate: 0 -1.5px; rotate: .75deg; } }
+/* A6 rocking toys */
+html[data-motion="full"] [data-lvl="jatekos"] .loop-rock { animation: bt-rock var(--m-rock) var(--e-swing) infinite alternate; }
+@keyframes bt-rock { from { rotate: -2.5deg; translate: 0 0; } to { rotate: 2.5deg; translate: 0 -4px; } }
+/* A2 the marquee: moving at Játékos, a still row you scroll everywhere else */
+html[data-motion="full"] [data-lvl="jatekos"] .marquee { overflow: hidden; padding-left: 0; }
+html[data-motion="full"] [data-lvl="jatekos"] .marquee-copy { display: flex; }
+html[data-motion="full"] [data-lvl="jatekos"] .band-toggle { display: inline-flex; }
+html[data-motion="full"] [data-lvl="jatekos"].web .marquee-inner { animation: bt-marquee var(--m-band-web) var(--e-line) infinite; }
+html[data-motion="full"] [data-lvl="jatekos"].app .marquee-inner { animation: bt-marquee var(--m-band-app) var(--e-line) infinite; }
+@keyframes bt-marquee { to { transform: translateX(-50%); } }
+
+/* every loop stops: by its own button, on hover, on keyboard focus inside its block, out of view, with
+   the page pause, and asleep */
+.band.is-paused .marquee-inner,
+.marquee:hover .marquee-inner, .marquee:focus-within .marquee-inner,
+.loop-host:hover .loop-drift, .loop-host:focus-within .loop-drift,
+.loop-host:hover .loop-rock, .loop-host:focus-within .loop-rock,
+.loop-host:not(.in-view) :is(.marquee-inner, .loop-drift, .loop-rock),
+html[data-paused="true"] :is(.marquee-inner, .loop-drift, .loop-rock),
+html[data-asleep="true"] :is(.marquee-inner, .loop-drift, .loop-rock) { animation-play-state: paused !important; }
+
+/* L3 three hopping blocks: the script switches them on for 5 s at most */
+html[data-motion="full"] :is([data-lvl="elenk"], [data-lvl="jatekos"]) .hop.is-on i { animation: bt-hop calc(600ms * var(--k)) var(--e-swing) infinite; }
+html[data-motion="full"] :is([data-lvl="elenk"], [data-lvl="jatekos"]) .hop.is-on i:nth-child(2) { animation-delay: calc(120ms * var(--k)); }
+html[data-motion="full"] :is([data-lvl="elenk"], [data-lvl="jatekos"]) .hop.is-on i:nth-child(3) { animation-delay: calc(240ms * var(--k)); }
+@keyframes bt-hop { 0%, 60%, 100% { translate: 0 0; } 30% { translate: 0 -6px; } }
+
+/* Belt and braces for the real device setting: if it asks for less motion and the lab's switch has not
+   been turned off on purpose (html[data-motion="full"] then), nothing moves, whatever a rule above says. */
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-motion="full"]) *, html:not([data-motion="full"]) *::before, html:not([data-motion="full"]) *::after {
+    animation: none !important; transition: none !important; scroll-behavior: auto !important;
+  }
+}

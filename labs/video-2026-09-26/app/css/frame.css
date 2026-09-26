@@ -1,0 +1,53 @@
+/* frame.css, v0.1.0, 2026-09-26. The few rules the video adds on top of the App Pop lab's own app.css
+   (copied verbatim beside this file) so an app screen can sit inside a video frame:
+   a transparent page for the lone reply card, the reply editor as a block of text that can be typed
+   in letter by letter (the lab's textarea#reply-text rules, word for word, on a div), the approval stamp
+   of the website's try-it demo (platform/website/static/css/site.css .stamp-ok), and a caret.
+   Nothing here changes a colour, a size or a shape of the lab. */
+
+html.frame-reply, html.frame-reply body { background: transparent; min-height: 0; }
+html.frame-reply body { padding: 14px 22px 22px 14px; }
+html.frame-reply .queue-detail { position: relative; }
+/* the lab keeps Jóváhagyás at hand in a bar above the tab bar; alone on the page the bar stays in the card */
+html.frame-reply .q-actions { position: static; }
+
+/* the lab's textarea#reply-text, on a div (app.css: .field textarea, textarea#reply-text) */
+.reply-box {
+  position: relative;
+  width: 100%; min-height: 196px; padding: 14px 16px;
+  font: 400 17px/1.58 var(--font-text); color: var(--s-field-fg); background: var(--s-field-bg);
+  border: 2px solid var(--s-field-line); border-radius: 12px;
+  box-shadow: 3px 3px 0 var(--s-sh);
+  white-space: pre-line;
+}
+.reply-box .rb-text { display: block; }
+.reply-box .rb-alt { position: absolute; left: 16px; right: 16px; top: 14px; }
+.reply-box .ch { opacity: 1; }
+.reply-box .caret {
+  position: absolute; left: 0; top: 0; width: 2.5px; height: 22px; margin: 3px 0 0 1px;
+  background: var(--fg); border-radius: 2px; opacity: 0;
+}
+.reply-box .swap-bg { position: absolute; inset: 0; border-radius: 10px; background: var(--tint-accent); opacity: 0; }
+
+/* the website try-it stamp (site.css .stamp .stamp-ok), set large on the card */
+.v-stamp {
+  position: absolute; z-index: 5; left: 50%; top: 46%; margin: 0;
+  padding: 12px 26px 14px;
+  font: var(--display-weight) 46px/1 var(--font-display); letter-spacing: -.02em;
+  color: var(--on-blk); background: var(--blk-pos);
+  border: 3px solid var(--blk-line); border-radius: 14px;
+  box-shadow: 5px 5px 0 var(--blk-line);
+  translate: -50% -50%; rotate: -8deg; opacity: 0;
+  white-space: nowrap;
+}
+/* a tap: a ring that grows where a finger lands */
+.v-tap {
+  position: absolute; z-index: 6; width: 44px; height: 44px; margin: -22px 0 0 -22px;
+  border: 3px solid var(--fg); border-radius: 50%; background: transparent;
+  box-shadow: 0 0 0 3px var(--blk-hero);
+  opacity: 0; pointer-events: none;
+}
+.q-keys { display: none; }
+
+/* English quotation marks when the frame shows the English cut (the lab's css is Hungarian only) */
+html[lang="en"] .rv-text::before, html[lang="en"] .q-body::before { content: "\201C"; }

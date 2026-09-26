@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Borravalós üveg">
+<title>Borravalós üveg</title>
+<!-- BistroTech Pop spot illustration, v0.2.0, 2026-09-26. Source: tools/build_svg.py.
+     Outline 2.5 and a 7 px hard shadow in currentColor (ink by default, white on a dark
+     ground when the page sets color: #fff); details ink 6 px; fills from the Pop blocks. -->
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g>
+      <ellipse cx="152" cy="36" rx="10" ry="15"/>
+      <rect x="58" y="86" width="124" height="120" rx="26"/>
+      <rect x="68" y="66" width="104" height="26" rx="10"/>
+    </g>
+  </g>
+  <g stroke="currentColor" stroke-width="2.5">
+    <ellipse cx="152" cy="36" rx="10" ry="15" fill="#ffe500"/>
+    <rect x="58" y="86" width="124" height="120" rx="26" fill="#38d6e0"/>
+    <rect x="72" y="104" width="12" height="48" rx="6" fill="#ffffff" stroke="none"/>
+    <circle cx="152" cy="156" r="14" fill="#ffe500"/>
+    <circle cx="114" cy="154" r="16" fill="#ffe500"/>
+    <circle cx="92" cy="180" r="16" fill="#ffe500"/>
+    <circle cx="134" cy="182" r="17" fill="#ffe500"/>
+    <rect x="68" y="66" width="104" height="26" rx="10" fill="#a78bfa"/>
+  </g>
+</g>
+</svg>

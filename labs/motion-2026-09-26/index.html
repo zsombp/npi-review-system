@@ -1,0 +1,775 @@
+<!doctype html>
+<!-- BistroTech motion lab, v0.1.0, 2026-09-26. Claude Opus 5.5 as operator under D-033, for D-051 and the
+     operator's request of 2026-09-26 ("plan out some possible animations that fit this direction. ambience,
+     small things, just so that things don't feel so static"). The plan is docs/design/MOTION-v0.1.0.md;
+     every motion in it runs here, live, on real Pop pieces borrowed from the website
+     (platform/website/static, templates) and the approved app lab (docs/design/lab/app-pop-2026-09-26).
+     Controls: the level (Javasolt, Nyugodt, Élénk, Játékos), "Csökkentett mozgás" (what a reduced-motion
+     user gets; on by itself when the device asks), "Szünet" for every loop, "Lassítva" (every duration
+     times four) and "Mindet újra". The state travels in the address (#l=elenk&r=1&p=1&s=1).
+     Self-contained: fonts, drawings and renders are in this folder; nothing is requested from anywhere
+     else. The drawings are inlined with their moving parts named by tools/build_art.py (do not edit
+     between the art markers by hand). Every visible string is in this file, including the ones the
+     script swaps in (div.strings, div.q-data), so the copy check reads all of them. All names, texts and
+     numbers are fictional. -->
+<html lang="hu" data-motion="full" data-choice="javasolt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BistroTech mozgás labor</title>
+<meta name="description" content="A Pop mozgásai élőben, valódi darabokon: háttér, apróságok, pillanatok, átmenetek és betöltés, három szinten és csökkentett mozgással.">
+<meta name="robots" content="noindex">
+<script>
+/* First paint: the device's reduced-motion setting and the address decide before a single rule is drawn,
+   so nothing starts to move and then stops. */
+(function () {
+  var html = document.documentElement, h = {};
+  String(location.hash).replace(/^#/, "").split("&").forEach(function (kv) { var i = kv.indexOf("="); if (i > 0) h[kv.slice(0, i)] = kv.slice(i + 1); });
+  var dev = false;
+  try { dev = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { /* old browser */ }
+  var reduce = dev || h.r === "1";
+  html.setAttribute("data-motion", reduce ? "reduce" : "full");
+  html.setAttribute("data-choice", /^(javasolt|nyugodt|elenk|jatekos)$/.test(h.l || "") ? h.l : "javasolt");
+  html.setAttribute("data-paused", h.p === "1" ? "true" : "false");
+  if (h.s === "1") { html.setAttribute("data-slow", "true"); html.style.setProperty("--k", "4"); }
+})();
+</script>
+<link rel="preload" href="fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/palettes.css">
+<link rel="stylesheet" href="css/lab.css">
+<link rel="stylesheet" href="css/pop.css">
+<link rel="stylesheet" href="css/motion.css">
+</head>
+<body>
+<a class="skip" href="#stage">Ugrás a bemutatókra</a>
+
+<!-- Pictograms: 24 px grid, 1.5 to 1.75 px stroke, currentColor, round caps and joins (POP-IDENTITY 9).
+     The star is the one filled shape and appears only as data. -->
+<svg class="sprite" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false">
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5h-5v5H5a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6.5h11M9 12h11M9 17.5h6M4.5 6.5h.01M4.5 12h.01M4.5 17.5h.01"/></symbol>
+  <symbol id="i-reply" viewBox="0 0 24 24"><path d="M4 5.5h16v10.5H10.5L6 19.5V16H4z"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M5 20v-6M12 20V7M19 20v-9"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></symbol>
+  <symbol id="i-undo" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11" height="11" rx="2"/><path d="M15.5 8.5V6a1.5 1.5 0 0 0-1.5-1.5H6A1.5 1.5 0 0 0 4.5 6v8A1.5 1.5 0 0 0 6 15.5h2.5"/></symbol>
+  <symbol id="i-replay" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></symbol>
+  <symbol id="i-slow" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="g-star" viewBox="0 0 12 12"><path fill="currentColor" stroke="none" d="M 6 .4 7.41 4.06 11.33 4.27 8.28 6.74 9.29 10.53 6 8.4 2.71 10.53 3.72 6.74 .67 4.27 4.59 4.06 Z"/></symbol>
+  <symbol id="g-star-o" viewBox="0 0 12 12"><path fill="none" stroke="currentColor" stroke-width="1" d="M 6 1.3 7.1 4.5 10.5 4.7 7.85 6.85 8.7 10.1 6 8.3 3.3 10.1 4.15 6.85 1.5 4.7 4.9 4.5 Z"/></symbol>
+  <symbol id="g-chart" viewBox="0 0 24 24"><path d="M5 20v-6M12 20V7M19 20v-9"/></symbol>
+  <symbol id="g-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+  <symbol id="g-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="bt-mark" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" fill-rule="evenodd" d="M 4.01 13.41 A 8.5 8.5 0 1 1 6.31 16.82 L 2.6 20.4 Z M 7.2 14.6 V 11.8 A 1.2 1.2 0 0 1 9.6 11.8 V 14.6 Z M 10.8 14.6 V 9.8 A 1.2 1.2 0 0 1 13.2 9.8 V 14.6 Z M 14.4 14.6 V 7.8 A 1.2 1.2 0 0 1 16.8 7.8 V 14.6 Z"/></symbol>
+</svg>
+
+<header class="lab-head">
+  <p class="kicker">Labor, 2026. szeptember 26.</p>
+  <h1>Így mozog a Pop</h1>
+  <p class="intro">Minden mozdulat itt fut, valódi darabokon: a weboldal nyitóképén és szalagján, a Ma képernyőn, a válaszok során. Fent választasz szintet, és minden bemutató azonnal átvált. Javasolt állásban a weboldal Játékos, az alkalmazás Élénk.</p>
+  <p class="try"><span class="try-tag">Próbáld ki</span> Hagyj jóvá egy választ a Válaszok bemutatóban, pipáld ki a teendőket az Apróságok között, vagy játssz le bármit újra. Lassítva jobban látod, hogyan fut egy mozdulat.</p>
+</header>
+
+<section class="controls" id="controls" aria-label="A labor beállításai">
+  <div class="panel">
+    <div class="ctl ctl-lvl">
+      <span class="lbl" id="l-lvl">Szint</span>
+      <div class="opts" role="group" aria-labelledby="l-lvl">
+        <button type="button" class="opt" data-choice="javasolt" aria-pressed="false">Javasolt</button>
+        <button type="button" class="opt" data-choice="nyugodt" aria-pressed="false">Nyugodt</button>
+        <button type="button" class="opt" data-choice="elenk" aria-pressed="false">Élénk</button>
+        <button type="button" class="opt" data-choice="jatekos" aria-pressed="false">Játékos</button>
+      </div>
+    </div>
+    <div class="ctl ctl-more">
+      <span class="lbl" id="l-more">Nézet</span>
+      <div class="opts" role="group" aria-labelledby="l-more">
+        <button type="button" class="opt" role="switch" aria-checked="false" data-ctl="reduce"><span class="sw-track" aria-hidden="true"></span>Csökkentett mozgás</button>
+        <button type="button" class="opt" aria-pressed="false" data-ctl="pause"><svg class="lic ic-off" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg><svg class="lic ic-on" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>Szünet</button>
+        <button type="button" class="opt" aria-pressed="false" data-ctl="slow"><svg class="lic" aria-hidden="true" focusable="false"><use href="#i-slow"/></svg>Lassítva, 4×</button>
+        <button type="button" class="opt" data-ctl="replay-all"><svg class="lic" aria-hidden="true" focusable="false"><use href="#i-replay"/></svg>Mindet újra</button>
+      </div>
+    </div>
+    <div class="panel-notes">
+      <p data-bind="lvl-desc">Javasolt: a weboldal Játékos, az alkalmazás Élénk.</p>
+      <p class="dev-note" data-bind="dev-note" hidden>A készüléked kevesebb mozgást kér, ezért a Csökkentett mozgás be van kapcsolva. Ha kikapcsolod, a teljes mozgást látod.</p>
+      <p class="now" data-bind="status-vis"></p>
+    </div>
+  </div>
+</section>
+<p class="sr-only" role="status" aria-live="polite" data-bind="status"></p>
+
+<main class="stage" id="stage" tabindex="-1">
+
+  <!-- ============================================================ the website -->
+  <section class="sec" aria-labelledby="h-web">
+    <h2 id="h-web">A weboldal</h2>
+    <p class="sec-intro">A weboldal plakát: egyszer nézi meg valaki, ezért itt a háttér is élhet. Javasolt szint: Játékos.</p>
+
+    <article class="demo" id="d-web" aria-labelledby="h-d-web">
+      <div class="demo-head"><h3 id="h-d-web">Nyitókép, szalag, rajzok</h3><p class="demo-lvl"><a href="#controls">Szint most: <b data-lvl-name>Játékos</b></a></p></div>
+      <div class="web-frame">
+        <div class="web" data-surface="web" data-lvl="jatekos">
+
+          <section class="blk blk-yellow hero loop-host" aria-label="Nyitókép">
+            <div class="hero-grid">
+              <h4 class="h-hero" data-part="web-title"><span class="line"><span class="w-stk">Minden<span class="sticker sticker-free loop-drift" style="--drift: 6.6s" aria-hidden="true"><span>14 napig</span><span>ingyen</span></span></span></span> <span class="line">értékelés.</span> <span class="line">Egy <span class="mk mk-pink">helyen.<svg class="mk-line" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M2 7C20 3.5 40 9.5 58 6S88 4.5 98 8"/></svg></span></span></h4>
+              <div class="hero-copy">
+                <p class="lead">A BistroTech letölti az éttermeid Google-értékeléseit, megírja rájuk a választ, és reggelente elküldi, mi történt tegnap. Minden választ te hagysz jóvá.</p>
+                <div class="cta-row">
+                  <a class="btn btn-blue" href="#d-web" data-noop>Kezdd el ingyen, 14 napig<svg class="ic ic-arrow" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+                  <a class="btn btn-white" href="#d-web" data-noop>Nézd meg, hogyan működik</a>
+                </div>
+                <ul class="trust" role="list">
+                  <li><span class="trust-ic"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-check"/></svg></span>Minden étterem, minden nap, egy jelentésben.</li>
+                  <li><span class="trust-ic"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-check"/></svg></span>Minden választ te hagysz jóvá, mielőtt kimegy.</li>
+                  <li><span class="trust-ic"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-check"/></svg></span>Magyarul, magyar éttermeknek.</li>
+                  <li><span class="trust-ic"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-check"/></svg></span>14 napig ingyen, kötöttség nélkül.</li>
+                </ul>
+              </div>
+              <figure class="hero-report" style="margin-bottom: 0">
+                <div class="report-tilt">
+                  <p class="sticker sticker-note loop-drift" style="--drift: 8.2s">Minden reggel egy jelentés.</p>
+                  <div class="report">
+                    <p class="report-head"><svg class="glyph" aria-hidden="true" focusable="false"><use href="#g-chart"/></svg><span class="report-title">BISTROTECH NAPI JELENTÉS</span></p>
+                    <p class="line"><svg class="glyph quiet" aria-hidden="true" focusable="false"><use href="#g-cal"/></svg><span class="muted sm">2026. szept. 15., kedd</span></p>
+                    <hr>
+                    <div class="venue">
+                      <p class="line"><svg class="glyph" aria-hidden="true" focusable="false"><use href="#g-pin"/></svg><span><b>Példa Bisztró</b> · <b>3</b> új · átlag <b>4,33</b></span></p>
+                      <p class="stars-row"><span class="s5"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>5<span class="sr-only"> csillagos</span>: <b>2</b></span><span class="s3"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>3<span class="sr-only"> csillagos</span>: 1</span></p>
+                      <p class="google">Google: 4,6 (1284)</p>
+                    </div>
+                    <div class="venue">
+                      <p class="line"><svg class="glyph" aria-hidden="true" focusable="false"><use href="#g-pin"/></svg><span><b>Minta Étterem</b> · <b>1</b> új · átlag <b>2,00</b><span class="dot-neg" aria-hidden="true"></span></span></p>
+                      <p class="stars-row"><span class="s2"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>2<span class="sr-only"> csillagos</span>: <b>1</b></span></p>
+                      <p class="google">Google: 4,4 (612)</p>
+                    </div>
+                    <div class="venue">
+                      <p class="line quiet-venue"><svg class="glyph quiet" aria-hidden="true" focusable="false"><use href="#g-pin"/></svg><span><b>Teszt Kávézó</b> · 0 új · Google: 4,7 (238)</span></p>
+                    </div>
+                    <hr>
+                    <p class="line"><b>Összesen: 4 új értékelés</b></p>
+                    <p class="report-time">7:45</p>
+                  </div>
+                </div>
+              </figure>
+            </div>
+          </section>
+
+          <section class="blk blk-black band loop-host" aria-label="Példa-értékelések" data-band>
+            <div class="band-head">
+              <p class="band-label"><span class="band-tag">Példák</span>Így jönnek az értékelések, minden étteremből egy helyre.</p>
+              <button class="band-toggle" type="button" data-band-toggle><svg class="ic ic-pause" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg><svg class="ic ic-play" aria-hidden="true" focusable="false"><use href="#i-play"/></svg><span data-band-word>Megállítás</span></button>
+            </div>
+            <div class="marquee" role="group" tabindex="0" aria-label="Példa-értékelések, görgethető sor">
+              <div class="marquee-inner">
+                <ul class="marquee-list">
+                  <li class="snip snip-white"><p class="snip-top"><span class="snip-tag">Példa</span><span class="rate r5"><svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>5<span class="sr-only"> csillag</span></span><span class="snip-where">Példa Bisztró</span></p><p class="snip-q">„Isteni volt a rántott csirke, és gyorsan kihozták.”</p><p class="snip-who">Teszt Anna</p></li>
+                  <li class="snip snip-yellow"><p class="snip-top"><span class="snip-tag">Példa</span><span class="rate r2"><svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>2<span class="sr-only"> csillag</span></span><span class="snip-where">Minta Étterem</span></p><p class="snip-q">„Húsz percet vártunk az asztalra, pedig foglaltunk.”</p><p class="snip-who">Példa Gergő</p></li>
+                  <li class="snip snip-cyan"><p class="snip-top"><span class="snip-tag">Példa</span><span class="rate r4"><svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>4<span class="sr-only"> csillag</span></span><span class="snip-where">Teszt Kávézó</span></p><p class="snip-q">„Jó a kávé. A sütit legközelebb melegebben kérném.”</p><p class="snip-who">Minta Dóra</p></li>
+                  <li class="snip snip-white"><p class="snip-top"><span class="snip-tag">Példa</span><span class="rate r5"><svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>5<span class="sr-only"> csillag</span></span><span class="snip-where">Minta Étterem</span></p><p class="snip-q">„Kedves kiszolgálás, a gyerekeknek is volt menü.”</p><p class="snip-who">Példa Réka</p></li>
+                  <li class="snip snip-pink"><p class="snip-top"><span class="snip-tag">Példa</span><span class="rate r1"><svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>1<span class="sr-only"> csillag</span></span><span class="snip-where">Példa Bisztró</span></p><p class="snip-q">„Hideg volt a köret, és senki nem kérdezte, milyen volt.”</p><p class="snip-who">Teszt Bence</p></li>
+                  <li class="snip snip-green"><p class="snip-top"><span class="snip-tag">Példa</span><span class="rate r5"><svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>5<span class="sr-only"> csillag</span></span><span class="snip-where">Példa Bisztró</span></p><p class="snip-q" lang="en">„Lovely goulash and very friendly staff.”</p><p class="snip-who">Teszt Emma</p></li>
+                </ul>
+                <ul class="marquee-list marquee-copy" aria-hidden="true" data-copy-of></ul>
+              </div>
+            </div>
+            <p class="band-caption">Illusztráció. A vendégek, az éttermek és a szövegek kitaláltak.</p>
+          </section>
+
+          <section class="blk blk-white feat loop-host" aria-label="Rajzok munka közben">
+            <h4 class="h-feat">Ami <span class="hl hl-pink" data-part="web-hl">még</span> benne van</h4>
+            <ul class="art-tiles" role="list">
+              <li class="art-tile c-green"><div class="art-slot" data-idle="receipt" data-idle-web>
+<!--art:nyugta class="ill art-receipt"--><svg class="ill art-receipt" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><g stroke-linejoin="round" stroke-linecap="round"><g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5"><g transform="rotate(-5 120 120)"><path d="M70 30H170A10 10 0 0 1 180 40V190L169 199L158 190L147 199L136 190L125 199L114 190L103 199L92 190L81 199L70 190L60 199V40A10 10 0 0 1 70 30Z"/><g class="p-clock"><circle cx="180" cy="46" r="22"/></g></g></g><g transform="rotate(-5 120 120)" stroke="currentColor" stroke-width="2.5"><path d="M70 30H170A10 10 0 0 1 180 40V190L169 199L158 190L147 199L136 190L125 199L114 190L103 199L92 190L81 199L70 190L60 199V40A10 10 0 0 1 70 30Z" fill="#ffe500"/><path class="p-line" data-row="0" d="M80 58H140" fill="none" stroke="#0a0a0a" stroke-width="6"/><path class="p-line" data-row="1" d="M78 78H164" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-dasharray="1 8"/><path class="p-line" data-row="2" d="M80 98H122" fill="none" stroke="#0a0a0a" stroke-width="6"/><path class="p-line" data-row="2" d="M146 98H160" fill="none" stroke="#0a0a0a" stroke-width="6"/><path class="p-line" data-row="3" d="M80 116H114" fill="none" stroke="#0a0a0a" stroke-width="6"/><path class="p-line" data-row="3" d="M146 116H160" fill="none" stroke="#0a0a0a" stroke-width="6"/><path class="p-line" data-row="4" d="M80 134H128" fill="none" stroke="#0a0a0a" stroke-width="6"/><path class="p-line" data-row="4" d="M146 134H160" fill="none" stroke="#0a0a0a" stroke-width="6"/><path class="p-line" data-row="5" d="M78 154H164" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-dasharray="1 8"/><path class="p-line" data-row="6" d="M80 172H106" fill="none" stroke="#0a0a0a" stroke-width="6"/><path class="p-line" data-row="6" d="M136 172H160" fill="none" stroke="#0a0a0a" stroke-width="6"/><g class="p-clock"><circle cx="180" cy="46" r="22" fill="#ff2d9b"/><path d="M180 34V46L188 52" fill="none" stroke="#0a0a0a" stroke-width="6"/></g></g></g></svg><!--/art-->
+              </div><div><h5>Napi jelentés</h5><p>Abban az órában érkezik, amit beállítasz.</p></div></li>
+              <li class="art-tile c-orange"><div class="art-slot" data-idle="bell" data-idle-web>
+<!--art:csengo class="ill art-bell"--><svg class="ill art-bell" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><g stroke-linejoin="round" stroke-linecap="round"><g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5"><g transform="rotate(-10 120 120)"><g class="p-swing"><circle cx="120" cy="40" r="10"/><path d="M120 46C150 46 166 68 166 98C166 122 170 140 188 154H52C70 140 74 122 74 98C74 68 90 46 120 46Z"/><rect x="42" y="150" width="156" height="20" rx="10"/><g class="p-clapper"><circle cx="120" cy="180" r="14"/></g><g class="p-dot"><circle cx="168" cy="66" r="17"/></g></g></g></g><g transform="rotate(-10 120 120)" stroke="currentColor" stroke-width="2.5"><g class="p-swing"><circle cx="120" cy="40" r="10" fill="#ffe500"/><g class="p-clapper"><circle cx="120" cy="180" r="14" fill="#ff7a3d"/></g><path d="M120 46C150 46 166 68 166 98C166 122 170 140 188 154H52C70 140 74 122 74 98C74 68 90 46 120 46Z" fill="#ffe500"/><rect x="42" y="150" width="156" height="20" rx="10" fill="#ffe500"/><g class="p-dot"><circle cx="168" cy="66" r="17" fill="#ff2d9b"/></g></g></g></g></svg><!--/art-->
+              </div><div><h5>Riasztás</h5><p>Szólunk, ha egy étteremnél egycsillagos sorozat jön, vagy esik az átlag.</p></div></li>
+              <li class="art-tile c-cyan"><div class="art-slot"><img class="toy loop-rock" src="art/3d/bubble.webp" width="640" height="522" alt="" decoding="async"></div><div><h5>Válasz</h5><p>Minden választ te hagysz jóvá, mielőtt kimegy.</p></div></li>
+            </ul>
+          </section>
+
+        </div>
+      </div>
+      <div class="demo-tools">
+        <button type="button" class="opt" data-replay="web-arrive"><svg class="lic" aria-hidden="true" focusable="false"><use href="#i-replay"/></svg>Érkezés újra</button>
+        <button type="button" class="opt" data-replay="web-hl">Kiemelés újra</button>
+        <button type="button" class="opt" data-replay="web-receipt">Nyomtatás</button>
+        <button type="button" class="opt" data-replay="web-bell">Csengetés</button>
+      </div>
+      <details class="spec">
+        <summary>Mi mozog itt, és mikor</summary>
+        <ul class="items">
+          <li data-lv="elenk jatekos"><span class="nm">F8 Érkezés: a matricák felragadnak, S5 aláhúzás</span><span class="lv"><span>Élénk</span><span>Játékos</span></span><span class="t">A matrica 0,5 másodperc alatt rácsapódik, az aláhúzás 0,52 másodperc alatt balról jobbra húzódik. Oldalbetöltéskor egyszer.</span><span class="rm">Csökkentve: minden a helyén van.</span><span class="off-note"></span></li>
+          <li data-lv="jatekos"><span class="nm">A1 Lebegő matricák</span><span class="lv"><span>Játékos</span></span><span class="t">Lassú lebegés, 3 pixel és 1,5 fok, matricánként 6,6 és 8,2 másodperc. Megáll, ha fölé viszed az egeret, ha nem látszik, Szünetre és egy perc tétlenség után.</span><span class="rm">Csökkentve: állnak.</span><span class="off-note"></span></li>
+          <li data-lv="jatekos"><span class="nm">A2 Szalag</span><span class="lv"><span>Játékos</span></span><span class="t">Egy kör 64 másodperc, egyenletesen. Megáll a saját gombjával, egérrel, fókusszal és Szünetre.</span><span class="rm">Nyugodt, Élénk és csökkentve: kézzel görgethető sor.</span><span class="off-note"></span></li>
+          <li data-lv="elenk jatekos"><span class="nm">S6 Kiemelés</span><span class="lv"><span>Élénk</span><span>Játékos</span></span><span class="t">0,42 másodperc, kis túllövéssel. Játékos szinten egér alatt egyszer megbillen.</span><span class="rm">Csökkentve: a helyén.</span><span class="off-note"></span></li>
+          <li data-lv="elenk jatekos"><span class="nm">A4 Csengő, A5 nyugta</span><span class="lv"><span>Élénk</span><span>Játékos</span></span><span class="t">Élénk szinten egyszer, amikor először látszik. Játékos szinten 14 és 24 másodperc között időnként, amíg látszik. A csengés 1,1 másodperc, a nyomtatás 1 másodperc.</span><span class="rm">Csökkentve: állnak.</span><span class="off-note"></span></li>
+          <li data-lv="jatekos"><span class="nm">A6 Ringatózó buborék</span><span class="lv"><span>Játékos</span></span><span class="t">6 másodperc, 2,5 fok és 4 pixel.</span><span class="rm">Csökkentve: áll.</span><span class="off-note"></span></li>
+          <li data-lv="nyugodt elenk jatekos"><span class="nm">S1 Benyomás, S2 emelés</span><span class="lv"><span>Nyugodt</span><span>Élénk</span><span>Játékos</span></span><span class="t">A gomb 0,12 másodperc alatt az árnyékába süllyed. Élénk és Játékos szinten egér alatt 2 pixelt emelkedik.</span><span class="rm">Csökkentve: csak az árnyék változik.</span><span class="off-note"></span></li>
+        </ul>
+      </details>
+    </article>
+  </section>
+
+  <!-- ============================================================ the app -->
+  <section class="sec" aria-labelledby="h-app">
+    <h2 id="h-app">Az alkalmazás</h2>
+    <p class="sec-intro">Napi eszköz, amit reggel egy kézzel használsz. Csak akkor mozdul, ha történik valami, és soha nem vár rá senki. Javasolt szint: Élénk.</p>
+
+    <div class="grid">
+
+      <!-- ======================================================== Ma -->
+      <article class="demo" id="d-ma" aria-labelledby="h-d-ma">
+        <div class="demo-head"><h3 id="h-d-ma">Ma, reggel</h3><p class="demo-lvl"><a href="#controls">Szint most: <b data-lvl-name>Élénk</b></a></p></div>
+        <div class="phone"><div class="phone-in">
+          <div class="app" data-surface="app" data-lvl="elenk" data-palette="pop-citrom" data-sec="ma">
+            <header class="blk-head loop-host" data-part="ma-head">
+              <div class="ma-top">
+                <p class="stk loop-drift" style="--drift: 6.8s" data-part="ma-date">szept. 26., szombat</p>
+                <div class="art" data-idle="steam" data-tap>
+<!--art:kave class="ill art-cup"--><svg class="ill art-cup" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><g stroke-linejoin="round" stroke-linecap="round"><g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5"><g><path d="M166 112C200 106 204 162 160 156Z"/><path d="M36 184H204Q204 198 190 200H50Q36 198 36 184Z"/><path d="M58 100H174L166 162Q162 184 140 184H92Q70 184 66 162Z"/><ellipse cx="116" cy="100" rx="58" ry="12"/></g></g><g stroke="currentColor" stroke-width="2.5"><path d="M166 112C200 106 204 162 160 156Z" fill="#38d6e0"/><ellipse cx="180" cy="134" rx="7" ry="11" fill="#0a0a0a" stroke="none"/><path d="M36 184H204Q204 198 190 200H50Q36 198 36 184Z" fill="#ffe500"/><path d="M58 100H174L166 162Q162 184 140 184H92Q70 184 66 162Z" fill="#38d6e0"/><ellipse cx="116" cy="100" rx="58" ry="12" fill="#38d6e0"/><ellipse cx="116" cy="101" rx="46" ry="7" fill="#0a0a0a" stroke="none"/><g class="p-steam"><path d="M96 76C88 64 104 58 96 44" fill="none" stroke-width="6"/></g><g class="p-steam"><path d="M120 74C112 60 128 54 120 38" fill="none" stroke-width="6"/></g><g class="p-steam"><path d="M144 76C136 64 152 58 144 44" fill="none" stroke-width="6"/></g></g></g></svg><!--/art-->
+                </div>
+                <p class="hello"><span class="hello-1">Jó reggelt.</span> <span class="hello-2">Ma <mark class="hl" data-part="ma-hl">3 válasz</mark> vár rád.</span></p>
+              </div>
+              <div class="card day-card">
+                <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Elsőként: tegnapi 2 csillagos értékelés</p>
+                <h4 class="card-title">2 csillag, Példa Bisztró</h4>
+                <blockquote class="rv-text">A leves langyos volt, és húsz percet vártunk a számlára.</blockquote>
+                <p class="meta">Minta Katalin · tegnap 12:40 · a válasz kész, csak rá kell nézned</p>
+                <p class="actions"><a class="btn btn-sm" href="#d-rep">Válasz átnézése<svg class="ic ic-arrow" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></p>
+              </div>
+            </header>
+            <section class="band loop-host" aria-label="Tegnapi értékelések" data-band>
+              <div class="band-head">
+                <p class="band-label"><span class="band-tag">8 új</span> Ezek érkeztek tegnap, minden étteremből.</p>
+                <button type="button" class="band-toggle" data-band-toggle><svg class="ic ic-pause" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg><svg class="ic ic-play" aria-hidden="true" focusable="false"><use href="#i-play"/></svg><span data-band-word>Megállítás</span></button>
+              </div>
+              <div class="marquee" role="group" tabindex="0" aria-label="Tegnapi értékelések, görgethető sor">
+                <div class="marquee-inner">
+                  <ul class="marquee-list">
+                    <li class="snip snip-w"><span class="snip-in"><span class="snip-top"><span class="rate"><svg width="13" height="13" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>2<span class="sr-only"> csillag</span></span><span class="snip-where">Példa Bisztró</span></span><span class="snip-q">„A leves langyos volt, és húsz percet vártunk a számlára.”</span><span class="snip-who">Minta Katalin</span></span></li>
+                    <li class="snip snip-a"><span class="snip-in"><span class="snip-top"><span class="rate"><svg width="13" height="13" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>5<span class="sr-only"> csillag</span></span><span class="snip-where">Példa Bisztró</span></span><span class="snip-q">„Isteni volt a rántott csirke, és gyorsan kihozták.”</span><span class="snip-who">Teszt Anna</span></span></li>
+                    <li class="snip snip-w"><span class="snip-in"><span class="snip-top"><span class="rate"><svg width="13" height="13" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>3<span class="sr-only"> csillag</span></span><span class="snip-where">Minta Étterem</span></span><span class="snip-q">„Rendben volt minden, csak hangos a zene.”</span><span class="snip-who">Teszt Bence</span></span></li>
+                    <li class="snip snip-h"><span class="snip-in"><span class="snip-top"><span class="rate"><svg width="13" height="13" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>5<span class="sr-only"> csillag</span></span><span class="snip-where">Teszt Kávézó</span></span><span class="snip-q snip-quiet">Csak csillagozás, szöveg nélkül.</span><span class="snip-who">Teszt Márk</span></span></li>
+                    <li class="snip snip-w"><span class="snip-in"><span class="snip-top"><span class="rate"><svg width="13" height="13" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>4<span class="sr-only"> csillag</span></span><span class="snip-where">Teszt Kávézó</span></span><span class="snip-q">„Jó a kávé. A sütit legközelebb melegebben kérném.”</span><span class="snip-who">Minta Dóra</span></span></li>
+                    <li class="snip snip-n"><span class="snip-in"><span class="snip-top"><span class="rate"><svg width="13" height="13" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>2<span class="sr-only"> csillag</span></span><span class="snip-where">Minta Étterem</span></span><span class="snip-q">„Húsz percet vártunk az asztalra, pedig foglaltunk.”</span><span class="snip-who">Példa Gergő</span></span></li>
+                    <li class="snip snip-w"><span class="snip-in"><span class="snip-top"><span class="rate"><svg width="13" height="13" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>5<span class="sr-only"> csillag</span></span><span class="snip-where">Minta Étterem</span></span><span class="snip-q">„Kedves kiszolgálás, a gyerekeknek is volt menü.”</span><span class="snip-who">Példa Réka</span></span></li>
+                    <li class="snip snip-p"><span class="snip-in"><span class="snip-top"><span class="rate"><svg width="13" height="13" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>5<span class="sr-only"> csillag</span></span><span class="snip-where">Példa Bisztró</span></span><span class="snip-q" lang="en">„Lovely goulash and very friendly staff.”</span><span class="snip-who">Teszt Emma</span></span></li>
+                  </ul>
+                  <ul class="marquee-list marquee-copy" aria-hidden="true" data-copy-of></ul>
+                </div>
+              </div>
+            </section>
+            <div class="pane">
+              <h4 class="sec-h">Tegnap <span class="sec-date">szept. 25., péntek</span></h4>
+              <div class="tiles tiles-3" data-part="ma-tiles">
+                <div class="tile t-a"><span class="n">8</span><span class="l">Új értékelés</span></div>
+                <div class="tile t-b"><span class="n">3,88</span><span class="l">Új értékelések átlaga</span></div>
+                <div class="tile t-neg"><span class="n">2</span><span class="l">Megválaszolatlan 1 és 2 csillagos</span></div>
+              </div>
+              <p class="note">Új: az az értékelés, amit a Google erre az időszakra dátumoz.</p>
+            </div>
+            <div class="tabbar" aria-hidden="true">
+              <span class="tb" data-sec="ma" aria-current="page"><svg class="ic" focusable="false"><use href="#i-home"/></svg><span>Ma</span></span>
+              <span class="tb" data-sec="rev"><svg class="ic" focusable="false"><use href="#i-list"/></svg><span>Értékelések</span></span>
+              <span class="tb" data-sec="rep"><svg class="ic" focusable="false"><use href="#i-reply"/></svg><span>Válaszok</span><span class="tab-badge">3</span></span>
+              <span class="tb" data-sec="ins"><svg class="ic" focusable="false"><use href="#i-chart"/></svg><span>Kimutatások</span></span>
+            </div>
+          </div>
+        </div></div>
+        <div class="demo-tools">
+          <button type="button" class="opt" data-replay="ma-arrive"><svg class="lic" aria-hidden="true" focusable="false"><use href="#i-replay"/></svg>Érkezés újra</button>
+          <button type="button" class="opt" data-replay="ma-steam">Gőz</button>
+        </div>
+        <details class="spec">
+          <summary>Mi mozog itt, és mikor</summary>
+          <ul class="items">
+            <li data-lv="nyugodt elenk jatekos"><span class="nm">T1 A képernyő blokkja leül</span><span class="lv"><span>Nyugodt</span><span>Élénk</span><span>Játékos</span></span><span class="t">Élénk: 10 pixelről 0,2 másodperc alatt. Nyugodt: csak előtűnik, 0,12 másodperc alatt.</span><span class="rm">Csökkentve: azonnal ott van.</span><span class="off-note"></span></li>
+            <li data-lv="elenk jatekos"><span class="nm">F8 Érkezés: matrica, kiemelés, számok</span><span class="lv"><span>Élénk</span><span>Játékos</span></span><span class="t">A dátum-matrica rácsapódik, a „3 válasz” kiemelése 0,42 másodperc alatt a helyére ugrik, a lapok egymás után, 0,04 másodpercenként érkeznek. Élénk szinten az első megnyitáskor, vagy ha azóta változott valami. Játékos szinten minden megnyitáskor.</span><span class="rm">Csökkentve: minden a helyén.</span><span class="off-note"></span></li>
+            <li data-lv="elenk jatekos"><span class="nm">A3 Gőz a kávéból</span><span class="lv"><span>Élénk</span><span>Játékos</span></span><span class="t">Élénk: két fújás érkezéskor, és ha rákoppintasz. Játékos: ezen felül 12 és 18 másodperc között időnként.</span><span class="rm">Csökkentve: a gőz áll.</span><span class="off-note"></span></li>
+            <li data-lv="jatekos"><span class="nm">A1 Lebegő dátum, A2 mozgó szalag</span><span class="lv"><span>Játékos</span></span><span class="t">A szalag egy köre 80 másodperc, a saját gombjával megáll. Erről szól a Q-035 kérdés is.</span><span class="rm">Nyugodt, Élénk és csökkentve: kézzel görgethető sor.</span><span class="off-note"></span></li>
+          </ul>
+        </details>
+      </article>
+
+      <!-- ======================================================== Válaszok -->
+      <article class="demo" id="d-rep" aria-labelledby="h-d-rep">
+        <div class="demo-head"><h3 id="h-d-rep">Válaszok: jóváhagyás és a kész pillanat</h3><p class="demo-lvl"><a href="#controls">Szint most: <b data-lvl-name>Élénk</b></a></p></div>
+        <div class="phone"><div class="phone-in">
+          <div class="app" data-surface="app" data-lvl="elenk" data-palette="pop-citrom" data-sec="rep" data-queue>
+            <header class="blk-head loop-host">
+              <div class="head-grid">
+                <div>
+                  <p class="stk stk-pink loop-drift" style="--drift: 7.4s" data-q="count">3 vár rád</p>
+                  <h4 class="title"><span class="mk">Válaszok<svg class="mk-line" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M2 7C20 3.5 40 9.5 58 6S88 4.5 98 8"/></svg></span></h4>
+                </div>
+                <div class="art" aria-hidden="true">
+<!--art:buborek class="ill art-bubble"--><svg class="ill art-bubble" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><g stroke-linejoin="round" stroke-linecap="round"><g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5"><g><path d="M66 58H172A34 34 0 0 1 206 92V128A34 34 0 0 1 172 162H170Q174 177 191 187Q195 191 188 193Q155 191 132 162H66A34 34 0 0 1 32 128V92A34 34 0 0 1 66 58Z"/><g class="p-tick"><circle cx="44" cy="58" r="21"/></g></g></g><g stroke="currentColor" stroke-width="2.5"><path d="M66 58H172A34 34 0 0 1 206 92V128A34 34 0 0 1 172 162H170Q174 177 191 187Q195 191 188 193Q155 191 132 162H66A34 34 0 0 1 32 128V92A34 34 0 0 1 66 58Z" fill="#ff2d9b"/><path class="p-line" d="M68 90H176" fill="none" stroke="#0a0a0a" stroke-width="6"/><path class="p-line" d="M68 110H160" fill="none" stroke="#0a0a0a" stroke-width="6"/><path class="p-line" d="M68 130H122" fill="none" stroke="#0a0a0a" stroke-width="6"/><g class="p-tick"><circle cx="44" cy="58" r="21" fill="#9be15d"/><path d="M34.2 58.05L41 64L52.05 52.1" fill="none" stroke="#0a0a0a" stroke-width="6"/></g></g></g></svg><!--/art-->
+                </div>
+              </div>
+            </header>
+            <div class="pane">
+              <p class="pending" data-q="pending">Jóváhagyásra vár: 3. A jóváhagyott választ mi tesszük ki a Google-re.</p>
+              <article class="card queue-detail" data-q="detail">
+                <div class="q-top">
+                  <p class="q-pos"><span class="q-i" data-q="i">1</span><span class="q-of"> / <span data-q="n">3</span></span></p>
+                  <ol class="pips" aria-hidden="true" data-q="pips"></ol>
+                </div>
+                <div class="q-in" data-q="in">
+                  <div class="q-head"><h5 class="queue-title" tabindex="-1" data-q="venue">Példa Bisztró</h5><span class="stars" role="img" data-q="stars" aria-label="2 csillag az 5-ből"></span></div>
+                  <p class="rv-meta" data-q="meta">Minta Katalin · tegnap 12:40</p>
+                  <blockquote class="rv-text q-body" data-q="body">A leves langyos volt, és húsz percet vártunk a számlára.</blockquote>
+                  <label class="reply-label" for="reply-text">A válasz</label>
+                  <textarea id="reply-text" rows="5" data-q="draft"></textarea>
+                </div>
+                <div class="q-actions">
+                  <button type="button" class="btn btn-go" data-act="approve" aria-keyshortcuts="a"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Jóváhagyás<kbd aria-hidden="true">A</kbd></button>
+                  <button type="button" class="btn btn-2" data-act="skip" aria-keyshortcuts="s">Nem válaszolok<kbd aria-hidden="true">S</kbd></button>
+                </div>
+              </article>
+              <section class="done-panel" data-q="done" aria-labelledby="h-done" hidden>
+                <div class="done-art" aria-hidden="true"><img src="art/3d/bubble.webp" width="640" height="522" alt="" decoding="async" data-q="toy"></div>
+                <p class="stamp" data-q="stamp">kész</p>
+                <h5 class="done-title" id="h-done" tabindex="-1">Minden választ átnéztél</h5>
+                <p class="done-sub">Nincs több jóváhagyásra váró válasz.</p>
+                <p class="actions"><a class="btn btn-2" href="#d-ma">Vissza a Mához<svg class="ic ic-arrow" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></p>
+                <p class="stk done-stk done-stk-1" aria-hidden="true" data-q="stk1" hidden>0 vár</p>
+                <p class="stk stk-green done-stk done-stk-2" aria-hidden="true" data-q="stk2" hidden>holnap 7:45</p>
+              </section>
+            </div>
+            <div class="toast" data-q="toast" hidden>
+              <span class="toast-ic" aria-hidden="true"><svg class="ic" focusable="false"><use href="#i-check" data-q="toast-icon"/></svg></span>
+              <p class="toast-msg" data-q="toast-msg">Jóváhagyva.</p>
+              <button type="button" class="toast-undo" data-act="undo" aria-keyshortcuts="u" data-q="undo"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-undo"/></svg>Visszavonom</button>
+              <span class="toast-bar" aria-hidden="true" data-q="bar"></span>
+            </div>
+            <div class="tabbar" aria-hidden="true">
+              <span class="tb" data-sec="ma"><svg class="ic" focusable="false"><use href="#i-home"/></svg><span>Ma</span></span>
+              <span class="tb" data-sec="rev"><svg class="ic" focusable="false"><use href="#i-list"/></svg><span>Értékelések</span></span>
+              <span class="tb" data-sec="rep" aria-current="page"><svg class="ic" focusable="false"><use href="#i-reply"/></svg><span>Válaszok</span><span class="tab-badge" data-q="badge">3</span><span class="tab-done" data-q="badge-done" hidden><svg class="ic" focusable="false"><use href="#i-check"/></svg></span></span>
+              <span class="tb" data-sec="ins"><svg class="ic" focusable="false"><use href="#i-chart"/></svg><span>Kimutatások</span></span>
+            </div>
+          </div>
+        </div></div>
+        <div class="demo-tools">
+          <button type="button" class="opt" data-replay="rep-reset"><svg class="lic" aria-hidden="true" focusable="false"><use href="#i-replay"/></svg>Elölről</button>
+          <button type="button" class="opt" data-replay="rep-done">Kész pillanat</button>
+        </div>
+        <details class="spec">
+          <summary>Mi mozog itt, és mikor</summary>
+          <ul class="items">
+            <li data-lv="nyugodt elenk jatekos"><span class="nm">F1 Jóváhagyás</span><span class="lv"><span>Nyugodt</span><span>Élénk</span><span>Játékos</span></span><span class="t">A gomb benyomódik, a pötty zöld lesz és megugrik, a számláló eggyel lejjebb ugrik, alul feljön a visszavonás, és a következő válasz 18 pixelről becsúszik. Mindez a gombnyomással együtt indul, a következő válasz 0,24 másodperc múlva olvasható. Nyugodt: színváltás és 0,14 másodperces előtűnés.</span><span class="rm">Csökkentve: a következő válasz azonnal ott van, a fókusz rá ugrik, egy bejelentés mondja el, mi történt.</span><span class="off-note"></span></li>
+            <li data-lv="nyugodt elenk jatekos"><span class="nm">T3 Visszavonás</span><span class="lv"><span>Nyugodt</span><span>Élénk</span><span>Játékos</span></span><span class="t">0,28 másodperc alatt feljön, a sávja 8 másodperc alatt fogy. Ha fölé viszed az egeret, vagy rajta van a fókusz, az idő megáll.</span><span class="rm">Csökkentve: azonnal ott van, a sáv másodpercenként egy lépéssel fogy.</span><span class="off-note"></span></li>
+            <li data-lv="elenk jatekos"><span class="nm">S7 Számláló a fülön</span><span class="lv"><span>Élénk</span><span>Játékos</span></span><span class="t">Ha változik a szám, 0,34 másodperc alatt megugrik és megbillen, a szám a csúcson cserélődik. Nullánál zöld pipává fordul.</span><span class="rm">Nyugodt és csökkentve: csak a szám cserélődik.</span><span class="off-note"></span></li>
+            <li data-lv="elenk jatekos"><span class="nm">F2 Mára kész</span><span class="lv"><span>Élénk</span><span>Játékos</span></span><span class="t">A 3D buborék 0,62 másodperc alatt leesik, a „kész” pecsét 0,38 másodpercnél rácsapódik. Játékos szinten a buborék egyet rugózik, két matrica ráragad, a pöttyök sorban megugranak.</span><span class="rm">Nyugodt és csökkentve: a panel a pecséttel együtt jelenik meg, a fókusz a címére ugrik.</span><span class="off-note"></span></li>
+            <li data-lv="elenk jatekos"><span class="nm">S5 Aláhúzás a címen</span><span class="lv"><span>Élénk</span><span>Játékos</span></span><span class="t">0,52 másodperc, a képernyő első látogatásakor.</span><span class="rm">Csökkentve: ott van.</span><span class="off-note"></span></li>
+          </ul>
+        </details>
+      </article>
+
+      <!-- ======================================================== the empty state -->
+      <article class="demo" id="d-empty" aria-labelledby="h-d-empty">
+        <div class="demo-head"><h3 id="h-d-empty">Üres állapot, és ami megtöri</h3><p class="demo-lvl"><a href="#controls">Szint most: <b data-lvl-name>Élénk</b></a></p></div>
+        <div class="phone"><div class="phone-in">
+          <div class="app" data-surface="app" data-lvl="elenk" data-palette="pop-citrom" data-sec="rev" data-empty>
+            <header class="blk-head">
+              <div class="head-grid">
+                <div>
+                  <p class="stk">ma, szept. 26.</p>
+                  <h4 class="title">Értékelések</h4>
+                </div>
+                <div class="art" data-tap-bell>
+<!--art:csengo class="ill art-bell"--><svg class="ill art-bell" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><g stroke-linejoin="round" stroke-linecap="round"><g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5"><g transform="rotate(-10 120 120)"><g class="p-swing"><circle cx="120" cy="40" r="10"/><path d="M120 46C150 46 166 68 166 98C166 122 170 140 188 154H52C70 140 74 122 74 98C74 68 90 46 120 46Z"/><rect x="42" y="150" width="156" height="20" rx="10"/><g class="p-clapper"><circle cx="120" cy="180" r="14"/></g><g class="p-dot"><circle cx="168" cy="66" r="17"/></g></g></g></g><g transform="rotate(-10 120 120)" stroke="currentColor" stroke-width="2.5"><g class="p-swing"><circle cx="120" cy="40" r="10" fill="#ffe500"/><g class="p-clapper"><circle cx="120" cy="180" r="14" fill="#ff7a3d"/></g><path d="M120 46C150 46 166 68 166 98C166 122 170 140 188 154H52C70 140 74 122 74 98C74 68 90 46 120 46Z" fill="#ffe500"/><rect x="42" y="150" width="156" height="20" rx="10" fill="#ffe500"/><g class="p-dot"><circle cx="168" cy="66" r="17" fill="#ff2d9b"/></g></g></g></g></svg><!--/art-->
+                </div>
+              </div>
+            </header>
+            <div class="pane">
+              <div class="card empty-card" data-e="empty">
+                <div class="empty-art" data-idle="tray" data-tap-tray>
+<!--art:talca class="ill ill-empty art-tray"--><svg class="ill ill-empty art-tray" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><g stroke-linejoin="round" stroke-linecap="round"><g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5"><g><path d="M54 114H186Q196 114 200 122L220 168Q224 178 212 178H28Q16 178 20 168L40 122Q44 114 54 114Z"/><path d="M54 102H186Q196 102 200 110L220 156Q224 166 212 166H28Q16 166 20 156L40 110Q44 102 54 102Z"/><g class="p-tick"><circle cx="190" cy="62" r="21"/></g></g></g><g stroke="currentColor" stroke-width="2.5"><path d="M54 114H186Q196 114 200 122L220 168Q224 178 212 178H28Q16 178 20 168L40 122Q44 114 54 114Z" fill="#38d6e0"/><path d="M54 102H186Q196 102 200 110L220 156Q224 166 212 166H28Q16 166 20 156L40 110Q44 102 54 102Z" fill="#38d6e0"/><path d="M66 114H174Q181 114 184 120L199 150Q202 156 195 156H45Q38 156 41 150L56 120Q59 114 66 114Z" fill="#ffffff"/><path d="M41 129L36 141" fill="none" stroke="#0a0a0a" stroke-width="6"/><path d="M199 129L204 141" fill="none" stroke="#0a0a0a" stroke-width="6"/><g class="p-tick"><circle cx="190" cy="62" r="21" fill="#9be15d"/><path d="M180.2 62.05L187 68L198.05 56.1" fill="none" stroke="#0a0a0a" stroke-width="6"/></g></g></g></svg><!--/art-->
+                </div>
+                <p>Ma még nem érkezett új értékelés egyik étteremhez sem. A következő ellenőrzés hajnali 4-kor fut.</p>
+              </div>
+              <div data-e="list" hidden>
+                <article class="card rv" data-e="new">
+                  <div class="rv-top"><h5 class="rv-venue">Teszt Kávézó</h5><span class="stars" role="img" aria-label="4 csillag az 5-ből"><span class="glyphs" aria-hidden="true"><svg><use href="#g-star"/></svg><svg><use href="#g-star"/></svg><svg><use href="#g-star"/></svg><svg><use href="#g-star"/></svg><svg class="o"><use href="#g-star-o"/></svg></span><span class="num" aria-hidden="true">4/5</span></span><span class="stk stk-new">új</span></div>
+                  <p class="rv-meta">Teszt Lilla · ma 9:12</p>
+                  <p class="rv-text">Gyors kiszolgálás, finom a reggeli. A kávé lehetne forróbb.</p>
+                  <p class="state">Vázlat kész</p>
+                </article>
+              </div>
+            </div>
+            <div class="tabbar" aria-hidden="true">
+              <span class="tb" data-sec="ma"><svg class="ic" focusable="false"><use href="#i-home"/></svg><span>Ma</span></span>
+              <span class="tb" data-sec="rev" aria-current="page"><svg class="ic" focusable="false"><use href="#i-list"/></svg><span>Értékelések</span></span>
+              <span class="tb" data-sec="rep"><svg class="ic" focusable="false"><use href="#i-reply"/></svg><span>Válaszok</span><span class="tab-badge" data-e="badge">3</span></span>
+              <span class="tb" data-sec="ins"><svg class="ic" focusable="false"><use href="#i-chart"/></svg><span>Kimutatások</span></span>
+            </div>
+          </div>
+        </div></div>
+        <div class="demo-tools">
+          <button type="button" class="opt" data-replay="empty-arrive">Mintha jönne egy új értékelés</button>
+          <button type="button" class="opt" data-replay="empty-reset"><svg class="lic" aria-hidden="true" focusable="false"><use href="#i-replay"/></svg>Vissza üresre</button>
+          <button type="button" class="opt" data-replay="empty-bell">Csengő</button>
+          <button type="button" class="opt" data-replay="empty-tray">Pipa a tálcán</button>
+        </div>
+        <details class="spec">
+          <summary>Mi mozog itt, és mikor</summary>
+          <ul class="items">
+            <li data-lv="elenk jatekos"><span class="nm">A4 A csengő csak akkor szól, ha jött valami</span><span class="lv"><span>Élénk</span><span>Játékos</span></span><span class="t">Az alkalmazásban soha nem időzítve: új értékelésre vagy riasztásra szól egyszer, 1,1 másodpercig, és ha rákoppintasz. A nyelve egy pillanattal később lendül, a rózsaszín pötty egyet ugrik.</span><span class="rm">Csökkentve: áll.</span><span class="off-note"></span></li>
+            <li data-lv="elenk jatekos"><span class="nm">A7 A tálca pipája</span><span class="lv"><span>Élénk</span><span>Játékos</span></span><span class="t">A pipa azt mondja, hogy nincs teendő, és amíg üres az állapot, ez igaz. Élénk szinten egyszer, amikor az üres állapot látszik, és ha rákoppintasz. Játékos szinten 12 és 20 másodperc között időnként, amíg látszik. 0,42 másodperc.</span><span class="rm">Csökkentve: áll.</span><span class="off-note"></span></li>
+            <li data-lv="elenk jatekos"><span class="nm">F7 Új értékelés érkezik</span><span class="lv"><span>Élénk</span><span>Játékos</span></span><span class="t">A csengéssel egy időben az üres állapot helyére leesik a kártya: 16 pixelről, kicsit kisebbről, 0,36 másodperc alatt. A Válaszok számlálója megugrik. Semmi nem várja meg a csengőt.</span><span class="rm">Nyugodt és csökkentve: a kártya ott van, a szám cserélődik.</span><span class="off-note"></span></li>
+          </ul>
+        </details>
+      </article>
+
+      <!-- ======================================================== small things -->
+      <article class="demo" id="d-small" aria-labelledby="h-d-small">
+        <div class="demo-head"><h3 id="h-d-small">Apróságok</h3><p class="demo-lvl"><a href="#controls">Szint most: <b data-lvl-name>Élénk</b></a></p></div>
+        <div class="phone"><div class="phone-in">
+          <div class="app" data-surface="app" data-lvl="elenk" data-palette="pop-citrom" data-sec="set" data-small>
+            <header class="blk-head">
+              <h4 class="title"><span class="mk">Beállítások<svg class="mk-line" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M2 7C20 3.5 40 9.5 58 6S88 4.5 98 8"/></svg></span></h4>
+            </header>
+            <div class="pane">
+              <div class="card set-card">
+                <h5><span id="h-period">Időszak</span></h5>
+                <div class="seg" role="group" aria-labelledby="h-period" data-s="seg">
+                  <button type="button" aria-pressed="true">Tegnap</button>
+                  <button type="button" aria-pressed="false">Ma</button>
+                  <button type="button" aria-pressed="false">7 nap</button>
+                  <button type="button" aria-pressed="false">30 nap</button>
+                </div>
+              </div>
+              <div class="card set-card">
+                <div class="switch-row"><span id="l-auto">Automatikus válasz a 4 és 5 csillagos értékelésekre</span><button type="button" class="switch" role="switch" aria-checked="false" aria-labelledby="l-auto" data-s="switch"><span class="knob" aria-hidden="true"></span></button></div>
+              </div>
+              <div class="card set-card">
+                <h5 id="h-check">Első lépések: <span data-s="done-n">1</span> / 4</h5>
+                <ul class="check-list" aria-labelledby="h-check" data-s="checks">
+                  <li><label><input type="checkbox" checked><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path pathLength="1" d="M20 6 9 17l-5-5"/></svg></span><span class="tx">Vedd fel az első éttermet<span class="strike" aria-hidden="true"></span></span></label></li>
+                  <li><label><input type="checkbox"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path pathLength="1" d="M20 6 9 17l-5-5"/></svg></span><span class="tx">Hagyd jóvá az első választ<span class="strike" aria-hidden="true"></span></span></label></li>
+                  <li><label><input type="checkbox"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path pathLength="1" d="M20 6 9 17l-5-5"/></svg></span><span class="tx">Írd le, hogyan szóljon a válasz<span class="strike" aria-hidden="true"></span></span></label></li>
+                  <li><label><input type="checkbox"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path pathLength="1" d="M20 6 9 17l-5-5"/></svg></span><span class="tx">Tedd fel a telefonodra<span class="strike" aria-hidden="true"></span></span></label></li>
+                </ul>
+              </div>
+              <details class="fold" data-s="fold">
+                <summary><span>Részletes bontás</span><span class="fold-ic" aria-hidden="true"><svg class="ic" focusable="false"><use href="#i-plus"/></svg></span></summary>
+                <div class="fold-body" data-s="fold-body"><p>Éttermenként és csillagonként, a tegnapi napra. A teljes táblázat itt nyílna meg.</p></div>
+              </details>
+              <div class="card set-card" data-s="save-card">
+                <label class="field" for="venue-name">Az étterem neve<input id="venue-name" type="text" autocomplete="off" placeholder="pl. Példa Bisztró" data-s="name"></label>
+                <p class="err" data-s="err" role="alert" hidden><b>Ez a mentés nem ment át.</b> Írd be az étterem nevét, és nyomd meg újra a Mentés gombot.</p>
+                <p class="actions"><button type="button" class="btn" data-s="save">Mentés</button></p>
+              </div>
+              <div class="card set-card">
+                <h5>Számláló a fülön</h5>
+                <p class="note">Csak akkor mozdul, ha a szám tényleg változik.</p>
+                <div class="badge-demo">
+                  <button type="button" class="btn btn-2 btn-sm" data-s="badge-up">Jön egy új válasz</button>
+                  <button type="button" class="btn btn-2 btn-sm" data-s="badge-down">Egy válasz kész</button>
+                </div>
+              </div>
+            </div>
+            <div class="toast is-note" data-s="toast" hidden>
+              <span class="toast-ic" aria-hidden="true"></span>
+              <p class="toast-msg" data-s="toast-msg">Mentve.</p>
+            </div>
+            <div class="tabbar" aria-hidden="true">
+              <span class="tb" data-sec="ma"><svg class="ic" focusable="false"><use href="#i-home"/></svg><span>Ma</span></span>
+              <span class="tb" data-sec="rev"><svg class="ic" focusable="false"><use href="#i-list"/></svg><span>Értékelések</span></span>
+              <span class="tb" data-sec="rep"><svg class="ic" focusable="false"><use href="#i-reply"/></svg><span>Válaszok</span><span class="tab-badge" data-s="badge">3</span><span class="tab-done" data-s="badge-done" hidden><svg class="ic" focusable="false"><use href="#i-check"/></svg></span></span>
+              <span class="tb" data-sec="ins"><svg class="ic" focusable="false"><use href="#i-chart"/></svg><span>Kimutatások</span></span>
+            </div>
+          </div>
+        </div></div>
+        <div class="demo-tools">
+          <button type="button" class="opt" data-replay="small-mk"><svg class="lic" aria-hidden="true" focusable="false"><use href="#i-replay"/></svg>Aláhúzás újra</button>
+        </div>
+        <details class="spec">
+          <summary>Mi mozog itt, és mikor</summary>
+          <ul class="items">
+            <li data-lv="nyugodt elenk jatekos"><span class="nm">S3 Kapcsolók és választók</span><span class="lv"><span>Nyugodt</span><span>Élénk</span><span>Játékos</span></span><span class="t">A választó 0,12 másodperc alatt az árnyékába süllyed. A kapcsoló gombja 0,18 másodperc alatt átcsúszik, kis túllövéssel; Játékos szinten útközben kicsit megnyúlik. Nyugodt: 0,12 másodperc, túllövés nélkül.</span><span class="rm">Csökkentve: azonnal átvált.</span><span class="off-note"></span></li>
+            <li data-lv="nyugodt elenk jatekos"><span class="nm">S4 A pipa megrajzolódik</span><span class="lv"><span>Nyugodt</span><span>Élénk</span><span>Játékos</span></span><span class="t">A doboz összenyomódik és visszaugrik (0,16 másodperc), a pipa 0,24 másodperc alatt kirajzolódik. Játékos szinten a szöveget balról áthúzza egy vonal. Nyugodt: a pipa csak megjelenik.</span><span class="rm">Csökkentve: a pipa ott van.</span><span class="off-note"></span></li>
+            <li data-lv="nyugodt elenk jatekos"><span class="nm">S8 Lenyíló</span><span class="lv"><span>Nyugodt</span><span>Élénk</span><span>Játékos</span></span><span class="t">A plusz 0,18 másodperc alatt x-szé fordul, a tartalom 6 pixelről leül. Nyugodt: csak a jel fordul.</span><span class="rm">Csökkentve: azonnal nyílik.</span><span class="off-note"></span></li>
+            <li data-lv="elenk jatekos"><span class="nm">S11 Kopogás, ha nem ment át</span><span class="lv"><span>Élénk</span><span>Játékos</span></span><span class="t">A mező egyszer kopog, 0,24 másodperc, 4 pixel. A mondat mondja meg, mi a baj.</span><span class="rm">Nyugodt és csökkentve: csak a mondat.</span><span class="off-note"></span></li>
+            <li data-lv="elenk jatekos"><span class="nm">S7 Számláló, S5 aláhúzás</span><span class="lv"><span>Élénk</span><span>Játékos</span></span><span class="t">A számláló csak valódi változásra ugrik. Az aláhúzás a képernyő első látogatásakor húzódik ki.</span><span class="rm">Csökkentve: a szám cserélődik, a vonal ott van.</span><span class="off-note"></span></li>
+          </ul>
+        </details>
+      </article>
+
+      <!-- ======================================================== numbers and charts -->
+      <article class="demo" id="d-num" aria-labelledby="h-d-num">
+        <div class="demo-head"><h3 id="h-d-num">Számok és grafikonok</h3><p class="demo-lvl"><a href="#controls">Szint most: <b data-lvl-name>Élénk</b></a></p></div>
+        <div class="phone"><div class="phone-in">
+          <div class="app" data-surface="app" data-lvl="elenk" data-palette="pop-citrom" data-sec="ins" data-num>
+            <header class="blk-head">
+              <p class="stk">az elmúlt 7 nap</p>
+              <h4 class="title">Kimutatások</h4>
+            </header>
+            <div class="pane">
+              <div class="tiles tiles-3" data-n="tiles">
+                <div class="tile t-a"><span class="n-row"><span class="n" data-n="v0">41</span><span class="stk delta" data-n="d0" aria-hidden="true"></span></span><span class="l">Új értékelés</span></div>
+                <div class="tile t-b"><span class="n-row"><span class="n" data-n="v1">4,21</span><span class="stk delta" data-n="d1" aria-hidden="true"></span></span><span class="l">Átlag</span></div>
+                <div class="tile t-neg"><span class="n-row"><span class="n" data-n="v2">3</span><span class="stk delta" data-n="d2" aria-hidden="true"></span></span><span class="l">Negatív, válasz nélkül</span></div>
+              </div>
+              <p class="sr-only" role="status" data-n="live"></p>
+              <section class="card chart-card" aria-labelledby="h-bars">
+                <h5 id="h-bars">Napi értékelések, 30 nap</h5>
+                <div class="seg" role="group" aria-label="Hónap" data-n="month" style="margin-top: 10px">
+                  <button type="button" aria-pressed="true" data-m="0">Ez a hónap</button>
+                  <button type="button" aria-pressed="false" data-m="1">Előző hónap</button>
+                </div>
+                <div class="chart"><svg viewBox="0 0 300 130" role="img" aria-labelledby="h-bars" data-n="bars"></svg></div>
+              </section>
+              <section class="card chart-card" aria-labelledby="h-line">
+                <h5 id="h-line">Átlag, 30 nap</h5>
+                <div class="chart"><svg viewBox="0 0 300 110" role="img" aria-label="Az átlag 30 nap alatt 4,1 és 4,4 között mozog" data-n="line"></svg></div>
+              </section>
+            </div>
+          </div>
+        </div></div>
+        <div class="demo-tools">
+          <button type="button" class="opt" data-replay="num-day">Új nap</button>
+          <button type="button" class="opt" data-replay="num-draw"><svg class="lic" aria-hidden="true" focusable="false"><use href="#i-replay"/></svg>Rajzolás újra</button>
+          <span class="opts" role="group" aria-label="Honnan számol">
+            <button type="button" class="opt" aria-pressed="true" data-from="prev">Az előző értékről</button>
+            <button type="button" class="opt" aria-pressed="false" data-from="zero">Nulláról, nem javasolt</button>
+          </span>
+        </div>
+        <details class="spec">
+          <summary>Mi mozog itt, és mikor</summary>
+          <ul class="items">
+            <li data-lv="elenk jatekos"><span class="nm">F3 A szám, ami változott</span><span class="lv"><span>Élénk</span><span>Játékos</span></span><span class="t">Csak a megváltozott számjegyek gördülnek, az előző értékről, 0,6 másodperc alatt, mellé rácsapódik a különbség. Ha nincs előző érték, a szám egészben érkezik. Nulláról soha nem számol: azt csak összehasonlításnak tettük ide.</span><span class="rm">Nyugodt és csökkentve: az új szám ott van, a különbség matricája áll.</span><span class="off-note"></span></li>
+            <li data-lv="nyugodt elenk jatekos"><span class="nm">F4 Oszlopok</span><span class="lv"><span>Nyugodt</span><span>Élénk</span><span>Játékos</span></span><span class="t">Első látogatáskor az alapvonalról nőnek, 0,42 másodperc alatt, sorban egymás után. Hónapváltáskor a régi magasságból az újba mennek, 0,3 másodperc. Nyugodt: csak a hónapváltás, 0,16 másodperc.</span><span class="rm">Csökkentve: azonnal.</span><span class="off-note"></span></li>
+            <li data-lv="elenk jatekos"><span class="nm">F5 A görbe megrajzolódik</span><span class="lv"><span>Élénk</span><span>Játékos</span></span><span class="t">Balról jobbra, 0,7 másodperc, a végén rácsapódik az utolsó pont.</span><span class="rm">Nyugodt és csökkentve: kész rajz.</span><span class="off-note"></span></li>
+          </ul>
+        </details>
+      </article>
+
+      <!-- ======================================================== transitions -->
+      <article class="demo" id="d-trans" aria-labelledby="h-d-trans">
+        <div class="demo-head"><h3 id="h-d-trans">Átmenetek</h3><p class="demo-lvl"><a href="#controls">Szint most: <b data-lvl-name>Élénk</b></a></p></div>
+        <div class="phone"><div class="phone-in">
+          <div class="app" data-surface="app" data-lvl="elenk" data-palette="pop-citrom" data-sec="ma" data-trans>
+            <div class="topbar" data-t="topbar">
+              <div class="topbar-row">
+                <svg class="topbar-mark" aria-hidden="true" focusable="false"><use href="#bt-mark"/></svg>
+                <span class="topbar-tenant">Példa Bisztró Csoport</span>
+                <button type="button" class="menu-btn" aria-expanded="false" aria-controls="t-menu" data-t="menu-btn"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg>Menü</button>
+              </div>
+            </div>
+            <div class="menu-panel" id="t-menu" data-t="menu" hidden>
+              <ul class="menu-list">
+                <li><button type="button" data-go="0" data-sec="ma"><span class="dot" aria-hidden="true"></span>Ma</button></li>
+                <li><button type="button" data-go="1" data-sec="rev"><span class="dot" aria-hidden="true"></span>Értékelések</button></li>
+                <li><button type="button" data-go="2" data-sec="rep"><span class="dot" aria-hidden="true"></span>Válaszok</button></li>
+                <li><button type="button" data-go="3" data-sec="ins"><span class="dot" aria-hidden="true"></span>Kimutatások</button></li>
+              </ul>
+            </div>
+            <div data-t="screens">
+              <section class="blk-head mini-head" data-t="scr" data-sec="ma" aria-label="Ma">
+                <p class="stk">szept. 26., szombat</p>
+                <h4 class="title">Jó reggelt.</h4>
+                <p class="lead">Ma 3 válasz vár rád.</p>
+              </section>
+              <section class="blk-head mini-head" data-t="scr" data-sec="rev" aria-label="Értékelések" hidden>
+                <p class="stk">8 új tegnap</p>
+                <h4 class="title">Értékelések</h4>
+                <p class="lead">Minden étteremből, a legújabb elöl.</p>
+              </section>
+              <section class="blk-head mini-head" data-t="scr" data-sec="rep" aria-label="Válaszok" hidden>
+                <p class="stk stk-pink">3 vár rád</p>
+                <h4 class="title">Válaszok</h4>
+                <p class="lead">A Teszt Kávézónál még kézzel kell kitenni a választ.</p>
+                <p class="actions"><button type="button" class="btn" data-t="sheet-open"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Jóváhagyás</button></p>
+              </section>
+              <section class="blk-head mini-head" data-t="scr" data-sec="ins" aria-label="Kimutatások" hidden>
+                <p class="stk">az elmúlt 7 nap</p>
+                <h4 class="title">Kimutatások</h4>
+                <p class="lead">A héten ez ismétlődik a legtöbbször: várakozás.</p>
+              </section>
+            </div>
+            <div class="pane"><p class="note">Koppints a fülekre lent, vagy nyisd meg a menüt. A Válaszok fülön a Jóváhagyás egy lapot nyit.</p></div>
+            <div class="sheet" role="dialog" aria-modal="false" aria-labelledby="h-sheet" data-t="sheet" hidden>
+              <div class="sheet-art-wrap" data-t="sheet-art">
+<!--art:telefon class="ill sheet-art"--><svg class="ill sheet-art" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><g stroke-linejoin="round" stroke-linecap="round"><g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5"><g transform="rotate(6 120 120)"><rect x="68" y="22" width="104" height="194" rx="22"/></g></g><g transform="rotate(6 120 120)" stroke="currentColor" stroke-width="2.5"><rect x="68" y="22" width="104" height="194" rx="22" fill="#2a48f5"/><rect x="80" y="44" width="80" height="156" rx="12" fill="#ffffff"/><rect x="108" y="30" width="24" height="7" rx="3.5" fill="#0a0a0a" stroke="none"/><path d="M92 60H122" fill="none" stroke="#0a0a0a" stroke-width="6"/><rect x="88" y="74" width="64" height="80" rx="10" fill="#ffe500"/><path d="M98 92H140" fill="none" stroke="#0a0a0a" stroke-width="6"/><path d="M98 108H130" fill="none" stroke="#0a0a0a" stroke-width="6"/><rect x="97" y="124" width="36" height="16" rx="8" fill="#2a48f5"/><rect x="88" y="164" width="64" height="26" rx="9" fill="#a78bfa"/><path d="M98 177H134" fill="none" stroke="#0a0a0a" stroke-width="6"/></g></g></svg><!--/art-->
+              </div>
+              <div>
+                <h6 id="h-sheet">A válasz kész</h6>
+                <p>Ehhez az étteremhez még nem tudunk a Google-re írni. Másold ki a választ, és nyisd meg az értékelést a Google-on.</p>
+                <p class="actions"><button type="button" class="btn btn-sm" data-t="copy"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-copy" data-t="copy-icon"/></svg><span data-t="copy-word">Másolás és Google megnyitása</span></button><button type="button" class="btn btn-2 btn-sm" data-t="sheet-close">Később</button></p>
+              </div>
+            </div>
+            <div class="toast is-note" data-t="toast" hidden>
+              <span class="toast-ic" aria-hidden="true"></span>
+              <p class="toast-msg" data-t="toast-msg">Kimásolva.</p>
+            </div>
+            <nav class="tabbar has-pill" aria-label="Minta menü" data-t="tabbar">
+              <span class="pill" aria-hidden="true" data-t="pill"></span>
+              <button type="button" class="tb" data-go="0" data-sec="ma" aria-current="page"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-home"/></svg><span>Ma</span></button>
+              <button type="button" class="tb" data-go="1" data-sec="rev"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-list"/></svg><span>Értékelések</span></button>
+              <button type="button" class="tb" data-go="2" data-sec="rep"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-reply"/></svg><span>Válaszok</span></button>
+              <button type="button" class="tb" data-go="3" data-sec="ins"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-chart"/></svg><span>Kimutatások</span></button>
+            </nav>
+          </div>
+        </div></div>
+        <div class="demo-tools">
+          <button type="button" class="opt" data-replay="trans-sheet">Lap megnyitása</button>
+          <button type="button" class="opt" data-replay="trans-menu">Menü</button>
+        </div>
+        <details class="spec">
+          <summary>Mi mozog itt, és mikor</summary>
+          <ul class="items">
+            <li data-lv="elenk jatekos"><span class="nm">S9 A fül színes blokkja átcsúszik</span><span class="lv"><span>Élénk</span><span>Játékos</span></span><span class="t">0,24 másodperc, kis túllövéssel, és felveszi az új képernyő színét.</span><span class="rm">Nyugodt és csökkentve: azonnal ott van.</span><span class="off-note"></span></li>
+            <li data-lv="nyugodt elenk jatekos"><span class="nm">T1 Képernyőváltás</span><span class="lv"><span>Nyugodt</span><span>Élénk</span><span>Játékos</span></span><span class="t">A régi képernyő azonnal eltűnik, az új blokkja 10 pixelről 0,2 másodperc alatt leül, a matricája utána rácsapódik. Az új képernyő azonnal kattintható. Nyugodt: 0,12 másodperces előtűnés.</span><span class="rm">Csökkentve: azonnal.</span><span class="off-note"></span></li>
+            <li data-lv="nyugodt elenk jatekos"><span class="nm">T4 Lap, F6 kimásolva</span><span class="lv"><span>Nyugodt</span><span>Élénk</span><span>Játékos</span></span><span class="t">A lap 0,28 másodperc alatt feljön, a rajza 0,12 másodperccel később ráragad, és 0,18 másodperc alatt lemegy. A másolás ikonja pipává ugrik. Nyugodt: 0,16 másodperc, túllövés nélkül.</span><span class="rm">Csökkentve: azonnal.</span><span class="off-note"></span></li>
+            <li data-lv="nyugodt elenk jatekos"><span class="nm">T5 Menü</span><span class="lv"><span>Nyugodt</span><span>Élénk</span><span>Játékos</span></span><span class="t">8 pixelről 0,2 másodperc alatt leesik, a sorai nem egymás után jönnek. Az Esc bezárja. Nyugodt: 0,12 másodperces előtűnés.</span><span class="rm">Csökkentve: azonnal.</span><span class="off-note"></span></li>
+          </ul>
+        </details>
+      </article>
+
+      <!-- ======================================================== loading -->
+      <article class="demo" id="d-load" aria-labelledby="h-d-load">
+        <div class="demo-head"><h3 id="h-d-load">Betöltés</h3><p class="demo-lvl"><a href="#controls">Szint most: <b data-lvl-name>Élénk</b></a></p></div>
+        <div class="phone"><div class="phone-in">
+          <div class="app" data-surface="app" data-lvl="elenk" data-palette="pop-citrom" data-sec="rev" data-load>
+            <header class="blk-head">
+              <h4 class="title">Értékelések</h4>
+            </header>
+            <div class="pane">
+              <div data-l="loading">
+                <p class="loader"><span class="hop" aria-hidden="true" data-l="hop"><i></i><i></i><i></i></span><span data-l="word">Értékelések betöltése…</span></p>
+                <div class="skel" aria-hidden="true">
+                  <div class="card"><i></i><i></i><i></i></div>
+                  <div class="card"><i></i><i></i><i></i></div>
+                </div>
+              </div>
+              <div class="loaded" data-l="loaded" hidden>
+                <article class="card rv">
+                  <div class="rv-top"><h5 class="rv-venue">Példa Bisztró</h5><span class="stars" role="img" aria-label="5 csillag az 5-ből"><span class="glyphs" aria-hidden="true"><svg><use href="#g-star"/></svg><svg><use href="#g-star"/></svg><svg><use href="#g-star"/></svg><svg><use href="#g-star"/></svg><svg><use href="#g-star"/></svg></span><span class="num" aria-hidden="true">5/5</span></span></div>
+                  <p class="rv-meta">Teszt Anna · tegnap 18:20</p>
+                  <p class="rv-text">Isteni volt a rántott csirke, és gyorsan kihozták.</p>
+                </article>
+                <article class="card rv">
+                  <div class="rv-top"><h5 class="rv-venue">Minta Étterem</h5><span class="stars" role="img" aria-label="2 csillag az 5-ből"><span class="glyphs" aria-hidden="true"><svg><use href="#g-star"/></svg><svg><use href="#g-star"/></svg><svg class="o"><use href="#g-star-o"/></svg><svg class="o"><use href="#g-star-o"/></svg><svg class="o"><use href="#g-star-o"/></svg></span><span class="num" aria-hidden="true">2/5</span></span></div>
+                  <p class="rv-meta">Példa Gergő · tegnap 19:05</p>
+                  <p class="rv-text">Húsz percet vártunk az asztalra, pedig foglaltunk.</p>
+                </article>
+              </div>
+              <div class="card import">
+                <div data-l="receipt">
+<!--art:nyugta class="ill art-receipt"--><svg class="ill art-receipt" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><g stroke-linejoin="round" stroke-linecap="round"><g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5"><g transform="rotate(-5 120 120)"><path d="M70 30H170A10 10 0 0 1 180 40V190L169 199L158 190L147 199L136 190L125 199L114 190L103 199L92 190L81 199L70 190L60 199V40A10 10 0 0 1 70 30Z"/><g class="p-clock"><circle cx="180" cy="46" r="22"/></g></g></g><g transform="rotate(-5 120 120)" stroke="currentColor" stroke-width="2.5"><path d="M70 30H170A10 10 0 0 1 180 40V190L169 199L158 190L147 199L136 190L125 199L114 190L103 199L92 190L81 199L70 190L60 199V40A10 10 0 0 1 70 30Z" fill="#ffe500"/><path class="p-line" data-row="0" d="M80 58H140" fill="none" stroke="#0a0a0a" stroke-width="6"/><path class="p-line" data-row="1" d="M78 78H164" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-dasharray="1 8"/><path class="p-line" data-row="2" d="M80 98H122" fill="none" stroke="#0a0a0a" stroke-width="6"/><path class="p-line" data-row="2" d="M146 98H160" fill="none" stroke="#0a0a0a" stroke-width="6"/><path class="p-line" data-row="3" d="M80 116H114" fill="none" stroke="#0a0a0a" stroke-width="6"/><path class="p-line" data-row="3" d="M146 116H160" fill="none" stroke="#0a0a0a" stroke-width="6"/><path class="p-line" data-row="4" d="M80 134H128" fill="none" stroke="#0a0a0a" stroke-width="6"/><path class="p-line" data-row="4" d="M146 134H160" fill="none" stroke="#0a0a0a" stroke-width="6"/><path class="p-line" data-row="5" d="M78 154H164" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-dasharray="1 8"/><path class="p-line" data-row="6" d="M80 172H106" fill="none" stroke="#0a0a0a" stroke-width="6"/><path class="p-line" data-row="6" d="M136 172H160" fill="none" stroke="#0a0a0a" stroke-width="6"/><g class="p-clock"><circle cx="180" cy="46" r="22" fill="#ff2d9b"/><path d="M180 34V46L188 52" fill="none" stroke="#0a0a0a" stroke-width="6"/></g></g></g></svg><!--/art-->
+                </div>
+                <div>
+                  <p class="import-tx" data-l="import-tx">Első letöltés: 0 / 200</p>
+                  <div class="meter" aria-hidden="true"><span data-l="meter"></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div></div>
+        <div class="demo-tools">
+          <button type="button" class="opt" data-replay="load-again"><svg class="lic" aria-hidden="true" focusable="false"><use href="#i-replay"/></svg>Betöltés újra</button>
+          <button type="button" class="opt" data-replay="load-import">Első letöltés újra</button>
+        </div>
+        <details class="spec">
+          <summary>Mi mozog itt, és mikor</summary>
+          <ul class="items">
+            <li data-lv="nyugodt elenk jatekos"><span class="nm">L1 és L2 Az első 0,2 másodperc és a váz</span><span class="lv"><span>Nyugodt</span><span>Élénk</span><span>Játékos</span></span><span class="t">Az első 0,2 másodpercben semmi nem jelenik meg. A váz a valódi elrendezés, és soha nem csillog, nem lüktet.</span><span class="rm">Csökkentve: ugyanez.</span><span class="off-note"></span></li>
+            <li data-lv="elenk jatekos"><span class="nm">L3 Három ugráló kocka</span><span class="lv"><span>Élénk</span><span>Játékos</span></span><span class="t">Sorban ugranak, 6 pixel, 0,6 másodperces körrel. Legfeljebb 5 másodpercig. 4 másodpercnél a szöveg is vált.</span><span class="rm">Nyugodt és csökkentve: állnak, csak a szöveg beszél.</span><span class="off-note"></span></li>
+            <li data-lv="nyugodt elenk jatekos"><span class="nm">L4 Első letöltés</span><span class="lv"><span>Nyugodt</span><span>Élénk</span><span>Játékos</span></span><span class="t">A csík minden frissítésnél 0,3 másodperc alatt nő. Élénk és Játékos szinten a nyugta soronként kinyomtatódik, a végén rácsapódik az óra.</span><span class="rm">Csökkentve: a csík ugrik, a nyugta kész.</span><span class="off-note"></span></li>
+          </ul>
+        </details>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ the rules -->
+  <section class="sec" aria-labelledby="h-rules">
+    <h2 id="h-rules">Szabályok röviden</h2>
+    <p class="sec-intro">A teljes terv: docs/design/MOTION-v0.1.0.md.</p>
+    <ul class="rules">
+      <li><b>Öt másodperc</b>Ami magától indul, öt másodpercen belül megáll. Ami tovább megy, azt a Szünet megállítja, és megáll egér alatt, fókusznál, és ha nem látszik.</li>
+      <li><b>Csökkentett mozgás</b>Ha a készülék kéri, semmi nem mozdul magától, és minden állapot azonnal vált. Semmi nem tűnik el miatta.</li>
+      <li><b>Nem villog semmi</b>Semmi nem villan fel másodpercenként háromszor vagy többször.</li>
+      <li><b>A rajz nem hazudik</b>A csengő csak akkor szól, ha jött valami, a nyugta csak akkor nyomtat, ha kész a jelentés. A gőz bármikor szállhat.</li>
+      <li><b>Soha nem vár rá senki</b>A következő válasz 0,24 másodperc múlva olvasható, a billentyűk mozgás közben is működnek.</li>
+      <li><b>Csak ami látszik</b>Ha nem látszik, ha a lap a háttérben van, vagy egy perce nem nyúltál semmihez, az ismétlődő mozgás áll.</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="lab-foot">
+  <p>Illusztráció. Az éttermek, a vendégek, a szövegek és a számok kitaláltak. A darabok a weboldalé és a jóváhagyott alkalmazás-laboré.</p>
+  <p>A betűk, a rajzok és a 3D képek ebben a mappában vannak. Az oldal semmit nem kér le máshonnan. v0.1.0, 2026. szept. 26.</p>
+</footer>
+
+<!-- Every string the script puts on screen. Read by the copy check; never shown. -->
+<div class="strings" hidden>
+  <span data-k="lvl.javasolt">Javasolt: a weboldal Játékos, az alkalmazás Élénk.</span>
+  <span data-k="lvl.nyugodt">Nyugodt: csak az mozdul, amit te indítasz, és gyorsan. Egy gomb, egy kapcsoló, a következő válasz.</span>
+  <span data-k="lvl.elenk">Élénk: ami egyszer történik, az megmozdul. Érkezés, visszajelzés, a kész pillanat. Semmi nem ismétlődik magától.</span>
+  <span data-k="lvl.jatekos">Játékos: az Élénk, és lassú élet a háttérben. Lebegő matricák, mozgó szalag, időnként mozduló rajzok. A Szünet mindet megállítja.</span>
+  <span data-k="lvl.reduce">Csökkentett mozgás: semmi nem mozdul magától, minden azonnal vált. Csak a visszavonás sávja fogy, másodpercenként egy lépéssel.</span>
+  <span data-k="name.nyugodt">Nyugodt</span>
+  <span data-k="name.elenk">Élénk</span>
+  <span data-k="name.jatekos">Játékos</span>
+  <span data-k="name.reduce">csökkentett mozgás</span>
+  <span data-k="st.level">Szint: {name}.</span>
+  <span data-k="st.reduce.on">Csökkentett mozgás bekapcsolva.</span>
+  <span data-k="st.reduce.off">Csökkentett mozgás kikapcsolva.</span>
+  <span data-k="st.pause.on">Az ismétlődő mozgás szünetel.</span>
+  <span data-k="st.pause.off">Az ismétlődő mozgás újra megy.</span>
+  <span data-k="st.slow.on">Minden mozdulat négyszer lassabb.</span>
+  <span data-k="st.slow.off">Rendes sebesség.</span>
+  <span data-k="st.asleep">Egy perce nem nyúltál semmihez, ezért az ismétlődő mozgás megállt. Bármilyen mozdulatra újraindul.</span>
+  <span data-k="st.replay">Minden bemutató elölről indult.</span>
+  <span data-k="st.still">Csökkentett mozgásnál nincs mit lejátszani: minden a helyén van.</span>
+  <span data-k="st.noop">A laborban ez a gomb nem visz sehova.</span>
+  <span data-k="off">Ezen a szinten nem mozdul.</span>
+  <span data-k="off.reduce">Most áll: csökkentett mozgás.</span>
+  <span data-k="band.on">Megállítás</span>
+  <span data-k="band.off">Indítás</span>
+  <span data-k="q.approved">Jóváhagyva.</span>
+  <span data-k="q.skipped">Válasz nélkül lezárva.</span>
+  <span data-k="q.undone">Visszavonva. A válasz újra a sorban van.</span>
+  <span data-k="q.say.approved">Jóváhagyva. A Visszavonom gombbal visszaveheted.</span>
+  <span data-k="q.say.skipped">Válasz nélkül lezárva. A Visszavonom gombbal visszaveheted.</span>
+  <span data-k="q.say.done">Minden választ átnéztél.</span>
+  <span data-k="q.count">{n} vár rád</span>
+  <span data-k="q.count0">0 vár</span>
+  <span data-k="q.pending">Jóváhagyásra vár: {n}. A jóváhagyott választ mi tesszük ki a Google-re.</span>
+  <span data-k="q.pending0">Nincs jóváhagyásra váró válasz.</span>
+  <span data-k="q.stars">{n} csillag az 5-ből</span>
+  <span data-k="s.saved">Mentve.</span>
+  <span data-k="t.copied">Kimásolva.</span>
+  <span data-k="t.copyword">Másolás és Google megnyitása</span>
+  <span data-k="l.loading">Értékelések betöltése…</span>
+  <span data-k="l.slow">A Google most lassan válaszol. Még próbáljuk.</span>
+  <span data-k="l.import">Első letöltés: {n} / 200</span>
+  <span data-k="l.imported">Letöltöttük a legutóbbi 200 értékelést.</span>
+  <span data-k="n.live">Új értékelés: {a}. Átlag: {b}. Negatív, válasz nélkül: {c}.</span>
+</div>
+
+<!-- The three replies waiting, worst first (the same as on Ma: two of two stars, one of three). -->
+<div class="q-data" hidden>
+  <article data-id="1" data-stars="2"><span data-f="venue">Példa Bisztró</span><span data-f="meta">Minta Katalin · tegnap 12:40</span><span data-f="body">A leves langyos volt, és húsz percet vártunk a számlára.</span><span data-f="draft">Kedves Katalin, köszönjük, hogy megírta. Sajnáljuk a langyos levest és a hosszú várakozást a számlára. Továbbadtuk a konyhának és a felszolgálóknak. A Példa Bisztró csapata</span></article>
+  <article data-id="2" data-stars="2"><span data-f="venue">Minta Étterem</span><span data-f="meta">Példa Gergő · tegnap 19:05</span><span data-f="body">Húsz percet vártunk az asztalra, pedig foglaltunk.</span><span data-f="draft">Kedves Gergő, sajnáljuk, hogy a foglalás ellenére várniuk kellett. Megnézzük, hol csúszott el az asztalok kiosztása. A Minta Étterem csapata</span></article>
+  <article data-id="3" data-stars="3"><span data-f="venue">Minta Étterem</span><span data-f="meta">Teszt Bence · tegnap 21:30</span><span data-f="body">Rendben volt minden, csak hangos a zene.</span><span data-f="draft">Kedves Bence, köszönjük az értékelést. A zene hangerejére esténként jobban figyelünk. Várjuk vissza. A Minta Étterem csapata</span></article>
+</div>
+
+<script src="js/motion.js"></script>
+</body>
+</html>

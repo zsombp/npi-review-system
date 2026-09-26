@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Hold">
+<title>Hold</title>
+<!-- BistroTech Pop spot illustration, v0.2.0, 2026-09-26. Source: tools/build_svg.py.
+     Outline 2.5 and a 7 px hard shadow in currentColor (ink by default, white on a dark
+     ground when the page sets color: #fff); details ink 6 px; fills from the Pop blocks. -->
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g transform="rotate(-8 120 120)">
+      <path d="M106.2 48.2A76 76 0 1 0 185.9 141.9A62 62 0 0 1 106.2 48.2Z"/>
+    </g>
+  </g>
+  <g transform="rotate(-8 120 120)" stroke="currentColor" stroke-width="2.5">
+    <path d="M106.2 48.2A76 76 0 1 0 185.9 141.9A62 62 0 0 1 106.2 48.2Z" fill="#ffe500"/>
+    <circle cx="80" cy="150" r="11" fill="#ff7a3d"/>
+    <circle cx="108" cy="182" r="8" fill="#ff7a3d"/>
+    <circle cx="60" cy="108" r="7" fill="#ff7a3d"/>
+  </g>
+</g>
+</svg>

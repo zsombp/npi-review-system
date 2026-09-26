@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Boríték">
+<title>Boríték</title>
+<!-- BistroTech Pop spot illustration, v0.2.0, 2026-09-26. Source: tools/build_svg.py.
+     Outline 2.5 and a 7 px hard shadow in currentColor (ink by default, white on a dark
+     ground when the page sets color: #fff); details ink 6 px; fills from the Pop blocks. -->
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g transform="rotate(-5 120 120)">
+      <rect x="34" y="62" width="172" height="120" rx="16"/>
+      <circle cx="202" cy="64" r="18"/>
+    </g>
+  </g>
+  <g transform="rotate(-5 120 120)" stroke="currentColor" stroke-width="2.5">
+    <rect x="34" y="62" width="172" height="120" rx="16" fill="#38d6e0"/>
+    <path d="M50 62H190A16 16 0 0 1 206 78L120 136L34 78A16 16 0 0 1 50 62Z" fill="#ffe500"/>
+    <circle cx="202" cy="64" r="18" fill="#ff2d9b"/>
+  </g>
+</g>
+</svg>

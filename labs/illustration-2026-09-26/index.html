@@ -5,16 +5,27 @@
 <meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pop illusztrációk: labor</title>
-<meta name="description" content="Az első Pop illusztrációk a BistroTechhez: tizenkét SVG-rajz, négy 3D-s tárgy Blenderből, és három makett, ahol a helyükön látszanak.">
+<meta name="description" content="A Pop illusztrációk a BistroTechhez: huszonhat SVG-rajz, kilenc 3D-s tárgy Blenderből, a telefon az új alkalmazással, és négy makett, ahol a helyükön látszanak.">
 <meta name="theme-color" content="#38d6e0">
 <link rel="preload" href="fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
-<!-- BistroTech illustration lab, Pop. v0.1.0, 2026-09-26. Claude Opus 5.5 as operator under D-033,
-     for POP-SYSTEM-v0.1.0.md section 7 (D-049). The twelve drawings are inlined below as a sprite
-     by tools/build_svg.py (between the SPRITE markers), so their outline and shadow follow the text
-     colour of each ground. The renders come from blender/*.py; sizes and times from
-     renders/render-log.json. Copy in the mockups is from website-2026-09-25/shared/copy-hu.md. -->
+<!-- BistroTech illustration lab, Pop. v0.2.0, 2026-09-26. Claude Opus 5.5 as operator under D-033,
+     for POP-SYSTEM-v0.1.0.md section 7 (D-049) and POP-IDENTITY-v1.0.0.md sections 10 to 12 (D-050).
+     The drawings are inlined below as a sprite by tools/build_svg.py (between the SPRITE markers),
+     so their outline and shadow follow the text colour of each ground. The renders come from
+     blender/*.py; sizes and times from renders/render-log.json. Copy in the mockups is from
+     website-2026-09-25/shared/copy-hu.md and the app screenshots of 2026-09-26.
+
+     Changelog, newest first:
+       v0.2.0, 2026-09-26  Fourteen new drawings (13 to 26) on the four grounds; five new 3D objects
+                           (alarm clock, coffee cup, map pin, paper plane, stamp); the phone
+                           re-rendered with the Pop app (v0.31.1), both the Válaszok and the Ma screen,
+                           and a new turntable with the Ma screen; the old phone kept in renders/v1/
+                           and shown small; the website mock takes the new phone; a fourth mock with
+                           the sun and the moon; three rules learned in this round.
+       v0.1.0, 2026-09-26  Twelve drawings, four renders, one turntable, three mocks. -->
+
 </head>
 <body>
 <a class="skip" href="#main">Ugrás a tartalomra</a>
@@ -32,7 +43,7 @@
   <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></symbol>
 </svg>
 
-<!-- The twelve illustrations, written by tools/build_svg.py from svg/*.svg. Do not edit here. -->
+<!-- The twenty-six illustrations, written by tools/build_svg.py (the same source as svg/*.svg). Do not edit here. -->
 <!-- SPRITE:START -->
 <svg class="sprite" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false">
 <symbol id="ill-nyugta" viewBox="0 0 240 240">
@@ -40,24 +51,34 @@
   <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
     <g transform="rotate(-5 120 120)">
       <path d="M70 30H170A10 10 0 0 1 180 40V190L169 199L158 190L147 199L136 190L125 199L114 190L103 199L92 190L81 199L70 190L60 199V40A10 10 0 0 1 70 30Z"/>
-      <circle cx="180" cy="46" r="22"/>
+      <g class="p-clock"><circle cx="180" cy="46" r="22"/></g>
     </g>
   </g>
   <g transform="rotate(-5 120 120)" stroke="currentColor" stroke-width="2.5">
     <path d="M70 30H170A10 10 0 0 1 180 40V190L169 199L158 190L147 199L136 190L125 199L114 190L103 199L92 190L81 199L70 190L60 199V40A10 10 0 0 1 70 30Z" fill="#ffe500"/>
-    <path d="M80 58H140" fill="none" stroke="#0a0a0a" stroke-width="6"/>
-    <path d="M78 78H164" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-dasharray="1 8"/>
+    <g class="p-line" data-row="0"><path d="M80 58H140" fill="none" stroke="#0a0a0a" stroke-width="6"/></g>
+    <g class="p-line" data-row="1"><path d="M78 78H164" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-dasharray="1 8"/></g>
+    <g class="p-line" data-row="2">
     <path d="M80 98H122" fill="none" stroke="#0a0a0a" stroke-width="6"/>
     <path d="M146 98H160" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    </g>
+    <g class="p-line" data-row="3">
     <path d="M80 116H114" fill="none" stroke="#0a0a0a" stroke-width="6"/>
     <path d="M146 116H160" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    </g>
+    <g class="p-line" data-row="4">
     <path d="M80 134H128" fill="none" stroke="#0a0a0a" stroke-width="6"/>
     <path d="M146 134H160" fill="none" stroke="#0a0a0a" stroke-width="6"/>
-    <path d="M78 154H164" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-dasharray="1 8"/>
+    </g>
+    <g class="p-line" data-row="5"><path d="M78 154H164" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-dasharray="1 8"/></g>
+    <g class="p-line" data-row="6">
     <path d="M80 172H106" fill="none" stroke="#0a0a0a" stroke-width="6"/>
     <path d="M136 172H160" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    </g>
+    <g class="p-clock">
     <circle cx="180" cy="46" r="22" fill="#ff2d9b"/>
     <path d="M180 34V46L188 52" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    </g>
   </g>
 </g>
 </symbol>
@@ -66,16 +87,18 @@
   <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
     <g>
       <path d="M66 58H172A34 34 0 0 1 206 92V128A34 34 0 0 1 172 162H170Q174 177 191 187Q195 191 188 193Q155 191 132 162H66A34 34 0 0 1 32 128V92A34 34 0 0 1 66 58Z"/>
-      <circle cx="44" cy="58" r="21"/>
+      <g class="p-tick"><circle cx="44" cy="58" r="21"/></g>
     </g>
   </g>
   <g stroke="currentColor" stroke-width="2.5">
     <path d="M66 58H172A34 34 0 0 1 206 92V128A34 34 0 0 1 172 162H170Q174 177 191 187Q195 191 188 193Q155 191 132 162H66A34 34 0 0 1 32 128V92A34 34 0 0 1 66 58Z" fill="#ff2d9b"/>
-    <path d="M68 90H176" fill="none" stroke="#0a0a0a" stroke-width="6"/>
-    <path d="M68 110H160" fill="none" stroke="#0a0a0a" stroke-width="6"/>
-    <path d="M68 130H122" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <g class="p-line" data-row="0"><path d="M68 90H176" fill="none" stroke="#0a0a0a" stroke-width="6"/></g>
+    <g class="p-line" data-row="1"><path d="M68 110H160" fill="none" stroke="#0a0a0a" stroke-width="6"/></g>
+    <g class="p-line" data-row="2"><path d="M68 130H122" fill="none" stroke="#0a0a0a" stroke-width="6"/></g>
+    <g class="p-tick">
     <circle cx="44" cy="58" r="21" fill="#9be15d"/>
     <path d="M34.2 58.05L41 64L52.05 52.1" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    </g>
   </g>
 </g>
 </symbol>
@@ -83,19 +106,23 @@
 <g stroke-linejoin="round" stroke-linecap="round">
   <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
     <g transform="rotate(-10 120 120)">
+      <g class="p-swing">
       <circle cx="120" cy="40" r="10"/>
       <path d="M120 46C150 46 166 68 166 98C166 122 170 140 188 154H52C70 140 74 122 74 98C74 68 90 46 120 46Z"/>
       <rect x="42" y="150" width="156" height="20" rx="10"/>
-      <circle cx="120" cy="180" r="14"/>
-      <circle cx="168" cy="66" r="17"/>
+      <g class="p-clapper"><circle cx="120" cy="180" r="14"/></g>
+      <g class="p-dot"><circle cx="168" cy="66" r="17"/></g>
+      </g>
     </g>
   </g>
   <g transform="rotate(-10 120 120)" stroke="currentColor" stroke-width="2.5">
+    <g class="p-swing">
     <circle cx="120" cy="40" r="10" fill="#ffe500"/>
-    <circle cx="120" cy="180" r="14" fill="#ff7a3d"/>
+    <g class="p-clapper"><circle cx="120" cy="180" r="14" fill="#ff7a3d"/></g>
     <path d="M120 46C150 46 166 68 166 98C166 122 170 140 188 154H52C70 140 74 122 74 98C74 68 90 46 120 46Z" fill="#ffe500"/>
     <rect x="42" y="150" width="156" height="20" rx="10" fill="#ffe500"/>
-    <circle cx="168" cy="66" r="17" fill="#ff2d9b"/>
+    <g class="p-dot"><circle cx="168" cy="66" r="17" fill="#ff2d9b"/></g>
+    </g>
   </g>
 </g>
 </symbol>
@@ -254,9 +281,9 @@
     <path d="M58 100H174L166 162Q162 184 140 184H92Q70 184 66 162Z" fill="#38d6e0"/>
     <ellipse cx="116" cy="100" rx="58" ry="12" fill="#38d6e0"/>
     <ellipse cx="116" cy="101" rx="46" ry="7" fill="#0a0a0a" stroke="none"/>
-    <path d="M96 76C88 64 104 58 96 44" fill="none" stroke-width="6"/>
-    <path d="M120 74C112 60 128 54 120 38" fill="none" stroke-width="6"/>
-    <path d="M144 76C136 64 152 58 144 44" fill="none" stroke-width="6"/>
+    <g class="p-steam"><path d="M96 76C88 64 104 58 96 44" fill="none" stroke-width="6"/></g>
+    <g class="p-steam"><path d="M120 74C112 60 128 54 120 38" fill="none" stroke-width="6"/></g>
+    <g class="p-steam"><path d="M144 76C136 64 152 58 144 44" fill="none" stroke-width="6"/></g>
   </g>
 </g>
 </symbol>
@@ -306,7 +333,7 @@
     <g>
       <path d="M54 114H186Q196 114 200 122L220 168Q224 178 212 178H28Q16 178 20 168L40 122Q44 114 54 114Z"/>
       <path d="M54 102H186Q196 102 200 110L220 156Q224 166 212 166H28Q16 166 20 156L40 110Q44 102 54 102Z"/>
-      <circle cx="190" cy="62" r="21"/>
+      <g class="p-tick"><circle cx="190" cy="62" r="21"/></g>
     </g>
   </g>
   <g stroke="currentColor" stroke-width="2.5">
@@ -315,8 +342,310 @@
     <path d="M66 114H174Q181 114 184 120L199 150Q202 156 195 156H45Q38 156 41 150L56 120Q59 114 66 114Z" fill="#ffffff"/>
     <path d="M41 129L36 141" fill="none" stroke="#0a0a0a" stroke-width="6"/>
     <path d="M199 129L204 141" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <g class="p-tick">
     <circle cx="190" cy="62" r="21" fill="#9be15d"/>
     <path d="M180.2 62.05L187 68L198.05 56.1" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    </g>
+  </g>
+</g>
+</symbol>
+<symbol id="ill-ebreszto" viewBox="0 0 240 240">
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g transform="rotate(-8 120 120)">
+      <circle cx="84" cy="78" r="26"/>
+      <circle cx="156" cy="78" r="26"/>
+      <rect x="115" y="46" width="10" height="26" rx="5"/>
+      <circle cx="120" cy="46" r="9"/>
+      <rect x="-8" y="0" width="16" height="26" rx="8" transform="translate(92 176) rotate(35)"/>
+      <rect x="-8" y="0" width="16" height="26" rx="8" transform="translate(148 176) rotate(-35)"/>
+      <circle cx="120" cy="130" r="62"/>
+    </g>
+  </g>
+  <g transform="rotate(-8 120 120)" stroke="currentColor" stroke-width="2.5">
+    <circle cx="84" cy="78" r="26" fill="#ffe500"/>
+    <circle cx="156" cy="78" r="26" fill="#ffe500"/>
+    <rect x="115" y="46" width="10" height="26" rx="5" fill="#ffe500"/>
+    <circle cx="120" cy="46" r="9" fill="#ffe500"/>
+    <rect x="-8" y="0" width="16" height="26" rx="8" transform="translate(92 176) rotate(35)" fill="#ffe500"/>
+    <rect x="-8" y="0" width="16" height="26" rx="8" transform="translate(148 176) rotate(-35)" fill="#ffe500"/>
+    <circle cx="120" cy="130" r="62" fill="#ff7a3d"/>
+    <circle cx="120" cy="130" r="46" fill="#ffffff"/>
+    <path d="M120 92L120 97" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M153 130L158 130" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M120 163L120 168" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M82 130L87 130" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M120 130L106.5 140.3" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M120 130L97 130" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <circle cx="120" cy="130" r="7" fill="#0a0a0a" stroke="none"/>
+  </g>
+</g>
+</symbol>
+<symbol id="ill-boritek" viewBox="0 0 240 240">
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g transform="rotate(-5 120 120)">
+      <rect x="34" y="62" width="172" height="120" rx="16"/>
+      <circle cx="202" cy="64" r="18"/>
+    </g>
+  </g>
+  <g transform="rotate(-5 120 120)" stroke="currentColor" stroke-width="2.5">
+    <rect x="34" y="62" width="172" height="120" rx="16" fill="#38d6e0"/>
+    <path d="M50 62H190A16 16 0 0 1 206 78L120 136L34 78A16 16 0 0 1 50 62Z" fill="#ffe500"/>
+    <circle cx="202" cy="64" r="18" fill="#ff2d9b"/>
+  </g>
+</g>
+</symbol>
+<symbol id="ill-papirrepulo" viewBox="0 0 240 240">
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g>
+      <path d="M214 46L104 138L122 194Z"/>
+      <path d="M214 46L24 112L104 138Z"/>
+    </g>
+  </g>
+  <g stroke="currentColor" stroke-width="2.5">
+    <path d="M90 168C68 178 50 202 22 208" fill="none" stroke-width="6" stroke-dasharray="0.1 15"/>
+    <path d="M214 46L104 138L122 194Z" fill="#ff7a3d"/>
+    <path d="M214 46L24 112L104 138Z" fill="#ffe500"/>
+  </g>
+</g>
+</symbol>
+<symbol id="ill-ceruza" viewBox="0 0 240 240">
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g transform="rotate(-40 120 120)">
+      <path d="M26 120L68 97V143Z"/>
+      <rect x="68" y="97" width="106" height="46"/>
+      <rect x="174" y="95" width="24" height="50" rx="4"/>
+      <path d="M198 97H206A16 16 0 0 1 222 113V127A16 16 0 0 1 206 143H198Z"/>
+    </g>
+  </g>
+  <g transform="rotate(-40 120 120)" stroke="currentColor" stroke-width="2.5">
+    <path d="M26 120L68 97V143Z" fill="#ff7a3d"/>
+    <path d="M26 120L40 112.3V127.7Z" fill="#0a0a0a"/>
+    <rect x="68" y="97" width="106" height="46" fill="#ffe500"/>
+    <path d="M82 112L160 112" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M82 128L160 128" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <rect x="174" y="95" width="24" height="50" rx="4" fill="#a78bfa"/>
+    <path d="M186 103L186 137" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M198 97H206A16 16 0 0 1 222 113V127A16 16 0 0 1 206 143H198Z" fill="#ff2d9b"/>
+  </g>
+</g>
+</symbol>
+<symbol id="ill-pecset" viewBox="0 0 240 240">
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g transform="rotate(-10 120 120)">
+      <circle cx="120" cy="50" r="24"/>
+      <path d="M108 70H132L138 110H102Z"/>
+      <rect x="58" y="106" width="124" height="40" rx="14"/>
+      <rect x="66" y="146" width="108" height="14" rx="4"/>
+      <circle cx="188" cy="192" r="22"/>
+    </g>
+  </g>
+  <g transform="rotate(-10 120 120)" stroke="currentColor" stroke-width="2.5">
+    <path d="M108 70H132L138 110H102Z" fill="#ffe500"/>
+    <circle cx="120" cy="50" r="24" fill="#ff2d9b"/>
+    <rect x="58" y="106" width="124" height="40" rx="14" fill="#38d6e0"/>
+    <rect x="66" y="146" width="108" height="14" rx="4" fill="#0a0a0a"/>
+    <circle cx="188" cy="192" r="22" fill="#9be15d"/>
+    <path d="M178.6 192.4L185 198L195.4 186.8" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+  </g>
+</g>
+</symbol>
+<symbol id="ill-etlap" viewBox="0 0 240 240">
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g>
+      <path d="M114 186H126V216L120 210L114 216Z"/>
+      <path d="M120 38V198L34 186V52Z"/>
+      <path d="M120 38L206 52V186L120 198Z"/>
+    </g>
+  </g>
+  <g stroke="currentColor" stroke-width="2.5">
+    <path d="M114 186H126V216L120 210L114 216Z" fill="#ff2d9b"/>
+    <path d="M120 38V198L34 186V52Z" fill="#9be15d"/>
+    <path d="M120 38L206 52V186L120 198Z" fill="#9be15d"/>
+    <path d="M114 48V188L42 178V60Z" fill="#ffffff"/>
+    <path d="M126 48L198 60V178L126 188Z" fill="#ffffff"/>
+    <path d="M50.6 75.4L89.5 70.6" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M50.6 102L83.8 100.1" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M96.7 99.4L105.4 98.9" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M50.6 123.7L78 123.7" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M96.7 123.6L105.4 123.6" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M50.6 145.4L86.6 147.3" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M96.7 147.9L105.4 148.3" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M136.1 68.8L169.2 73" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M136.1 99L163.4 100.5" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M180.7 101.5L189.4 102" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M136.1 123.6L172.1 123.7" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M180.7 123.7L189.4 123.7" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M136.1 148.3L159.1 147" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M180.7 145.9L189.4 145.4" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+  </g>
+</g>
+</symbol>
+<symbol id="ill-nyitva" viewBox="0 0 240 240">
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g transform="rotate(-6 120 120)">
+      <circle cx="120" cy="40" r="8"/>
+      <rect x="48" y="98" width="160" height="80" rx="18"/>
+      <rect x="36" y="92" width="160" height="80" rx="18"/>
+    </g>
+  </g>
+  <g transform="rotate(-6 120 120)" stroke="currentColor" stroke-width="2.5">
+    <circle cx="120" cy="40" r="8" fill="#0a0a0a"/>
+    <rect x="48" y="98" width="160" height="80" rx="18" fill="#ff2d9b"/>
+    <rect x="36" y="92" width="160" height="80" rx="18" fill="#9be15d"/>
+    <rect x="54" y="114" width="124" height="44" rx="10" fill="#ffffff"/>
+    <path d="M72 129L160 129" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M72 143L130 143" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M70 104L120 40L162 104" fill="none" stroke-width="6"/>
+    <circle cx="70" cy="104" r="5" fill="#0a0a0a" stroke="none"/>
+    <circle cx="162" cy="104" r="5" fill="#0a0a0a" stroke="none"/>
+  </g>
+</g>
+</symbol>
+<symbol id="ill-nap" viewBox="0 0 240 240">
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g>
+      <rect x="-8" y="-104" width="16" height="34" rx="8" transform="translate(120 120) rotate(0)"/>
+      <rect x="-8" y="-94" width="16" height="22" rx="8" transform="translate(120 120) rotate(45)"/>
+      <rect x="-8" y="-104" width="16" height="34" rx="8" transform="translate(120 120) rotate(90)"/>
+      <rect x="-8" y="-94" width="16" height="22" rx="8" transform="translate(120 120) rotate(135)"/>
+      <rect x="-8" y="-104" width="16" height="34" rx="8" transform="translate(120 120) rotate(180)"/>
+      <rect x="-8" y="-94" width="16" height="22" rx="8" transform="translate(120 120) rotate(225)"/>
+      <rect x="-8" y="-104" width="16" height="34" rx="8" transform="translate(120 120) rotate(270)"/>
+      <rect x="-8" y="-94" width="16" height="22" rx="8" transform="translate(120 120) rotate(315)"/>
+      <circle cx="120" cy="120" r="56"/>
+    </g>
+  </g>
+  <g stroke="currentColor" stroke-width="2.5">
+    <rect x="-8" y="-104" width="16" height="34" rx="8" transform="translate(120 120) rotate(0)" fill="#ff7a3d"/>
+    <rect x="-8" y="-94" width="16" height="22" rx="8" transform="translate(120 120) rotate(45)" fill="#ff7a3d"/>
+    <rect x="-8" y="-104" width="16" height="34" rx="8" transform="translate(120 120) rotate(90)" fill="#ff7a3d"/>
+    <rect x="-8" y="-94" width="16" height="22" rx="8" transform="translate(120 120) rotate(135)" fill="#ff7a3d"/>
+    <rect x="-8" y="-104" width="16" height="34" rx="8" transform="translate(120 120) rotate(180)" fill="#ff7a3d"/>
+    <rect x="-8" y="-94" width="16" height="22" rx="8" transform="translate(120 120) rotate(225)" fill="#ff7a3d"/>
+    <rect x="-8" y="-104" width="16" height="34" rx="8" transform="translate(120 120) rotate(270)" fill="#ff7a3d"/>
+    <rect x="-8" y="-94" width="16" height="22" rx="8" transform="translate(120 120) rotate(315)" fill="#ff7a3d"/>
+    <circle cx="120" cy="120" r="56" fill="#ffe500"/>
+  </g>
+</g>
+</symbol>
+<symbol id="ill-hold" viewBox="0 0 240 240">
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g transform="rotate(-8 120 120)">
+      <path d="M106.2 48.2A76 76 0 1 0 185.9 141.9A62 62 0 0 1 106.2 48.2Z"/>
+    </g>
+  </g>
+  <g transform="rotate(-8 120 120)" stroke="currentColor" stroke-width="2.5">
+    <path d="M106.2 48.2A76 76 0 1 0 185.9 141.9A62 62 0 0 1 106.2 48.2Z" fill="#ffe500"/>
+    <circle cx="80" cy="150" r="11" fill="#ff7a3d"/>
+    <circle cx="108" cy="182" r="8" fill="#ff7a3d"/>
+    <circle cx="60" cy="108" r="7" fill="#ff7a3d"/>
+  </g>
+</g>
+</symbol>
+<symbol id="ill-izzo" viewBox="0 0 240 240">
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g transform="rotate(6 120 120)">
+      <path d="M98 152C98 132 68 126 68 96A52 52 0 1 1 172 96C172 126 142 132 142 152Z"/>
+      <rect x="94" y="150" width="52" height="36" rx="10"/>
+      <rect x="108" y="184" width="24" height="14" rx="6"/>
+    </g>
+  </g>
+  <g transform="rotate(6 120 120)" stroke="currentColor" stroke-width="2.5">
+    <path d="M120 12V26" fill="none" stroke-width="6"/>
+    <path d="M60 30L70 40" fill="none" stroke-width="6"/>
+    <path d="M180 30L170 40" fill="none" stroke-width="6"/>
+    <path d="M98 152C98 132 68 126 68 96A52 52 0 1 1 172 96C172 126 142 132 142 152Z" fill="#ffe500"/>
+    <path d="M106 150V128L113 120L120 128L127 120L134 128V150" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <rect x="108" y="184" width="24" height="14" rx="6" fill="#0a0a0a"/>
+    <rect x="94" y="150" width="52" height="36" rx="10" fill="#a78bfa"/>
+    <path d="M102 162L138 162" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M102 174L138 174" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+  </g>
+</g>
+</symbol>
+<symbol id="ill-kokarda" viewBox="0 0 240 240">
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g>
+      <path d="M98 126L126 138L106 212L92 198L74 208Z"/>
+      <path d="M142 126L114 138L134 212L148 198L166 208Z"/>
+      <path d="M120 32A16 16 0 0 1 147.8 38.3A16 16 0 0 1 170 56.1A16 16 0 0 1 182.4 81.8A16 16 0 0 1 182.4 110.2A16 16 0 0 1 170 135.9A16 16 0 0 1 147.8 153.7A16 16 0 0 1 120 160A16 16 0 0 1 92.2 153.7A16 16 0 0 1 70 135.9A16 16 0 0 1 57.6 110.2A16 16 0 0 1 57.6 81.8A16 16 0 0 1 70 56.1A16 16 0 0 1 92.2 38.3A16 16 0 0 1 120 32Z"/>
+    </g>
+  </g>
+  <g stroke="currentColor" stroke-width="2.5">
+    <path d="M98 126L126 138L106 212L92 198L74 208Z" fill="#38d6e0"/>
+    <path d="M142 126L114 138L134 212L148 198L166 208Z" fill="#38d6e0"/>
+    <path d="M120 32A16 16 0 0 1 147.8 38.3A16 16 0 0 1 170 56.1A16 16 0 0 1 182.4 81.8A16 16 0 0 1 182.4 110.2A16 16 0 0 1 170 135.9A16 16 0 0 1 147.8 153.7A16 16 0 0 1 120 160A16 16 0 0 1 92.2 153.7A16 16 0 0 1 70 135.9A16 16 0 0 1 57.6 110.2A16 16 0 0 1 57.6 81.8A16 16 0 0 1 70 56.1A16 16 0 0 1 92.2 38.3A16 16 0 0 1 120 32Z" fill="#ff2d9b"/>
+    <circle cx="120" cy="96" r="40" fill="#ffe500"/>
+  </g>
+</g>
+</symbol>
+<symbol id="ill-borravalo" viewBox="0 0 240 240">
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g>
+      <ellipse cx="152" cy="36" rx="10" ry="15"/>
+      <rect x="58" y="86" width="124" height="120" rx="26"/>
+      <rect x="68" y="66" width="104" height="26" rx="10"/>
+    </g>
+  </g>
+  <g stroke="currentColor" stroke-width="2.5">
+    <ellipse cx="152" cy="36" rx="10" ry="15" fill="#ffe500"/>
+    <rect x="58" y="86" width="124" height="120" rx="26" fill="#38d6e0"/>
+    <rect x="72" y="104" width="12" height="48" rx="6" fill="#ffffff" stroke="none"/>
+    <circle cx="152" cy="156" r="14" fill="#ffe500"/>
+    <circle cx="114" cy="154" r="16" fill="#ffe500"/>
+    <circle cx="92" cy="180" r="16" fill="#ffe500"/>
+    <circle cx="134" cy="182" r="17" fill="#ffe500"/>
+    <rect x="68" y="66" width="104" height="26" rx="10" fill="#a78bfa"/>
+  </g>
+</g>
+</symbol>
+<symbol id="ill-cetli" viewBox="0 0 240 240">
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g transform="rotate(-5 120 120)">
+      <path d="M52 50H188V156L154 190H52Z"/>
+      <rect x="94" y="38" width="56" height="24" rx="3" transform="rotate(-8 122 50)"/>
+    </g>
+  </g>
+  <g transform="rotate(-5 120 120)" stroke="currentColor" stroke-width="2.5">
+    <path d="M52 50H188V156L154 190H52Z" fill="#ffe500"/>
+    <path d="M188 156L154 190L154 156Z" fill="#ff7a3d"/>
+    <path d="M70 88L168 88" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M70 112L154 112" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M70 136L162 136" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M70 160L124 160" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <rect x="94" y="38" width="56" height="24" rx="3" transform="rotate(-8 122 50)" fill="#ff2d9b"/>
+  </g>
+</g>
+</symbol>
+<symbol id="ill-homero" viewBox="0 0 240 240">
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g>
+      <rect x="68" y="22" width="104" height="194" rx="26"/>
+    </g>
+  </g>
+  <g stroke="currentColor" stroke-width="2.5">
+    <rect x="68" y="22" width="104" height="194" rx="26" fill="#a78bfa"/>
+    <rect x="104" y="40" width="32" height="130" rx="16" fill="#ffffff"/>
+    <path d="M112 157.5V100A8 8 0 0 1 128 100V157.5A22 22 0 1 1 112 157.5Z" fill="#ff2d9b"/>
+    <path d="M80 56L94 56" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M84 80L94 80" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M80 104L94 104" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M84 128L94 128" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M80 152L94 152" fill="none" stroke="#0a0a0a" stroke-width="6"/>
   </g>
 </g>
 </symbol>
@@ -351,7 +680,9 @@
     <nav class="lab-nav" aria-label="Az oldal részei">
       <ul>
         <li><a href="#rajzok">Rajzok</a></li>
+        <li><a href="#uj-rajzok">Új rajzok</a></li>
         <li><a href="#harom-d">3D</a></li>
+        <li><a href="#telefon">Telefon</a></li>
         <li><a href="#helyukon">A helyükön</a></li>
         <li><a href="#szabalyok">Szabályok</a></li>
       </ul>
@@ -366,19 +697,19 @@
     <div>
       <p class="sticker">Labor, 2026. szeptember 26.</p>
       <h1 id="h-hero" class="h-hero" style="margin-top:22px">Rajzok és <span class="hl hl-yellow">3D</span> a Pop stílushoz</h1>
-      <p class="lead">Az első készlet: tizenkét lapos rajz SVG-ben és négy tárgy 3D-ben, a Pop színeivel, fekete körvonallal és kemény árnyékkal. Előbb egyenként látod őket, aztán a helyükön: a főoldal tetején, az alkalmazás egyik üres képernyőjén és a súgó kategóriáinál.</p>
+      <p class="lead">Huszonhat lapos rajz SVG-ben és kilenc tárgy 3D-ben, a Pop színeivel, fekete körvonallal és kemény árnyékkal. Ebben a körben tizennégy rajz és öt tárgy új, és a telefon már az új alkalmazást mutatja. Előbb egyenként látod őket, aztán a helyükön.</p>
       <ul class="chips" aria-label="Mi van a laborban">
-        <li>12 SVG-rajz</li>
-        <li>4 render, 1600&nbsp;px</li>
+        <li>26 SVG-rajz</li>
+        <li>10 render, 1600&nbsp;px</li>
         <li>1 forgó videó</li>
       </ul>
     </div>
     <div class="hero-art">
       <picture>
-        <source srcset="renders/bubble.webp" type="image/webp">
-        <img src="renders/bubble.png" width="1600" height="1600" alt="Pink 3D-s szövegbuborék három fekete sorral és egy zöld, pipás matricával.">
+        <source srcset="renders/ebreszto.webp" type="image/webp">
+        <img src="renders/ebreszto.png" width="1600" height="1600" alt="Narancssárga 3D-s ébresztőóra két sárga csengővel; a mutatók 7 óra 45 percet mutatnak.">
       </picture>
-      <p class="sticker">Blenderben készült</p>
+      <p class="sticker">Új: v0.2.0</p>
     </div>
   </div>
 </section>
@@ -468,24 +799,174 @@
   </div>
 </section>
 
+<section class="blk blk-pink" id="uj-rajzok" aria-labelledby="h-uj-rajzok">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sticker sticker-yellow">Új: v0.2.0</p>
+      <h2 id="h-uj-rajzok" style="margin-top:20px">Tizennégy új <span class="hl hl-yellow">rajz</span></h2>
+      <p class="sec-intro">Ugyanabból a receptből, ugyanazzal az eszközzel, mint az első tizenkettő: egy tárgy, legfeljebb egy apró kiegészítő, a Pop színei, 2,5 pixeles körvonal és 7 pixellel eltolt, tömör árnyék. A tárgyak egy étterem napjából és a vélemények körüli munkából valók. Az ébresztőóra 7:45-öt mutat, mert akkor megy ki a reggeli jelentés.</p>
+    </div>
+
+    <div class="grounds">
+      <div class="ground g-white">
+        <p class="ground-label">Fehér alapon</p>
+        <ul class="ill-grid ill-grid-cap">
+          <li><figure><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-ebreszto"/></svg><figcaption><b>Ébresztőóra</b>A reggeli jelentés, 7:45<code>svg/<wbr>ebreszto.svg</code></figcaption></figure></li>
+          <li><figure><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-boritek"/></svg><figcaption><b>Boríték</b>E-mailben kiküldött levél<code>svg/<wbr>boritek.svg</code></figcaption></figure></li>
+          <li><figure><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-papirrepulo"/></svg><figcaption><b>Papírrepülő</b>Elküldve<code>svg/<wbr>papirrepulo.svg</code></figcaption></figure></li>
+          <li><figure><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-ceruza"/></svg><figcaption><b>Ceruza</b>A válasz átírása<code>svg/<wbr>ceruza.svg</code></figcaption></figure></li>
+          <li><figure><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-pecset"/></svg><figcaption><b>Pecsét pipával</b>Kész, jóváhagyva<code>svg/<wbr>pecset.svg</code></figcaption></figure></li>
+          <li><figure><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-etlap"/></svg><figcaption><b>Étlap</b>Ételek a véleményekben<code>svg/<wbr>etlap.svg</code></figcaption></figure></li>
+          <li><figure><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-nyitva"/></svg><figcaption><b>Ajtótábla</b>Adatlap, nyitvatartás<code>svg/<wbr>nyitva.svg</code></figcaption></figure></li>
+          <li><figure><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-nap"/></svg><figcaption><b>Nap</b>Világos megjelenés<code>svg/<wbr>nap.svg</code></figcaption></figure></li>
+          <li><figure><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-hold"/></svg><figcaption><b>Hold</b>Sötét megjelenés<code>svg/<wbr>hold.svg</code></figcaption></figure></li>
+          <li><figure><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-izzo"/></svg><figcaption><b>Villanykörte</b>Meglátás, ötlet<code>svg/<wbr>izzo.svg</code></figcaption></figure></li>
+          <li><figure><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-kokarda"/></svg><figcaption><b>Kokárda</b>Elismerés, dicséret<code>svg/<wbr>kokarda.svg</code></figcaption></figure></li>
+          <li><figure><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-borravalo"/></svg><figcaption><b>Borravalós üveg</b>A csapat jutalma<code>svg/<wbr>borravalo.svg</code></figcaption></figure></li>
+          <li><figure><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-cetli"/></svg><figcaption><b>Cetli</b>Emlékeztető, jegyzet<code>svg/<wbr>cetli.svg</code></figcaption></figure></li>
+          <li><figure><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-homero"/></svg><figcaption><b>Hőmérő</b>A vélemények hangulata<code>svg/<wbr>homero.svg</code></figcaption></figure></li>
+        </ul>
+      </div>
+
+      <div class="ground g-yellow">
+        <p class="ground-label">Sárga blokkon<span class="sr-only">: ugyanaz a tizennégy rajz</span></p>
+        <ul class="ill-grid" aria-hidden="true">
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-ebreszto"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-boritek"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-papirrepulo"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-ceruza"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-pecset"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-etlap"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-nyitva"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-nap"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-hold"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-izzo"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-kokarda"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-borravalo"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-cetli"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-homero"/></svg></li>
+        </ul>
+      </div>
+
+      <div class="ground g-blue">
+        <p class="ground-label">Kék blokkon<span class="sr-only">: ugyanaz a tizennégy rajz</span></p>
+        <ul class="ill-grid" aria-hidden="true">
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-ebreszto"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-boritek"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-papirrepulo"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-ceruza"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-pecset"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-etlap"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-nyitva"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-nap"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-hold"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-izzo"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-kokarda"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-borravalo"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-cetli"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-homero"/></svg></li>
+        </ul>
+      </div>
+
+      <div class="ground g-ink">
+        <p class="ground-label">Fekete alapon<span class="sr-only">: ugyanaz a tizennégy rajz</span></p>
+        <ul class="ill-grid" aria-hidden="true">
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-ebreszto"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-boritek"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-papirrepulo"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-ceruza"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-pecset"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-etlap"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-nyitva"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-nap"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-hold"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-izzo"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-kokarda"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-borravalo"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-cetli"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-homero"/></svg></li>
+        </ul>
+        <p class="g-note" style="color:#bdbdbd">Fekete alapon a körvonal és az árnyék fehér, a zsinór, a nyomvonal és a sugarak is, mert azok is a szöveg színét veszik át. A fekete részek (a ceruza hegye, a pecsét gumija, a körte érintkezője) fehér körvonalat kapnak, így ott sem tűnnek el.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="blk blk-lilac" id="harom-d" aria-labelledby="h-harom-d">
   <div class="wrap">
     <div class="sec-head">
-      <h2 id="h-harom-d">Négy tárgy <span class="hl hl-yellow">3D-ben</span></h2>
-      <p class="sec-intro">Blenderben modellezve, parancssorból renderelve ezen a gépen. A színt nem a fény adja: a megvilágított oldal pontosan a Pop színe, a fénytől elforduló oldal ugyanannak egy mélyebb tónusa. A körvonal egy kifordított burok, az árnyék külön menetben készül, és csak a talajon van. A háttér átlátszó, ezért bármelyik blokkra rátehető.</p>
+      <h2 id="h-harom-d">Kilenc tárgy <span class="hl hl-yellow">3D-ben</span></h2>
+      <p class="sec-intro">Blenderben modellezve, parancssorból renderelve ezen a gépen. A színt nem a fény adja: a megvilágított oldal pontosan a Pop színe, a fénytől elforduló oldal ugyanannak egy mélyebb tónusa. A körvonal egy kifordított burok, az árnyék külön menetben készül, és csak a talajon van. A háttér átlátszó, ezért bármelyik blokkra rátehető. Öt tárgy új. A telefon a következő részben van, mert a képernyője már az új alkalmazást mutatja.</p>
     </div>
     <ul class="renders">
       <li class="card render">
-        <div class="render-stage c-yellow">
+        <div class="render-stage c-cyan">
           <picture>
-            <source srcset="renders/phone.webp" type="image/webp">
-            <img src="renders/phone.png" width="1600" height="1600" loading="lazy" alt="3D-s játéktelefon kék tokban; a képernyőjén a bemutatófiók Válaszok lapja.">
+            <source srcset="renders/ebreszto.webp" type="image/webp">
+            <img src="renders/ebreszto.png" width="1600" height="1600" loading="lazy" alt="Narancssárga 3D-s ébresztőóra két sárga csengővel; a mutatók 7 óra 45 percet mutatnak.">
           </picture>
+          <p class="sticker tag-new">Új</p>
         </div>
         <div class="render-body">
-          <h3>Telefon a válaszok listájával</h3>
-          <p class="meta"><b>1600&nbsp;×&nbsp;1600&nbsp;px</b> · PNG 558&nbsp;kB · WebP 106&nbsp;kB · renderelés 16&nbsp;mp</p>
-          <p class="meta">A képernyő a bemutatófiók valódi képe. A fejlécéből kivettük a BistroTech jelet, mert a jel 3D-ben nem jelenhet meg.</p>
+          <h3>Ébresztőóra, 7:45-kor</h3>
+          <p class="meta"><b>1600&nbsp;×&nbsp;1600&nbsp;px</b> · PNG 324&nbsp;kB · WebP 96&nbsp;kB · renderelés 19&nbsp;mp</p>
+          <p class="meta">A mutatók 7:45-öt mutatnak, akkor megy ki a reggeli jelentés. A csengők kis réssel állnak a test fölött, így a körvonal körbefut rajtuk; beleolvasztva ott csak színhatár lett volna.</p>
+        </div>
+      </li>
+      <li class="card render">
+        <div class="render-stage c-pink">
+          <picture>
+            <source srcset="renders/kave.webp" type="image/webp">
+            <img src="renders/kave.png" width="1600" height="1600" loading="lazy" alt="Cián 3D-s kávéscsésze fekete kávéval, sárga csészealjon.">
+          </picture>
+          <p class="sticker tag-new">Új</p>
+        </div>
+        <div class="render-body">
+          <h3>Kávé a csészealjon</h3>
+          <p class="meta"><b>1600&nbsp;×&nbsp;1600&nbsp;px</b> · PNG 223&nbsp;kB · WebP 67&nbsp;kB · renderelés 23&nbsp;mp</p>
+          <p class="meta">Esztergált csésze és csészealj, a kávé egy fekete korong, a fül egy gyűrű. Kicsit magasabbról nézzük, mint a többit, hogy a kávé látsszon.</p>
+        </div>
+      </li>
+      <li class="card render">
+        <div class="render-stage c-yellow">
+          <picture>
+            <source srcset="renders/terkeptu.webp" type="image/webp">
+            <img src="renders/terkeptu.png" width="1600" height="1600" loading="lazy" alt="Rózsaszín 3D-s térképtű fehér koronggal, egy cián korongon áll.">
+          </picture>
+          <p class="sticker tag-new">Új</p>
+        </div>
+        <div class="render-body">
+          <h3>Térképtű</h3>
+          <p class="meta"><b>1600&nbsp;×&nbsp;1600&nbsp;px</b> · PNG 224&nbsp;kB · WebP 63&nbsp;kB · renderelés 21&nbsp;mp</p>
+          <p class="meta">A körvonala az SVG-rajz útvonalából készül, így a lapos és a 3D-s tű ugyanaz a forma. A fehér korong fekete alátéten ül, az rajzolja a szélét.</p>
+        </div>
+      </li>
+      <li class="card render">
+        <div class="render-stage c-green">
+          <picture>
+            <source srcset="renders/papirrepulo.webp" type="image/webp">
+            <img src="renders/papirrepulo.png" width="1600" height="1600" loading="lazy" alt="Sárga 3D-s papírrepülő narancs gerinccel, jobbra fölfelé repül, az árnyéka alatta a talajon.">
+          </picture>
+          <p class="sticker tag-new">Új</p>
+        </div>
+        <div class="render-body">
+          <h3>Papírrepülő, repülés közben</h3>
+          <p class="meta"><b>1600&nbsp;×&nbsp;1600&nbsp;px</b> · PNG 307&nbsp;kB · WebP 97&nbsp;kB · renderelés 19&nbsp;mp</p>
+          <p class="meta">A talaj fölé emeltük, az árnyéka alatta van. A helyzetét a kamera irányaiból számoltuk ki: az orra jobbra fölfelé mutat, és a két szárny mellett a narancs gerinc is látszik.</p>
+        </div>
+      </li>
+      <li class="card render">
+        <div class="render-stage c-orange">
+          <picture>
+            <source srcset="renders/pecset.webp" type="image/webp">
+            <img src="renders/pecset.png" width="1600" height="1600" loading="lazy" alt="3D-s pecsét rózsaszín gombbal, sárga nyéllel és cián talppal; mellette egy zöld korong fekete pipával.">
+          </picture>
+          <p class="sticker tag-new">Új</p>
+        </div>
+        <div class="render-body">
+          <h3>Pecsét és a pipa, amit nyomott</h3>
+          <p class="meta"><b>1600&nbsp;×&nbsp;1600&nbsp;px</b> · PNG 227&nbsp;kB · WebP 63&nbsp;kB · renderelés 18&nbsp;mp</p>
+          <p class="meta">A pipa az asztalon fekszik, a kamera szögéhez nyújtva, ahogy az útburkolati jeleket festik: innen nézve egyenes. Laposan rajzolva oldalra dőlt V lett volna.</p>
         </div>
       </li>
       <li class="card render">
@@ -527,9 +1008,49 @@
           <p class="meta">A QR-minta kitalált: úgy néz ki, mint egy kód, de nem olvasható be.</p>
         </div>
       </li>
+    </ul>
+  </div>
+</section>
+
+<section class="blk blk-yellow" id="telefon" aria-labelledby="h-telefon">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sticker">Új: az alkalmazás v0.31.1</p>
+      <h2 id="h-telefon" style="margin-top:20px">A telefon, <span class="mk mk-pink">új kinézettel<svg class="mk-line" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M2 6 C 30 2, 70 9, 98 4"/></svg></span></h2>
+      <p class="sec-intro">Az alkalmazás átállt a Pop stílusra, ezért a telefon képernyőjét újrarendereltük a bemutatófiók mai képeivel: a Válaszok és a Ma lappal. A fejlécből kivettük a BistroTech jelet, mert a jel 3D-ben nem jelenhet meg. A képen más nem változott: mindkét képernyőn ugyanaz az 1315 pixel, a jel helye.</p>
+    </div>
+    <ul class="renders">
+      <li class="card render">
+        <div class="render-stage c-yellow">
+          <picture>
+            <source srcset="renders/phone-rep.webp" type="image/webp">
+            <img src="renders/phone-rep.png" width="1600" height="1600" loading="lazy" alt="3D-s játéktelefon kék tokban; a képernyőjén az új alkalmazás Válaszok lapja, elöl az első válasszal és a Jóváhagyás gombbal.">
+          </picture>
+          <p class="sticker tag-new">Új</p>
+        </div>
+        <div class="render-body">
+          <h3>Válaszok</h3>
+          <p class="meta"><b>1600&nbsp;×&nbsp;1600&nbsp;px</b> · PNG 472&nbsp;kB · WebP 120&nbsp;kB · renderelés 18&nbsp;mp</p>
+          <p class="meta">A válaszok sora, elöl az első válasz a Jóváhagyás gombbal. Állóképnek ez a jobb: ezt csinálja a tulajdonos minden reggel. Sárga alapon a rózsaszín fejléc jól kiválik. A renders/phone.png is ez, hogy a régi hivatkozások az új képet mutassák.</p>
+        </div>
+      </li>
+      <li class="card render">
+        <div class="render-stage c-pink">
+          <picture>
+            <source srcset="renders/phone-ma.webp" type="image/webp">
+            <img src="renders/phone-ma.png" width="1600" height="1600" loading="lazy" alt="3D-s játéktelefon kék tokban; a képernyőjén az új alkalmazás Ma lapja: Szia. Ma 6 válasz vár rád.">
+          </picture>
+          <p class="sticker tag-new">Új</p>
+        </div>
+        <div class="render-body">
+          <h3>Ma</h3>
+          <p class="meta"><b>1600&nbsp;×&nbsp;1600&nbsp;px</b> · PNG 475&nbsp;kB · WebP 125&nbsp;kB · renderelés 17&nbsp;mp</p>
+          <p class="meta">A kezdőlap: „Ma 6 válasz vár rád.” A sárga blokk és a nagy betű félig elfordítva is olvasható, ezért ez került a forgó videóba.</p>
+        </div>
+      </li>
       <li class="card render spin" id="forgas">
         <div class="spin-stage">
-          <video class="spin-video" muted loop playsinline preload="metadata" width="720" height="720" poster="renders/phone-turntable-poster.webp" aria-label="A telefon lassan körbefordul, egy fordulat öt másodperc, hang nélkül.">
+          <video class="spin-video" muted loop playsinline preload="metadata" width="720" height="720" poster="renders/phone-turntable-poster.webp" aria-label="A telefon a Ma lappal lassan körbefordul, egy fordulat öt másodperc, hang nélkül.">
             <source src="renders/phone-turntable.webm" type="video/webm">
             <source src="renders/phone-turntable.mp4" type="video/mp4">
           </video>
@@ -541,11 +1062,18 @@
         </div>
         <div class="render-body">
           <h3>Egy fordulat, öt másodperc</h3>
-          <p class="meta"><b>720&nbsp;×&nbsp;720&nbsp;px</b> · 150&nbsp;kocka, 30&nbsp;kocka/mp · WebM 293&nbsp;kB · MP4 306&nbsp;kB · renderelés 6&nbsp;perc</p>
+          <p class="meta"><b>720&nbsp;×&nbsp;720&nbsp;px</b> · 150&nbsp;kocka, 30&nbsp;kocka/mp · WebM 449&nbsp;kB · MP4 400&nbsp;kB · renderelés 6&nbsp;perc</p>
           <p class="meta">Varrat nélkül ismétlődik: az utolsó kocka után az első jön. Színes blokkon készült, mert az MP4 nem tud átlátszó hátteret, így a két fájl egyforma. Csökkentett mozgás beállításnál nem indul magától.</p>
         </div>
       </li>
     </ul>
+    <figure class="card before">
+      <picture>
+        <source srcset="renders/v1/phone.webp" type="image/webp">
+        <img src="renders/v1/phone.png" width="1600" height="1600" loading="lazy" alt="Az előző 3D-s telefon, a régi, világos kinézetű alkalmazással.">
+      </picture>
+      <figcaption><b>Előtte</b>A v0.1.0 telefonja, még a régi kinézettel. A képei és a forgó videója a renders/v1/ mappában vannak, a szkript régi változata a blender/v1/ mappában.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -553,7 +1081,7 @@
   <div class="wrap">
     <div class="sec-head">
       <h2 id="h-helyukon">A <span class="mk mk-yellow">helyükön<svg class="mk-line" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M2 6 C 30 2, 70 9, 98 4"/></svg></span></h2>
-      <p class="sec-intro">Három makett. A szövegek a weboldal szövegkönyvéből valók, az éttermek és a nevek kitaláltak, a gombok itt nem csinálnak semmit.</p>
+      <p class="sec-intro">Négy makett. A szövegek a weboldal szövegkönyvéből valók, az éttermek és a nevek kitaláltak, a gombok itt nem csinálnak semmit.</p>
     </div>
 
     <div class="ctx">
@@ -597,8 +1125,8 @@
               </div>
               <div class="site-art">
                 <picture>
-                  <source srcset="renders/phone.webp" type="image/webp">
-                  <img src="renders/phone.png" width="1600" height="1600" loading="lazy" alt="A 3D-s telefon a Válaszok lappal, a főoldal fő képeként.">
+                  <source srcset="renders/phone-rep.webp" type="image/webp">
+                  <img src="renders/phone-rep.png" width="1600" height="1600" loading="lazy" alt="A 3D-s telefon az új alkalmazás Válaszok lapjával, a főoldal fő képeként.">
                 </picture>
                 <p class="sticker sticker-free"><span>14 napig</span><span>ingyen</span></p>
               </div>
@@ -657,6 +1185,40 @@
         </ul>
         <figcaption class="caption">Makett. A rajz itt kb. 120&nbsp;px-es, a kategória színes lapján. A kék lapon a körvonal fekete marad, a szöveg fehér.</figcaption>
       </figure>
+
+      <figure class="ctx-item" style="margin:0">
+        <div class="ctx-head"><span class="ctx-num" aria-hidden="true">4</span><h3>Megjelenés: nappal és éjjel</h3></div>
+        <div class="app-row">
+          <div class="phone">
+            <div class="app">
+              <div class="app-top">
+                <span class="app-acct">Példa Bisztró Csoport</span>
+                <span class="app-menu"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg>Menü</span>
+              </div>
+              <div class="app-main">
+                <h4 class="app-title">Megjelenés</h4>
+                <p class="app-sub">Ez a te beállításod, a kollégáidét nem változtatja meg.</p>
+                <ul class="looks">
+                  <li class="look look-day"><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-nap"/></svg><b>Nappal</b><span>Citrom</span></li>
+                  <li class="look look-night"><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-hold"/></svg><b>Éjjel</b><span>Éjfél</span></li>
+                </ul>
+                <p class="auto-row"><span class="switch" aria-hidden="true"><i></i></span><span>Automatikus: a telefonod beállítása szerint vált</span></p>
+              </div>
+              <ul class="tabs" aria-label="Fülek a makettben">
+                <li><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-home"/></svg>Ma</li>
+                <li><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-list"/></svg>Értékelések</li>
+                <li><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-reply"/></svg>Válaszok</li>
+                <li><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-chart"/></svg>Kimutatások</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <p class="sec-intro" style="margin-top:0">A nap és a hold a Pop két színkészletét jelöli: nappal a Citromot, este az Éjfélt, és az automatikus váltás a készüléket követi (POP-IDENTITY, 2.3). A hold fekete lapon áll: ott a körvonala és az árnyéka fehér, ugyanabból a rajzból.</p>
+            <p class="caption">A rajzok itt kb. 110&nbsp;px-esek, a körvonaluk ekkor kb. 1,1&nbsp;px.</p>
+          </div>
+        </div>
+        <figcaption class="caption">Makett. A feliratok itt kitaláltak, az alkalmazás beállításainál más lehet a szöveg.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -665,7 +1227,7 @@
   <div class="wrap">
     <div class="sec-head">
       <h2 id="h-szabalyok">Így készülnek</h2>
-      <p class="sec-intro">A következő rajz és a következő render is ezekhez tartja magát. A rajzok forrása a tools/build_svg.py, a 3D-s tárgyaké a blender/ mappa szkriptjei; mindkettő újrafuttatható, és ugyanazt adja.</p>
+      <p class="sec-intro">A következő rajz és a következő render is ezekhez tartja magát. A rajzok forrása a tools/build_svg.py, a 3D-s tárgyaké a blender/ mappa szkriptjei; mindkettő újrafuttatható, és ugyanazt adja. A v0.2.0-ban három szabály jött hozzá: a rajzoknál leírtuk, amit a kávé gőze eddig is tudott, a két 3D-s pedig egy-egy hibából lett, amit a renderen láttunk és kijavítottunk.</p>
     </div>
     <div class="rules">
       <div class="rule-card">
@@ -677,6 +1239,7 @@
           <li>Árnyék: ugyanaz a forma tömören, 7&nbsp;px-lel jobbra és lefelé, elmosás nélkül.</li>
           <li>Körvonal és árnyék: <code>currentColor</code>. Beágyazva a szöveg színét követi, <code>img</code>-ként mindig fekete.</li>
           <li>Nincs színátmenet, és nincs betű a rajzban.</li>
+          <li>Új: ami a tárgyon kívül van (zsinór, nyomvonal, sugarak), 6&nbsp;px-es vonal a szöveg színében, árnyék nélkül, mint a kávé gőze.</li>
         </ul>
       </div>
       <div class="rule-card">
@@ -688,6 +1251,8 @@
           <li>Fekete körvonal kifordított burokkal, 1600&nbsp;px-en kb. 10&nbsp;px. Ahol két rész egymáson ül, fekete alátét rajzolja a vonalat.</li>
           <li>Árnyék csak a talajon, lágyan, külön menetben.</li>
           <li>Átlátszó háttér, 1600&nbsp;px-es PNG és WebP. A videó színes blokkon.</li>
+          <li>Új: ami kiáll a testből (a csengő), kis réssel álljon, ne süllyedjen bele. A burok csak a sziluettet rajzolja, a metszésvonalat nem.</li>
+          <li>Új: a talajon fekvő jelet a kamera szögéhez nyújtjuk, mint az útburkolati jelet, így onnan nézve egyenes.</li>
         </ul>
       </div>
     </div>
@@ -708,7 +1273,7 @@
 
 <footer class="foot">
   <div class="wrap">
-    <p>Illusztrációs labor, v0.1.0, 2026. szeptember 26. Rajzok: svg/, forrásuk tools/build_svg.py. 3D: blender/*.py, Blender 5.2, Cycles. Renderek és videó: renders/. Az éttermek, nevek és számok kitaláltak.</p>
+    <p>Illusztrációs labor, v0.2.0, 2026. szeptember 26. Rajzok: svg/, forrásuk tools/build_svg.py. 3D: blender/*.py, Blender 5.2, Cycles. Renderek és videó: renders/, az előző telefon a renders/v1/ mappában. Az éttermek, nevek és számok kitaláltak.</p>
   </div>
 </footer>
 

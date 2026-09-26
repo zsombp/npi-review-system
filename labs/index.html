@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- BistroTech labs index, v1.0.0, 2026-09-26. Published by platform/scripts/deploy_labs.sh to
+<!-- BistroTech labs index, v1.1.0, 2026-09-26 (v1.0.0 the same day; v1.1.0 adds the intro video, the motion lab and the new drawings). Published by platform/scripts/deploy_labs.sh to
      https://zsombp.github.io/npi-review-system/labs/ on Zsomb's yes of 2026-09-26. Nothing on the
      website links here. Pop identity: docs/brand/POP-IDENTITY-v1.0.0.md. All example data in the
      labs is fictional. -->
@@ -73,6 +73,7 @@ h1 { font: 700 clamp(44px, 9vw, 104px)/0.98 var(--display); letter-spacing: -0.0
 .art { position: relative; background: var(--c); border-bottom: 2px solid var(--ink); aspect-ratio: 16 / 10; overflow: hidden; }
 .art img { position: absolute; inset: 0; margin: auto; width: auto; height: 82%; display: block; }
 .art img.render { height: 100%; }
+.art img.cover { width: 100%; height: 100%; object-fit: cover; }
 .body { display: flex; flex-direction: column; gap: 10px; padding: 20px 22px 22px; flex: 1; }
 .card h2 { font: 700 27px/1.1 var(--display); letter-spacing: -0.02em; }
 .card p { font-size: 17px; }
@@ -159,6 +160,30 @@ footer { border-top: 2px solid var(--ink); padding: 24px 0 40px; font-size: 15px
           </a>
         </li>
         <li>
+          <a class="card" href="video-2026-09-26/">
+            <div class="art" style="--c: var(--blue)"><img class="cover" src="video-2026-09-26/intro-hu-poster.png" alt="" width="1920" height="1080" loading="lazy"></div>
+            <div class="body">
+              <span class="tag">Új</span>
+              <h2>Bemutatkozó videó</h2>
+              <p>44 másodperc, hang nélkül, magyarul és angolul. Az app igazi Pop elemeiből, a rajzokból és a
+                3D tárgyakból mozog.</p>
+              <span class="go">Megnézem <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 4.5 16.5 10 11 15.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a class="card" href="motion-2026-09-26/">
+            <div class="art" style="--c: var(--orange)"><img src="illustration-2026-09-26/svg/csengo.svg" alt="" width="240" height="240" loading="lazy"></div>
+            <div class="body">
+              <span class="tag">Új</span>
+              <h2>Mozgás</h2>
+              <p>Három szint, Nyugodt, Élénk és Játékos: a weboldal és az app apró mozgásai élőben, kattintva
+                kipróbálhatók.</p>
+              <span class="go">Megnyitom <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 4.5 16.5 10 11 15.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+        </li>
+        <li>
           <a class="card" href="appearance-2026-09-26/">
             <div class="art" style="--c: var(--cyan)"><img src="illustration-2026-09-26/svg/asztali-kartya.svg" alt="" width="240" height="240" loading="lazy"></div>
             <div class="body">
@@ -173,9 +198,10 @@ footer { border-top: 2px solid var(--ink); padding: 24px 0 40px; font-size: 15px
           <a class="card" href="illustration-2026-09-26/">
             <div class="art" style="--c: var(--pink)"><img class="render" src="illustration-2026-09-26/renders/bell.webp" alt="" width="1600" height="1600" loading="lazy"></div>
             <div class="body">
+              <span class="tag">Új darabok</span>
               <h2>Rajzok és 3D</h2>
-              <p>Saját ikonok és rajzok SVG-ben, és Blenderben készült 3D tárgyak ugyanabban a
-                stílusban.</p>
+              <p>26 saját rajz SVG-ben és 9 Blenderben készült 3D tárgy ugyanabban a stílusban, köztük a
+                telefon az új appal.</p>
               <span class="go">Megnyitom <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 4.5 16.5 10 11 15.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </div>
           </a>

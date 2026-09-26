@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Telefon egy válaszkártyával">
+<title>Telefon egy válaszkártyával</title>
+<!-- BistroTech Pop spot illustration, v0.1.0, 2026-09-26. Source: tools/build_svg.py.
+     Outline 2.5 and a 7 px hard shadow in currentColor (ink by default, white on a dark
+     ground when the page sets color: #fff); details ink 6 px; fills from the Pop blocks. -->
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g transform="rotate(6 120 120)">
+      <rect x="68" y="22" width="104" height="194" rx="22"/>
+    </g>
+  </g>
+  <g transform="rotate(6 120 120)" stroke="currentColor" stroke-width="2.5">
+    <rect x="68" y="22" width="104" height="194" rx="22" fill="#2a48f5"/>
+    <rect x="80" y="44" width="80" height="156" rx="12" fill="#ffffff"/>
+    <rect x="108" y="30" width="24" height="7" rx="3.5" fill="#0a0a0a" stroke="none"/>
+    <path d="M92 60H122" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <rect x="88" y="74" width="64" height="80" rx="10" fill="#ffe500"/>
+    <path d="M98 92H140" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M98 108H130" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <rect x="97" y="124" width="36" height="16" rx="8" fill="#2a48f5"/>
+    <rect x="88" y="164" width="64" height="26" rx="9" fill="#a78bfa"/>
+    <path d="M98 177H134" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+  </g>
+</g>
+</svg>

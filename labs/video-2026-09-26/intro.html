@@ -1,0 +1,49 @@
+<!doctype html>
+<!-- BistroTech introduction video: the scene page. v0.2.0, 2026-09-26 (v0.1.0 the same day; v0.2.0: the 9:16 format
+     (?format=v), the music grid and a QA beat dot (?qa=1)).
+     Plays live in a browser (play, pause, scrubber, HU and EN) and is what tools/render.mjs films frame by
+     frame (?render=1&lang=hu|en&format=h|v). Seven scenes on one Web Animations timeline (js/engine.js, js/intro.js);
+     every word from js/strings.js, every app moment from the App Pop lab's own markup and css (app/).
+     Storyboard: STORYBOARD.md. Nothing on this page loads from anywhere else. All example data is fictional. -->
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BistroTech bemutatkozó videó</title>
+<meta name="description" content="A BistroTech bemutatkozó videójának jelenetei, élőben lejátszva: hét jelenet egy idővonalon, magyarul és angolul.">
+<link rel="preload" href="fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/spacegrotesk-display-lat-ext.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/intro.css">
+</head>
+<body>
+<svg class="sprite" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false">
+  <symbol id="g-star" viewBox="0 0 12 12"><path fill="currentColor" stroke="none" d="M 6 .4 7.41 4.06 11.33 4.27 8.28 6.74 9.29 10.53 6 8.4 2.71 10.53 3.72 6.74 .67 4.27 4.59 4.06 Z"/></symbol>
+  <symbol id="g-chart" viewBox="0 0 24 24"><path d="M5 20v-6M12 20V7M19 20v-9"/></symbol>
+  <symbol id="g-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+  <symbol id="g-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="g-warn" viewBox="0 0 24 24"><path d="M12 4.5 21 19.5H3z"/><path d="M12 10v4M12 17h.01"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-undo" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/></symbol>
+</svg>
+
+<div class="player">
+  <div class="viewport" id="viewport"><div class="stage" id="stage" aria-label="BistroTech bemutatkozó videó"></div></div>
+  <div class="controls">
+    <button type="button" id="play" aria-pressed="false" data-play="Lejátszás" data-pause="Szünet" disabled>Lejátszás</button>
+    <input type="range" id="scrub" min="0" max="44000" step="1" value="0" aria-label="Idő">
+    <span class="time" id="time">0,0 / 44,0</span>
+    <button type="button" data-lang="hu" aria-pressed="true">Magyar</button>
+    <button type="button" data-lang="en" aria-pressed="false">English</button>
+    <button type="button" data-format="h" aria-pressed="true">16:9</button>
+    <button type="button" data-format="v" aria-pressed="false">9:16</button>
+    <a href="index.html">Vissza a videókhoz</a>
+  </div>
+</div>
+
+<script src="js/strings.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/intro.js"></script>
+</body>
+</html>

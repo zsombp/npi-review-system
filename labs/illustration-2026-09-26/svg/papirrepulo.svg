@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Papírrepülő">
+<title>Papírrepülő</title>
+<!-- BistroTech Pop spot illustration, v0.2.0, 2026-09-26. Source: tools/build_svg.py.
+     Outline 2.5 and a 7 px hard shadow in currentColor (ink by default, white on a dark
+     ground when the page sets color: #fff); details ink 6 px; fills from the Pop blocks. -->
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g>
+      <path d="M214 46L104 138L122 194Z"/>
+      <path d="M214 46L24 112L104 138Z"/>
+    </g>
+  </g>
+  <g stroke="currentColor" stroke-width="2.5">
+    <path d="M90 168C68 178 50 202 22 208" fill="none" stroke-width="6" stroke-dasharray="0.1 15"/>
+    <path d="M214 46L104 138L122 194Z" fill="#ff7a3d"/>
+    <path d="M214 46L24 112L104 138Z" fill="#ffe500"/>
+  </g>
+</g>
+</svg>
