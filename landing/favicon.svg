@@ -1,17 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="t">
-<!-- BistroTech favicon: the mark on a rounded square. v0.1.0, 2026-09-15.
-     The ground is the brand primary in every theme and the mark is knocked out
-     in paper. This one does not get a dark variant on purpose: a tab strip
-     favicon has to stay the same object in light and dark, and a solid ground
-     already carries its own contrast. Paper on primary is 8.18:1.
-     The mark sits on about 60 percent of the square, optically centred on the
-     full shape including the tail rather than on the disc alone. At 16 px the
-     bars are just over one device pixel wide, which is the floor. Below 16 px
-     use a solid primary square with no mark. -->
+<!-- BistroTech favicon, Pop. v0.2.0, 2026-09-26. The v0.1.0 square (shared/logo/bistrotech-favicon.svg)
+     recoloured into the Pop palette (POP-SYSTEM-v0.1.0 section 2): the ground is Pop yellow #ffe500 and
+     the mark is ink #0a0a0a, 15.52:1. Same geometry, same placement; only the two colours changed, as
+     BRAND section 7 allows. The ground is the same in light and dark tab strips. -->
 <title id="t">BistroTech</title>
-<rect x="0" y="0" width="64" height="64" rx="14" fill="#0F4C81"/>
+<rect x="0" y="0" width="64" height="64" rx="14" fill="#ffe500"/>
 <g transform="translate(7.5,8.5) scale(2.1)">
-  <path fill="#F6F6F4" fill-rule="evenodd" d="
+  <path fill="#0a0a0a" fill-rule="evenodd" d="
     M 4.01 13.41 A 8.5 8.5 0 1 1 6.31 16.82 L 2.6 20.4 Z
     M 7.2 14.6 V 11.8 A 1.2 1.2 0 0 1 9.6 11.8 V 14.6 Z
     M 10.8 14.6 V 9.8 A 1.2 1.2 0 0 1 13.2 9.8 V 14.6 Z

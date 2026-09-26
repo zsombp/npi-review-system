@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zsombp.github.io/npi-review-system/landing/sitemap.xml
