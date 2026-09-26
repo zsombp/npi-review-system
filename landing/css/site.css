@@ -932,6 +932,23 @@ button { -webkit-tap-highlight-color: transparent; }
 /* The video block. The recording is a phone at 2x (portrait), so it sits in a phone frame on
    a yellow card, with the step chapters beside it. Behind the video, a flat placeholder keeps
    the frame designed if the poster is not there; pressing play then says "A videó készül." */
+/* The introduction video on the tour page (website v0.4.0, D-046, D-054): the 16:9 cut, and on a phone the 9:16
+   cut. preload="none", so the hidden one downloads nothing. Native controls; nothing plays by itself. */
+.intro-sec h2 { color: var(--paper); }
+.intro-sec .sec-intro { color: var(--paper); }
+.intro-vid { margin: 32px 0 0; }
+.intro-vid video { display: block; width: 100%; height: auto; border: 2px solid var(--paper); border-radius: 18px; box-shadow: 8px 8px 0 var(--yellow); background: var(--ink); }
+.intro-vid .intro-tall { display: none; }
+.intro-vid figcaption { margin-top: 18px; color: var(--paper); font-size: 15px; opacity: .85; }
+.intro-text { margin-top: 20px; color: var(--paper); max-width: 40em; }
+.intro-text summary { cursor: pointer; font-family: var(--font-d); font-weight: 700; min-height: 44px; display: inline-flex; align-items: center; }
+.intro-text ol { margin: 12px 0 0; padding-left: 1.4em; display: grid; gap: 6px; }
+.intro-text p { margin-top: 12px; font-size: 15px; opacity: .85; }
+@media (max-width: 700px) {
+  .intro-vid .intro-wide { display: none; }
+  .intro-vid .intro-tall { display: block; max-width: 420px; margin: 0 auto; }
+}
+
 .vid { margin: 40px 0 0; }
 .vid-card {
   display: grid; gap: 26px; justify-items: center;
