@@ -1,0 +1,87 @@
+<!doctype html>
+<!-- BistroTech appearance lab, v0.1.0, 2026-09-26. Appearance v2 (docs/design/APPEARANCE-v2-v0.1.0.md),
+     clickable: a style, then a colour set of that style, then a font of that style, then light,
+     dark or automatic; under Üveg the glass level and its two sliders. Every frame below is the
+     same app mock (app.html) in the real app's structure and wording, kept in step with the
+     controls; the state is in the address, so any combination can be sent as a link.
+     Checks: contrast.py (CONTRAST.md) and matrix.mjs (shots/). All example data is fictional. -->
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BistroTech megjelenés lab</title>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/lab.css">
+<script src="js/registry.js"></script>
+<script src="js/appearance.js"></script>
+</head>
+<body>
+<header class="lab-head">
+  <h1>BistroTech megjelenés <span>lab, 2026. szept. 26.</span></h1>
+  <p>Három szint, sorban: stílus, színek, betű. Egy színsor és egy betű mindig csak a saját stílusához tartozik, így bármit választasz, a forma és a szín összeillik. A telefon és a gép ugyanaz az alkalmazás, élőben: lapozz, görgess, hagyj jóvá egy választ, vagy válts megjelenést a Beállításokban. Illusztráció: az éttermek, a vendégek, a szövegek és a számok kitaláltak.</p>
+</header>
+
+<section class="controls" aria-label="Megjelenés">
+  <div class="panel">
+    <div class="ctl"><span class="lbl" id="l-style"><b>1</b>Stílus</span><div class="opts" role="group" aria-labelledby="l-style" data-ctl="style"></div></div>
+    <div class="ctl"><span class="lbl" id="l-colour"><b>2</b>Színek</span><div class="opts" role="group" aria-labelledby="l-colour" data-ctl="colour"></div></div>
+    <div class="ctl"><span class="lbl" id="l-font"><b>3</b>Betű</span><div class="opts" role="group" aria-labelledby="l-font" data-ctl="font"></div></div>
+    <div class="ctl"><span class="lbl" id="l-scheme">Világos vagy sötét</span>
+      <div class="opts" role="group" aria-labelledby="l-scheme" data-ctl="scheme">
+        <button type="button" class="opt" data-scheme="light" aria-pressed="false">Világos</button>
+        <button type="button" class="opt" data-scheme="dark" aria-pressed="false">Sötét</button>
+        <button type="button" class="opt" data-scheme="auto" aria-pressed="false">Automatikus</button>
+      </div>
+    </div>
+    <div class="ctl" data-row="glass" hidden><span class="lbl" id="l-glass">Üveghatás</span>
+      <div class="opts" role="group" aria-labelledby="l-glass">
+        <button type="button" class="opt" data-glass="off" aria-pressed="false">Nincs</button>
+        <button type="button" class="opt" data-glass="chrome" aria-pressed="false">A menün</button>
+        <button type="button" class="opt" data-glass="full" aria-pressed="false">A kártyákon is</button>
+        <label class="slider">Elmosás <input type="range" data-slider="blur"><output data-out="blur"></output></label>
+        <label class="slider">Átlátszatlanság <input type="range" data-slider="tint"><output data-out="tint"></output></label>
+      </div>
+    </div>
+    <div class="ctl"><span class="lbl" id="l-view">Képernyő a telefonon</span>
+      <div class="opts" role="group" aria-labelledby="l-view" data-ctl="view">
+        <button type="button" class="opt" data-view="ma" aria-pressed="false">Ma</button>
+        <button type="button" class="opt" data-view="ertekelesek" aria-pressed="false">Értékelések</button>
+        <button type="button" class="opt" data-view="valaszok" aria-pressed="false">Válaszok</button>
+        <button type="button" class="opt" data-view="kimutatasok" aria-pressed="false">Kimutatások</button>
+        <button type="button" class="opt" data-view="beallitasok" aria-pressed="false">Beállítások</button>
+      </div>
+    </div>
+    <div class="actions">
+      <button type="button" class="opt" data-act="copy">Link erre a változatra</button>
+      <button type="button" class="opt" data-act="reset">Vissza az alapra</button>
+      <span class="now" role="status" aria-live="polite" data-now></span>
+    </div>
+  </div>
+</section>
+
+<main class="stage">
+  <div class="row row-top">
+    <figure>
+      <div class="phone"><iframe data-frame="phone" title="Az alkalmazás telefonon"></iframe></div>
+      <figcaption>Telefon, 390 px</figcaption>
+    </figure>
+    <figure>
+      <div class="desk" data-w="1440" data-h="900"><iframe data-frame="desk" title="Az alkalmazás gépen, a Ma képernyő" style="width:1440px;height:900px"></iframe></div>
+      <figcaption>Gép, 1440 px: a Ma képernyő a bal oldali sávval</figcaption>
+    </figure>
+  </div>
+  <figure>
+    <div class="desk" data-w="1440" data-h="1240"><iframe data-frame="settings" title="A Megjelenés kártya a Beállításokban, gépen" style="width:1440px;height:1240px"></iframe></div>
+    <figcaption>A Megjelenés kártya a Beállításokban, ahogy a termékben látszik: minden lépés élő előnézet</figcaption>
+  </figure>
+</main>
+
+<footer class="lab-foot">
+  <p>Kontraszt: minden szöveg minden alapon, amin a stílusában ülhet, WCAG AA szerint, számolva: <a href="CONTRAST.md">CONTRAST.md</a> (contrast.py, a forrás a <a href="palettes.json">palettes.json</a>).</p>
+  <p>Elrendezés: a matrix.mjs minden stílust, színsort és betűt betölt telefonon és gépen, és megáll, ha valami kilóg vagy hibát ír. Az áttekintő képek a shots mappában vannak.</p>
+  <p>A betűk a saját gépünkről jönnek (fonts mappa, SIL OFL 1.1). Az oldal semmit nem kér le máshonnan. v0.1.0, 2026. szept. 26.</p>
+</footer>
+<script src="js/lab.js"></script>
+</body>
+</html>

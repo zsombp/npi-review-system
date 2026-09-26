@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pop illusztrációk: labor</title>
+<meta name="description" content="Az első Pop illusztrációk a BistroTechhez: tizenkét SVG-rajz, négy 3D-s tárgy Blenderből, és három makett, ahol a helyükön látszanak.">
+<meta name="theme-color" content="#38d6e0">
+<link rel="preload" href="fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<!-- BistroTech illustration lab, Pop. v0.1.0, 2026-09-26. Claude Opus 5.5 as operator under D-033,
+     for POP-SYSTEM-v0.1.0.md section 7 (D-049). The twelve drawings are inlined below as a sprite
+     by tools/build_svg.py (between the SPRITE markers), so their outline and shadow follow the text
+     colour of each ground. The renders come from blender/*.py; sizes and times from
+     renders/render-log.json. Copy in the mockups is from website-2026-09-25/shared/copy-hu.md. -->
+</head>
+<body>
+<a class="skip" href="#main">Ugrás a tartalomra</a>
+
+<!-- Interface icons: 24&nbsp;px grid, 1.5&nbsp;px stroke, currentColor (BRAND section 7). -->
+<svg class="sprite" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false">
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5h-5v5H5a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6.5h11M9 12h11M9 17.5h6M4.5 6.5h.01M4.5 12h.01M4.5 17.5h.01"/></symbol>
+  <symbol id="i-reply" viewBox="0 0 24 24"><path d="M4 5.5h16v10.5H10.5L6 19.5V16H4z"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M5 20v-6M12 20V7M19 20v-9"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></symbol>
+</svg>
+
+<!-- The twelve illustrations, written by tools/build_svg.py from svg/*.svg. Do not edit here. -->
+<!-- SPRITE:START -->
+<svg class="sprite" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false">
+<symbol id="ill-nyugta" viewBox="0 0 240 240">
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g transform="rotate(-5 120 120)">
+      <path d="M70 30H170A10 10 0 0 1 180 40V190L169 199L158 190L147 199L136 190L125 199L114 190L103 199L92 190L81 199L70 190L60 199V40A10 10 0 0 1 70 30Z"/>
+      <circle cx="180" cy="46" r="22"/>
+    </g>
+  </g>
+  <g transform="rotate(-5 120 120)" stroke="currentColor" stroke-width="2.5">
+    <path d="M70 30H170A10 10 0 0 1 180 40V190L169 199L158 190L147 199L136 190L125 199L114 190L103 199L92 190L81 199L70 190L60 199V40A10 10 0 0 1 70 30Z" fill="#ffe500"/>
+    <path d="M80 58H140" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M78 78H164" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-dasharray="1 8"/>
+    <path d="M80 98H122" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M146 98H160" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M80 116H114" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M146 116H160" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M80 134H128" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M146 134H160" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M78 154H164" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-dasharray="1 8"/>
+    <path d="M80 172H106" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M136 172H160" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <circle cx="180" cy="46" r="22" fill="#ff2d9b"/>
+    <path d="M180 34V46L188 52" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+  </g>
+</g>
+</symbol>
+<symbol id="ill-buborek" viewBox="0 0 240 240">
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g>
+      <path d="M66 58H172A34 34 0 0 1 206 92V128A34 34 0 0 1 172 162H170Q174 177 191 187Q195 191 188 193Q155 191 132 162H66A34 34 0 0 1 32 128V92A34 34 0 0 1 66 58Z"/>
+      <circle cx="44" cy="58" r="21"/>
+    </g>
+  </g>
+  <g stroke="currentColor" stroke-width="2.5">
+    <path d="M66 58H172A34 34 0 0 1 206 92V128A34 34 0 0 1 172 162H170Q174 177 191 187Q195 191 188 193Q155 191 132 162H66A34 34 0 0 1 32 128V92A34 34 0 0 1 66 58Z" fill="#ff2d9b"/>
+    <path d="M68 90H176" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M68 110H160" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M68 130H122" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <circle cx="44" cy="58" r="21" fill="#9be15d"/>
+    <path d="M34.2 58.05L41 64L52.05 52.1" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+  </g>
+</g>
+</symbol>
+<symbol id="ill-csengo" viewBox="0 0 240 240">
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g transform="rotate(-10 120 120)">
+      <circle cx="120" cy="40" r="10"/>
+      <path d="M120 46C150 46 166 68 166 98C166 122 170 140 188 154H52C70 140 74 122 74 98C74 68 90 46 120 46Z"/>
+      <rect x="42" y="150" width="156" height="20" rx="10"/>
+      <circle cx="120" cy="180" r="14"/>
+      <circle cx="168" cy="66" r="17"/>
+    </g>
+  </g>
+  <g transform="rotate(-10 120 120)" stroke="currentColor" stroke-width="2.5">
+    <circle cx="120" cy="40" r="10" fill="#ffe500"/>
+    <circle cx="120" cy="180" r="14" fill="#ff7a3d"/>
+    <path d="M120 46C150 46 166 68 166 98C166 122 170 140 188 154H52C70 140 74 122 74 98C74 68 90 46 120 46Z" fill="#ffe500"/>
+    <rect x="42" y="150" width="156" height="20" rx="10" fill="#ffe500"/>
+    <circle cx="168" cy="66" r="17" fill="#ff2d9b"/>
+  </g>
+</g>
+</symbol>
+<symbol id="ill-telefon" viewBox="0 0 240 240">
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g transform="rotate(6 120 120)">
+      <rect x="68" y="22" width="104" height="194" rx="22"/>
+    </g>
+  </g>
+  <g transform="rotate(6 120 120)" stroke="currentColor" stroke-width="2.5">
+    <rect x="68" y="22" width="104" height="194" rx="22" fill="#2a48f5"/>
+    <rect x="80" y="44" width="80" height="156" rx="12" fill="#ffffff"/>
+    <rect x="108" y="30" width="24" height="7" rx="3.5" fill="#0a0a0a" stroke="none"/>
+    <path d="M92 60H122" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <rect x="88" y="74" width="64" height="80" rx="10" fill="#ffe500"/>
+    <path d="M98 92H140" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M98 108H130" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <rect x="97" y="124" width="36" height="16" rx="8" fill="#2a48f5"/>
+    <rect x="88" y="164" width="64" height="26" rx="9" fill="#a78bfa"/>
+    <path d="M98 177H134" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+  </g>
+</g>
+</symbol>
+<symbol id="ill-asztali-kartya" viewBox="0 0 240 240">
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g>
+      <path d="M156 44L200 184Q202 192 194 194L169 200Z"/>
+      <path d="M70 40H152Q158 40 159 46L170 196Q171 204 163 204H59Q51 204 52 196L63 46Q64 40 70 40Z"/>
+    </g>
+  </g>
+  <g stroke="currentColor" stroke-width="2.5">
+    <path d="M156 44L200 184Q202 192 194 194L169 200Z" fill="#9be15d"/>
+    <path d="M70 40H152Q158 40 159 46L170 196Q171 204 163 204H59Q51 204 52 196L63 46Q64 40 70 40Z" fill="#9be15d"/>
+    <rect x="80" y="58" width="62" height="14" rx="7" fill="#ff2d9b"/>
+    <rect x="74" y="86" width="75" height="75" rx="8" fill="#ffffff"/>
+    <rect x="82.5" y="93.5" width="18" height="18" rx="2" fill="none" stroke="#0a0a0a" stroke-width="3"/>
+    <rect x="88" y="99" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="124.5" y="93.5" width="18" height="18" rx="2" fill="none" stroke="#0a0a0a" stroke-width="3"/>
+    <rect x="130" y="99" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="82.5" y="135.5" width="18" height="18" rx="2" fill="none" stroke="#0a0a0a" stroke-width="3"/>
+    <rect x="88" y="141" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="109" y="92" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="102" y="99" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="116" y="99" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="109" y="106" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="116" y="106" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="81" y="113" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="95" y="113" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="109" y="113" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="123" y="113" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="130" y="113" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="88" y="120" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="95" y="120" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="116" y="120" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="137" y="120" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="81" y="127" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="109" y="127" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="116" y="127" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="130" y="127" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="102" y="134" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="123" y="134" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="130" y="134" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="109" y="141" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="123" y="141" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="137" y="141" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="102" y="148" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="109" y="148" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="130" y="148" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+  </g>
+</g>
+</symbol>
+<symbol id="ill-nagyito" viewBox="0 0 240 240">
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g>
+      <rect x="30" y="36" width="138" height="116" rx="16"/>
+      <rect x="-10" y="0" width="20" height="46" rx="10" transform="translate(182 170) rotate(-45)"/>
+      <circle cx="156" cy="140" r="42"/>
+    </g>
+  </g>
+  <g stroke="currentColor" stroke-width="2.5">
+    <rect x="30" y="36" width="138" height="116" rx="16" fill="#a78bfa"/>
+    <path d="M52 62H104" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M52 86H144" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M52 106H128" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M52 126H96" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <rect x="-10" y="0" width="20" height="46" rx="10" transform="translate(182 170) rotate(-45)" fill="#ff2d9b"/>
+    <circle cx="156" cy="140" r="42" fill="#ffe500"/>
+    <circle cx="156" cy="140" r="30" fill="#ffffff"/>
+    <path d="M138 132H174" fill="none" stroke="#0a0a0a" stroke-width="10"/>
+    <path d="M138 152H162" fill="none" stroke="#0a0a0a" stroke-width="10"/>
+  </g>
+</g>
+</symbol>
+<symbol id="ill-naptar" viewBox="0 0 240 240">
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g>
+      <rect x="42" y="48" width="156" height="160" rx="16"/>
+      <rect x="78" y="32" width="12" height="32" rx="6"/>
+      <rect x="150" y="32" width="12" height="32" rx="6"/>
+    </g>
+  </g>
+  <g stroke="currentColor" stroke-width="2.5">
+    <rect x="42" y="48" width="156" height="160" rx="16" fill="#38d6e0"/>
+    <path d="M42 88V64A16 16 0 0 1 58 48H182A16 16 0 0 1 198 64V88Z" fill="#ff2d9b"/>
+    <rect x="78" y="32" width="12" height="32" rx="6" fill="#0a0a0a"/>
+    <rect x="150" y="32" width="12" height="32" rx="6" fill="#0a0a0a"/>
+    <rect x="60" y="104" width="20" height="20" rx="5" fill="#ffffff" stroke="none"/>
+    <rect x="92" y="104" width="20" height="20" rx="5" fill="#ffffff" stroke="none"/>
+    <rect x="124" y="104" width="20" height="20" rx="5" fill="#ffffff" stroke="none"/>
+    <rect x="156" y="104" width="20" height="20" rx="5" fill="#ffffff" stroke="none"/>
+    <rect x="60" y="134" width="20" height="20" rx="5" fill="#ffffff" stroke="none"/>
+    <rect x="92" y="134" width="20" height="20" rx="5" fill="#ffffff" stroke="none"/>
+    <rect x="121" y="131" width="26" height="26" rx="7" fill="#ff2d9b"/>
+    <rect x="156" y="134" width="20" height="20" rx="5" fill="#ffffff" stroke="none"/>
+    <rect x="60" y="164" width="20" height="20" rx="5" fill="#ffffff" stroke="none"/>
+    <rect x="92" y="164" width="20" height="20" rx="5" fill="#ffffff" stroke="none"/>
+    <rect x="124" y="164" width="20" height="20" rx="5" fill="#ffffff" stroke="none"/>
+    <rect x="156" y="164" width="20" height="20" rx="5" fill="#ffffff" stroke="none"/>
+    <path d="M126.4 144.1L132 149L141.1 139.2" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+  </g>
+</g>
+</symbol>
+<symbol id="ill-terkeptu" viewBox="0 0 240 240">
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g>
+      <ellipse cx="120" cy="198" rx="44" ry="11"/>
+      <path d="M120 196C104 170 64 142 64 92A56 56 0 1 1 176 92C176 142 136 170 120 196Z"/>
+    </g>
+  </g>
+  <g stroke="currentColor" stroke-width="2.5">
+    <ellipse cx="120" cy="198" rx="44" ry="11" fill="#38d6e0"/>
+    <path d="M120 196C104 170 64 142 64 92A56 56 0 1 1 176 92C176 142 136 170 120 196Z" fill="#ff2d9b"/>
+    <circle cx="120" cy="92" r="22" fill="#ffffff"/>
+  </g>
+</g>
+</symbol>
+<symbol id="ill-kave" viewBox="0 0 240 240">
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g>
+      <path d="M166 112C200 106 204 162 160 156Z"/>
+      <path d="M36 184H204Q204 198 190 200H50Q36 198 36 184Z"/>
+      <path d="M58 100H174L166 162Q162 184 140 184H92Q70 184 66 162Z"/>
+      <ellipse cx="116" cy="100" rx="58" ry="12"/>
+    </g>
+  </g>
+  <g stroke="currentColor" stroke-width="2.5">
+    <path d="M166 112C200 106 204 162 160 156Z" fill="#38d6e0"/>
+    <ellipse cx="180" cy="134" rx="7" ry="11" fill="#0a0a0a" stroke="none"/>
+    <path d="M36 184H204Q204 198 190 200H50Q36 198 36 184Z" fill="#ffe500"/>
+    <path d="M58 100H174L166 162Q162 184 140 184H92Q70 184 66 162Z" fill="#38d6e0"/>
+    <ellipse cx="116" cy="100" rx="58" ry="12" fill="#38d6e0"/>
+    <ellipse cx="116" cy="101" rx="46" ry="7" fill="#0a0a0a" stroke="none"/>
+    <path d="M96 76C88 64 104 58 96 44" fill="none" stroke-width="6"/>
+    <path d="M120 74C112 60 128 54 120 38" fill="none" stroke-width="6"/>
+    <path d="M144 76C136 64 152 58 144 44" fill="none" stroke-width="6"/>
+  </g>
+</g>
+</symbol>
+<symbol id="ill-zacsko" viewBox="0 0 240 240">
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g transform="rotate(4 120 120)">
+      <path d="M60 88H180L186 200Q187 208 179 208H61Q53 208 54 200Z"/>
+    </g>
+  </g>
+  <g transform="rotate(4 120 120)" stroke="currentColor" stroke-width="2.5">
+    <path d="M60 88H180L186 200Q187 208 179 208H61Q53 208 54 200Z" fill="#ff7a3d"/>
+    <path d="M60 88H180L181.6 112H58.4Z" fill="#ffe500"/>
+    <path d="M98 100C98 58 142 58 142 100" fill="none" stroke-width="6"/>
+    <circle cx="98" cy="101" r="4.5" fill="#0a0a0a" stroke="none"/>
+    <circle cx="142" cy="101" r="4.5" fill="#0a0a0a" stroke="none"/>
+  </g>
+</g>
+</symbol>
+<symbol id="ill-tabla" viewBox="0 0 240 240">
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g transform="rotate(-4 120 120)">
+      <rect x="50" y="34" width="140" height="178" rx="16"/>
+      <rect x="92" y="22" width="56" height="28" rx="9"/>
+    </g>
+  </g>
+  <g transform="rotate(-4 120 120)" stroke="currentColor" stroke-width="2.5">
+    <rect x="50" y="34" width="140" height="178" rx="16" fill="#a78bfa"/>
+    <rect x="64" y="58" width="112" height="140" rx="8" fill="#ffe500"/>
+    <rect x="92" y="22" width="56" height="28" rx="9" fill="#ff2d9b"/>
+    <rect x="110" y="29" width="20" height="8" rx="4" fill="#0a0a0a" stroke="none"/>
+    <rect x="80" y="85" width="22" height="22" rx="6" fill="#9be15d"/>
+    <path d="M83.4 95.1L89 100L98.1 90.2" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M116 96H160" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <rect x="80" y="121" width="22" height="22" rx="6" fill="#9be15d"/>
+    <path d="M83.4 131.1L89 136L98.1 126.2" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M116 132H150" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <rect x="80" y="157" width="22" height="22" rx="6" fill="#ffffff"/>
+    <path d="M116 168H142" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+  </g>
+</g>
+</symbol>
+<symbol id="ill-talca" viewBox="0 0 240 240">
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g>
+      <path d="M54 114H186Q196 114 200 122L220 168Q224 178 212 178H28Q16 178 20 168L40 122Q44 114 54 114Z"/>
+      <path d="M54 102H186Q196 102 200 110L220 156Q224 166 212 166H28Q16 166 20 156L40 110Q44 102 54 102Z"/>
+      <circle cx="190" cy="62" r="21"/>
+    </g>
+  </g>
+  <g stroke="currentColor" stroke-width="2.5">
+    <path d="M54 114H186Q196 114 200 122L220 168Q224 178 212 178H28Q16 178 20 168L40 122Q44 114 54 114Z" fill="#38d6e0"/>
+    <path d="M54 102H186Q196 102 200 110L220 156Q224 166 212 166H28Q16 166 20 156L40 110Q44 102 54 102Z" fill="#38d6e0"/>
+    <path d="M66 114H174Q181 114 184 120L199 150Q202 156 195 156H45Q38 156 41 150L56 120Q59 114 66 114Z" fill="#ffffff"/>
+    <path d="M41 129L36 141" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M199 129L204 141" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <circle cx="190" cy="62" r="21" fill="#9be15d"/>
+    <path d="M180.2 62.05L187 68L198.05 56.1" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+  </g>
+</g>
+</symbol>
+</svg>
+<!-- SPRITE:END -->
+
+<header class="lab-head">
+  <div class="lab-bar">
+    <a class="logo" href="#main" aria-label="BistroTech, illusztrációs labor, az oldal eleje">
+      <svg class="lockup" width="150" height="26" viewBox="0 0 760 131" aria-hidden="true" focusable="false">
+        <g transform="translate(-8.1,-4.4) scale(6.2)">
+          <path class="bt-mark" fill-rule="evenodd" d="M 4.01 13.41 A 8.5 8.5 0 1 1 6.31 16.82 L 2.6 20.4 Z M 7.2 14.6 V 11.8 A 1.2 1.2 0 0 1 9.6 11.8 V 14.6 Z M 10.8 14.6 V 9.8 A 1.2 1.2 0 0 1 13.2 9.8 V 14.6 Z M 14.4 14.6 V 7.8 A 1.2 1.2 0 0 1 16.8 7.8 V 14.6 Z"/>
+        </g>
+        <g transform="translate(154,15)">
+          <g class="bt-word">
+            <path d="M 6 6 V 94 M 6 6 H 30 A 22 22 0 0 1 30 50 H 6 M 6 50 H 30 A 22 22 0 0 1 30 94 H 6"/>
+            <path transform="translate(66,0)" d="M 7 34 V 94"/>
+            <path transform="translate(88,0)" d="M 44 47 C 44 37 35 34 25 34 C 15 34 6 37 6 47 C 6 57 16 60 25 64 C 34 68 44 71 44 81 C 44 91 35 94 25 94 C 15 94 6 91 6 81"/>
+            <path transform="translate(146,0)" d="M 22 14 V 82 A 12 12 0 0 0 34 94 M 6 34 H 38"/>
+            <path transform="translate(196,0)" d="M 6 94 V 52 A 18 18 0 0 1 24 34"/>
+            <circle transform="translate(230,0)" cx="36" cy="64" r="30"/>
+            <path transform="translate(306,0)" d="M 6 6 H 58 M 32 6 V 94"/>
+            <path transform="translate(372,0)" d="M 6 64 H 66 A 30 30 0 1 0 60.6 81.2"/>
+            <path transform="translate(452,0)" d="M 60.6 46.8 A 30 30 0 1 0 60.6 81.2"/>
+            <path transform="translate(532,0)" d="M 6 6 V 94 M 6 61 A 27 27 0 0 1 60 61 V 94"/>
+          </g>
+          <circle class="bt-dot" cx="73" cy="16" r="7"/>
+        </g>
+      </svg>
+    </a>
+    <span class="lab-tag">Illusztrációs labor</span>
+    <nav class="lab-nav" aria-label="Az oldal részei">
+      <ul>
+        <li><a href="#rajzok">Rajzok</a></li>
+        <li><a href="#harom-d">3D</a></li>
+        <li><a href="#helyukon">A helyükön</a></li>
+        <li><a href="#szabalyok">Szabályok</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="blk blk-cyan hero" aria-labelledby="h-hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="sticker">Labor, 2026. szeptember 26.</p>
+      <h1 id="h-hero" class="h-hero" style="margin-top:22px">Rajzok és <span class="hl hl-yellow">3D</span> a Pop stílushoz</h1>
+      <p class="lead">Az első készlet: tizenkét lapos rajz SVG-ben és négy tárgy 3D-ben, a Pop színeivel, fekete körvonallal és kemény árnyékkal. Előbb egyenként látod őket, aztán a helyükön: a főoldal tetején, az alkalmazás egyik üres képernyőjén és a súgó kategóriáinál.</p>
+      <ul class="chips" aria-label="Mi van a laborban">
+        <li>12 SVG-rajz</li>
+        <li>4 render, 1600&nbsp;px</li>
+        <li>1 forgó videó</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <picture>
+        <source srcset="renders/bubble.webp" type="image/webp">
+        <img src="renders/bubble.png" width="1600" height="1600" alt="Pink 3D-s szövegbuborék három fekete sorral és egy zöld, pipás matricával.">
+      </picture>
+      <p class="sticker">Blenderben készült</p>
+    </div>
+  </div>
+</section>
+
+<section class="blk blk-white" id="rajzok" aria-labelledby="h-rajzok">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-rajzok">Tizenkét rajz, <span class="mk mk-pink">négy alapon<svg class="mk-line" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M2 6 C 30 2, 70 9, 98 4"/></svg></span></h2>
+      <p class="sec-intro">Egy rajz, egy tárgy, legfeljebb egy apró kiegészítővel. Kitöltés a Pop színeiből, 2,5 pixeles körvonal és egy 7 pixellel eltolt, tömör árnyék. A körvonal és az árnyék a környező szöveg színét veszi át: világos alapon fekete, sötét alapon fehér, ugyanabból a fájlból.</p>
+    </div>
+
+    <div class="grounds">
+      <div class="ground g-white">
+        <p class="ground-label">Fehér alapon</p>
+        <ul class="ill-grid ill-grid-cap">
+          <li><figure><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-nyugta"/></svg><figcaption><b>Nyugta</b>Napi jelentés<code>svg/<wbr>nyugta.svg</code></figcaption></figure></li>
+          <li><figure><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-buborek"/></svg><figcaption><b>Szövegbuborék</b>Válaszok<code>svg/<wbr>buborek.svg</code></figcaption></figure></li>
+          <li><figure><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-csengo"/></svg><figcaption><b>Csengő</b>Riasztás<code>svg/<wbr>csengo.svg</code></figcaption></figure></li>
+          <li><figure><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-telefon"/></svg><figcaption><b>Telefon</b>Telefonon, a Válaszok fül<code>svg/<wbr>telefon.svg</code></figcaption></figure></li>
+          <li><figure><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-asztali-kartya"/></svg><figcaption><b>Asztali kártya</b>Értékeléskérés QR-rel<code>svg/<wbr>asztali-kartya.svg</code></figcaption></figure></li>
+          <li><figure><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-nagyito"/></svg><figcaption><b>Nagyító</b>Értékelések, keresés<code>svg/<wbr>nagyito.svg</code></figcaption></figure></li>
+          <li><figure><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-naptar"/></svg><figcaption><b>Naptár</b>Kimutatások, időszakok<code>svg/<wbr>naptar.svg</code></figcaption></figure></li>
+          <li><figure><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-terkeptu"/></svg><figcaption><b>Térképtű</b>Éttermek<code>svg/<wbr>terkeptu.svg</code></figcaption></figure></li>
+          <li><figure><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-kave"/></svg><figcaption><b>Kávé</b>A reggel, a jelentés ideje<code>svg/<wbr>kave.svg</code></figcaption></figure></li>
+          <li><figure><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-zacsko"/></svg><figcaption><b>Papírzacskó</b>Csomagok, előfizetés<code>svg/<wbr>zacsko.svg</code></figcaption></figure></li>
+          <li><figure><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-tabla"/></svg><figcaption><b>Csiptetős tábla</b>Kezdés, teendők<code>svg/<wbr>tabla.svg</code></figcaption></figure></li>
+          <li><figure><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-talca"/></svg><figcaption><b>Üres tálca</b>Üres állapotok<code>svg/<wbr>talca.svg</code></figcaption></figure></li>
+        </ul>
+      </div>
+
+      <div class="ground g-yellow">
+        <p class="ground-label">Sárga blokkon<span class="sr-only">: ugyanaz a tizenkét rajz</span></p>
+        <ul class="ill-grid" aria-hidden="true">
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-nyugta"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-buborek"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-csengo"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-telefon"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-asztali-kartya"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-nagyito"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-naptar"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-terkeptu"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-kave"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-zacsko"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-tabla"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-talca"/></svg></li>
+        </ul>
+      </div>
+
+      <div class="ground g-blue">
+        <p class="ground-label">Kék blokkon<span class="sr-only">: ugyanaz a tizenkét rajz</span></p>
+        <ul class="ill-grid" aria-hidden="true">
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-nyugta"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-buborek"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-csengo"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-telefon"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-asztali-kartya"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-nagyito"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-naptar"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-terkeptu"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-kave"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-zacsko"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-tabla"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-talca"/></svg></li>
+        </ul>
+        <p class="g-note" style="color:#fff">Kék alapon a körvonal és az árnyék fekete marad, mint a weboldal kártyáin (3,15:1, egy rajznak ennyi elég). Fehérre is váltható, az 6,28:1.</p>
+      </div>
+
+      <div class="ground g-ink">
+        <p class="ground-label">Fekete alapon<span class="sr-only">: ugyanaz a tizenkét rajz</span></p>
+        <ul class="ill-grid" aria-hidden="true">
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-nyugta"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-buborek"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-csengo"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-telefon"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-asztali-kartya"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-nagyito"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-naptar"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-terkeptu"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-kave"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-zacsko"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-tabla"/></svg></li>
+          <li><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-talca"/></svg></li>
+        </ul>
+        <p class="g-note" style="color:#bdbdbd">Ugyanazok a fájlok: a körvonal és az árnyék fehér, mert a doboz szövegszíne fehér. A testek mindig színesek, fehér csak betét lehet (képernyő, lencse, QR-lap), különben itt összefolyna a saját fehér árnyékával.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blk blk-lilac" id="harom-d" aria-labelledby="h-harom-d">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-harom-d">Négy tárgy <span class="hl hl-yellow">3D-ben</span></h2>
+      <p class="sec-intro">Blenderben modellezve, parancssorból renderelve ezen a gépen. A színt nem a fény adja: a megvilágított oldal pontosan a Pop színe, a fénytől elforduló oldal ugyanannak egy mélyebb tónusa. A körvonal egy kifordított burok, az árnyék külön menetben készül, és csak a talajon van. A háttér átlátszó, ezért bármelyik blokkra rátehető.</p>
+    </div>
+    <ul class="renders">
+      <li class="card render">
+        <div class="render-stage c-yellow">
+          <picture>
+            <source srcset="renders/phone.webp" type="image/webp">
+            <img src="renders/phone.png" width="1600" height="1600" loading="lazy" alt="3D-s játéktelefon kék tokban; a képernyőjén a bemutatófiók Válaszok lapja.">
+          </picture>
+        </div>
+        <div class="render-body">
+          <h3>Telefon a válaszok listájával</h3>
+          <p class="meta"><b>1600&nbsp;×&nbsp;1600&nbsp;px</b> · PNG 558&nbsp;kB · WebP 106&nbsp;kB · renderelés 16&nbsp;mp</p>
+          <p class="meta">A képernyő a bemutatófiók valódi képe. A fejlécéből kivettük a BistroTech jelet, mert a jel 3D-ben nem jelenhet meg.</p>
+        </div>
+      </li>
+      <li class="card render">
+        <div class="render-stage c-white">
+          <picture>
+            <source srcset="renders/bubble.webp" type="image/webp">
+            <img src="renders/bubble.png" width="1600" height="1600" loading="lazy" alt="Pink 3D-s szövegbuborék három fekete sorral és egy zöld, pipás matricával.">
+          </picture>
+        </div>
+        <div class="render-body">
+          <h3>Szövegbuborék</h3>
+          <p class="meta"><b>1600&nbsp;×&nbsp;1600&nbsp;px</b> · PNG 229&nbsp;kB · WebP 69&nbsp;kB · renderelés 16&nbsp;mp</p>
+          <p class="meta">A sarkára és a farkára dől, ezért áll meg magától.</p>
+        </div>
+      </li>
+      <li class="card render">
+        <div class="render-stage c-cyan">
+          <picture>
+            <source srcset="renders/bell.webp" type="image/webp">
+            <img src="renders/bell.png" width="1600" height="1600" loading="lazy" alt="Sárga 3D-s csengő oldalra billenve, alul látszik a narancs nyelve, a vállán egy rózsaszín pötty.">
+          </picture>
+        </div>
+        <div class="render-body">
+          <h3>Csengő</h3>
+          <p class="meta"><b>1600&nbsp;×&nbsp;1600&nbsp;px</b> · PNG 246&nbsp;kB · WebP 79&nbsp;kB · renderelés 16&nbsp;mp</p>
+          <p class="meta">Esztergált profil, a gomb is abból nő ki, így a körvonal egyben fut körbe.</p>
+        </div>
+      </li>
+      <li class="card render">
+        <div class="render-stage c-pink">
+          <picture>
+            <source srcset="renders/tent.webp" type="image/webp">
+            <img src="renders/tent.png" width="1600" height="1600" loading="lazy" alt="Zöld 3D-s asztali kártya; rajta fehér, QR-mintás lap és egy rózsaszín címkecsík.">
+          </picture>
+        </div>
+        <div class="render-body">
+          <h3>Asztali kártya QR-mintával</h3>
+          <p class="meta"><b>1600&nbsp;×&nbsp;1600&nbsp;px</b> · PNG 312&nbsp;kB · WebP 91&nbsp;kB · renderelés 18&nbsp;mp</p>
+          <p class="meta">A QR-minta kitalált: úgy néz ki, mint egy kód, de nem olvasható be.</p>
+        </div>
+      </li>
+      <li class="card render spin" id="forgas">
+        <div class="spin-stage">
+          <video class="spin-video" muted loop playsinline preload="metadata" width="720" height="720" poster="renders/phone-turntable-poster.webp" aria-label="A telefon lassan körbefordul, egy fordulat öt másodperc, hang nélkül.">
+            <source src="renders/phone-turntable.webm" type="video/webm">
+            <source src="renders/phone-turntable.mp4" type="video/mp4">
+          </video>
+          <button class="btn btn-white btn-sm spin-toggle" type="button" aria-pressed="false">
+            <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+            <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+            <span class="spin-label">Lejátszás</span>
+          </button>
+        </div>
+        <div class="render-body">
+          <h3>Egy fordulat, öt másodperc</h3>
+          <p class="meta"><b>720&nbsp;×&nbsp;720&nbsp;px</b> · 150&nbsp;kocka, 30&nbsp;kocka/mp · WebM 293&nbsp;kB · MP4 306&nbsp;kB · renderelés 6&nbsp;perc</p>
+          <p class="meta">Varrat nélkül ismétlődik: az utolsó kocka után az első jön. Színes blokkon készült, mert az MP4 nem tud átlátszó hátteret, így a két fájl egyforma. Csökkentett mozgás beállításnál nem indul magától.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="blk blk-white" id="helyukon" aria-labelledby="h-helyukon">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-helyukon">A <span class="mk mk-yellow">helyükön<svg class="mk-line" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M2 6 C 30 2, 70 9, 98 4"/></svg></span></h2>
+      <p class="sec-intro">Három makett. A szövegek a weboldal szövegkönyvéből valók, az éttermek és a nevek kitaláltak, a gombok itt nem csinálnak semmit.</p>
+    </div>
+
+    <div class="ctx">
+      <figure class="ctx-item" style="margin:0">
+        <div class="ctx-head"><span class="ctx-num" aria-hidden="true">1</span><h3>A főoldal teteje, a telefonnal</h3></div>
+        <div class="card browser">
+          <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>bistrotech.hu</span></div>
+          <div class="site">
+            <div class="site-nav">
+              <svg class="lockup" width="128" height="22" viewBox="0 0 760 131" role="img" aria-label="BistroTech" focusable="false" style="--bt-mark:var(--blue);--bt-ink:var(--ink)">
+                <g transform="translate(-8.1,-4.4) scale(6.2)">
+                  <path class="bt-mark" fill-rule="evenodd" d="M 4.01 13.41 A 8.5 8.5 0 1 1 6.31 16.82 L 2.6 20.4 Z M 7.2 14.6 V 11.8 A 1.2 1.2 0 0 1 9.6 11.8 V 14.6 Z M 10.8 14.6 V 9.8 A 1.2 1.2 0 0 1 13.2 9.8 V 14.6 Z M 14.4 14.6 V 7.8 A 1.2 1.2 0 0 1 16.8 7.8 V 14.6 Z"/>
+                </g>
+                <g transform="translate(154,15)">
+                  <g class="bt-word">
+                    <path d="M 6 6 V 94 M 6 6 H 30 A 22 22 0 0 1 30 50 H 6 M 6 50 H 30 A 22 22 0 0 1 30 94 H 6"/>
+                    <path transform="translate(66,0)" d="M 7 34 V 94"/>
+                    <path transform="translate(88,0)" d="M 44 47 C 44 37 35 34 25 34 C 15 34 6 37 6 47 C 6 57 16 60 25 64 C 34 68 44 71 44 81 C 44 91 35 94 25 94 C 15 94 6 91 6 81"/>
+                    <path transform="translate(146,0)" d="M 22 14 V 82 A 12 12 0 0 0 34 94 M 6 34 H 38"/>
+                    <path transform="translate(196,0)" d="M 6 94 V 52 A 18 18 0 0 1 24 34"/>
+                    <circle transform="translate(230,0)" cx="36" cy="64" r="30"/>
+                    <path transform="translate(306,0)" d="M 6 6 H 58 M 32 6 V 94"/>
+                    <path transform="translate(372,0)" d="M 6 64 H 66 A 30 30 0 1 0 60.6 81.2"/>
+                    <path transform="translate(452,0)" d="M 60.6 46.8 A 30 30 0 1 0 60.6 81.2"/>
+                    <path transform="translate(532,0)" d="M 6 6 V 94 M 6 61 A 27 27 0 0 1 60 61 V 94"/>
+                  </g>
+                  <circle class="bt-dot" cx="73" cy="16" r="7"/>
+                </g>
+              </svg>
+              <ul aria-hidden="true"><li>Hogyan működik</li><li>Csoportoknak</li><li>Csomagok</li><li>Súgó</li></ul>
+              <span class="btn btn-blue">Kezdd el ingyen</span>
+            </div>
+            <div class="site-grid">
+              <div>
+                <h4 class="site-h1"><span class="line">Minden értékelés.</span> <span class="line">Egy <span class="mk mk-pink">helyen.<svg class="mk-line" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M2 6 C 30 2, 70 9, 98 4"/></svg></span></span></h4>
+                <p class="site-lead">A BistroTech letölti az éttermeid Google-értékeléseit, megírja rájuk a választ, és reggelente elküldi, mi történt tegnap. Minden választ te hagysz jóvá.</p>
+                <div class="cta-row">
+                  <span class="btn btn-blue">Kezdd el ingyen, 14 napig <svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span>
+                  <span class="btn btn-white">Nézd meg, hogyan működik</span>
+                </div>
+              </div>
+              <div class="site-art">
+                <picture>
+                  <source srcset="renders/phone.webp" type="image/webp">
+                  <img src="renders/phone.png" width="1600" height="1600" loading="lazy" alt="A 3D-s telefon a Válaszok lappal, a főoldal fő képeként.">
+                </picture>
+                <p class="sticker sticker-free"><span>14 napig</span><span>ingyen</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <figcaption class="caption">Makett. A képernyő a bemutatófiókról készült. Az éttermek nevei, a vendégek szövegei és a számok kitaláltak.</figcaption>
+      </figure>
+
+      <figure class="ctx-item" style="margin:0">
+        <div class="ctx-head"><span class="ctx-num" aria-hidden="true">2</span><h3>Üres állapot az alkalmazásban</h3></div>
+        <div class="app-row">
+          <div class="phone">
+            <div class="app">
+              <div class="app-top">
+                <span class="app-acct">Példa Bisztró Csoport</span>
+                <span class="app-menu"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg>Menü</span>
+              </div>
+              <div class="app-main">
+                <h4 class="app-title">Válaszok</h4>
+                <p class="app-sub">Itt olvasod el a válaszokat, mielőtt kimennek a Google-re.</p>
+                <div class="empty">
+                  <svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-talca"/></svg>
+                  <h5>Minden választ átnéztél</h5>
+                  <p>Ha új értékelés jön, megírjuk rá a választ, és itt találod.</p>
+                  <span class="btn btn-white">Értékelések megnyitása</span>
+                </div>
+              </div>
+              <ul class="tabs" aria-label="Fülek a makettben">
+                <li><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-home"/></svg>Ma</li>
+                <li><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-list"/></svg>Értékelések</li>
+                <li class="on"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-reply"/></svg>Válaszok</li>
+                <li><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-chart"/></svg>Kimutatások</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <p class="sec-intro" style="margin-top:0">A Pop alkalmazásban az üres állapot kaphat színes blokkot (POP-SYSTEM, 6. pont). A tálca ugyanazt mondja, amit a cím: ma nincs több teendő. A pipás matrica az egyetlen kiegészítő.</p>
+            <p class="caption">Egy rajz itt kb. 176&nbsp;px-en áll, a körvonala ekkor 1,8&nbsp;px, közel a kártyák 2&nbsp;px-es vonalához. Ugyanez a szabály minden üres állapotra: egy tárgy, egy mondat, egy gomb.</p>
+          </div>
+        </div>
+        <figcaption class="caption">Makett. A fiók neve kitalált, a gomb itt nem csinál semmit.</figcaption>
+      </figure>
+
+      <figure class="ctx-item" style="margin:0">
+        <div class="ctx-head"><span class="ctx-num" aria-hidden="true">3</span><h3>Súgó: a kategóriák</h3></div>
+        <ul class="help-tiles">
+          <li class="tile c-cyan"><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-tabla"/></svg><h4>Kezdés</h4><p>Regisztráció, az első étterem és a Google-hozzáférés.</p></li>
+          <li class="tile c-blue"><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-nyugta"/></svg><h4>Napi jelentés</h4><p>Mikor érkezik, mi van benne, és hogyan kötöd össze a Telegrammal.</p></li>
+          <li class="tile c-green"><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-nagyito"/></svg><h4>Értékelések</h4><p>Keresés és szűrés étterem és csillag szerint.</p></li>
+          <li class="tile c-yellow"><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-buborek"/></svg><h4>Válaszok</h4><p>Jóváhagyás, átírás és kihagyás.</p></li>
+          <li class="tile c-lilac"><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-naptar"/></svg><h4>Kimutatások</h4><p>Témák, éttermek egymás mellett, napszakok.</p></li>
+          <li class="tile c-white"><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-terkeptu"/></svg><h4>Csapat és fiók</h4><p>Kollégák meghívása, és ki melyik éttermet látja.</p></li>
+          <li class="tile c-pink"><svg class="ill" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><use href="#ill-zacsko"/></svg><h4>Előfizetés</h4><p>Csomagok, próbaidő és számla.</p></li>
+          <li class="tile tile-search"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false" style="width:32px;height:32px;color:var(--yellow)"><use href="#i-search"/></svg><p>Nem találod?</p><span>Keress a súgóban, például: napi jelentés</span></li>
+        </ul>
+        <figcaption class="caption">Makett. A rajz itt kb. 120&nbsp;px-es, a kategória színes lapján. A kék lapon a körvonal fekete marad, a szöveg fehér.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="blk blk-ink" id="szabalyok" aria-labelledby="h-szabalyok">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-szabalyok">Így készülnek</h2>
+      <p class="sec-intro">A következő rajz és a következő render is ezekhez tartja magát. A rajzok forrása a tools/build_svg.py, a 3D-s tárgyaké a blender/ mappa szkriptjei; mindkettő újrafuttatható, és ugyanazt adja.</p>
+    </div>
+    <div class="rules">
+      <div class="rule-card">
+        <h3>Rajz, SVG</h3>
+        <ul>
+          <li>240 × 240-es vászon, egy tárgy, legfeljebb egy apró kiegészítő: egy matrica vagy egy pipa.</li>
+          <li>Kitöltés csak a Pop színeiből. A test mindig színes; fehér csak betét lehet.</li>
+          <li>Körvonal 2,5&nbsp;px, lekerekített sarkokkal és végekkel. Belső részlet fekete, 6&nbsp;px.</li>
+          <li>Árnyék: ugyanaz a forma tömören, 7&nbsp;px-lel jobbra és lefelé, elmosás nélkül.</li>
+          <li>Körvonal és árnyék: <code>currentColor</code>. Beágyazva a szöveg színét követi, <code>img</code>-ként mindig fekete.</li>
+          <li>Nincs színátmenet, és nincs betű a rajzban.</li>
+        </ul>
+      </div>
+      <div class="rule-card">
+        <h3>3D, Blender</h3>
+        <ul>
+          <li>Vaskos, játékszerű formák, nagy lekerekítéssel.</li>
+          <li>Toon-árnyalás fény nélkül: a világos oldal pontosan a Pop színe, az árnyékos oldal ugyanannak mélyebb tónusa, sosem szürke.</li>
+          <li>Csillanás csak kis, kerek részen: gomb, pötty, matrica.</li>
+          <li>Fekete körvonal kifordított burokkal, 1600&nbsp;px-en kb. 10&nbsp;px. Ahol két rész egymáson ül, fekete alátét rajzolja a vonalat.</li>
+          <li>Árnyék csak a talajon, lágyan, külön menetben.</li>
+          <li>Átlátszó háttér, 1600&nbsp;px-es PNG és WebP. A videó színes blokkon.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="never">
+      <h3>Soha</h3>
+      <p>Csillag díszként, a BistroTech jel 3D-ben vagy mélységgel, gépember, agy, séfsapka, búra, keresztbe tett evőeszköz, mosolygó buborék, valódi étterem, ember.</p>
+    </div>
+    <div class="howto">
+      <h3>Beépítés</h3>
+      <p class="muted" style="margin-top:8px">Egy rajz a lap szövegszínét veszi át, ha beágyazod: az oldal elején egyszer a rajzok, utána bárhol egy sor.</p>
+<pre><code>&lt;svg class='ill' viewBox='0 0 240 240' aria-hidden='true'&gt;&lt;use href='#ill-buborek'/&gt;&lt;/svg&gt;
+.blk-ink .ill { color: #fff; }   /* sötét alapon fehér körvonal és árnyék */</code></pre>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>Illusztrációs labor, v0.1.0, 2026. szeptember 26. Rajzok: svg/, forrásuk tools/build_svg.py. 3D: blender/*.py, Blender 5.2, Cycles. Renderek és videó: renders/. Az éttermek, nevek és számok kitaláltak.</p>
+  </div>
+</footer>
+
+<script>
+/* The turntable: plays by itself unless the viewer asked for less motion; the button toggles it. */
+(function () {
+  var v = document.querySelector(".spin-video");
+  var b = document.querySelector(".spin-toggle");
+  if (!v || !b) return;
+  var label = b.querySelector(".spin-label");
+  function show(playing) {
+    b.setAttribute("aria-pressed", playing ? "true" : "false");
+    label.textContent = playing ? "Megállítás" : "Lejátszás";
+  }
+  v.addEventListener("play", function () { show(true); });
+  v.addEventListener("pause", function () { show(false); });
+  b.addEventListener("click", function () {
+    if (v.paused) { var p = v.play(); if (p && p.catch) p.catch(function () { show(false); }); }
+    else v.pause();
+  });
+  var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!still) {
+    var p = v.play();
+    if (p && p.catch) p.catch(function () { show(false); });
+  }
+})();
+</script>
+</body>
+</html>

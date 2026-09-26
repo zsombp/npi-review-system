@@ -1,0 +1,100 @@
+<!doctype html>
+<!-- BistroTech App Pop lab, v0.2.0, 2026-09-26 (D-051; round 2 applies the Codex critique, see app.html). The app, overhauled around Pop with the
+     website's fun, as a clickable lab of the real screens. The phone and the desktop frame are the
+     same app mock (app.html) in the real app's structure and wording; the controls below change the
+     Pop colour set, the display face, the screen, the state and the motion in every frame at once,
+     and the address keeps the combination, so any view can be sent as a link.
+     Checks: tools/build.py (CONTRAST.md), tools/matrix.mjs (shots/), the website lab's check_copy.py.
+     All example data is fictional. Nothing on this page loads from anywhere else. -->
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BistroTech app Pop lab</title>
+<meta name="description" content="A BistroTech alkalmazás a Pop stílusban, a weboldal lendületével: kattintható labor a valódi képernyőkkel, minden Pop színsorban.">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/lab.css">
+<script src="js/registry.js"></script>
+</head>
+<body>
+<a class="skip" href="#stage">Ugrás a képernyőkre</a>
+<header class="lab-head">
+  <p class="kicker">Labor, 2026. szeptember 26.</p>
+  <h1>Az alkalmazás, Pop hangerőn</h1>
+  <p class="intro">A weboldal mozdulatai a napi munkában: minden képernyőnek saját színblokkja van, a Ma plakátszerű köszöntéssel és matricával indul, a számok nagy számjegyek billegő színes lapokon, a Válaszok sora végén egy igazi „kész” pillanat vár. Az értékelések szövege és a válasz szerkesztője nyugodt papíron marad. Kattints bármire: lapozz a fülek között, hagyj jóvá egy választ, vond vissza, válts színsort.</p>
+  <p class="try"><span class="try-tag">Próbáld ki</span> A Válaszokban kattints a telefonra vagy a gépre, és használd a billentyűket: <kbd>A</kbd> jóváhagy, <kbd>S</kbd> nem válaszol, <kbd>J</kbd> és <kbd>K</kbd> lépked, <kbd>E</kbd> szerkeszt, <kbd>O</kbd> a Google, <kbd>U</kbd> visszavon. A visszavonás nyolc másodpercig él, a képernyő alján.</p>
+</header>
+
+<section class="controls" aria-label="A labor beállításai">
+  <div class="panel">
+    <div class="ctl"><span class="lbl" id="l-set">Színsor</span><div class="opts" role="group" aria-labelledby="l-set" data-ctl="set"></div></div>
+    <div class="ctl"><span class="lbl" id="l-font">Betű</span><div class="opts" role="group" aria-labelledby="l-font" data-ctl="font"></div></div>
+    <div class="ctl"><span class="lbl" id="l-view">Képernyő</span>
+      <div class="opts" role="group" aria-labelledby="l-view" data-ctl="view">
+        <button type="button" class="opt" data-view="ma" aria-pressed="false"><i class="dot" data-sec="ma"></i>Ma</button>
+        <button type="button" class="opt" data-view="ertekelesek" aria-pressed="false"><i class="dot" data-sec="rev"></i>Értékelések</button>
+        <button type="button" class="opt" data-view="valaszok" aria-pressed="false"><i class="dot" data-sec="rep"></i>Válaszok</button>
+        <button type="button" class="opt" data-view="kimutatasok" aria-pressed="false"><i class="dot" data-sec="ins"></i>Kimutatások</button>
+        <button type="button" class="opt" data-view="beallitasok" aria-pressed="false"><i class="dot" data-sec="set"></i>Beállítások</button>
+        <button type="button" class="opt" data-view="ettermek" aria-pressed="false"><i class="dot" data-sec="ven"></i>Éttermek</button>
+        <button type="button" class="opt" data-view="elso" aria-pressed="false"><i class="dot" data-sec="start"></i>Első lépések</button>
+      </div>
+    </div>
+    <div class="ctl"><span class="lbl" id="l-st">Állapot</span>
+      <div class="opts" role="group" aria-labelledby="l-st" data-ctl="scenario">
+        <button type="button" class="opt" data-scenario="reggel" aria-pressed="false">Reggel, 6 válasz vár</button>
+        <button type="button" class="opt" data-scenario="kesz" aria-pressed="false">Mára kész</button>
+        <button type="button" class="opt" data-scenario="elso" aria-pressed="false">Első nap</button>
+        <button type="button" class="opt" data-scenario="ures" aria-pressed="false">Üres fiók</button>
+      </div>
+    </div>
+    <div class="ctl"><span class="lbl" id="l-b">Szalag a Mán</span>
+      <div class="opts" role="group" aria-labelledby="l-b" data-ctl="band">
+        <button type="button" class="opt" data-band="still" aria-pressed="false">Áll</button>
+        <button type="button" class="opt" data-band="move" aria-pressed="false">Mozog</button>
+        <button type="button" class="opt" data-band="off" aria-pressed="false">Nincs</button>
+        <span class="ctl-note">A tegnapi értékelések szalagja. Az arculat a mozgó szalagot a weboldalnak tartja, ezért ez a te döntésed.</span>
+      </div>
+    </div>
+    <div class="ctl"><span class="lbl" id="l-m">Mozgás</span>
+      <div class="opts" role="group" aria-labelledby="l-m" data-ctl="motion">
+        <button type="button" class="opt" data-motion="full" aria-pressed="false">Teljes</button>
+        <button type="button" class="opt" data-motion="reduce" aria-pressed="false">Csökkentett</button>
+      </div>
+    </div>
+    <div class="actions">
+      <button type="button" class="opt" data-act="copy">Link erre a változatra</button>
+      <button type="button" class="opt" data-act="reset">Vissza az alapra</button>
+      <span class="now" role="status" aria-live="polite" data-now></span>
+    </div>
+  </div>
+</section>
+
+<main class="stage" id="stage" tabindex="-1">
+  <div class="row-top">
+    <figure class="fig-phone">
+      <div class="phone"><iframe data-frame="phone" title="Az alkalmazás telefonon, 390 pixel széles"></iframe></div>
+      <figcaption>Telefon, 390 px</figcaption>
+    </figure>
+    <figure class="fig-desk">
+      <div class="desk" data-w="1440" data-h="900"><iframe data-frame="desk" title="Az alkalmazás gépen, 1440 pixel széles" style="width:1440px;height:900px"></iframe></div>
+      <figcaption>Gép, 1440 px, a bal oldali sávval. A keret görgethető.</figcaption>
+    </figure>
+  </div>
+
+  <section class="gallery" aria-labelledby="h-gal">
+    <h2 id="h-gal">Minden képernyő egyszerre</h2>
+    <p class="gal-intro">Ugyanaz a színsor és betű, hét képernyőn, telefonon. Kattints egyre, és fent megnyílik.</p>
+    <div class="gal-row" data-gallery></div>
+  </section>
+</main>
+
+<footer class="lab-foot">
+  <p>Illusztráció. Az éttermek, a vendégek, a szövegek és a számok kitaláltak. A felépítés és a feliratok a valódi alkalmazásé.</p>
+  <p>Kontraszt: minden szín minden alapon, amin ülhet, mind a hat Pop színsorban, WCAG AA szerint számolva: <a href="CONTRAST.md">CONTRAST.md</a> (tools/build.py, a forrás a data mappa). Elrendezés: a tools/matrix.mjs minden színsort és minden betűt végigtölt minden képernyőn, telefonon és gépen, és megáll, ha valami kilóg, hibát ír, vagy egy gomb kisebb 44 pixelnél. Az áttekintő képek a shots mappában vannak.</p>
+  <p>A betűk és a rajzok a saját mappánkból jönnek (fonts, art). Az oldal semmit nem kér le máshonnan. v0.2.0, 2026. szept. 26.</p>
+</footer>
+<script src="js/lab.js"></script>
+</body>
+</html>

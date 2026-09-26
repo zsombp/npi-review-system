@@ -1,0 +1,47 @@
+{
+ "about": "App Pop lab, v0.1.0, 2026-09-26: what the loud app needs on top of the approved Pop colour sets (data/palettes-pop.json). Every screen of the app owns one colour block, the way every section of the website is one block: Ma, Értékelések, Válaszok, Kimutatások, Beállítások, Éttermek and the first-run steps. In Citrom they are the website's own block colours (yellow, cyan, pink, green, lilac, orange). In the other sets they are drawn from that set's own tiles and hero, so a set keeps its character. Text on a block is always ink (on-blk), as on the website. mk-* is the marker stroke drawn under a screen title on its block. band-* is the strip of today's reviews on Ma. blk-muted is the placeholder of a white field that sits on a block. tools/build.py checks every pair a token can meet and writes css/palettes.css, js/registry.js and CONTRAST.md.",
+ "sections": {
+  "ma": "Ma",
+  "rev": "Értékelések",
+  "rep": "Válaszok",
+  "ins": "Kimutatások",
+  "set": "Beállítások",
+  "ven": "Éttermek",
+  "start": "Első lépések"
+ },
+ "constant": {
+  "blk-muted": "#4d4d4d"
+ },
+ "sets": {
+  "pop-citrom": {
+   "sec-ma": "#ffe500", "sec-rev": "#38d6e0", "sec-rep": "#ff2d9b", "sec-ins": "#9be15d", "sec-set": "#a78bfa", "sec-ven": "#ff7a3d", "sec-start": "#9be15d",
+   "mk-ma": "#ff2d9b", "mk-rev": "#2a48f5", "mk-rep": "#ffe500", "mk-ins": "#2a48f5", "mk-set": "#ffe500", "mk-ven": "#2a48f5", "mk-start": "#2a48f5",
+   "band-bg": "#0a0a0a", "band-fg": "#ffffff"
+  },
+  "pop-aperol": {
+   "sec-ma": "#ff7a3d", "sec-rev": "#ffc24a", "sec-rep": "#ff3d81", "sec-ins": "#7ee0b8", "sec-set": "#ffb38a", "sec-ven": "#b9a6ff", "sec-start": "#7ee0b8",
+   "mk-ma": "#b83210", "mk-rev": "#ff3d81", "mk-rep": "#ffc24a", "mk-ins": "#b83210", "mk-set": "#b83210", "mk-ven": "#b83210", "mk-start": "#b83210",
+   "band-bg": "#0a0a0a", "band-fg": "#ffffff"
+  },
+  "pop-matcha": {
+   "sec-ma": "#9be15d", "sec-rev": "#ffe27a", "sec-rep": "#ff8fab", "sec-ins": "#6fdcc4", "sec-set": "#c3b1ff", "sec-ven": "#ff8a6b", "sec-start": "#ffe27a",
+   "mk-ma": "#2f6f16", "mk-rev": "#2f6f16", "mk-rep": "#2f6f16", "mk-ins": "#2f6f16", "mk-set": "#2f6f16", "mk-ven": "#2f6f16", "mk-start": "#2f6f16",
+   "band-bg": "#0a0a0a", "band-fg": "#ffffff"
+  },
+  "pop-gelato": {
+   "sec-ma": "#a78bfa", "sec-rev": "#7dd3fc", "sec-rep": "#ff8ac0", "sec-ins": "#86efac", "sec-set": "#fde68a", "sec-ven": "#ffb38a", "sec-start": "#86efac",
+   "mk-ma": "#fde68a", "mk-rev": "#5b3be8", "mk-rep": "#5b3be8", "mk-ins": "#5b3be8", "mk-set": "#ff8ac0", "mk-ven": "#5b3be8", "mk-start": "#5b3be8",
+   "band-bg": "#0a0a0a", "band-fg": "#ffffff"
+  },
+  "pop-balaton": {
+   "sec-ma": "#38d6e0", "sec-rev": "#ffe08a", "sec-rep": "#ff7a6b", "sec-ins": "#7ee8b0", "sec-set": "#7fb2ff", "sec-ven": "#c4b5fd", "sec-start": "#7ee8b0",
+   "mk-ma": "#0b6e8a", "mk-rev": "#ff7a6b", "mk-rep": "#ffe08a", "mk-ins": "#0b6e8a", "mk-set": "#ffe08a", "mk-ven": "#0b6e8a", "mk-start": "#0b6e8a",
+   "band-bg": "#0a0a0a", "band-fg": "#ffffff"
+  },
+  "pop-ejfel": {
+   "sec-ma": "#ffe500", "sec-rev": "#5ee0ea", "sec-rep": "#ff5cb0", "sec-ins": "#5fe3a1", "sec-set": "#b49cff", "sec-ven": "#ff8f5c", "sec-start": "#5fe3a1",
+   "mk-ma": "#ff5cb0", "mk-rev": "#ff5cb0", "mk-rep": "#ffe500", "mk-ins": "#ff5cb0", "mk-set": "#ffe500", "mk-ven": "#ffe500", "mk-start": "#ff5cb0",
+   "band-bg": "#1f1f1f", "band-fg": "#ffffff"
+  }
+ }
+}

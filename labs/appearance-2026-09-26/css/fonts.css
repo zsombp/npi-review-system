@@ -1,0 +1,103 @@
+/* fonts.css, v0.1.0, 2026-09-26. Appearance v2 lab.
+   Every face is self-hosted in fonts/ (six from platform/web/public/fonts, nine from
+   docs/design/fonts, all SIL OFL 1.1, licences beside the files). No request leaves the page.
+   The unicode ranges are the app's own (platform/web/src/looks.css): a browser fetches the
+   -lat-ext file only when a page sets ő, ű or another Latin Extended-A letter, which every
+   Hungarian page does. A browser downloads only the faces the page actually uses.
+
+   Architecture (APPEARANCE-v2 section 3). A font rule sets the display face and nothing else:
+   the family with its metric-matched fallback, the weight the face is set in, its tracking,
+   and --display-scale, the one knob a wide face turns to step its headings down. Sizes,
+   shapes and colours belong to the style and the colour set. [data-font] works on <html>
+   and on any element below it, so a sample in the Settings card can wear its own face. */
+
+/* The text face of every style: Source Sans 3. Its variable default is weight 200, so the
+   weight range is load-bearing (platform/web/src/styles.css says the same). */
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 400 700; font-display: swap; src: url(../fonts/sourcesans3-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 400 700; font-display: swap; src: url(../fonts/sourcesans3-lat-ext.woff2) format("woff2"); unicode-range: U+0100-017F, U+0218-021B, U+1E9E, U+2020, U+2113, U+20A0-20AB, U+20AD-20C0; }
+@font-face { font-family: "Source Sans 3"; font-style: italic; font-weight: 400 700; font-display: swap; src: url(../fonts/sourcesans3-italic-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Source Sans 3"; font-style: italic; font-weight: 400 700; font-display: swap; src: url(../fonts/sourcesans3-italic-lat-ext.woff2) format("woff2"); unicode-range: U+0100-017F, U+0218-021B, U+1E9E, U+2020, U+2113, U+20A0-20AB, U+20AD-20C0; }
+@font-face { font-family: "BT Text fallback"; src: local("Arial"), local("Helvetica"), local("Liberation Sans"); size-adjust: 92.18%; ascent-override: 111.09%; descent-override: 43.39%; line-gap-override: 0%; }
+
+/* The display faces, grouped by the style that owns them. */
+@font-face { font-family: "Space Grotesk"; font-style: normal; font-weight: 500 700; font-display: swap; src: url(../fonts/spacegrotesk-display-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Space Grotesk"; font-style: normal; font-weight: 500 700; font-display: swap; src: url(../fonts/spacegrotesk-display-lat-ext.woff2) format("woff2"); unicode-range: U+0100-017F, U+0218-021B, U+1E9E, U+2020, U+2113, U+20A0-20AB, U+20AD-20C0; }
+@font-face { font-family: "Bricolage Grotesque"; font-style: normal; font-weight: 600 800; font-display: swap; src: url(../fonts/bricolage-display-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Bricolage Grotesque"; font-style: normal; font-weight: 600 800; font-display: swap; src: url(../fonts/bricolage-display-lat-ext.woff2) format("woff2"); unicode-range: U+0100-017F, U+0218-021B, U+1E9E, U+2020, U+2113, U+20A0-20AB, U+20AD-20C0; }
+@font-face { font-family: "Unbounded"; font-style: normal; font-weight: 600 900; font-display: swap; src: url(../fonts/unbounded-display-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Unbounded"; font-style: normal; font-weight: 600 900; font-display: swap; src: url(../fonts/unbounded-display-lat-ext.woff2) format("woff2"); unicode-range: U+0100-017F, U+0218-021B, U+1E9E, U+2020, U+2113, U+20A0-20AB, U+20AD-20C0; }
+@font-face { font-family: "Archivo"; font-style: normal; font-weight: 700 900; font-display: swap; src: url(../fonts/archivo-display-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Archivo"; font-style: normal; font-weight: 700 900; font-display: swap; src: url(../fonts/archivo-display-lat-ext.woff2) format("woff2"); unicode-range: U+0100-017F, U+0218-021B, U+1E9E, U+2020, U+2113, U+20A0-20AB, U+20AD-20C0; }
+@font-face { font-family: "Rubik"; font-style: normal; font-weight: 600 900; font-display: swap; src: url(../fonts/rubik-display-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Rubik"; font-style: normal; font-weight: 600 900; font-display: swap; src: url(../fonts/rubik-display-lat-ext.woff2) format("woff2"); unicode-range: U+0100-017F, U+0218-021B, U+1E9E, U+2020, U+2113, U+20A0-20AB, U+20AD-20C0; }
+@font-face { font-family: "Nunito"; font-style: normal; font-weight: 600 900; font-display: swap; src: url(../fonts/nunito-display-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Nunito"; font-style: normal; font-weight: 600 900; font-display: swap; src: url(../fonts/nunito-display-lat-ext.woff2) format("woff2"); unicode-range: U+0100-017F, U+0218-021B, U+1E9E, U+2020, U+2113, U+20A0-20AB, U+20AD-20C0; }
+@font-face { font-family: "Outfit"; font-style: normal; font-weight: 500 800; font-display: swap; src: url(../fonts/outfit-display-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Outfit"; font-style: normal; font-weight: 500 800; font-display: swap; src: url(../fonts/outfit-display-lat-ext.woff2) format("woff2"); unicode-range: U+0100-017F, U+0218-021B, U+1E9E, U+2020, U+2113, U+20A0-20AB, U+20AD-20C0; }
+@font-face { font-family: "Sora"; font-style: normal; font-weight: 500 800; font-display: swap; src: url(../fonts/sora-display-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Sora"; font-style: normal; font-weight: 500 800; font-display: swap; src: url(../fonts/sora-display-lat-ext.woff2) format("woff2"); unicode-range: U+0100-017F, U+0218-021B, U+1E9E, U+2020, U+2113, U+20A0-20AB, U+20AD-20C0; }
+@font-face { font-family: "Plus Jakarta Sans"; font-style: normal; font-weight: 500 800; font-display: swap; src: url(../fonts/jakarta-display-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Plus Jakarta Sans"; font-style: normal; font-weight: 500 800; font-display: swap; src: url(../fonts/jakarta-display-lat-ext.woff2) format("woff2"); unicode-range: U+0100-017F, U+0218-021B, U+1E9E, U+2020, U+2113, U+20A0-20AB, U+20AD-20C0; }
+@font-face { font-family: "Fraunces"; font-style: normal; font-weight: 600 800; font-display: swap; src: url(../fonts/fraunces-display-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Fraunces"; font-style: normal; font-weight: 600 800; font-display: swap; src: url(../fonts/fraunces-display-lat-ext.woff2) format("woff2"); unicode-range: U+0100-017F, U+0218-021B, U+1E9E, U+2020, U+2113, U+20A0-20AB, U+20AD-20C0; }
+@font-face { font-family: "Newsreader"; font-style: normal; font-weight: 400 700; font-display: swap; src: url(../fonts/newsreader-display-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Newsreader"; font-style: normal; font-weight: 400 700; font-display: swap; src: url(../fonts/newsreader-display-lat-ext.woff2) format("woff2"); unicode-range: U+0100-017F, U+0218-021B, U+1E9E, U+2020, U+2113, U+20A0-20AB, U+20AD-20C0; }
+@font-face { font-family: "Source Serif 4"; font-style: normal; font-weight: 500 800; font-display: swap; src: url(../fonts/sourceserif-display-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Source Serif 4"; font-style: normal; font-weight: 500 800; font-display: swap; src: url(../fonts/sourceserif-display-lat-ext.woff2) format("woff2"); unicode-range: U+0100-017F, U+0218-021B, U+1E9E, U+2020, U+2113, U+20A0-20AB, U+20AD-20C0; }
+@font-face { font-family: "Playfair Display"; font-style: normal; font-weight: 600 900; font-display: swap; src: url(../fonts/playfair-display-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Playfair Display"; font-style: normal; font-weight: 600 900; font-display: swap; src: url(../fonts/playfair-display-lat-ext.woff2) format("woff2"); unicode-range: U+0100-017F, U+0218-021B, U+1E9E, U+2020, U+2113, U+20A0-20AB, U+20AD-20C0; }
+@font-face { font-family: "Literata"; font-style: normal; font-weight: 500 800; font-display: swap; src: url(../fonts/literata-display-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Literata"; font-style: normal; font-weight: 500 800; font-display: swap; src: url(../fonts/literata-display-lat-ext.woff2) format("woff2"); unicode-range: U+0100-017F, U+0218-021B, U+1E9E, U+2020, U+2113, U+20A0-20AB, U+20AD-20C0; }
+
+/* Metric-matched fallbacks, measured by fallbacks.py at the weight each face is set in:
+   size-adjust matches the average advance over real BistroTech headings, so a heading does
+   not re-break when the webfont arrives; ascent and descent are the face's own. */
+/* Space Grotesk: wght (500.0, 700.0), set at 700; avg advance 0.4910 em vs 0.4855 */
+@font-face { font-family: "BT Space Grotesk fallback"; src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold"), local("Arial"); font-weight: 100 900; size-adjust: 101.13%; ascent-override: 97.30%; descent-override: 28.87%; line-gap-override: 0.00%; }
+/* Bricolage Grotesque: wght (600.0, 800.0), set at 800; avg advance 0.4793 em vs 0.4855 */
+@font-face { font-family: "BT Bricolage Grotesque fallback"; src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold"), local("Arial"); font-weight: 100 900; size-adjust: 98.73%; ascent-override: 94.20%; descent-override: 27.35%; line-gap-override: 0.00%; }
+/* Unbounded: wght (600.0, 900.0), set at 700; avg advance 0.6422 em vs 0.4855 */
+@font-face { font-family: "BT Unbounded fallback"; src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold"), local("Arial"); font-weight: 100 900; size-adjust: 132.27%; ascent-override: 75.23%; descent-override: 18.52%; line-gap-override: 0.00%; }
+/* Archivo: wght (700.0, 900.0), set at 800; avg advance 0.3988 em vs 0.4855 */
+@font-face { font-family: "BT Archivo fallback"; src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold"), local("Arial"); font-weight: 100 900; size-adjust: 82.14%; ascent-override: 106.89%; descent-override: 25.57%; line-gap-override: 0.00%; }
+/* Rubik: wght (600.0, 900.0), set at 700; avg advance 0.5052 em vs 0.4855 */
+@font-face { font-family: "BT Rubik fallback"; src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold"), local("Arial"); font-weight: 100 900; size-adjust: 104.05%; ascent-override: 89.86%; descent-override: 24.03%; line-gap-override: 0.00%; }
+/* Nunito: wght (600.0, 900.0), set at 800; avg advance 0.4878 em vs 0.4855 */
+@font-face { font-family: "BT Nunito fallback"; src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold"), local("Arial"); font-weight: 100 900; size-adjust: 100.47%; ascent-override: 100.63%; descent-override: 35.14%; line-gap-override: 0.00%; }
+/* Outfit: wght (500.0, 800.0), set at 700; avg advance 0.4659 em vs 0.4855 */
+@font-face { font-family: "BT Outfit fallback"; src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold"), local("Arial"); font-weight: 100 900; size-adjust: 95.97%; ascent-override: 104.20%; descent-override: 27.09%; line-gap-override: 0.00%; }
+/* Sora: wght (500.0, 800.0), set at 700; avg advance 0.5204 em vs 0.4855 */
+@font-face { font-family: "BT Sora fallback"; src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold"), local("Arial"); font-weight: 100 900; size-adjust: 107.18%; ascent-override: 90.50%; descent-override: 27.06%; line-gap-override: 0.00%; }
+/* Plus Jakarta Sans: wght (500.0, 800.0), set at 800; avg advance 0.4917 em vs 0.4855 */
+@font-face { font-family: "BT Plus Jakarta Sans fallback"; src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold"), local("Arial"); font-weight: 100 900; size-adjust: 101.28%; ascent-override: 102.48%; descent-override: 21.92%; line-gap-override: 0.00%; }
+/* Fraunces: wght (600.0, 800.0), set at 700; avg advance 0.4673 em vs 0.5207 */
+@font-face { font-family: "BT Fraunces fallback"; src: local("Georgia Bold"), local("Georgia-Bold"), local("Liberation Serif Bold"), local("Georgia"); font-weight: 100 900; size-adjust: 89.74%; ascent-override: 108.98%; descent-override: 28.41%; line-gap-override: 0.00%; }
+/* Newsreader: wght (400.0, 700.0), set at 600; avg advance 0.4503 em vs 0.5207 */
+@font-face { font-family: "BT Newsreader fallback"; src: local("Georgia Bold"), local("Georgia-Bold"), local("Liberation Serif Bold"), local("Georgia"); font-weight: 100 900; size-adjust: 86.48%; ascent-override: 84.99%; descent-override: 30.64%; line-gap-override: 0.00%; }
+/* Source Serif 4: wght (500.0, 800.0), set at 600; avg advance 0.4167 em vs 0.5207 */
+@font-face { font-family: "BT Source Serif 4 fallback"; src: local("Georgia Bold"), local("Georgia-Bold"), local("Liberation Serif Bold"), local("Georgia"); font-weight: 100 900; size-adjust: 80.03%; ascent-override: 129.46%; descent-override: 41.86%; line-gap-override: 0.00%; }
+/* Playfair Display: wght (600.0, 900.0), set at 700; avg advance 0.4636 em vs 0.5207 */
+@font-face { font-family: "BT Playfair Display fallback"; src: local("Georgia Bold"), local("Georgia-Bold"), local("Liberation Serif Bold"), local("Georgia"); font-weight: 100 900; size-adjust: 89.02%; ascent-override: 121.54%; descent-override: 28.19%; line-gap-override: 0.00%; }
+/* Literata: wght (500.0, 800.0), set at 600; avg advance 0.4925 em vs 0.5207 */
+@font-face { font-family: "BT Literata fallback"; src: local("Georgia Bold"), local("Georgia-Bold"), local("Liberation Serif Bold"), local("Georgia"); font-weight: 100 900; size-adjust: 94.57%; ascent-override: 124.46%; descent-override: 32.57%; line-gap-override: 0.00%; }
+
+/* One rule per font. Nothing else in the lab names a family.
+   --display-scale steps a face's headings, figures and samples down inside its own rule, never
+   per screen. No face overflowed a screen at 390 or 1440 (matrix.mjs); three are set smaller
+   for balance, from fallbacks.py's average advance against their style's default face:
+   Unbounded 0.642 em against Space Grotesk 0.491 (.86), Sora 0.520 against Nunito 0.488 (.95),
+   Literata 0.493 against Newsreader 0.450 (.95). */
+[data-font="space-grotesk"] { --font-display: "Space Grotesk", "BT Space Grotesk fallback", system-ui, sans-serif; --display-weight: 700; --display-tracking: -0.025em; --display-scale: 1; }
+[data-font="bricolage"] { --font-display: "Bricolage Grotesque", "BT Bricolage Grotesque fallback", system-ui, sans-serif; --display-weight: 800; --display-tracking: -0.025em; --display-scale: 1; }
+[data-font="unbounded"] { --font-display: "Unbounded", "BT Unbounded fallback", system-ui, sans-serif; --display-weight: 700; --display-tracking: -0.02em; --display-scale: .86; }
+[data-font="archivo"] { --font-display: "Archivo", "BT Archivo fallback", system-ui, sans-serif; --display-weight: 800; --display-tracking: -0.005em; --display-scale: 1; }
+[data-font="rubik"] { --font-display: "Rubik", "BT Rubik fallback", system-ui, sans-serif; --display-weight: 700; --display-tracking: -0.015em; --display-scale: 1; }
+[data-font="nunito"] { --font-display: "Nunito", "BT Nunito fallback", system-ui, sans-serif; --display-weight: 800; --display-tracking: -0.015em; --display-scale: 1; }
+[data-font="outfit"] { --font-display: "Outfit", "BT Outfit fallback", system-ui, sans-serif; --display-weight: 700; --display-tracking: -0.02em; --display-scale: 1; }
+[data-font="sora"] { --font-display: "Sora", "BT Sora fallback", system-ui, sans-serif; --display-weight: 700; --display-tracking: -0.025em; --display-scale: .95; }
+[data-font="jakarta"] { --font-display: "Plus Jakarta Sans", "BT Plus Jakarta Sans fallback", system-ui, sans-serif; --display-weight: 800; --display-tracking: -0.025em; --display-scale: 1; }
+[data-font="fraunces"] { --font-display: "Fraunces", "BT Fraunces fallback", Georgia, serif; --display-weight: 700; --display-tracking: -0.01em; --display-scale: 1; }
+[data-font="newsreader"] { --font-display: "Newsreader", "BT Newsreader fallback", Georgia, serif; --display-weight: 600; --display-tracking: -0.01em; --display-scale: 1; }
+[data-font="sourceserif"] { --font-display: "Source Serif 4", "BT Source Serif 4 fallback", Georgia, serif; --display-weight: 600; --display-tracking: -0.01em; --display-scale: 1; }
+[data-font="playfair"] { --font-display: "Playfair Display", "BT Playfair Display fallback", Georgia, serif; --display-weight: 700; --display-tracking: 0em; --display-scale: 1; }
+[data-font="literata"] { --font-display: "Literata", "BT Literata fallback", Georgia, serif; --display-weight: 600; --display-tracking: -0.01em; --display-scale: .95; }

@@ -1,0 +1,66 @@
+<!doctype html>
+<!-- Contact sheet for the Appearance v2 lab, v0.1.0, 2026-09-26. One style per sheet: its colour
+     sets as rows, its fonts as columns, every cell the real app mock on a 390 px phone (the Ma
+     screen unless #v= says otherwise), scaled to half. matrix.mjs opens contact.html#s=pop and
+     screenshots it into shots/. Standalone it is a quick way to see a whole style at once. -->
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BistroTech megjelenés: áttekintő</title>
+<script src="js/registry.js"></script>
+<script src="js/appearance.js"></script>
+<style>
+  body { margin: 0; padding: 20px 24px 28px; background: #e9e8e4; color: #1b1b1b; font: 14px/1.4 -apple-system, system-ui, "Segoe UI", Arial, sans-serif; }
+  h1 { margin: 0 0 4px; font-size: 20px; }
+  p { margin: 0 0 16px; color: #555; }
+  .grid { display: grid; gap: 26px 18px; }
+  .head { font-size: 12px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: #555; align-self: end; }
+  figure { margin: 0; }
+  .ph { width: calc(var(--w) * var(--k) * 1px); height: calc(var(--h) * var(--k) * 1px); overflow: hidden; border-radius: 14px; background: #fff; box-shadow: 0 6px 18px rgba(0, 0, 0, .16); }
+  .ph iframe { display: block; width: calc(var(--w) * 1px); height: calc(var(--h) * 1px); border: 0; transform: scale(var(--k)); transform-origin: 0 0; }
+  figcaption { margin-top: 6px; font-size: 12px; font-weight: 600; }
+</style>
+</head>
+<body>
+<h1 id="t"></h1>
+<p id="sub"></p>
+<div class="grid" id="g"></div>
+<script>
+(function () {
+  var A = window.BT_APPEARANCE, R = A.R;
+  var q = A.parseHash(location.hash), style = R.styles[q.style] ? q.style : "pop", st = R.styles[style];
+  var raw = {}; String(location.hash).slice(1).split("&").forEach(function (kv) { var i = kv.indexOf("="); if (i > 0) raw[kv.slice(0, i)] = kv.slice(i + 1); });
+  var desk = raw.frame === "desktop", w = desk ? 1440 : 390, h = desk ? 900 : 844, k = desk ? 0.25 : 0.5, v = q.view || "ma";
+  document.documentElement.style.setProperty("--w", w);
+  document.documentElement.style.setProperty("--h", h);
+  document.documentElement.style.setProperty("--k", k);
+  document.getElementById("t").textContent = st.name + ": minden színsor minden betűvel";
+  document.getElementById("sub").textContent = (desk ? "Gép, 1440 px, negyed méretben" : "Telefon, 390 px, fél méretben") + ". Sorok: színsorok. Oszlopok: betűk.";
+  var g = document.getElementById("g");
+  g.style.gridTemplateColumns = "repeat(" + st.fonts.length + ", " + (w * k) + "px)";
+  var frames = [];
+  st.sets.forEach(function (id) {
+    st.fonts.forEach(function (f) {
+      var fig = document.createElement("figure");
+      var box = document.createElement("div"); box.className = "ph";
+      var fr = document.createElement("iframe");
+      var state = { style: style, colour: id, font: f, glass: raw.g || "chrome", blur: 18, tint: 55 };
+      fr.src = "app.html?shot&nomini#" + A.toHash(A.normalise(state), v);
+      fr.setAttribute("tabindex", "-1");
+      fr.setAttribute("title", R.sets[id].name + ", " + R.fonts[f].name);
+      box.appendChild(fr); fig.appendChild(box);
+      var cap = document.createElement("figcaption"); cap.textContent = R.sets[id].name + " · " + R.fonts[f].name;
+      fig.appendChild(cap); g.appendChild(fig);
+      frames.push(fr);
+    });
+  });
+  window.CONTACT_READY = false;
+  Promise.all(frames.map(function (fr) {
+    return new Promise(function (ok) { fr.addEventListener("load", ok, { once: true }); }).then(function () { return fr.contentWindow.BT.ready(); });
+  })).then(function () { window.CONTACT_READY = true; });
+})();
+</script>
+</body>
+</html>

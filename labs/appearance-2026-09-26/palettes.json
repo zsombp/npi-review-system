@@ -1,0 +1,1696 @@
+{
+  "version": "0.1.0",
+  "date": "2026-09-26",
+  "about": "Appearance v2 lab: the source of every colour set, font list and automatic pair. contrast.py checks it and writes css/palettes.css, js/registry.js and CONTRAST.md. Üveg values start from platform/web/src/looks.css (generated, 2026-09-21), Klasszikus from platform/web/src/styles.css and BRAND-v0.1.0 section 4, Pop from POP-SYSTEM-v0.1.0 section 2.",
+  "defaults": {
+    "style": "pop",
+    "colour": "auto",
+    "font": "space-grotesk",
+    "glass": "chrome",
+    "blur": 18,
+    "tint": 55
+  },
+  "labStart": {
+    "style": "pop",
+    "colour": "citrom",
+    "font": "space-grotesk"
+  },
+  "styles": {
+    "pop": {
+      "name": "Pop",
+      "blurb": "Vastag körvonal, kemény árnyék, színes blokkok.",
+      "sets": [
+        "pop-citrom",
+        "pop-aperol",
+        "pop-matcha",
+        "pop-gelato",
+        "pop-balaton",
+        "pop-ejfel"
+      ],
+      "pair": {
+        "light": "pop-citrom",
+        "dark": "pop-ejfel"
+      },
+      "fonts": [
+        "space-grotesk",
+        "bricolage",
+        "unbounded",
+        "archivo",
+        "rubik"
+      ],
+      "defaultFont": "space-grotesk",
+      "swatch": [
+        "blk-hero",
+        "accent",
+        "blk-neg",
+        "bg"
+      ],
+      "tokens": [
+        "bg",
+        "card",
+        "fg",
+        "muted",
+        "line",
+        "hair",
+        "field",
+        "focus",
+        "accent",
+        "accent-strong",
+        "on-accent",
+        "pos",
+        "neg",
+        "warn",
+        "tint-pos",
+        "tint-neg",
+        "tint-warn",
+        "tint-accent",
+        "chip",
+        "badge",
+        "on-badge",
+        "shadow",
+        "blk-hero",
+        "blk-a",
+        "blk-b",
+        "blk-pos",
+        "blk-neg",
+        "on-blk",
+        "blk-line",
+        "blk-shadow",
+        "blk-inv",
+        "blk-btn",
+        "on-blk-btn",
+        "tab-on",
+        "on-tab",
+        "s1",
+        "s2",
+        "s3"
+      ],
+      "checks": [
+        [
+          "fg",
+          "bg",
+          4.5,
+          "body text on the page"
+        ],
+        [
+          "fg",
+          "card",
+          4.5,
+          "body text on paper cards"
+        ],
+        [
+          "muted",
+          "bg",
+          4.5,
+          "secondary text on the page"
+        ],
+        [
+          "muted",
+          "card",
+          4.5,
+          "secondary text on cards"
+        ],
+        [
+          "accent",
+          "bg",
+          4.5,
+          "links on the page"
+        ],
+        [
+          "accent",
+          "card",
+          4.5,
+          "links on cards"
+        ],
+        [
+          "on-accent",
+          "accent",
+          4.5,
+          "primary button label"
+        ],
+        [
+          "pos",
+          "card",
+          4.5,
+          "positive figure or word on a card"
+        ],
+        [
+          "neg",
+          "card",
+          4.5,
+          "negative figure or word on a card"
+        ],
+        [
+          "warn",
+          "card",
+          4.5,
+          "attention word on a card"
+        ],
+        [
+          "pos",
+          "bg",
+          4.5,
+          "positive word on the page"
+        ],
+        [
+          "neg",
+          "bg",
+          4.5,
+          "negative word on the page"
+        ],
+        [
+          "warn",
+          "bg",
+          4.5,
+          "attention word on the page"
+        ],
+        [
+          "pos",
+          "tint-pos",
+          4.5,
+          "positive tag"
+        ],
+        [
+          "neg",
+          "tint-neg",
+          4.5,
+          "negative tag"
+        ],
+        [
+          "warn",
+          "tint-warn",
+          4.5,
+          "attention tag"
+        ],
+        [
+          "fg",
+          "tint-pos",
+          4.5,
+          "text on a positive ground"
+        ],
+        [
+          "fg",
+          "tint-neg",
+          4.5,
+          "text on a negative ground"
+        ],
+        [
+          "fg",
+          "tint-warn",
+          4.5,
+          "text on an attention ground"
+        ],
+        [
+          "fg",
+          "tint-accent",
+          4.5,
+          "text on the new-review ground"
+        ],
+        [
+          "fg",
+          "chip",
+          4.5,
+          "theme tag"
+        ],
+        [
+          "muted",
+          "chip",
+          4.5,
+          "muted tag"
+        ],
+        [
+          "on-badge",
+          "badge",
+          4.5,
+          "count on the Válaszok tab"
+        ],
+        [
+          "bg",
+          "fg",
+          4.5,
+          "pressed chip, toast and eyebrow pill"
+        ],
+        [
+          "line",
+          "bg",
+          3,
+          "outline of chips, fields and buttons on the page"
+        ],
+        [
+          "line",
+          "card",
+          3,
+          "outline of chips, fields and buttons on cards"
+        ],
+        [
+          "field",
+          "card",
+          3,
+          "input border"
+        ],
+        [
+          "field",
+          "bg",
+          3,
+          "input border on the page"
+        ],
+        [
+          "focus",
+          "bg",
+          3,
+          "focus ring on the page"
+        ],
+        [
+          "focus",
+          "card",
+          3,
+          "focus ring on cards"
+        ],
+        [
+          "s1",
+          "card",
+          3,
+          "chart series 1"
+        ],
+        [
+          "s2",
+          "card",
+          3,
+          "chart series 2"
+        ],
+        [
+          "s3",
+          "card",
+          3,
+          "chart series 3"
+        ],
+        [
+          "on-blk",
+          "blk-hero",
+          4.5,
+          "text on the day's one card and the greeting highlight"
+        ],
+        [
+          "on-blk",
+          "blk-a",
+          4.5,
+          "text on a stat tile or section head"
+        ],
+        [
+          "on-blk",
+          "blk-b",
+          4.5,
+          "text on a stat tile or section head"
+        ],
+        [
+          "on-blk",
+          "blk-pos",
+          4.5,
+          "text on the positive tile"
+        ],
+        [
+          "on-blk",
+          "blk-neg",
+          4.5,
+          "text on the negative tiles"
+        ],
+        [
+          "blk-line",
+          "blk-hero",
+          3,
+          "outline and focus ring inside the day's card"
+        ],
+        [
+          "on-blk-btn",
+          "blk-btn",
+          4.5,
+          "button label inside the day's card"
+        ],
+        [
+          "blk-inv",
+          "on-blk",
+          4.5,
+          "eyebrow pill inside the day's card"
+        ],
+        [
+          "on-tab",
+          "tab-on",
+          4.5,
+          "active tab label"
+        ]
+      ]
+    },
+    "uveg": {
+      "name": "Üveg",
+      "blurb": "Mattüveg lapok színes derengés fölött.",
+      "sets": [
+        "uveg-piac",
+        "uveg-aperol",
+        "uveg-gelato",
+        "uveg-balaton",
+        "uveg-matcha",
+        "uveg-neon",
+        "uveg-paprika"
+      ],
+      "pair": {
+        "light": "uveg-piac",
+        "dark": "uveg-paprika"
+      },
+      "fonts": [
+        "nunito",
+        "outfit",
+        "sora",
+        "jakarta",
+        "fraunces"
+      ],
+      "defaultFont": "nunito",
+      "swatch": [
+        "accent",
+        "glow-1",
+        "glow-2",
+        "bg"
+      ],
+      "glass": {
+        "saturate": 1.8,
+        "cardFloor": 68,
+        "phonebarFloor": 86,
+        "tintRange": [
+          40,
+          85
+        ],
+        "blurRange": [
+          6,
+          32
+        ]
+      },
+      "tokens": [
+        "bg",
+        "card",
+        "line",
+        "field",
+        "fg",
+        "muted",
+        "accent",
+        "accent-strong",
+        "on-accent",
+        "pos",
+        "neg",
+        "warn",
+        "tint-pos",
+        "tint-neg",
+        "tint-warn",
+        "tint-accent",
+        "chip",
+        "focus",
+        "badge",
+        "on-badge",
+        "glow-1",
+        "glow-2",
+        "glow-3",
+        "glow-a",
+        "glass-edge",
+        "shadow-sm",
+        "shadow-md",
+        "s1",
+        "s2",
+        "s3"
+      ],
+      "checks": [
+        [
+          "fg",
+          "bg",
+          4.5,
+          "body text on the page"
+        ],
+        [
+          "fg",
+          "card",
+          4.5,
+          "body text on cards"
+        ],
+        [
+          "muted",
+          "bg",
+          4.5,
+          "secondary text on the page"
+        ],
+        [
+          "muted",
+          "card",
+          4.5,
+          "secondary text on cards"
+        ],
+        [
+          "accent",
+          "bg",
+          4.5,
+          "links on the page"
+        ],
+        [
+          "accent",
+          "card",
+          4.5,
+          "links on cards"
+        ],
+        [
+          "on-accent",
+          "accent",
+          4.5,
+          "primary button label"
+        ],
+        [
+          "pos",
+          "card",
+          4.5,
+          "positive figure on a card"
+        ],
+        [
+          "neg",
+          "card",
+          4.5,
+          "negative figure on a card"
+        ],
+        [
+          "warn",
+          "card",
+          4.5,
+          "attention word on a card"
+        ],
+        [
+          "pos",
+          "tint-pos",
+          4.5,
+          "positive tag"
+        ],
+        [
+          "neg",
+          "tint-neg",
+          4.5,
+          "negative tag"
+        ],
+        [
+          "warn",
+          "tint-warn",
+          4.5,
+          "attention tag"
+        ],
+        [
+          "fg",
+          "tint-pos",
+          4.5,
+          "text on the praise card"
+        ],
+        [
+          "fg",
+          "tint-neg",
+          4.5,
+          "text on the day's one card"
+        ],
+        [
+          "fg",
+          "tint-warn",
+          4.5,
+          "text on the tip card"
+        ],
+        [
+          "fg",
+          "tint-accent",
+          4.5,
+          "text on the new-review ground"
+        ],
+        [
+          "fg",
+          "chip",
+          4.5,
+          "theme tag"
+        ],
+        [
+          "muted",
+          "chip",
+          4.5,
+          "muted tag"
+        ],
+        [
+          "on-badge",
+          "badge",
+          4.5,
+          "count on the Válaszok tab"
+        ],
+        [
+          "bg",
+          "fg",
+          4.5,
+          "pressed chip and toast"
+        ],
+        [
+          "field",
+          "bg",
+          3,
+          "input border on the page"
+        ],
+        [
+          "field",
+          "card",
+          3,
+          "input border on cards"
+        ],
+        [
+          "focus",
+          "bg",
+          3,
+          "focus ring on the page"
+        ],
+        [
+          "focus",
+          "card",
+          3,
+          "focus ring on cards"
+        ],
+        [
+          "s1",
+          "card",
+          3,
+          "chart series 1"
+        ],
+        [
+          "s2",
+          "card",
+          3,
+          "chart series 2"
+        ],
+        [
+          "s3",
+          "card",
+          3,
+          "chart series 3"
+        ],
+        [
+          "fg",
+          "page",
+          4.5,
+          "headings and text on the page, over the brightest glow"
+        ],
+        [
+          "muted",
+          "page",
+          4.5,
+          "secondary text on the page, over the brightest glow"
+        ],
+        [
+          "accent",
+          "page",
+          4.5,
+          "the greeting and links on the page, over the brightest glow"
+        ],
+        [
+          "pos",
+          "page",
+          3,
+          "positive figure on the page (display size only), over the brightest glow"
+        ],
+        [
+          "neg",
+          "page",
+          3,
+          "negative figure on the page (display size only), over the brightest glow"
+        ],
+        [
+          "warn",
+          "page",
+          3,
+          "attention figure on the page (display size only), over the brightest glow"
+        ],
+        [
+          "fg",
+          "glass:card",
+          4.5,
+          "text on a glass card at the card floor"
+        ],
+        [
+          "muted",
+          "glass:card",
+          4.5,
+          "secondary text on a glass card"
+        ],
+        [
+          "accent",
+          "glass:card",
+          4.5,
+          "links on a glass card"
+        ],
+        [
+          "pos",
+          "glass:card",
+          4.5,
+          "positive figure on a glass card"
+        ],
+        [
+          "neg",
+          "glass:card",
+          4.5,
+          "negative figure on a glass card"
+        ],
+        [
+          "warn",
+          "glass:card",
+          4.5,
+          "attention word on a glass card"
+        ],
+        [
+          "fg",
+          "glass:tint-neg",
+          4.5,
+          "text on the day's one card in glass"
+        ],
+        [
+          "fg",
+          "glass:tint-warn",
+          4.5,
+          "text on the tip card in glass"
+        ],
+        [
+          "fg",
+          "glass:tint-pos",
+          4.5,
+          "text on the praise card in glass"
+        ],
+        [
+          "fg",
+          "rail",
+          4.5,
+          "rail and header text on the desktop rail at the lowest tint"
+        ],
+        [
+          "muted",
+          "rail",
+          4.5,
+          "account name and group labels on the desktop rail at the lowest tint"
+        ],
+        [
+          "accent",
+          "rail",
+          4.5,
+          "active item on the desktop rail at the lowest tint"
+        ],
+        [
+          "fg",
+          "phonebar",
+          4.5,
+          "text on the phone header, over a button scrolling under"
+        ],
+        [
+          "muted",
+          "phonebar",
+          4.5,
+          "tab labels on the floating tab bar and the phone header, over a button scrolling under"
+        ],
+        [
+          "accent",
+          "phonebar",
+          4.5,
+          "active tab label on the floating tab bar and the phone header, over a button scrolling under"
+        ]
+      ]
+    },
+    "klasszikus": {
+      "name": "Klasszikus",
+      "blurb": "Nyugodt, vékony vonalak, papírfehér.",
+      "sets": [
+        "klasszikus-nappal",
+        "klasszikus-ejjel"
+      ],
+      "pair": {
+        "light": "klasszikus-nappal",
+        "dark": "klasszikus-ejjel"
+      },
+      "fonts": [
+        "newsreader",
+        "sourceserif",
+        "playfair",
+        "literata"
+      ],
+      "defaultFont": "newsreader",
+      "swatch": [
+        "accent",
+        "line",
+        "card",
+        "bg"
+      ],
+      "tokens": [
+        "bg",
+        "card",
+        "line",
+        "field",
+        "fg",
+        "muted",
+        "accent",
+        "accent-strong",
+        "on-accent",
+        "pos",
+        "neg",
+        "warn",
+        "tint-pos",
+        "tint-neg",
+        "tint-warn",
+        "tint-accent",
+        "chip",
+        "focus",
+        "badge",
+        "on-badge",
+        "shadow-sm",
+        "shadow-md",
+        "s1",
+        "s2",
+        "s3"
+      ],
+      "checks": [
+        [
+          "fg",
+          "bg",
+          4.5,
+          "body text on the page"
+        ],
+        [
+          "fg",
+          "card",
+          4.5,
+          "body text on cards"
+        ],
+        [
+          "muted",
+          "bg",
+          4.5,
+          "secondary text on the page"
+        ],
+        [
+          "muted",
+          "card",
+          4.5,
+          "secondary text on cards"
+        ],
+        [
+          "accent",
+          "bg",
+          4.5,
+          "links on the page"
+        ],
+        [
+          "accent",
+          "card",
+          4.5,
+          "links on cards"
+        ],
+        [
+          "on-accent",
+          "accent",
+          4.5,
+          "primary button label"
+        ],
+        [
+          "pos",
+          "card",
+          4.5,
+          "positive figure on a card"
+        ],
+        [
+          "neg",
+          "card",
+          4.5,
+          "negative figure on a card"
+        ],
+        [
+          "warn",
+          "card",
+          4.5,
+          "attention word on a card"
+        ],
+        [
+          "pos",
+          "bg",
+          4.5,
+          "positive figure on the page"
+        ],
+        [
+          "neg",
+          "bg",
+          4.5,
+          "negative figure on the page"
+        ],
+        [
+          "warn",
+          "bg",
+          4.5,
+          "attention figure on the page"
+        ],
+        [
+          "pos",
+          "tint-pos",
+          4.5,
+          "positive tag"
+        ],
+        [
+          "neg",
+          "tint-neg",
+          4.5,
+          "negative tag"
+        ],
+        [
+          "warn",
+          "tint-warn",
+          4.5,
+          "attention tag"
+        ],
+        [
+          "fg",
+          "tint-pos",
+          4.5,
+          "text on the praise card"
+        ],
+        [
+          "fg",
+          "tint-neg",
+          4.5,
+          "text on the day's one card"
+        ],
+        [
+          "fg",
+          "tint-warn",
+          4.5,
+          "text on the tip card"
+        ],
+        [
+          "fg",
+          "tint-accent",
+          4.5,
+          "text on the new-review ground"
+        ],
+        [
+          "fg",
+          "chip",
+          4.5,
+          "theme tag"
+        ],
+        [
+          "muted",
+          "chip",
+          4.5,
+          "muted tag"
+        ],
+        [
+          "on-badge",
+          "badge",
+          4.5,
+          "count on the Válaszok tab"
+        ],
+        [
+          "bg",
+          "fg",
+          4.5,
+          "pressed chip and toast"
+        ],
+        [
+          "field",
+          "bg",
+          3,
+          "input border on the page"
+        ],
+        [
+          "field",
+          "card",
+          3,
+          "input border on cards"
+        ],
+        [
+          "focus",
+          "bg",
+          3,
+          "focus ring on the page"
+        ],
+        [
+          "focus",
+          "card",
+          3,
+          "focus ring on cards"
+        ],
+        [
+          "s1",
+          "card",
+          3,
+          "chart series 1"
+        ],
+        [
+          "s2",
+          "card",
+          3,
+          "chart series 2"
+        ],
+        [
+          "s3",
+          "card",
+          3,
+          "chart series 3"
+        ]
+      ]
+    }
+  },
+  "fonts": {
+    "space-grotesk": {
+      "name": "Space Grotesk",
+      "style": "pop"
+    },
+    "bricolage": {
+      "name": "Bricolage Grotesque",
+      "style": "pop"
+    },
+    "unbounded": {
+      "name": "Unbounded",
+      "style": "pop"
+    },
+    "archivo": {
+      "name": "Archivo keskeny",
+      "style": "pop"
+    },
+    "rubik": {
+      "name": "Rubik",
+      "style": "pop"
+    },
+    "nunito": {
+      "name": "Nunito",
+      "style": "uveg"
+    },
+    "outfit": {
+      "name": "Outfit",
+      "style": "uveg"
+    },
+    "sora": {
+      "name": "Sora",
+      "style": "uveg"
+    },
+    "jakarta": {
+      "name": "Plus Jakarta Sans",
+      "style": "uveg"
+    },
+    "fraunces": {
+      "name": "Fraunces",
+      "style": "uveg"
+    },
+    "newsreader": {
+      "name": "Newsreader",
+      "style": "klasszikus"
+    },
+    "sourceserif": {
+      "name": "Source Serif 4",
+      "style": "klasszikus"
+    },
+    "playfair": {
+      "name": "Playfair Display",
+      "style": "klasszikus"
+    },
+    "literata": {
+      "name": "Literata",
+      "style": "klasszikus"
+    }
+  },
+  "sets": {
+    "pop-citrom": {
+      "style": "pop",
+      "name": "Citrom",
+      "slug": "citrom",
+      "scheme": "light",
+      "tokens": {
+        "bg": "#ffffff",
+        "card": "#ffffff",
+        "fg": "#0a0a0a",
+        "muted": "#555555",
+        "line": "#0a0a0a",
+        "hair": "#dedede",
+        "field": "#0a0a0a",
+        "focus": "#0a0a0a",
+        "accent": "#2a48f5",
+        "accent-strong": "#1a35d6",
+        "on-accent": "#ffffff",
+        "pos": "#00734a",
+        "neg": "#b80f0f",
+        "warn": "#7a5c00",
+        "tint-pos": "#c9ffe5",
+        "tint-neg": "#ffd9d9",
+        "tint-warn": "#fff58a",
+        "tint-accent": "#d6deff",
+        "chip": "#ececec",
+        "badge": "#ff2d9b",
+        "on-badge": "#0a0a0a",
+        "shadow": "#0a0a0a",
+        "blk-hero": "#ffe500",
+        "blk-a": "#9db4ff",
+        "blk-b": "#ffe500",
+        "blk-pos": "#7ee8b0",
+        "blk-neg": "#ff2d9b",
+        "on-blk": "#0a0a0a",
+        "blk-line": "#0a0a0a",
+        "blk-shadow": "#0a0a0a",
+        "blk-inv": "#ffffff",
+        "blk-btn": "#2a48f5",
+        "on-blk-btn": "#ffffff",
+        "tab-on": "#ffe500",
+        "on-tab": "#0a0a0a",
+        "s1": "#2a48f5",
+        "s2": "#e0157f",
+        "s3": "#0a7d55"
+      }
+    },
+    "pop-aperol": {
+      "style": "pop",
+      "name": "Aperol",
+      "slug": "aperol",
+      "scheme": "light",
+      "tokens": {
+        "bg": "#fff5ee",
+        "card": "#ffffff",
+        "fg": "#0a0a0a",
+        "muted": "#5c4a40",
+        "line": "#0a0a0a",
+        "hair": "#f0dccf",
+        "field": "#0a0a0a",
+        "focus": "#0a0a0a",
+        "accent": "#b83210",
+        "accent-strong": "#942709",
+        "on-accent": "#ffffff",
+        "pos": "#08675a",
+        "neg": "#be123c",
+        "warn": "#8a5200",
+        "tint-pos": "#cdeee8",
+        "tint-neg": "#ffd6cc",
+        "tint-warn": "#ffe7b8",
+        "tint-accent": "#ffdfd3",
+        "chip": "#f6e4d9",
+        "badge": "#ff3d81",
+        "on-badge": "#0a0a0a",
+        "shadow": "#0a0a0a",
+        "blk-hero": "#ff7a3d",
+        "blk-a": "#ffc24a",
+        "blk-b": "#ffb38a",
+        "blk-pos": "#7ee0b8",
+        "blk-neg": "#ff3d81",
+        "on-blk": "#0a0a0a",
+        "blk-line": "#0a0a0a",
+        "blk-shadow": "#0a0a0a",
+        "blk-inv": "#ffffff",
+        "blk-btn": "#0a0a0a",
+        "on-blk-btn": "#ffffff",
+        "tab-on": "#ff7a3d",
+        "on-tab": "#0a0a0a",
+        "s1": "#b83210",
+        "s2": "#1d62d6",
+        "s3": "#08675a"
+      }
+    },
+    "pop-matcha": {
+      "style": "pop",
+      "name": "Matcha",
+      "slug": "matcha",
+      "scheme": "light",
+      "tokens": {
+        "bg": "#f5fbee",
+        "card": "#ffffff",
+        "fg": "#0a0a0a",
+        "muted": "#4e5a46",
+        "line": "#0a0a0a",
+        "hair": "#dde8d0",
+        "field": "#0a0a0a",
+        "focus": "#0a0a0a",
+        "accent": "#2f6f16",
+        "accent-strong": "#245612",
+        "on-accent": "#ffffff",
+        "pos": "#24742f",
+        "neg": "#a33a06",
+        "warn": "#7d5a00",
+        "tint-pos": "#d8f0c4",
+        "tint-neg": "#ffe0d6",
+        "tint-warn": "#fdf3c4",
+        "tint-accent": "#e2f2d2",
+        "chip": "#e7efdc",
+        "badge": "#ff8fab",
+        "on-badge": "#0a0a0a",
+        "shadow": "#0a0a0a",
+        "blk-hero": "#9be15d",
+        "blk-a": "#ffe27a",
+        "blk-b": "#ff8fab",
+        "blk-pos": "#9be15d",
+        "blk-neg": "#ff8a6b",
+        "on-blk": "#0a0a0a",
+        "blk-line": "#0a0a0a",
+        "blk-shadow": "#0a0a0a",
+        "blk-inv": "#ffffff",
+        "blk-btn": "#0a0a0a",
+        "on-blk-btn": "#ffffff",
+        "tab-on": "#9be15d",
+        "on-tab": "#0a0a0a",
+        "s1": "#2f6f16",
+        "s2": "#c2255c",
+        "s3": "#1f5fbf"
+      }
+    },
+    "pop-gelato": {
+      "style": "pop",
+      "name": "Gelato",
+      "slug": "gelato",
+      "scheme": "light",
+      "tokens": {
+        "bg": "#f8f5ff",
+        "card": "#ffffff",
+        "fg": "#0a0a0a",
+        "muted": "#57526e",
+        "line": "#0a0a0a",
+        "hair": "#e5e0f5",
+        "field": "#0a0a0a",
+        "focus": "#0a0a0a",
+        "accent": "#5b3be8",
+        "accent-strong": "#4527c4",
+        "on-accent": "#ffffff",
+        "pos": "#086a4d",
+        "neg": "#c81e4a",
+        "warn": "#8a5a00",
+        "tint-pos": "#d5f6ea",
+        "tint-neg": "#ffe0ee",
+        "tint-warn": "#fff3c9",
+        "tint-accent": "#e6e0ff",
+        "chip": "#ece8fa",
+        "badge": "#ff8ac0",
+        "on-badge": "#0a0a0a",
+        "shadow": "#0a0a0a",
+        "blk-hero": "#a78bfa",
+        "blk-a": "#7dd3fc",
+        "blk-b": "#ff8ac0",
+        "blk-pos": "#86efac",
+        "blk-neg": "#ff7aa2",
+        "on-blk": "#0a0a0a",
+        "blk-line": "#0a0a0a",
+        "blk-shadow": "#0a0a0a",
+        "blk-inv": "#ffffff",
+        "blk-btn": "#0a0a0a",
+        "on-blk-btn": "#ffffff",
+        "tab-on": "#a78bfa",
+        "on-tab": "#0a0a0a",
+        "s1": "#5b3be8",
+        "s2": "#d6336c",
+        "s3": "#0a7d5c"
+      }
+    },
+    "pop-balaton": {
+      "style": "pop",
+      "name": "Balaton",
+      "slug": "balaton",
+      "scheme": "light",
+      "tokens": {
+        "bg": "#effbfb",
+        "card": "#ffffff",
+        "fg": "#0a0a0a",
+        "muted": "#485d61",
+        "line": "#0a0a0a",
+        "hair": "#d3e9eb",
+        "field": "#0a0a0a",
+        "focus": "#0a0a0a",
+        "accent": "#0b6e8a",
+        "accent-strong": "#095a71",
+        "on-accent": "#ffffff",
+        "pos": "#11754f",
+        "neg": "#b83232",
+        "warn": "#855600",
+        "tint-pos": "#cff3e6",
+        "tint-neg": "#ffe3df",
+        "tint-warn": "#fff2c6",
+        "tint-accent": "#d3f1f5",
+        "chip": "#e0f1f2",
+        "badge": "#ff7a6b",
+        "on-badge": "#0a0a0a",
+        "shadow": "#0a0a0a",
+        "blk-hero": "#38d6e0",
+        "blk-a": "#ffe08a",
+        "blk-b": "#5b9dff",
+        "blk-pos": "#7ee8b0",
+        "blk-neg": "#ff7a6b",
+        "on-blk": "#0a0a0a",
+        "blk-line": "#0a0a0a",
+        "blk-shadow": "#0a0a0a",
+        "blk-inv": "#ffffff",
+        "blk-btn": "#0a0a0a",
+        "on-blk-btn": "#ffffff",
+        "tab-on": "#38d6e0",
+        "on-tab": "#0a0a0a",
+        "s1": "#0b6e8a",
+        "s2": "#d9480f",
+        "s3": "#5b3be8"
+      }
+    },
+    "pop-ejfel": {
+      "style": "pop",
+      "name": "Éjfél",
+      "slug": "ejfel",
+      "scheme": "dark",
+      "tokens": {
+        "bg": "#0a0a0a",
+        "card": "#161616",
+        "fg": "#ffffff",
+        "muted": "#b0b0b0",
+        "line": "#ffffff",
+        "hair": "#2e2e2e",
+        "field": "#ffffff",
+        "focus": "#ffe500",
+        "accent": "#ffe500",
+        "accent-strong": "#fff176",
+        "on-accent": "#0a0a0a",
+        "pos": "#5fe3a1",
+        "neg": "#ff8a8a",
+        "warn": "#ffd24d",
+        "tint-pos": "#0f2e22",
+        "tint-neg": "#3a1515",
+        "tint-warn": "#332a00",
+        "tint-accent": "#2b2800",
+        "chip": "#2a2a2a",
+        "badge": "#ff5cb0",
+        "on-badge": "#0a0a0a",
+        "shadow": "#ffe500",
+        "blk-hero": "#ffe500",
+        "blk-a": "#8fa8ff",
+        "blk-b": "#ffe500",
+        "blk-pos": "#5fe3a1",
+        "blk-neg": "#ff6b8b",
+        "on-blk": "#0a0a0a",
+        "blk-line": "#0a0a0a",
+        "blk-shadow": "#ffffff",
+        "blk-inv": "#ffffff",
+        "blk-btn": "#0a0a0a",
+        "on-blk-btn": "#ffffff",
+        "tab-on": "#ffe500",
+        "on-tab": "#0a0a0a",
+        "s1": "#ffe500",
+        "s2": "#ff5cb0",
+        "s3": "#5fe3a1"
+      }
+    },
+    "uveg-piac": {
+      "style": "uveg",
+      "name": "Piac",
+      "slug": "piac",
+      "scheme": "light",
+      "tokens": {
+        "bg": "#fff6ea",
+        "card": "#ffffff",
+        "line": "#efdcc6",
+        "field": "#a0826e",
+        "fg": "#2a1a12",
+        "muted": "#705649",
+        "accent": "#aa2e1a",
+        "accent-strong": "#9c2612",
+        "on-accent": "#ffffff",
+        "pos": "#15703f",
+        "neg": "#b3261a",
+        "warn": "#8a5a00",
+        "tint-pos": "#dcf3e5",
+        "tint-neg": "#ffe1d6",
+        "tint-warn": "#fff0c2",
+        "tint-accent": "#ffe9df",
+        "chip": "#efdcc6",
+        "focus": "#aa2e1a",
+        "badge": "#b3261a",
+        "on-badge": "#ffffff",
+        "glow-1": "#ffb347",
+        "glow-2": "#ff6b4a",
+        "glow-3": "#ffd86b",
+        "glow-a": "0.32",
+        "glass-edge": "rgba(255,255,255,.55)",
+        "shadow-sm": "0 1px 2px rgba(0,0,0,.06)",
+        "shadow-md": "0 6px 20px rgba(0,0,0,.10)",
+        "s1": "#aa2e1a",
+        "s2": "#0f6f7a",
+        "s3": "#8a5a00"
+      }
+    },
+    "uveg-aperol": {
+      "style": "uveg",
+      "name": "Aperol",
+      "slug": "aperol",
+      "scheme": "light",
+      "tokens": {
+        "bg": "#fff1e8",
+        "card": "#fffaf6",
+        "line": "#f3d5c3",
+        "field": "#9b8478",
+        "fg": "#16323a",
+        "muted": "#3f5a61",
+        "accent": "#943823",
+        "accent-strong": "#7c2b1b",
+        "on-accent": "#ffffff",
+        "pos": "#08675a",
+        "neg": "#be123c",
+        "warn": "#8a5200",
+        "tint-pos": "#cdeee8",
+        "tint-neg": "#ffd6cc",
+        "tint-warn": "#ffe7b8",
+        "tint-accent": "#ffdfd3",
+        "chip": "#f3d5c3",
+        "focus": "#943823",
+        "badge": "#be123c",
+        "on-badge": "#ffffff",
+        "glow-1": "#ff7a3d",
+        "glow-2": "#ff3d81",
+        "glow-3": "#ffc24a",
+        "glow-a": "0.32",
+        "glass-edge": "rgba(255,255,255,.55)",
+        "shadow-sm": "0 1px 2px rgba(0,0,0,.06)",
+        "shadow-md": "0 6px 20px rgba(0,0,0,.10)",
+        "s1": "#943823",
+        "s2": "#16608f",
+        "s3": "#08675a"
+      }
+    },
+    "uveg-gelato": {
+      "style": "uveg",
+      "name": "Gelato",
+      "slug": "gelato",
+      "scheme": "light",
+      "tokens": {
+        "bg": "#f7f5ff",
+        "card": "#ffffff",
+        "line": "#e3def7",
+        "field": "#8c86ad",
+        "fg": "#1d1740",
+        "muted": "#5d5880",
+        "accent": "#5b3be8",
+        "accent-strong": "#4527c4",
+        "on-accent": "#ffffff",
+        "pos": "#086a4d",
+        "neg": "#c81e4a",
+        "warn": "#8a5a00",
+        "tint-pos": "#d5f6ea",
+        "tint-neg": "#ffe0ee",
+        "tint-warn": "#fff3c9",
+        "tint-accent": "#e6e0ff",
+        "chip": "#e3def7",
+        "focus": "#5b3be8",
+        "badge": "#c81e4a",
+        "on-badge": "#ffffff",
+        "glow-1": "#a78bfa",
+        "glow-2": "#ff8ac0",
+        "glow-3": "#7dd3fc",
+        "glow-a": "0.32",
+        "glass-edge": "rgba(255,255,255,.55)",
+        "shadow-sm": "0 1px 2px rgba(0,0,0,.06)",
+        "shadow-md": "0 6px 20px rgba(0,0,0,.10)",
+        "s1": "#5b3be8",
+        "s2": "#c81e4a",
+        "s3": "#086a4d"
+      }
+    },
+    "uveg-balaton": {
+      "style": "uveg",
+      "name": "Balaton",
+      "slug": "balaton",
+      "scheme": "light",
+      "tokens": {
+        "bg": "#eefbfb",
+        "card": "#ffffff",
+        "line": "#cfe8ea",
+        "field": "#6f9298",
+        "fg": "#0c2f3a",
+        "muted": "#42646b",
+        "accent": "#09687c",
+        "accent-strong": "#065a6b",
+        "on-accent": "#ffffff",
+        "pos": "#11754f",
+        "neg": "#b83232",
+        "warn": "#855600",
+        "tint-pos": "#cff3e6",
+        "tint-neg": "#ffe3df",
+        "tint-warn": "#fff2c6",
+        "tint-accent": "#d3f1f5",
+        "chip": "#cfe8ea",
+        "focus": "#09687c",
+        "badge": "#b83232",
+        "on-badge": "#ffffff",
+        "glow-1": "#38d6e0",
+        "glow-2": "#5b9dff",
+        "glow-3": "#ffe08a",
+        "glow-a": "0.32",
+        "glass-edge": "rgba(255,255,255,.55)",
+        "shadow-sm": "0 1px 2px rgba(0,0,0,.06)",
+        "shadow-md": "0 6px 20px rgba(0,0,0,.10)",
+        "s1": "#09687c",
+        "s2": "#b83232",
+        "s3": "#6d3fb5"
+      }
+    },
+    "uveg-matcha": {
+      "style": "uveg",
+      "name": "Matcha",
+      "slug": "matcha",
+      "scheme": "light",
+      "tokens": {
+        "bg": "#f4f8ec",
+        "card": "#ffffff",
+        "line": "#dbe6c9",
+        "field": "#83947a",
+        "fg": "#1d2b16",
+        "muted": "#55674b",
+        "accent": "#336f1a",
+        "accent-strong": "#285a13",
+        "on-accent": "#ffffff",
+        "pos": "#24742f",
+        "neg": "#a33a06",
+        "warn": "#7d5a00",
+        "tint-pos": "#d8f0c4",
+        "tint-neg": "#ffe0d6",
+        "tint-warn": "#fdf3c4",
+        "tint-accent": "#e2f2d2",
+        "chip": "#dbe6c9",
+        "focus": "#336f1a",
+        "badge": "#a33a06",
+        "on-badge": "#ffffff",
+        "glow-1": "#9be15d",
+        "glow-2": "#ff8fab",
+        "glow-3": "#ffe27a",
+        "glow-a": "0.32",
+        "glass-edge": "rgba(255,255,255,.55)",
+        "shadow-sm": "0 1px 2px rgba(0,0,0,.06)",
+        "shadow-md": "0 6px 20px rgba(0,0,0,.10)",
+        "s1": "#336f1a",
+        "s2": "#c2255c",
+        "s3": "#1f5fbf"
+      }
+    },
+    "uveg-neon": {
+      "style": "uveg",
+      "name": "Neon",
+      "slug": "neon",
+      "scheme": "dark",
+      "tokens": {
+        "bg": "#0f0f14",
+        "card": "#1b1b24",
+        "line": "#2c2c3a",
+        "field": "#77778a",
+        "fg": "#f4f4f6",
+        "muted": "#a9a9b7",
+        "accent": "#c6ff3d",
+        "accent-strong": "#dcff85",
+        "on-accent": "#101014",
+        "pos": "#9df06a",
+        "neg": "#ff8a7d",
+        "warn": "#ffd166",
+        "tint-pos": "#1b2b16",
+        "tint-neg": "#33191b",
+        "tint-warn": "#2e2813",
+        "tint-accent": "#232d12",
+        "chip": "#2c2c3a",
+        "focus": "#c6ff3d",
+        "badge": "#ff8a7d",
+        "on-badge": "#101014",
+        "glow-1": "#c6ff3d",
+        "glow-2": "#ff5cc8",
+        "glow-3": "#4d7cff",
+        "glow-a": "0.22",
+        "glass-edge": "rgba(255,255,255,.14)",
+        "shadow-sm": "0 1px 2px rgba(0,0,0,.4)",
+        "shadow-md": "0 6px 20px rgba(0,0,0,.45)",
+        "s1": "#c6ff3d",
+        "s2": "#ff5cc8",
+        "s3": "#6f9bff"
+      }
+    },
+    "uveg-paprika": {
+      "style": "uveg",
+      "name": "Paprika",
+      "slug": "paprika",
+      "scheme": "dark",
+      "tokens": {
+        "bg": "#1a0f14",
+        "card": "#291820",
+        "line": "#3d2630",
+        "field": "#8d6f79",
+        "fg": "#fdeee6",
+        "muted": "#c2a3ab",
+        "accent": "#ff7a5c",
+        "accent-strong": "#ffa28c",
+        "on-accent": "#1a0f14",
+        "pos": "#7bd88f",
+        "neg": "#ff8f8f",
+        "warn": "#ffc247",
+        "tint-pos": "#1c3327",
+        "tint-neg": "#3b1a1c",
+        "tint-warn": "#3a2a12",
+        "tint-accent": "#3a1d18",
+        "chip": "#3d2630",
+        "focus": "#ff7a5c",
+        "badge": "#ff8f8f",
+        "on-badge": "#1a0f14",
+        "glow-1": "#ff4d2e",
+        "glow-2": "#ffb703",
+        "glow-3": "#b5179e",
+        "glow-a": "0.22",
+        "glass-edge": "rgba(255,255,255,.14)",
+        "shadow-sm": "0 1px 2px rgba(0,0,0,.4)",
+        "shadow-md": "0 6px 20px rgba(0,0,0,.45)",
+        "s1": "#ff7a5c",
+        "s2": "#ffc247",
+        "s3": "#7bd88f"
+      }
+    },
+    "klasszikus-nappal": {
+      "style": "klasszikus",
+      "name": "Klasszikus",
+      "slug": "nappal",
+      "scheme": "light",
+      "tokens": {
+        "bg": "#f6f6f4",
+        "card": "#ffffff",
+        "line": "#e2e2dd",
+        "field": "#84847e",
+        "fg": "#1d1d1b",
+        "muted": "#63635e",
+        "accent": "#0f4c81",
+        "accent-strong": "#0c3459",
+        "on-accent": "#f6f6f4",
+        "pos": "#16703a",
+        "neg": "#a8271d",
+        "warn": "#8a5a00",
+        "tint-pos": "#e8f1ea",
+        "tint-neg": "#f7e9e7",
+        "tint-warn": "#f5eedf",
+        "tint-accent": "#e7eef6",
+        "chip": "#e2e2dd",
+        "focus": "#0f4c81",
+        "badge": "#a8271d",
+        "on-badge": "#ffffff",
+        "shadow-sm": "0 1px 2px rgba(29,29,27,.06)",
+        "shadow-md": "0 2px 8px rgba(29,29,27,.08)",
+        "s1": "#0f4c81",
+        "s2": "#a8271d",
+        "s3": "#16703a"
+      }
+    },
+    "klasszikus-ejjel": {
+      "style": "klasszikus",
+      "name": "Klasszikus éjjel",
+      "slug": "ejjel",
+      "scheme": "dark",
+      "tokens": {
+        "bg": "#151514",
+        "card": "#1f1f1d",
+        "line": "#2c2c2a",
+        "field": "#70706a",
+        "fg": "#ececea",
+        "muted": "#9a9a94",
+        "accent": "#8fbcec",
+        "accent-strong": "#b4d3f4",
+        "on-accent": "#1d1d1b",
+        "pos": "#7ed494",
+        "neg": "#f09086",
+        "warn": "#e0b252",
+        "tint-pos": "#1b2a20",
+        "tint-neg": "#2e1c19",
+        "tint-warn": "#2b2414",
+        "tint-accent": "#17242f",
+        "chip": "#2c2c2a",
+        "focus": "#8fbcec",
+        "badge": "#f09086",
+        "on-badge": "#1d1d1b",
+        "shadow-sm": "0 1px 2px rgba(0,0,0,.40)",
+        "shadow-md": "0 2px 8px rgba(0,0,0,.45)",
+        "s1": "#8fbcec",
+        "s2": "#f09086",
+        "s3": "#7ed494"
+      }
+    }
+  },
+  "moved": [
+    {
+      "set": "Piac (Üveg)",
+      "token": "muted",
+      "from": "#73594b",
+      "to": "#705649",
+      "why": "secondary text on the page over the orange glow"
+    },
+    {
+      "set": "Piac (Üveg)",
+      "token": "accent",
+      "from": "#c2321b",
+      "to": "#aa2e1a",
+      "why": "links and the greeting on the page over the orange glow, and the active tab label"
+    },
+    {
+      "set": "Aperol (Üveg)",
+      "token": "muted",
+      "from": "#48636a",
+      "to": "#3f5a61",
+      "why": "secondary text on the page over the pink glow"
+    },
+    {
+      "set": "Aperol (Üveg)",
+      "token": "accent",
+      "from": "#ac391f",
+      "to": "#943823",
+      "why": "links and the greeting on the page over the pink glow"
+    },
+    {
+      "set": "Aperol (Üveg)",
+      "token": "accent-strong",
+      "from": "#a02c12",
+      "to": "#7c2b1b",
+      "why": "hover must stay darker than the moved accent"
+    },
+    {
+      "set": "Balaton (Üveg)",
+      "token": "muted",
+      "from": "#47696f",
+      "to": "#42646b",
+      "why": "secondary text on the page over the blue glow"
+    },
+    {
+      "set": "Balaton (Üveg)",
+      "token": "accent",
+      "from": "#087187",
+      "to": "#09687c",
+      "why": "links on the page over the blue glow and the active tab label"
+    },
+    {
+      "set": "Matcha (Üveg)",
+      "token": "accent",
+      "from": "#35751a",
+      "to": "#336f1a",
+      "why": "links on the page over the pink glow"
+    },
+    {
+      "set": "Neon (Üveg)",
+      "token": "muted",
+      "from": "#a3a3b2",
+      "to": "#a9a9b7",
+      "why": "secondary text on the page over the lime glow"
+    },
+    {
+      "set": "all Üveg sets",
+      "token": "glow-a",
+      "from": "0.38",
+      "to": "0.32 light, 0.22 dark",
+      "why": "at 0.38 no muted grey passes on the page over the strongest glow without turning brown; today's looks.css draws the glow at 0.38"
+    }
+  ]
+}

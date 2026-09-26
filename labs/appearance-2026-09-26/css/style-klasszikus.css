@@ -1,0 +1,126 @@
+/* style-klasszikus.css, v0.1.0, 2026-09-26. Appearance v2 lab: the Klasszikus style.
+
+   The app's classic look (platform/web/src/styles.css, DESIGN-BRIEF-v0.1.0): calm and
+   traditional. Hairline rules instead of boxes where a rule separates better, small radii,
+   light shadows only on things that float, no glass, no blocks, figures on the page with a
+   rule under them and small-capital labels. Every rule is scoped by html[data-style="klasszikus"];
+   colours are tokens of the two Klasszikus sets (BRAND-v0.1.0 section 4). */
+
+html[data-style="klasszikus"] {
+  --r-sm: 4px; --r-md: 6px; --r-lg: 10px; --r-xl: 16px;
+  --fs-hello: 36px; --fs-h1: 34px; --fs-h2: 27px; --fs-title: 22px; --fs-stat: 34px; --display-lh: 1.16;
+}
+@media (max-width: 800px) {
+  html[data-style="klasszikus"] { --fs-hello: 28px; --fs-h1: 28px; --fs-h2: 22px; --fs-title: 20px; --fs-stat: 30px; }
+}
+
+/* ---- element defaults ---------------------------------------------------------------- */
+:where(html[data-style="klasszikus"]) :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: var(--r-sm); }
+:where(html[data-style="klasszikus"]) :is(input:not([type="range"]), select, textarea) {
+  background: var(--bg); color: var(--fg); border: 1px solid var(--field); border-radius: var(--r-md);
+}
+html[data-style="klasszikus"] .skip { border: 1px solid var(--accent); border-radius: var(--r-md); color: var(--accent); }
+html[data-style="klasszikus"] a { text-decoration-thickness: 1px; }
+
+/* ---- buttons and chips: primary, secondary, link, chip ---------------------------------- */
+:where(html[data-style="klasszikus"]) button, html[data-style="klasszikus"] a.btn {
+  background: var(--accent); color: var(--on-accent); border: 1px solid var(--accent); border-radius: var(--r-md); font-weight: 600;
+}
+html[data-style="klasszikus"] button:not(:disabled):hover, html[data-style="klasszikus"] a.btn:hover { background: var(--accent-strong); border-color: var(--accent-strong); }
+html[data-style="klasszikus"] button.secondary, html[data-style="klasszikus"] a.btn.secondary { background: var(--card); color: var(--fg); border-color: var(--field); font-weight: 400; }
+html[data-style="klasszikus"] button.secondary:not(:disabled):hover, html[data-style="klasszikus"] a.btn.secondary:hover { background: var(--bg); border-color: var(--field); }
+html[data-style="klasszikus"] button.link { background: none; border: 0; color: var(--accent); font-weight: 400; text-decoration: underline; text-underline-offset: .15em; }
+html[data-style="klasszikus"] button.chip, html[data-style="klasszikus"] label.chip { background: var(--card); color: var(--fg); border: 1px solid var(--field); border-radius: 999px; }
+html[data-style="klasszikus"] button.chip:not(:disabled):hover { background: var(--bg); border-color: var(--fg); }
+html[data-style="klasszikus"] button.chip[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+html[data-style="klasszikus"] label.chip-select select { border: 0; background: transparent; }
+html[data-style="klasszikus"] .nav-group-toggle { color: var(--muted); font-variant-caps: small-caps; font-weight: 400; }
+html[data-style="klasszikus"] .nav-group-toggle:hover { background: none; color: var(--fg); }
+html[data-style="klasszikus"] .help-link { border: 1px solid var(--line); border-radius: var(--r-md); width: 24px; height: 24px; }
+html[data-style="klasszikus"] :is(button, a.btn):not(.link, .queue-item, .nav-group-toggle, :disabled):active { transform: translateY(1px); }
+
+/* ---- tags ------------------------------------------------------------------------------ */
+html[data-style="klasszikus"] .tag { border-radius: 999px; background: var(--chip); color: var(--fg); font-weight: 500; }
+html[data-style="klasszikus"] .tag.pos { background: var(--tint-pos); color: var(--pos); }
+html[data-style="klasszikus"] .tag.neg { background: var(--tint-neg); color: var(--neg); }
+html[data-style="klasszikus"] .tag.warn { background: var(--tint-warn); color: var(--warn); }
+html[data-style="klasszikus"] .tag.muted { color: var(--muted); }
+html[data-style="klasszikus"] .new-tag { background: var(--accent); color: var(--on-accent); }
+
+/* ---- cards ------------------------------------------------------------------------------ */
+html[data-style="klasszikus"] .card { background: var(--card); color: var(--fg); border: 1px solid var(--line); border-radius: var(--r-lg); padding: var(--space-6); }
+html[data-style="klasszikus"] :is(.hcard-todo, .hcard-alert) { background: var(--tint-neg); border-color: transparent; }
+html[data-style="klasszikus"] .hcard-tip { background: var(--tint-warn); border-color: transparent; }
+html[data-style="klasszikus"] :is(.hcard-praise, .hcard-calm) { background: var(--tint-pos); border-color: transparent; }
+html[data-style="klasszikus"] .hcard :is(.muted, .eyebrow) { color: var(--fg); }
+html[data-style="klasszikus"] .eyebrow { font-weight: 600; letter-spacing: .08em; }
+html[data-style="klasszikus"] .eyebrow .dot { background: var(--neg); }
+html[data-style="klasszikus"] .home-hello .hello { color: var(--muted); }
+html[data-style="klasszikus"] .home-head.todo-head { color: var(--accent); }
+/* the figures: on the page, a rule under the row, small-capital labels */
+html[data-style="klasszikus"] .figures { gap: var(--space-6) var(--space-12); border-bottom: 1px solid var(--line); padding-bottom: var(--space-6); margin-bottom: var(--space-2); }
+html[data-style="klasszikus"] .period-card .figures { gap: var(--space-4) var(--space-8); border-bottom: 0; padding-bottom: 0; }
+html[data-style="klasszikus"] .stat .l { font-variant-caps: small-caps; letter-spacing: .02em; }
+@media (max-width: 800px) {
+  html[data-style="klasszikus"] .card { padding: var(--space-4); }
+  html[data-style="klasszikus"] .figures { gap: var(--space-5) var(--space-8); }
+}
+
+/* ---- the shell ---------------------------------------------------------------------------- */
+html[data-style="klasszikus"] .side { background: var(--card); border-right: 1px solid var(--line); }
+html[data-style="klasszikus"] .nav-group-label { font-variant-caps: small-caps; letter-spacing: .02em; }
+html[data-style="klasszikus"] .side nav a, html[data-style="klasszikus"] .menu-nav a { border-radius: var(--r-md); }
+html[data-style="klasszikus"] .side nav a:hover, html[data-style="klasszikus"] .menu-nav a:hover { background: var(--bg); }
+html[data-style="klasszikus"] .side nav a.active, html[data-style="klasszikus"] .menu-nav a.active { background: var(--bg); box-shadow: inset 2px 0 0 var(--accent); }
+html[data-style="klasszikus"] .tab-badge { background: var(--badge); color: var(--on-badge); border-radius: 999px; }
+@media (max-width: 800px) {
+  html[data-style="klasszikus"] .topbar { background: var(--card); border-bottom: 1px solid var(--line); }
+  html[data-style="klasszikus"] .topnav-wrap { background: var(--card); border-top: 1px solid var(--line); }
+  html[data-style="klasszikus"] .topnav a { border-radius: var(--r-md); }
+  html[data-style="klasszikus"] .topnav a.active { color: var(--accent); box-shadow: inset 0 2px 0 var(--accent); }
+  html[data-style="klasszikus"] .menu-panel { border-top: 1px solid var(--line); background: var(--card); }
+}
+
+/* ---- lists and tables ---------------------------------------------------------------------- */
+html[data-style="klasszikus"] .venue-rows li { border-top: 1px solid var(--line); }
+html[data-style="klasszikus"] .venue-rows li:first-child { border-top: 0; }
+html[data-style="klasszikus"] th { font-weight: 400; font-variant-caps: small-caps; letter-spacing: .02em; border-bottom: 1px solid var(--line); }
+html[data-style="klasszikus"] td { border-bottom: 1px solid var(--line); }
+html[data-style="klasszikus"] .review-card[data-new="true"] { border-left: 3px solid var(--accent); }
+html[data-style="klasszikus"] .quote { border-left: 2px solid var(--line); }
+
+/* ---- Válaszok -------------------------------------------------------------------------------- */
+html[data-style="klasszikus"] button.queue-item { background: transparent; color: var(--fg); border: 1px solid transparent; border-radius: var(--r-lg); font-weight: 400; }
+html[data-style="klasszikus"] button.queue-item:not(.on):hover { background: var(--card); border-color: var(--line); }
+html[data-style="klasszikus"] button.queue-item.on { background: var(--card); border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+html[data-style="klasszikus"] .queue-detail > .eyebrow, html[data-style="klasszikus"] .approved .eyebrow { color: var(--muted); }
+
+/* ---- Kimutatások: charts sit on the page, not in boxes -------------------------------------------- */
+html[data-style="klasszikus"] .chart-block { padding: var(--space-4) 0 var(--space-6); border-bottom: 1px solid var(--line); }
+html[data-style="klasszikus"] .theme-box { padding-top: var(--space-2); border-top: 1px solid var(--line); }
+html[data-style="klasszikus"] .chart .axis { stroke: var(--line); stroke-width: 1; }
+html[data-style="klasszikus"] .chart .series { stroke-width: 2; }
+html[data-style="klasszikus"] .chart .dot { stroke: var(--bg); stroke-width: 2; }
+html[data-style="klasszikus"] .legend button { border-radius: var(--r-sm); font-weight: 400; }
+html[data-style="klasszikus"] .legend button:hover { background: var(--card); }
+
+/* ---- Beállítások: the Megjelenés card --------------------------------------------------------- */
+html[data-style="klasszikus"] .ap-num { border: 1px solid var(--line); border-radius: 50%; color: var(--fg); font-weight: 600; }
+html[data-style="klasszikus"] .pick { background: var(--card); border: 1px solid color-mix(in srgb, var(--field) 60%, var(--line)); border-radius: var(--r-md); }
+html[data-style="klasszikus"] .pick:hover { border-color: var(--field); }
+html[data-style="klasszikus"] .pick:has(input:checked) { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+html[data-style="klasszikus"] .pick:has(input:focus-visible) { outline: 2px solid var(--focus); outline-offset: 2px; }
+html[data-style="klasszikus"] .pick-tick { background: var(--accent); color: var(--on-accent); border-radius: 50%; }
+html[data-style="klasszikus"] .pick-mini { border-radius: var(--r-sm); background: var(--bg); box-shadow: 0 0 0 1px var(--line); }
+html[data-style="klasszikus"] .swatch { border-radius: var(--r-sm); box-shadow: inset 0 0 0 1px var(--line); }
+html[data-style="klasszikus"] .sw-card { border: 1px solid var(--line); border-radius: 4px; }
+html[data-style="klasszikus"] .sw-btn { border-radius: 3px; }
+html[data-style="klasszikus"] .sw-dots i { border: 1px solid var(--line); }
+html[data-style="klasszikus"] .sw-dots i:nth-child(1) { background: var(--accent); }
+html[data-style="klasszikus"] .sw-dots i:nth-child(2) { background: var(--pos); }
+html[data-style="klasszikus"] .sw-dots i:nth-child(3) { background: var(--neg); }
+
+/* ---- toast -------------------------------------------------------------------------------------- */
+html[data-style="klasszikus"] .toast { background: var(--fg); color: var(--bg); border-radius: var(--r-xl); box-shadow: var(--shadow-md); }
+html[data-style="klasszikus"] .toast button { background: transparent; color: var(--bg); border: 0; text-decoration: underline; font-weight: 700; }
+html[data-style="klasszikus"] .toast button:hover { background: transparent; }

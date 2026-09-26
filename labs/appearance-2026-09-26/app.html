@@ -1,0 +1,543 @@
+<!doctype html>
+<!-- BistroTech app mock for the Appearance v2 lab. v0.1.0, 2026-09-26.
+     The real app's four tabs (Ma, Értékelések, Válaszok, Kimutatások) and the Beállítások page
+     with the new Megjelenés card, in the real app's class names and wording. The same file is
+     the phone frame (390 px wide, so the real phone breakpoint applies), the desktop frame
+     (1440 px), the three style miniatures in the Settings card (?mini) and the contact sheets.
+     Appearance arrives in the hash (#s=pop&c=citrom&f=space-grotesk) or from the lab by
+     postMessage; the script in the head applies it before the first paint, as the product's
+     index.html does. Every name, text and number is fictional (Példa Bisztró, Minta Étterem,
+     Teszt Kávézó); the numbers add up across the screens. -->
+<html lang="hu" data-style="pop" data-palette="pop-citrom" data-font="space-grotesk">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ma · BistroTech</title>
+<script src="js/registry.js"></script>
+<script src="js/appearance.js"></script>
+<script>BT_APPEARANCE.firstPaint();</script>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/palettes.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/style-pop.css">
+<link rel="stylesheet" href="css/style-uveg.css">
+<link rel="stylesheet" href="css/style-klasszikus.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.8 7L4 20l1.2-4.5A8 8 0 1 1 21 12z"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 16 16"><path d="M2 4h12M2 8h12M2 12h12"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 14.5A8.5 8.5 0 1 1 9.5 3.5a7 7 0 0 0 11 11z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-help" viewBox="0 0 24 24"><path d="M9.2 9.2a2.9 2.9 0 1 1 4.2 2.6c-.9.5-1.4 1.1-1.4 2v.4M12 17.4h.01"/></symbol>
+  <symbol id="s-full" viewBox="0 0 12 12"><path fill="currentColor" stroke="none" d="M6 .4 7.41 4.06l3.92.21-3.05 2.47 1.01 3.79L6 8.4l-3.29 2.13 1.01-3.79L.67 4.27l3.92-.21z"/></symbol>
+  <symbol id="s-empty" viewBox="0 0 12 12"><path fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round" d="M6 1.4 7.08 4.5l3.27.18-2.55 2.07.85 3.18L6 8.12l-2.65 1.81.85-3.18L1.65 4.68l3.27-.18z"/></symbol>
+  <symbol id="bt-mark" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" fill-rule="evenodd" d="M 4.01 13.41 A 8.5 8.5 0 1 1 6.31 16.82 L 2.6 20.4 Z M 7.2 14.6 V 11.8 A 1.2 1.2 0 0 1 9.6 11.8 V 14.6 Z M 10.8 14.6 V 9.8 A 1.2 1.2 0 0 1 13.2 9.8 V 14.6 Z M 14.4 14.6 V 7.8 A 1.2 1.2 0 0 1 16.8 7.8 V 14.6 Z"/></symbol>
+</svg>
+
+<div class="shell">
+  <a class="skip" href="#main">Ugrás a tartalomra</a>
+
+  <header class="topbar">
+    <div class="topbar-row">
+      <svg class="brand-mark" width="22" height="22" role="img" aria-label="BistroTech"><use href="#bt-mark"/></svg>
+      <span class="topbar-tenant">Példa Bisztró Csoport</span>
+      <button type="button" class="secondary menu-btn" aria-expanded="false" aria-controls="app-menu">
+        <svg class="ic" width="16" height="16" style="width:16px;height:16px;stroke-width:1.6" aria-hidden="true"><use href="#i-menu"/></svg>Menü
+      </button>
+    </div>
+    <div class="topnav-wrap">
+      <nav class="topnav" aria-label="Főmenü">
+        <a href="#ma" data-go="ma" class="tab active" aria-current="page"><svg class="ic tab-icon" aria-hidden="true"><use href="#i-home"/></svg><span class="tab-label">Ma</span></a>
+        <a href="#ertekelesek" data-go="ertekelesek" class="tab"><svg class="ic tab-icon" aria-hidden="true"><use href="#i-star"/></svg><span class="tab-label">Értékelések</span></a>
+        <a href="#valaszok" data-go="valaszok" class="tab"><svg class="ic tab-icon" aria-hidden="true"><use href="#i-chat"/></svg><span class="tab-label">Válaszok</span><span class="tab-badge" role="img" aria-label="6 válasz vár rád" data-n="6"></span></a>
+        <a href="#kimutatasok" data-go="kimutatasok" class="tab"><svg class="ic tab-icon" aria-hidden="true"><use href="#i-chart"/></svg><span class="tab-label">Kimutatások</span></a>
+      </nav>
+    </div>
+    <div class="menu-panel" id="app-menu" hidden>
+      <nav class="menu-nav" aria-label="Menü">
+        <div class="nav-group">
+          <p class="nav-group-label" id="m-data">Továbbiak</p>
+          <ul aria-labelledby="m-data">
+            <li><a href="#">Ételek</a></li><li><a href="#">Dicséretek</a></li><li><a href="#">Helyezés</a></li>
+            <li><a href="#">Adatlap</a></li><li><a href="#">Panaszok</a></li><li><a href="#">Asszisztens</a></li>
+          </ul>
+        </div>
+        <div class="nav-group">
+          <p class="nav-group-label" id="m-acc">Fiók</p>
+          <ul aria-labelledby="m-acc">
+            <li><a href="#">Éttermek</a></li><li><a href="#">Elküldött üzenetek</a></li><li><a href="#">Csapat</a></li>
+            <li><a href="#">Napló</a></li><li><a href="#">Csoport</a></li><li><a href="#">Előfizetés</a></li>
+            <li><a href="#beallitasok" data-go="beallitasok">Beállítások</a></li><li><a href="#">Súgó</a></li>
+          </ul>
+        </div>
+      </nav>
+      <a class="menu-email small" href="#">demo@pelda.invalid</a>
+      <label>Nyelv <select><option>Magyar</option><option lang="en">English</option></select></label>
+      <button type="button" class="link">Visszajelzés</button>
+      <button type="button" class="link">Kijelentkezés</button>
+      <p class="legal-links muted small"><a href="#">ÁSZF</a> · <a href="#">Adatkezelés</a></p>
+    </div>
+  </header>
+
+  <aside class="side">
+    <div class="brand">
+      <svg class="brand-mark" width="22" height="22" aria-hidden="true"><use href="#bt-mark"/></svg>
+      <svg class="brand-word" width="116" height="22" viewBox="0 0 614 116" role="img" aria-label="BistroTech">
+        <g transform="translate(8,8)">
+          <g fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="butt" stroke-linejoin="round">
+            <path d="M 6 6 V 94 M 6 6 H 30 A 22 22 0 0 1 30 50 H 6 M 6 50 H 30 A 22 22 0 0 1 30 94 H 6"/>
+            <path transform="translate(66,0)" d="M 7 34 V 94"/>
+            <path transform="translate(88,0)" d="M 44 47 C 44 37 35 34 25 34 C 15 34 6 37 6 47 C 6 57 16 60 25 64 C 34 68 44 71 44 81 C 44 91 35 94 25 94 C 15 94 6 91 6 81"/>
+            <path transform="translate(146,0)" d="M 22 14 V 82 A 12 12 0 0 0 34 94 M 6 34 H 38"/>
+            <path transform="translate(196,0)" d="M 6 94 V 52 A 18 18 0 0 1 24 34"/>
+            <circle transform="translate(230,0)" cx="36" cy="64" r="30"/>
+            <path transform="translate(306,0)" d="M 6 6 H 58 M 32 6 V 94"/>
+            <path transform="translate(372,0)" d="M 6 64 H 66 A 30 30 0 1 0 60.6 81.2"/>
+            <path transform="translate(452,0)" d="M 60.6 46.8 A 30 30 0 1 0 60.6 81.2"/>
+            <path transform="translate(532,0)" d="M 6 6 V 94 M 6 61 A 27 27 0 0 1 60 61 V 94"/>
+          </g>
+          <circle fill="currentColor" cx="73" cy="16" r="7"/>
+        </g>
+      </svg>
+    </div>
+    <div class="tenant-name">Példa Bisztró Csoport</div>
+    <nav aria-label="Főmenü">
+      <div class="nav-group">
+        <p class="nav-group-label" id="g-today">Ma</p>
+        <ul aria-labelledby="g-today">
+          <li><a href="#ma" data-go="ma" class="tab active" aria-current="page"><svg class="ic tab-icon" aria-hidden="true"><use href="#i-home"/></svg><span class="tab-label">Ma</span></a></li>
+          <li><a href="#ertekelesek" data-go="ertekelesek" class="tab"><svg class="ic tab-icon" aria-hidden="true"><use href="#i-star"/></svg><span class="tab-label">Értékelések</span></a></li>
+          <li><a href="#valaszok" data-go="valaszok" class="tab"><svg class="ic tab-icon" aria-hidden="true"><use href="#i-chat"/></svg><span class="tab-label">Válaszok</span><span class="tab-badge" role="img" aria-label="6 válasz vár rád" data-n="6"></span></a></li>
+          <li><a href="#kimutatasok" data-go="kimutatasok" class="tab"><svg class="ic tab-icon" aria-hidden="true"><use href="#i-chart"/></svg><span class="tab-label">Kimutatások</span></a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <button type="button" class="nav-group-label nav-group-toggle" aria-expanded="false" aria-controls="g-data-list" title="Itt találod a részletes kimutatásokat és a ritkábban használt oldalakat.">Továbbiak<span aria-hidden="true" class="nav-group-caret">+</span></button>
+        <ul id="g-data-list" hidden>
+          <li><a href="#">Ételek</a></li><li><a href="#">Dicséretek</a></li><li><a href="#">Helyezés</a></li>
+          <li><a href="#">Adatlap</a></li><li><a href="#">Panaszok</a></li><li><a href="#">Asszisztens</a></li>
+        </ul>
+      </div>
+      <div class="nav-group">
+        <p class="nav-group-label" id="g-acc">Fiók</p>
+        <ul aria-labelledby="g-acc">
+          <li><a href="#">Éttermek</a></li><li><a href="#">Elküldött üzenetek</a></li><li><a href="#">Csapat</a></li>
+          <li><a href="#">Napló</a></li><li><a href="#">Csoport</a></li><li><a href="#">Előfizetés</a></li>
+          <li><a href="#beallitasok" data-go="beallitasok">Beállítások</a></li><li><a href="#">Súgó</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="side-foot">
+      <label>Nyelv <select><option>Magyar</option><option lang="en">English</option></select></label>
+      <a href="#">demo@pelda.invalid</a>
+      <button type="button" class="link">Visszajelzés</button>
+      <button type="button" class="link">Kijelentkezés</button>
+      <p class="legal-links muted small"><a href="#">ÁSZF</a> · <a href="#">Adatkezelés</a></p>
+    </div>
+  </aside>
+
+  <main class="main" id="main" tabindex="-1">
+
+    <!-- ============================ Ma ============================ -->
+    <section class="view" data-view="ma" aria-labelledby="h-ma">
+      <h1 class="sr-only" id="h-ma">Ma</h1>
+      <div class="home">
+        <p class="home-hello"><span class="hello">Jó reggelt.</span> <strong class="home-head todo-head">Ma <mark class="hl">6 válasz</mark> vár rád.</strong></p>
+        <div class="card hcard hcard-todo">
+          <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Erre válaszolj először</p>
+          <h2>2 csillag, Példa Bisztró</h2>
+          <blockquote>A leves langyos volt, és húsz percet vártunk a számlára.</blockquote>
+          <p class="muted small">Minta Katalin · tegnap 21:40 · magyar · a válasz kész, csak rá kell nézned</p>
+          <p class="hcard-actions"><a class="btn" href="#valaszok" data-go="valaszok">Válasz átnézése</a><span class="muted small">Még 5 válasz vár rád.</span></p>
+        </div>
+        <div class="card hcard hcard-tip">
+          <p class="eyebrow">Amit a vendégek jeleznek</p>
+          <h2>A héten ez ismétlődik a legtöbbször: várakozás</h2>
+          <p>3 nem elégedett vendég említette az elmúlt 7 napban.</p>
+          <p class="hcard-actions"><a class="btn secondary" href="#kimutatasok" data-go="kimutatasok">Részletek</a></p>
+        </div>
+      </div>
+
+      <div class="card period-card">
+        <div class="period-head">
+          <h2>Az időszak számai <a class="help-link" href="#" title="Súgó ehhez az oldalhoz" aria-label="Súgó ehhez az oldalhoz"><svg class="ic" aria-hidden="true"><use href="#i-help"/></svg></a></h2>
+          <button type="button" class="secondary icon-btn" aria-label="Frissítés" title="Frissítés"><svg class="ic" width="18" height="18" style="width:18px;height:18px" aria-hidden="true"><use href="#i-refresh"/></svg></button>
+          <div class="toolbar seg" role="group" aria-label="Időszak">
+            <button type="button" class="secondary" aria-pressed="false" data-range="today">Ma</button>
+            <button type="button" class="secondary" aria-pressed="false" data-range="7">7 nap</button>
+            <button type="button" aria-pressed="true" data-range="30">30 nap</button>
+          </div>
+        </div>
+        <p class="sr-only" data-bind="answer">146 új értékelés érkezett ebben az időszakban. Az átlaguk 4,53.</p>
+        <div class="figures">
+          <div class="stat"><span class="n" data-bind="new">146</span><span class="l">Új értékelés</span></div>
+          <div class="stat tile-b"><span class="n" data-bind="avg">4,53</span><span class="l">Új értékelések átlaga</span></div>
+          <div class="stat tile-pos"><span class="n pos" data-bind="five">104</span><span class="l">5 csillagos</span></div>
+          <div class="stat tile-neg"><span class="n neg" data-bind="serious">7</span><span class="l">1 és 2 csillagos</span></div>
+          <div class="stat tile-neg"><span class="n neg" data-bind="unans">16</span><span class="l">Megválaszolatlan negatív</span></div>
+        </div>
+        <p class="note">3 csillag vagy kevesebb, tulajdonosi válasz nélkül. Új: az az értékelés, amit a Google erre az időszakra dátumoz.</p>
+      </div>
+
+      <h2 class="sec">Az éttermeid</h2>
+      <ul class="venue-rows" data-bind="venue-rows">
+        <li><span class="venue-name">Példa Bisztró</span><span class="muted small">62 új · átlag 4,48</span><span class="tag small neg">4 súlyos</span></li>
+        <li><span class="venue-name">Minta Étterem</span><span class="muted small">54 új · átlag 4,50</span><span class="tag small neg">3 súlyos</span></li>
+        <li><span class="venue-name">Teszt Kávézó</span><span class="muted small">30 új · átlag 4,67</span><span class="tag small pos">rendben</span></li>
+      </ul>
+      <details class="full-breakdown" open>
+        <summary>Teljes bontás csillagonként</summary>
+        <div class="table-wrap" tabindex="0">
+          <table class="wide">
+            <caption class="sr-only">Éttermenként</caption>
+            <thead><tr><th>Étterem</th><th class="num">Új</th><th class="num">5<svg class="star th-star" aria-hidden="true"><use href="#s-full"/></svg><span class="sr-only"> csillagos</span></th><th class="num">4<svg class="star th-star" aria-hidden="true"><use href="#s-full"/></svg><span class="sr-only"> csillagos</span></th><th class="num">3<svg class="star th-star" aria-hidden="true"><use href="#s-full"/></svg><span class="sr-only"> csillagos</span></th><th class="num">2<svg class="star th-star" aria-hidden="true"><use href="#s-full"/></svg><span class="sr-only"> csillagos</span></th><th class="num">1<svg class="star th-star" aria-hidden="true"><use href="#s-full"/></svg><span class="sr-only"> csillagos</span></th><th class="num">Átlag</th><th class="num">Google-értékelés</th><th class="num">Összes értékelés</th></tr></thead>
+            <tbody data-bind="venue-table">
+              <tr><td><span class="tag small neg" title="1 vagy 2 csillagos értékelés érkezett az időszakban">Negatív</span> Példa Bisztró</td><td class="num"><strong>62</strong></td><td class="num"><strong class="pos">44</strong></td><td class="num">10</td><td class="num">4</td><td class="num"><strong class="neg">2</strong></td><td class="num"><strong class="neg">2</strong></td><td class="num">4,48</td><td class="num">4,6</td><td class="num">1284</td></tr>
+              <tr><td><span class="tag small neg" title="1 vagy 2 csillagos értékelés érkezett az időszakban">Negatív</span> Minta Étterem</td><td class="num"><strong>54</strong></td><td class="num"><strong class="pos">38</strong></td><td class="num">9</td><td class="num">4</td><td class="num"><strong class="neg">2</strong></td><td class="num"><strong class="neg">1</strong></td><td class="num">4,50</td><td class="num">4,4</td><td class="num">612</td></tr>
+              <tr><td>Teszt Kávézó</td><td class="num"><strong>30</strong></td><td class="num"><strong class="pos">22</strong></td><td class="num">6</td><td class="num">2</td><td class="num"><strong>0</strong></td><td class="num"><strong>0</strong></td><td class="num">4,67</td><td class="num">4,7</td><td class="num">238</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <p class="note">Étterem új értékeléssel: <span data-bind="with">3 / 3</span></p>
+    </section>
+
+    <!-- ============================ Értékelések ============================ -->
+    <section class="view" data-view="ertekelesek" hidden aria-labelledby="h-rev">
+      <h1 id="h-rev">Értékelések <a class="help-link" href="#" title="Súgó ehhez az oldalhoz" aria-label="Súgó ehhez az oldalhoz"><svg class="ic" aria-hidden="true"><use href="#i-help"/></svg></a></h1>
+      <p class="answer">Minden értékelés, amit a Google-on találtunk. Szűrd le, amire kíváncsi vagy.</p>
+      <label class="search-field"><span class="sr-only">Keresés a szövegben</span><input type="search" placeholder="pl. gulyás, pincér, várakozás" data-bind="search"></label>
+      <div class="chip-row scroll-row" role="group" aria-label="Gyors szűrők">
+        <button type="button" class="chip" aria-pressed="true" data-chip="all">Összes</button>
+        <button type="button" class="chip" aria-pressed="false" data-chip="waiting">Válaszra vár</button>
+        <button type="button" class="chip" aria-pressed="false" data-chip="serious">1 és 2 csillag</button>
+        <button type="button" class="chip" aria-pressed="false" data-chip="five">5 csillag</button>
+        <label class="chip chip-select"><span class="sr-only">Étterem</span><select data-bind="venue"><option value="">Minden étterem</option><option>Példa Bisztró</option><option>Minta Étterem</option><option>Teszt Kávézó</option></select></label>
+      </div>
+      <details class="more-filters">
+        <summary>További szűrők</summary>
+        <div class="toolbar">
+          <label>Válasz<select><option>Összes</option><option>Megválaszolatlan</option><option>Megválaszolt</option></select></label>
+          <label>Szöveg<select><option>Összes</option><option>Szöveggel</option><option>Csak csillag</option></select></label>
+          <label>Hangulat<select><option>Összes</option><option>Pozitív</option><option>Semleges</option><option>Negatív</option><option>Vegyes</option></select></label>
+          <label>Sorrend<select><option>Legújabb elöl</option><option>Legrosszabb elöl</option></select></label>
+        </div>
+      </details>
+      <p class="muted small" data-bind="count">2134 találat</p>
+      <div class="review-list">
+        <article class="review card review-card" data-new="true" data-rating="2" data-open="1" data-venue="Példa Bisztró">
+          <div class="row"><strong>Példa Bisztró</strong><span class="stars"><span class="star-glyphs" aria-hidden="true"><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star o"><use href="#s-empty"/></svg><svg class="star o"><use href="#s-empty"/></svg><svg class="star o"><use href="#s-empty"/></svg></span><span class="stars-num">2/5</span></span><span class="tag new-tag" title="Az utolsó látogatásod óta érkezett">Új</span></div>
+          <div class="meta"><span>Minta Katalin</span><span>tegnap 21:40</span><span>magyar</span></div>
+          <p class="quote">A leves langyos volt, és húsz percet vártunk a számlára.</p>
+          <div class="meta"><span><span class="tag neg">Negatív</span> <span class="tag small">várakozás</span> <span class="tag small">az étel hőmérséklete</span></span></div>
+          <div class="meta"><span class="warn">Megválaszolatlan</span><a href="#">Megnyitás a Google-on</a></div>
+        </article>
+        <article class="review card review-card" data-new="true" data-rating="4" data-open="1" data-venue="Teszt Kávézó">
+          <div class="row"><strong>Teszt Kávézó</strong><span class="stars"><span class="star-glyphs" aria-hidden="true"><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star o"><use href="#s-empty"/></svg></span><span class="stars-num">4/5</span></span><span class="tag new-tag" title="Az utolsó látogatásod óta érkezett">Új</span></div>
+          <div class="meta"><span>Minta Dóra</span><span>tegnap 18:05</span><span>magyar</span></div>
+          <p class="quote">Jó a kávé. A sütit legközelebb melegebben kérném.</p>
+          <div class="meta"><span><span class="tag">Vegyes</span> <span class="tag small">kávé</span> <span class="tag small">desszert</span></span></div>
+          <div class="meta"><span class="muted">Megválaszolatlan</span><a href="#">Megnyitás a Google-on</a></div>
+        </article>
+        <article class="review card review-card" data-rating="3" data-open="1" data-venue="Minta Étterem">
+          <div class="row"><strong>Minta Étterem</strong><span class="stars"><span class="star-glyphs" aria-hidden="true"><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star o"><use href="#s-empty"/></svg><svg class="star o"><use href="#s-empty"/></svg></span><span class="stars-num">3/5</span></span></div>
+          <div class="meta"><span>Teszt Bence</span><span>tegnap 14:30</span><span>magyar</span></div>
+          <p class="quote">Rendben volt minden, csak hangos a zene.</p>
+          <div class="meta"><span><span class="tag">Semleges</span> <span class="tag small">zene</span> <span class="tag small">hangulat</span></span></div>
+          <div class="meta"><span class="warn">Megválaszolatlan</span><a href="#">Megnyitás a Google-on</a></div>
+        </article>
+        <article class="review card review-card" data-rating="5" data-open="1" data-venue="Példa Bisztró">
+          <div class="row"><strong>Példa Bisztró</strong><span class="stars"><span class="star-glyphs" aria-hidden="true"><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg></span><span class="stars-num">5/5</span></span></div>
+          <div class="meta"><span>Teszt Anna</span><span>tegnap 13:20</span><span>magyar</span></div>
+          <p class="quote">Isteni volt a rántott csirke, és gyorsan kihozták.</p>
+          <div class="meta"><span><span class="tag pos">Pozitív</span> <span class="tag small">rántott hús</span> <span class="tag small">a kiszolgálás gyorsasága</span></span></div>
+          <div class="meta"><span class="muted">Megválaszolatlan</span><a href="#">Megnyitás a Google-on</a></div>
+        </article>
+        <article class="review card review-card" data-rating="4" data-open="0" data-venue="Minta Étterem">
+          <div class="row"><strong>Minta Étterem</strong><span class="stars"><span class="star-glyphs" aria-hidden="true"><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star o"><use href="#s-empty"/></svg></span><span class="stars-num">4/5</span></span></div>
+          <div class="meta"><span>Példa Emma</span><span>szept. 24.</span><span>angol</span></div>
+          <p class="quote" lang="en">Lovely goulash and very friendly staff.</p>
+          <div class="meta"><span><span class="tag pos">Pozitív</span> <span class="tag small">gulyás</span> <span class="tag small">kedves személyzet</span></span></div>
+          <div class="meta"><span>Megválaszolva: 2026. szept. 25.</span><a href="#">Megnyitás a Google-on</a></div>
+        </article>
+        <article class="review card review-card" data-rating="5" data-open="0" data-venue="Teszt Kávézó">
+          <div class="row"><strong>Teszt Kávézó</strong><span class="stars"><span class="star-glyphs" aria-hidden="true"><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg></span><span class="stars-num">5/5</span></span></div>
+          <div class="meta"><span>Példa Gergő</span><span>szept. 24.</span></div>
+          <p class="muted small">Csak csillagozás, szöveg nélkül.</p>
+          <div class="meta"><span><span class="tag pos">Pozitív</span></span></div>
+          <div class="meta"><span>Megválaszolva: 2026. szept. 25.</span><a href="#">Megnyitás a Google-on</a></div>
+        </article>
+        <article class="review card review-card" data-rating="4" data-open="1" data-venue="Minta Étterem">
+          <div class="row"><strong>Minta Étterem</strong><span class="stars"><span class="star-glyphs" aria-hidden="true"><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star o"><use href="#s-empty"/></svg></span><span class="stars-num">4/5</span></span></div>
+          <div class="meta"><span>Minta Lili</span><span>szept. 23.</span><span>német</span></div>
+          <p class="quote" lang="de">Gutes Essen, aber etwas laut.</p>
+          <div class="meta"><span><span class="tag pos">Pozitív</span> <span class="tag small">ételek</span> <span class="tag small">zaj</span></span></div>
+          <div class="meta"><span class="muted">Megválaszolatlan</span><a href="#">Megnyitás a Google-on</a></div>
+        </article>
+      </div>
+      <p class="row"><button type="button" class="secondary">Továbbiak betöltése</button></p>
+    </section>
+
+    <!-- ============================ Válaszok ============================ -->
+    <section class="view" data-view="valaszok" hidden aria-labelledby="h-rep">
+      <h1 id="h-rep">Válaszok <a class="help-link" href="#" title="Súgó ehhez az oldalhoz" aria-label="Súgó ehhez az oldalhoz"><svg class="ic" aria-hidden="true"><use href="#i-help"/></svg></a></h1>
+      <p class="answer">Itt olvasod el a válaszokat, mielőtt kimennek a Google-re.</p>
+      <p class="muted small" data-bind="pending">Jóváhagyásra vár: 6. A jóváhagyott választ mi tesszük ki a Google-re. A kihagyott értékelés válasz nélkül marad.</p>
+      <div class="queue">
+        <ol class="queue-list" aria-label="Jóváhagyásra vár: 6" data-bind="queue-list">
+          <li><button type="button" class="queue-item on" aria-current="true" data-q="0"><span class="queue-item-top"><strong>Példa Bisztró</strong><span class="stars"><span class="star-glyphs" aria-hidden="true"><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star o"><use href="#s-empty"/></svg><svg class="star o"><use href="#s-empty"/></svg><svg class="star o"><use href="#s-empty"/></svg></span><span class="stars-num">2/5</span></span></span><span class="queue-item-text">A leves langyos volt, és húsz percet vártunk a számlára.</span><span class="muted small">tegnap 21:40</span></button></li>
+          <li><button type="button" class="queue-item" data-q="1"><span class="queue-item-top"><strong>Minta Étterem</strong><span class="stars"><span class="star-glyphs" aria-hidden="true"><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star o"><use href="#s-empty"/></svg><svg class="star o"><use href="#s-empty"/></svg></span><span class="stars-num">3/5</span></span></span><span class="queue-item-text">Rendben volt minden, csak hangos a zene.</span><span class="muted small">tegnap 14:30</span></button></li>
+          <li><button type="button" class="queue-item" data-q="2"><span class="queue-item-top"><strong>Minta Étterem</strong><span class="stars"><span class="star-glyphs" aria-hidden="true"><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star o"><use href="#s-empty"/></svg></span><span class="stars-num">4/5</span></span></span><span class="queue-item-text" lang="de">Gutes Essen, aber etwas laut.</span><span class="muted small">szept. 23.</span></button></li>
+          <li><button type="button" class="queue-item" data-q="3"><span class="queue-item-top"><strong>Teszt Kávézó</strong><span class="stars"><span class="star-glyphs" aria-hidden="true"><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star o"><use href="#s-empty"/></svg></span><span class="stars-num">4/5</span></span></span><span class="queue-item-text">Jó a kávé. A sütit legközelebb melegebben kérném.</span><span class="muted small">tegnap 18:05</span></button></li>
+          <li><button type="button" class="queue-item" data-q="4"><span class="queue-item-top"><strong>Teszt Kávézó</strong><span class="stars"><span class="star-glyphs" aria-hidden="true"><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg></span><span class="stars-num">5/5</span></span></span><span class="queue-item-text">Kedves kiszolgálás, a gyerekeknek is volt menü.</span><span class="muted small">szept. 22.</span></button></li>
+          <li><button type="button" class="queue-item" data-q="5"><span class="queue-item-top"><strong>Példa Bisztró</strong><span class="stars"><span class="star-glyphs" aria-hidden="true"><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg></span><span class="stars-num">5/5</span></span></span><span class="queue-item-text">Isteni volt a rántott csirke, és gyorsan kihozták.</span><span class="muted small">tegnap 13:20</span></button></li>
+        </ol>
+        <article class="card draft queue-detail">
+          <p class="eyebrow" data-bind="q-pos">1 / 6</p>
+          <div class="row"><h2 class="queue-title" tabindex="-1" data-bind="q-venue">Példa Bisztró</h2><span class="stars" data-bind="q-stars"><span class="star-glyphs" aria-hidden="true"><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star o"><use href="#s-empty"/></svg><svg class="star o"><use href="#s-empty"/></svg><svg class="star o"><use href="#s-empty"/></svg></span><span class="stars-num">2/5</span></span></div>
+          <div class="review">
+            <p class="muted small"><span data-bind="q-meta">Minta Katalin · tegnap 21:40 · magyar</span> · <a class="nowrap" href="#">Megnyitás a Google-on</a></p>
+            <p class="quote" data-bind="q-body">A leves langyos volt, és húsz percet vártunk a számlára.</p>
+          </div>
+          <label class="reply-label"><span>A válasz</span><textarea rows="6" data-bind="q-draft">Kedves Katalin, köszönjük, hogy megírta. Sajnáljuk, hogy langyos volt a leves, és sokat kellett várnia a számlára. Továbbadtuk a konyhának és a felszolgálóknak. Reméljük, visszatér, és akkor minden a helyén lesz.
+
+A Példa Bisztró csapata</textarea></label>
+          <div class="chip-row rewrite-row" role="group" aria-label="Átírás">
+            <span class="muted small">Átírás:</span>
+            <button type="button" class="chip" aria-pressed="false" data-rw="rovidebb">Rövidebb</button>
+            <button type="button" class="chip" aria-pressed="false" data-rw="melegebb">Melegebb</button>
+            <button type="button" class="chip" aria-pressed="false" data-rw="hatarozottabb">Határozottabb</button>
+            <button type="button" class="chip" aria-pressed="false" data-rw="magazo">Magázó</button>
+            <button type="button" class="chip" aria-pressed="false" data-rw="tegezo">Tegező</button>
+          </div>
+          <div class="row queue-actions">
+            <button type="button" data-act="approve">Jóváhagyás</button>
+            <button type="button" class="secondary" data-act="skip">Kihagyás</button>
+            <span class="queue-step">
+              <button type="button" class="secondary" data-act="prev" disabled>Előző</button>
+              <button type="button" class="secondary" data-act="next">Következő</button>
+            </span>
+          </div>
+          <p class="muted small queue-keys">Billentyűk: A jóváhagy, S kihagy, J és K lépked, E szerkeszt, O megnyitja a Google-t, U visszavon.</p>
+        </article>
+      </div>
+
+      <div class="card hcard hcard-calm queue-done" hidden>
+        <h2>Minden választ átnéztél</h2>
+        <p>Nincs több jóváhagyásra váró válasz.</p>
+        <p class="hcard-actions"><a class="btn" href="#ma" data-go="ma">Vissza a Mához</a></p>
+      </div>
+
+      <h2 class="sec">Jóváhagyva, közzététel előtt: 1</h2>
+      <p class="muted small">Néhány percen belül kitesszük a Google-re azoknál az éttermeknél, ahol van Google-hozzáférésünk. A többinél a szöveget kézzel kell bemásolni.</p>
+      <article class="card draft approved">
+        <div class="row"><strong>Minta Étterem</strong><span class="stars"><span class="star-glyphs" aria-hidden="true"><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg><svg class="star"><use href="#s-full"/></svg></span><span class="stars-num">5/5</span></span><span class="tag small warn">jóváhagyva, közzétételre vár</span></div>
+        <p class="muted small">Példa Réka · szept. 24. · magyar</p>
+        <p class="quote">Kedves kiszolgálás, és gyorsan megjött az étel.</p>
+        <p class="muted small">A jóváhagyott szöveg</p>
+        <p class="quote">Kedves Réka, köszönjük, hogy megírta. Örülünk, hogy jól érezte magát nálunk. Várjuk vissza. A Minta Étterem csapata</p>
+        <div class="row"><button type="button">Közzététel most</button><button type="button" class="secondary">Visszaveszem szerkesztésre</button></div>
+      </article>
+
+      <!-- The queue, as the page script reads it. Hidden here so the copy check reads every string. -->
+      <div class="q-data" hidden>
+        <div data-q="0" data-venue="Példa Bisztró" data-rating="2" data-meta="Minta Katalin · tegnap 21:40 · magyar"><p class="q-body">A leves langyos volt, és húsz percet vártunk a számlára.</p><p class="q-draft">Kedves Katalin, köszönjük, hogy megírta. Sajnáljuk, hogy langyos volt a leves, és sokat kellett várnia a számlára. Továbbadtuk a konyhának és a felszolgálóknak. Reméljük, visszatér, és akkor minden a helyén lesz.
+
+A Példa Bisztró csapata</p></div>
+        <div data-q="1" data-venue="Minta Étterem" data-rating="3" data-meta="Teszt Bence · tegnap 14:30 · magyar"><p class="q-body">Rendben volt minden, csak hangos a zene.</p><p class="q-draft">Kedves Bence, köszönjük, hogy megírta. Sajnáljuk, hogy hangos volt a zene. Továbbadtuk a csapatnak.
+
+A Minta Étterem csapata</p></div>
+        <div data-q="2" data-venue="Minta Étterem" data-rating="4" data-meta="Minta Lili · szept. 23. · német" data-lang="de"><p class="q-body" lang="de">Gutes Essen, aber etwas laut.</p><p class="q-draft" lang="de">Liebe Lili, vielen Dank für Ihren Besuch. Es freut uns, dass Ihnen das Essen geschmeckt hat. Den Hinweis zur Lautstärke haben wir an das Team weitergegeben.
+
+Ihr Team vom Minta Étterem</p></div>
+        <div data-q="3" data-venue="Teszt Kávézó" data-rating="4" data-meta="Minta Dóra · tegnap 18:05 · magyar"><p class="q-body">Jó a kávé. A sütit legközelebb melegebben kérném.</p><p class="q-draft">Kedves Dóra, köszönjük, hogy megírta. Örülünk, hogy ízlett a kávé. A sütiről írtakat továbbadtuk a pultnak.
+
+A Teszt Kávézó csapata</p></div>
+        <div data-q="4" data-venue="Teszt Kávézó" data-rating="5" data-meta="Teszt Márk · szept. 22. · magyar"><p class="q-body">Kedves kiszolgálás, a gyerekeknek is volt menü.</p><p class="q-draft">Kedves Márk, köszönjük a kedves szavakat. Örülünk, hogy a gyerekek is jól érezték magukat. Várjuk vissza.
+
+A Teszt Kávézó csapata</p></div>
+        <div data-q="5" data-venue="Példa Bisztró" data-rating="5" data-meta="Teszt Anna · tegnap 13:20 · magyar"><p class="q-body">Isteni volt a rántott csirke, és gyorsan kihozták.</p><p class="q-draft">Kedves Anna, köszönjük. Örülünk, hogy ízlett a rántott csirke, és hogy gyorsan megkapták. Várjuk vissza.
+
+A Példa Bisztró csapata</p></div>
+        <!-- The copy deck's pre-written variants of the first reply (shared/copy-hu.md). -->
+        <p data-rw="rovidebb">Kedves Katalin, köszönjük, és sajnáljuk a langyos levest meg a hosszú várakozást. Továbbadtuk a csapatnak.
+
+A Példa Bisztró csapata</p>
+        <p data-rw="melegebb">Kedves Katalin, nagyon köszönjük, hogy időt szánt ránk. Bosszant minket, hogy langyos volt a leves, és hogy ennyit kellett várnia a számlára. Továbbadtuk a konyhának és a felszolgálóknak. Szeretnénk, ha legközelebb jó szívvel állna fel az asztaltól.
+
+A Példa Bisztró csapata</p>
+        <p data-rw="hatarozottabb">Kedves Katalin, köszönjük a visszajelzést. A leves hőmérséklete és a húsz perc várakozás a számlára nem felel meg annak, ahogy dolgozni szeretnénk. Mindkettőt továbbadtuk a konyhának és a felszolgálóknak.
+
+A Példa Bisztró csapata</p>
+        <p data-rw="magazo">Kedves Katalin, köszönjük, hogy megírta. Sajnáljuk, hogy langyos volt a leves, és sokat kellett várnia a számlára. Továbbadtuk a konyhának és a felszolgálóknak. Reméljük, visszatér, és akkor minden a helyén lesz.
+
+A Példa Bisztró csapata</p>
+        <p data-rw="tegezo">Kedves Katalin, köszönjük, hogy megírtad. Sajnáljuk, hogy langyos volt a leves, és sokat kellett várnod a számlára. Továbbadtuk a konyhának és a felszolgálóknak. Reméljük, visszajössz, és akkor minden a helyén lesz.
+
+A Példa Bisztró csapata</p>
+      </div>
+    </section>
+
+    <!-- ============================ Kimutatások ============================ -->
+    <section class="view insights" data-view="kimutatasok" hidden aria-labelledby="h-ins">
+      <h1 id="h-ins">Kimutatások <a class="help-link" href="#" title="Súgó ehhez az oldalhoz" aria-label="Súgó ehhez az oldalhoz"><svg class="ic" aria-hidden="true"><use href="#i-help"/></svg></a></h1>
+      <p class="answer">Hogyan alakultak a számok az időszakban, éttermenként.</p>
+      <div class="toolbar seg" role="group" aria-label="Időszak">
+        <span class="muted small">Időszak</span>
+        <button type="button" class="secondary" aria-pressed="false" data-period="7">7 nap</button>
+        <button type="button" aria-pressed="true" data-period="30">30 nap</button>
+        <button type="button" class="secondary" aria-pressed="false" data-period="90">90 nap</button>
+      </div>
+      <div class="figures ins-figures">
+        <div class="stat"><span class="n" data-bind="i-new">146</span><span class="l">Új értékelés</span></div>
+        <div class="stat tile-b"><span class="n" data-bind="i-avg">4,53</span><span class="l">Új értékelések átlaga</span></div>
+        <div class="stat tile-neg"><span class="n neg" data-bind="i-low">5%</span><span class="l">1 vagy 2 csillagos arány</span><span class="h">Az időszak új értékeléseiből</span></div>
+        <div class="stat tile-neg"><span class="n neg" data-bind="i-unans">16</span><span class="l">Megválaszolatlan negatív</span><span class="h">3 csillag vagy kevesebb, tulajdonosi válasz nélkül</span></div>
+        <div class="stat tile-pos"><span class="n" data-bind="i-cov">100%</span><span class="l">Elemzett értékelések</span><span class="h">Az időszak új értékeléseiből</span></div>
+      </div>
+
+      <h2 class="sec">Google-értékelés alakulása</h2>
+      <div class="chart-block">
+        <p class="muted small chart-hint">Éttermenként, a napi ellenőrzés szerint. Kattints egy étterem nevére az elrejtéséhez vagy megjelenítéséhez.</p>
+        <div class="chart-wrap" data-chart="rating" role="img" aria-label="Vonaldiagram: a Google-értékelés alakulása 3 étteremnél az elmúlt 30 napban. A részletek a diagram alatti táblázatban is olvashatók."></div>
+        <ul class="legend" data-bind="legend">
+          <li><button type="button" aria-pressed="true" data-series="0"><svg width="22" height="10" viewBox="0 0 22 10" aria-hidden="true"><line x1="1" y1="5" x2="21" y2="5" stroke="var(--s1)" stroke-width="3" stroke-linecap="round"/></svg>Példa Bisztró</button></li>
+          <li><button type="button" aria-pressed="true" data-series="1"><svg width="22" height="10" viewBox="0 0 22 10" aria-hidden="true"><line x1="1" y1="5" x2="21" y2="5" stroke="var(--s2)" stroke-width="3" stroke-linecap="round"/></svg>Minta Étterem</button></li>
+          <li><button type="button" aria-pressed="true" data-series="2"><svg width="22" height="10" viewBox="0 0 22 10" aria-hidden="true"><line x1="1" y1="5" x2="21" y2="5" stroke="var(--s3)" stroke-width="3" stroke-linecap="round"/></svg>Teszt Kávézó</button></li>
+        </ul>
+        <details><summary>Táblázatként</summary><div class="table-wrap" tabindex="0" data-bind="rating-table"></div></details>
+      </div>
+
+      <h2 class="sec">Új értékelések naponta</h2>
+      <div class="chart-block">
+        <p class="muted small chart-hint">Az összes étterem együtt, a napi összesítők szerint.</p>
+        <div class="chart-wrap" data-chart="new" role="img" aria-label="Oszlopdiagram: új értékelések naponta az elmúlt 30 napban, összesen 146. A részletek a diagram alatti táblázatban is olvashatók."></div>
+      </div>
+
+      <h2 class="sec">Témák</h2>
+      <div class="two">
+        <div class="theme-box">
+          <h3>Amit a vendégek dicsérnek</h3>
+          <div class="table-wrap" tabindex="0"><table><thead><tr><th>Téma</th><th class="num">Értékelés</th><th class="num">Éttermek</th></tr></thead><tbody>
+            <tr><td>az ételek minősége</td><td class="num">38</td><td class="num">3</td></tr>
+            <tr><td>kedves személyzet</td><td class="num">27</td><td class="num">3</td></tr>
+            <tr><td>a kiszolgálás gyorsasága</td><td class="num">15</td><td class="num">2</td></tr>
+            <tr><td>hangulat</td><td class="num">12</td><td class="num">3</td></tr>
+            <tr><td>kávé</td><td class="num">9</td><td class="num">1</td></tr>
+          </tbody></table></div>
+        </div>
+        <div class="theme-box">
+          <h3>Amire a vendégek panaszkodnak</h3>
+          <div class="table-wrap" tabindex="0"><table><thead><tr><th>Téma</th><th class="num">Értékelés</th><th class="num">Éttermek</th></tr></thead><tbody>
+            <tr><td>várakozás</td><td class="num">6</td><td class="num">2</td></tr>
+            <tr><td>az étel hőmérséklete</td><td class="num">3</td><td class="num">1</td></tr>
+            <tr><td>zaj</td><td class="num">3</td><td class="num">2</td></tr>
+            <tr><td>árak</td><td class="num">2</td><td class="num">2</td></tr>
+          </tbody></table></div>
+        </div>
+      </div>
+      <p class="note">A témák az elemzett értékelésekből származnak, és egy értékelés egy témát egyszer számít. Panasz: negatív hangulatú, vagy 3 csillagos és gyengébb értékelés. Dicséret: pozitív hangulatú, vagy 4 csillagos és jobb értékelés.</p>
+
+      <h2 class="sec">Éttermek összehasonlítása</h2>
+      <div class="table-wrap" tabindex="0">
+        <table class="wide">
+          <thead><tr><th>Étterem</th><th class="num">Új</th><th class="num">Átlag</th><th class="num">1 vagy 2 csillag</th><th class="num">Megválaszolatlan negatív</th><th class="num">Google-értékelés most</th><th class="num">Változás</th><th class="num">Összes értékelés</th></tr></thead>
+          <tbody>
+            <tr><td>Példa Bisztró</td><td class="num">62</td><td class="num">4,48</td><td class="num neg">4</td><td class="num neg">8</td><td class="num">4,6</td><td class="num pos">+0,1</td><td class="num">1284</td></tr>
+            <tr><td>Minta Étterem</td><td class="num">54</td><td class="num">4,50</td><td class="num neg">3</td><td class="num neg">6</td><td class="num">4,4</td><td class="num">0,0</td><td class="num">612</td></tr>
+            <tr><td>Teszt Kávézó</td><td class="num">30</td><td class="num">4,67</td><td class="num">0</td><td class="num neg">2</td><td class="num">4,7</td><td class="num pos">+0,1</td><td class="num">238</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Új: az az értékelés, amit a Google erre az időszakra dátumoz. A változás az időszak első és utolsó napi ellenőrzése közötti különbség.</p>
+    </section>
+
+    <!-- ============================ Beállítások ============================ -->
+    <section class="view" data-view="beallitasok" hidden aria-labelledby="h-set">
+      <h1 id="h-set">Beállítások <a class="help-link" href="#" title="Súgó ehhez az oldalhoz" aria-label="Súgó ehhez az oldalhoz"><svg class="ic" aria-hidden="true"><use href="#i-help"/></svg></a></h1>
+      <p class="answer">A napi jelentés 07:00-kor megy ki, Europe/Budapest idő szerint.</p>
+      <div class="settings-form">
+        <section class="card appearance" aria-labelledby="ap-title">
+          <h2 id="ap-title">Megjelenés</h2>
+          <p class="muted small">Válaszd ki, hogyan nézzen ki nálad a BistroTech. Csak te látod így, a csapatod többi tagja a sajátját állítja be.</p>
+
+          <fieldset class="ap-step">
+            <legend><span class="ap-num" aria-hidden="true">1</span>Stílus</legend>
+            <div class="ap-picks ap-picks-style" data-bind="ap-style">
+              <label class="pick"><input type="radio" name="ap-style" value="pop" checked><span class="pick-tick" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span><span class="pick-mini" data-mini="pop" aria-hidden="true"></span><span class="pick-name">Pop</span><span class="pick-blurb">Vastag körvonal, kemény árnyék, színes blokkok.</span></label>
+              <label class="pick"><input type="radio" name="ap-style" value="uveg"><span class="pick-tick" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span><span class="pick-mini" data-mini="uveg" aria-hidden="true"></span><span class="pick-name">Üveg</span><span class="pick-blurb">Mattüveg lapok színes derengés fölött.</span></label>
+              <label class="pick"><input type="radio" name="ap-style" value="klasszikus"><span class="pick-tick" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span><span class="pick-mini" data-mini="klasszikus" aria-hidden="true"></span><span class="pick-name">Klasszikus</span><span class="pick-blurb">Nyugodt, vékony vonalak, papírfehér.</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="ap-step">
+            <legend><span class="ap-num" aria-hidden="true">2</span>Színek</legend>
+            <p class="muted small ap-hint" data-bind="ap-pair">Automatikusan nappal a Citrom, éjjel az Éjfél.</p>
+            <div class="ap-picks ap-picks-colour" data-bind="ap-colour">
+              <label class="pick"><input type="radio" name="ap-colour" value="pop-citrom" checked><span class="pick-tick" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span><span class="swatch" data-palette="pop-citrom" aria-hidden="true"><span class="sw-card"><span class="sw-line"></span><span class="sw-line short"></span><span class="sw-btn"></span></span><span class="sw-dots"><i></i><i></i><i></i></span></span><span class="pick-name">Citrom</span><span class="pick-tag"><svg class="ic" aria-hidden="true"><use href="#i-sun"/></svg>nappal</span></label>
+              <label class="pick"><input type="radio" name="ap-colour" value="pop-aperol"><span class="pick-tick" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span><span class="swatch" data-palette="pop-aperol" aria-hidden="true"><span class="sw-card"><span class="sw-line"></span><span class="sw-line short"></span><span class="sw-btn"></span></span><span class="sw-dots"><i></i><i></i><i></i></span></span><span class="pick-name">Aperol</span></label>
+              <label class="pick"><input type="radio" name="ap-colour" value="pop-matcha"><span class="pick-tick" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span><span class="swatch" data-palette="pop-matcha" aria-hidden="true"><span class="sw-card"><span class="sw-line"></span><span class="sw-line short"></span><span class="sw-btn"></span></span><span class="sw-dots"><i></i><i></i><i></i></span></span><span class="pick-name">Matcha</span></label>
+              <label class="pick"><input type="radio" name="ap-colour" value="pop-gelato"><span class="pick-tick" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span><span class="swatch" data-palette="pop-gelato" aria-hidden="true"><span class="sw-card"><span class="sw-line"></span><span class="sw-line short"></span><span class="sw-btn"></span></span><span class="sw-dots"><i></i><i></i><i></i></span></span><span class="pick-name">Gelato</span></label>
+              <label class="pick"><input type="radio" name="ap-colour" value="pop-balaton"><span class="pick-tick" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span><span class="swatch" data-palette="pop-balaton" aria-hidden="true"><span class="sw-card"><span class="sw-line"></span><span class="sw-line short"></span><span class="sw-btn"></span></span><span class="sw-dots"><i></i><i></i><i></i></span></span><span class="pick-name">Balaton</span></label>
+              <label class="pick"><input type="radio" name="ap-colour" value="pop-ejfel"><span class="pick-tick" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span><span class="swatch" data-palette="pop-ejfel" aria-hidden="true"><span class="sw-card"><span class="sw-line"></span><span class="sw-line short"></span><span class="sw-btn"></span></span><span class="sw-dots"><i></i><i></i><i></i></span></span><span class="pick-name">Éjfél</span><span class="pick-tag"><svg class="ic" aria-hidden="true"><use href="#i-moon"/></svg>éjjel</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="ap-step">
+            <legend><span class="ap-num" aria-hidden="true">3</span>Betű</legend>
+            <p class="muted small ap-hint">A címek és a számok betűje. A szövegé minden stílusban ugyanaz.</p>
+            <div class="ap-picks ap-picks-font" data-bind="ap-font">
+              <label class="pick"><input type="radio" name="ap-font" value="space-grotesk" checked><span class="pick-tick" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span><span class="font-sample" data-font="space-grotesk">Minden értékelés egy helyen</span><span class="pick-name">Space Grotesk</span></label>
+              <label class="pick"><input type="radio" name="ap-font" value="bricolage"><span class="pick-tick" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span><span class="font-sample" data-font="bricolage">Minden értékelés egy helyen</span><span class="pick-name">Bricolage Grotesque</span></label>
+              <label class="pick"><input type="radio" name="ap-font" value="unbounded"><span class="pick-tick" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span><span class="font-sample" data-font="unbounded">Minden értékelés egy helyen</span><span class="pick-name">Unbounded</span></label>
+              <label class="pick"><input type="radio" name="ap-font" value="archivo"><span class="pick-tick" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span><span class="font-sample" data-font="archivo">Minden értékelés egy helyen</span><span class="pick-name">Archivo keskeny</span></label>
+              <label class="pick"><input type="radio" name="ap-font" value="rubik"><span class="pick-tick" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span><span class="font-sample" data-font="rubik">Minden értékelés egy helyen</span><span class="pick-name">Rubik</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="ap-row">
+            <legend>Világos vagy sötét</legend>
+            <div class="toolbar seg" data-bind="ap-scheme">
+              <button type="button" aria-pressed="true" data-scheme="light">Világos</button>
+              <button type="button" class="secondary" aria-pressed="false" data-scheme="dark">Sötét</button>
+              <button type="button" class="secondary" aria-pressed="false" data-scheme="auto">Automatikus</button>
+            </div>
+            <p class="muted small ap-hint">Automatikus: a készüléked beállítását követi.</p>
+          </fieldset>
+
+          <fieldset class="ap-row" data-bind="ap-glass" hidden>
+            <legend>Üveghatás</legend>
+            <div class="toolbar seg">
+              <button type="button" class="secondary" aria-pressed="false" data-glass="off">Nincs</button>
+              <button type="button" aria-pressed="true" data-glass="chrome">A menün</button>
+              <button type="button" class="secondary" aria-pressed="false" data-glass="full">A kártyákon is</button>
+            </div>
+            <div class="ap-sliders">
+              <label>Elmosás <input type="range" min="6" max="32" value="18" data-slider="blur"><output data-out="blur">18</output></label>
+              <label>Átlátszatlanság <input type="range" min="40" max="85" value="55" data-slider="tint"><output data-out="tint">55</output></label>
+            </div>
+          </fieldset>
+
+          <p class="ap-reset"><button type="button" class="link" data-act="reset">Vissza az alapra</button></p>
+          <p class="sr-only" role="status" aria-live="polite" data-bind="ap-live"></p>
+        </section>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="toast" role="status" hidden>
+  <p data-bind="toast-msg">Jóváhagyva.</p>
+  <button type="button" data-act="undo">Visszavonom</button>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

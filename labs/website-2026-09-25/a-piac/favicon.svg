@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="t">
+<!-- BistroTech favicon, lab direction A (Piac). v0.1.0, 2026-09-25.
+     A copy of shared/logo/bistrotech-favicon.svg with one change: the ground takes
+     the Piac accent through the bt-mark custom property (fallback #C2321B) instead of
+     the old navy. The mark is knocked out in white. White on #C2321B is 5.58:1.
+     Shape, proportions and placement are untouched. -->
+<title id="t">BistroTech</title>
+<rect x="0" y="0" width="64" height="64" rx="14" style="fill: var(--bt-mark, #C2321B)"/>
+<g transform="translate(7.5,8.5) scale(2.1)">
+  <path fill="#FFFFFF" fill-rule="evenodd" d="
+    M 4.01 13.41 A 8.5 8.5 0 1 1 6.31 16.82 L 2.6 20.4 Z
+    M 7.2 14.6 V 11.8 A 1.2 1.2 0 0 1 9.6 11.8 V 14.6 Z
+    M 10.8 14.6 V 9.8 A 1.2 1.2 0 0 1 13.2 9.8 V 14.6 Z
+    M 14.4 14.6 V 7.8 A 1.2 1.2 0 0 1 16.8 7.8 V 14.6 Z
+  "/>
+</g>
+</svg>

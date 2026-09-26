@@ -1,0 +1,196 @@
+/* style-uveg.css, v0.1.0, 2026-09-26. Appearance v2 lab: the Üveg style.
+
+   Today's looks (platform/web/src/looks.css) as one style: frosted glass over soft colour
+   glows, large radii, pill buttons, no outlines. The glass level (Nincs / A menün / A kártyákon
+   is) and the two sliders exist only here; lib code clamps the tint to 40..85 (was 35..85) and
+   the blur to 6..32.
+
+   Three things differ from looks.css, each because contrast.py measured a failure there:
+   - the glow strength is the set's own token (--glow-a: 0.32 light, 0.22 dark; was 0.38 for
+     all), because small grey text sits on the page right over the glow;
+   - the phone header and the tab bar never go below --glass-bar-floor (86 percent; the tab
+     bar was 78), because a button scrolling under them took the labels below 4.5:1;
+   - a tinted home card keeps its tint in "A kártyákon is" (looks.css turned it plain glass).
+   Every rule is scoped by html[data-style="uveg"]; colours are tokens of the Üveg sets. */
+
+html[data-style="uveg"] {
+  --r-sm: 10px; --r-md: 16px; --r-lg: 24px; --r-xl: 28px;
+  --fs-hello: 44px; --fs-h1: 38px; --fs-h2: 27px; --fs-title: 22px; --fs-stat: 36px; --display-lh: 1.08;
+}
+@media (max-width: 800px) {
+  html[data-style="uveg"] { --fs-hello: 30px; --fs-h1: 30px; --fs-h2: 22px; --fs-title: 21px; --fs-stat: 30px; }
+}
+
+/* ---- element defaults ---------------------------------------------------------------- */
+:where(html[data-style="uveg"]) :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+:where(html[data-style="uveg"]) :is(input:not([type="range"]), select, textarea) {
+  background: var(--bg); color: var(--fg); border: 1px solid var(--field); border-radius: var(--r-md);
+}
+html[data-style="uveg"] .skip { border: 1px solid var(--accent); border-radius: var(--r-md); color: var(--accent); }
+
+/* ---- buttons and chips: primary, secondary, link, chip ---------------------------------- */
+:where(html[data-style="uveg"]) button, html[data-style="uveg"] a.btn {
+  background: var(--accent); color: var(--on-accent); border: 1px solid var(--accent); border-radius: 999px; font-weight: 600;
+}
+html[data-style="uveg"] button:not(:disabled):hover, html[data-style="uveg"] a.btn:hover { background: var(--accent-strong); border-color: var(--accent-strong); }
+html[data-style="uveg"] button.secondary, html[data-style="uveg"] a.btn.secondary { background: var(--card); color: var(--fg); border-color: var(--field); font-weight: 600; }
+html[data-style="uveg"] button.secondary:not(:disabled):hover, html[data-style="uveg"] a.btn.secondary:hover { background: var(--bg); border-color: var(--fg); }
+html[data-style="uveg"] button.link { background: none; border: 0; color: var(--accent); text-decoration: underline; text-underline-offset: .18em; }
+html[data-style="uveg"] button.chip, html[data-style="uveg"] label.chip { background: var(--card); color: var(--fg); border: 1px solid var(--field); border-radius: 999px; }
+html[data-style="uveg"] button.chip:not(:disabled):hover { background: var(--bg); border-color: var(--fg); }
+html[data-style="uveg"] button.chip[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+html[data-style="uveg"] label.chip-select select { border: 0; background: transparent; }
+html[data-style="uveg"] .nav-group-toggle { color: var(--muted); }
+html[data-style="uveg"] .nav-group-toggle:hover { background: none; color: var(--fg); }
+html[data-style="uveg"] .help-link { border: 1px solid var(--line); border-radius: 50%; }
+html[data-style="uveg"] :is(button, a.btn):not(.link, .queue-item, .nav-group-toggle, :disabled):active { transform: scale(.98); }
+
+/* ---- tags ------------------------------------------------------------------------------ */
+html[data-style="uveg"] .tag { border-radius: 999px; background: var(--chip); color: var(--fg); font-weight: 500; }
+html[data-style="uveg"] .tag.pos { background: var(--tint-pos); color: var(--pos); }
+html[data-style="uveg"] .tag.neg { background: var(--tint-neg); color: var(--neg); }
+html[data-style="uveg"] .tag.warn { background: var(--tint-warn); color: var(--warn); }
+html[data-style="uveg"] .tag.muted { color: var(--muted); }
+html[data-style="uveg"] .new-tag { background: var(--accent); color: var(--on-accent); }
+
+/* ---- cards ------------------------------------------------------------------------------ */
+html[data-style="uveg"] .card { background: var(--card); color: var(--fg); border: 1px solid var(--line); border-radius: var(--r-lg); padding: var(--space-6); box-shadow: var(--shadow-sm); }
+html[data-style="uveg"] :is(.hcard-todo, .hcard-alert) { background: var(--tint-neg); border-color: transparent; }
+html[data-style="uveg"] .hcard-tip { background: var(--tint-warn); border-color: transparent; }
+html[data-style="uveg"] :is(.hcard-praise, .hcard-calm) { background: var(--tint-pos); border-color: transparent; }
+/* on a tinted card the quieter text is the text colour itself (as the app does since 2026-09-21) */
+html[data-style="uveg"] .hcard :is(.muted, .eyebrow) { color: var(--fg); }
+html[data-style="uveg"] .eyebrow .dot { background: var(--neg); }
+html[data-style="uveg"] .home-hello .hello { color: var(--muted); }
+html[data-style="uveg"] .home-head.todo-head { color: var(--accent); }
+html[data-style="uveg"] .period-card .figures { gap: var(--space-4) var(--space-8); }
+@media (max-width: 800px) {
+  html[data-style="uveg"] .card { padding: var(--space-4) var(--space-5); }
+  html[data-style="uveg"] .figures { gap: var(--space-5) var(--space-6); }
+}
+
+/* ---- the shell, flat (glass off) ------------------------------------------------------------ */
+html[data-style="uveg"] .side { background: var(--card); border-right: 1px solid var(--line); }
+html[data-style="uveg"] .side nav a, html[data-style="uveg"] .menu-nav a { border-radius: var(--r-sm); }
+html[data-style="uveg"] .side nav a:hover, html[data-style="uveg"] .menu-nav a:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); }
+html[data-style="uveg"] .side nav a.active, html[data-style="uveg"] .menu-nav a.active { background: color-mix(in srgb, var(--accent) 14%, transparent); font-weight: 700; }
+html[data-style="uveg"] .tab-badge { background: var(--badge); color: var(--on-badge); border-radius: 999px; }
+@media (max-width: 800px) {
+  html[data-style="uveg"] .topbar { background: var(--card); border-bottom: 1px solid var(--line); }
+  html[data-style="uveg"] .topnav-wrap { background: var(--card); border-top: 1px solid var(--line); }
+  html[data-style="uveg"] .topnav a { border-radius: var(--r-md); }
+  html[data-style="uveg"] .topnav a.active { color: var(--accent); }
+  html[data-style="uveg"] .menu-panel { border-top: 1px solid var(--line); }
+}
+
+/* ---- lists and tables ---------------------------------------------------------------------- */
+html[data-style="uveg"] .venue-rows li { border-top: 1px solid var(--line); }
+html[data-style="uveg"] .venue-rows li:first-child { border-top: 0; }
+html[data-style="uveg"] th { font-weight: 600; font-variant-caps: small-caps; letter-spacing: .02em; border-bottom: 1px solid var(--line); }
+html[data-style="uveg"] td { border-bottom: 1px solid var(--line); }
+html[data-style="uveg"] .review-card[data-new="true"] { border-left: 3px solid var(--accent); }
+html[data-style="uveg"] .quote { border-left: 2px solid var(--line); }
+html[data-style="uveg"] .stars { color: var(--fg); }
+
+/* ---- Válaszok -------------------------------------------------------------------------------- */
+html[data-style="uveg"] button.queue-item { background: transparent; color: var(--fg); border: 1px solid transparent; border-radius: var(--r-lg); }
+html[data-style="uveg"] button.queue-item:not(.on):hover { background: color-mix(in srgb, var(--fg) 6%, transparent); border-color: transparent; }
+html[data-style="uveg"] button.queue-item.on { background: var(--card); border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+html[data-style="uveg"] .queue-detail > .eyebrow, html[data-style="uveg"] .approved .eyebrow { color: var(--muted); }
+
+/* ---- Kimutatások ------------------------------------------------------------------------------ */
+html[data-style="uveg"] :is(.chart-block, .theme-box) { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-lg); padding: var(--space-5); box-shadow: var(--shadow-sm); }
+html[data-style="uveg"] .chart .axis { stroke: var(--line); stroke-width: 1; }
+html[data-style="uveg"] .chart .series { stroke-width: 2.5; }
+html[data-style="uveg"] .chart .dot { stroke: var(--card); stroke-width: 2; }
+html[data-style="uveg"] .legend button { border-radius: 999px; }
+html[data-style="uveg"] .legend button:hover { background: color-mix(in srgb, var(--fg) 6%, transparent); }
+
+/* ---- Beállítások: the Megjelenés card --------------------------------------------------------- */
+html[data-style="uveg"] .ap-num { background: var(--accent); color: var(--on-accent); border-radius: 50%; }
+html[data-style="uveg"] .pick { background: var(--card); border: 1px solid color-mix(in srgb, var(--field) 60%, var(--line)); border-radius: var(--r-md); }
+html[data-style="uveg"] .pick:hover { border-color: var(--field); }
+html[data-style="uveg"] .pick:has(input:checked) { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+html[data-style="uveg"] .pick:has(input:focus-visible) { outline: 2px solid var(--focus); outline-offset: 2px; }
+html[data-style="uveg"] .pick-tick { background: var(--accent); color: var(--on-accent); border-radius: 50%; }
+html[data-style="uveg"] .pick-mini { border-radius: var(--r-sm); background: var(--bg); box-shadow: 0 0 0 1px var(--line); }
+html[data-style="uveg"] .pick-tag { color: var(--fg); }
+html[data-style="uveg"] .swatch {
+  border-radius: var(--r-sm);
+  background:
+    radial-gradient(60px 60px at 0% 0%, color-mix(in srgb, var(--glow-1) 70%, transparent), transparent 70%),
+    radial-gradient(60px 60px at 100% 30%, color-mix(in srgb, var(--glow-2) 60%, transparent), transparent 70%),
+    radial-gradient(70px 70px at 40% 120%, color-mix(in srgb, var(--glow-3) 60%, transparent), transparent 70%),
+    var(--bg);
+}
+html[data-style="uveg"] .sw-card { border-radius: 12px; background: color-mix(in srgb, var(--card) 78%, transparent); border: 1px solid var(--glass-edge); }
+html[data-style="uveg"] .sw-btn { border-radius: 999px; }
+html[data-style="uveg"] .sw-dots i:nth-child(1) { background: var(--glow-1); }
+html[data-style="uveg"] .sw-dots i:nth-child(2) { background: var(--glow-2); }
+html[data-style="uveg"] .sw-dots i:nth-child(3) { background: var(--glow-3); }
+
+/* ---- toast -------------------------------------------------------------------------------------- */
+html[data-style="uveg"] .toast { background: var(--fg); color: var(--bg); border-radius: var(--r-xl); box-shadow: var(--shadow-md); }
+html[data-style="uveg"] .toast button { background: transparent; color: var(--bg); border: 0; text-decoration: underline; font-weight: 700; }
+html[data-style="uveg"] .toast button:hover { background: transparent; }
+
+/* ==== glass: the glow the glass blurs, and the glass itself ======================================= */
+html[data-style="uveg"]:is([data-glass="chrome"], [data-glass="full"]) body { background: var(--bg); isolation: isolate; }
+html[data-style="uveg"]:is([data-glass="chrome"], [data-glass="full"]) body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: var(--glow-a);
+  background:
+    radial-gradient(38vmax 38vmax at 0% 0%, var(--glow-1), transparent 70%),
+    radial-gradient(34vmax 34vmax at 100% 25%, var(--glow-2), transparent 70%),
+    radial-gradient(40vmax 40vmax at 30% 110%, var(--glow-3), transparent 70%);
+}
+@media (min-width: 801px) {
+  /* the rail floats beside the page: nothing scrolls under it, so it may go down to the slider's 40 */
+  html[data-style="uveg"]:is([data-glass="chrome"], [data-glass="full"]) .side {
+    margin: var(--space-3) 0 var(--space-3) var(--space-3); top: var(--space-3); height: calc(100vh - 2 * var(--space-3));
+    border: 1px solid var(--glass-edge); border-radius: var(--r-xl);
+    background: color-mix(in srgb, var(--card) var(--glass-tint), transparent);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate)); backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    box-shadow: inset 0 1px 0 var(--glass-edge), var(--shadow-md);
+  }
+}
+@media (max-width: 800px) {
+  /* the header row carries the glass, not the header: a filter on the header would pin the
+     fixed tab bar inside it to the header (looks.css says the same) */
+  html[data-style="uveg"]:is([data-glass="chrome"], [data-glass="full"]) .topbar { background: transparent; border-bottom: 0; }
+  html[data-style="uveg"]:is([data-glass="chrome"], [data-glass="full"]) :is(.topbar-row, .menu-panel) {
+    margin: 8px 10px 0; border: 1px solid var(--glass-edge); border-radius: 22px;
+    background: color-mix(in srgb, var(--card) max(var(--glass-tint), var(--glass-bar-floor)), transparent);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate)); backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    box-shadow: inset 0 1px 0 var(--glass-edge), var(--shadow-md);
+  }
+  html[data-style="uveg"]:is([data-glass="chrome"], [data-glass="full"]) .topnav-wrap {
+    left: 10px; right: 10px; bottom: calc(10px + env(safe-area-inset-bottom)); padding: 6px; border: 1px solid var(--glass-edge); border-radius: 26px;
+    background: color-mix(in srgb, var(--card) max(var(--glass-tint), var(--glass-bar-floor)), transparent);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate)); backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    box-shadow: inset 0 1px 0 var(--glass-edge), var(--shadow-md);
+  }
+  html[data-style="uveg"]:is([data-glass="chrome"], [data-glass="full"]) .main { padding-bottom: calc(112px + env(safe-area-inset-bottom)); }
+}
+/* "A kártyákon is": cards are glass too, never thinner than the card floor, and a tinted card keeps its tint */
+html[data-style="uveg"][data-glass="full"] :is(.card, .chart-block, .theme-box) {
+  background: color-mix(in srgb, var(--card) max(var(--glass-tint), var(--glass-card-floor)), transparent);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate)); backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  border-color: var(--glass-edge);
+  box-shadow: inset 0 1px 0 var(--glass-edge), var(--shadow-md);
+}
+html[data-style="uveg"][data-glass="full"] :is(.hcard-todo, .hcard-alert) { background: color-mix(in srgb, var(--tint-neg) max(var(--glass-tint), var(--glass-card-floor)), transparent); }
+html[data-style="uveg"][data-glass="full"] .hcard-tip { background: color-mix(in srgb, var(--tint-warn) max(var(--glass-tint), var(--glass-card-floor)), transparent); }
+html[data-style="uveg"][data-glass="full"] :is(.hcard-praise, .hcard-calm) { background: color-mix(in srgb, var(--tint-pos) max(var(--glass-tint), var(--glass-card-floor)), transparent); }
+
+/* No blur support, or the person asked the system for less transparency: solid, no glow. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  html[data-style="uveg"][data-glass] :is(.side, .topbar-row, .topnav-wrap, .menu-panel, .card, .chart-block, .theme-box) { background: var(--card); }
+  html[data-style="uveg"][data-glass] :is(.hcard-todo, .hcard-alert) { background: var(--tint-neg); }
+  html[data-style="uveg"][data-glass] .hcard-tip { background: var(--tint-warn); }
+}
+@media (prefers-reduced-transparency: reduce) {
+  html[data-style="uveg"][data-glass] :is(.side, .topbar-row, .topnav-wrap, .menu-panel, .card, .chart-block, .theme-box) { background: var(--card); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  html[data-style="uveg"][data-glass] :is(.hcard-todo, .hcard-alert) { background: var(--tint-neg); }
+  html[data-style="uveg"][data-glass] .hcard-tip { background: var(--tint-warn); }
+  html[data-style="uveg"][data-glass] body::before { display: none; }
+}

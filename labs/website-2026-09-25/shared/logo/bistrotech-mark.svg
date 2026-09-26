@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" role="img" aria-labelledby="t">
+<!-- BistroTech mark. v0.1.0, 2026-09-15.
+     A plate seen from above that is also a speech bubble, with the daily count
+     rising inside it. Drawn on a 24 px grid. One path, one fill, evenodd
+     knockout, so it recolours with a single attribute and reads at 16 px.
+     Light and dark: fill defaults to the brand primary and switches to the
+     dark-mode tint under prefers-color-scheme. Set fill="currentColor" on the
+     path, or override the bt-mark variable, to place it on any other ground. -->
+<title id="t">BistroTech</title>
+<style>
+  .bt-mark { fill: var(--bt-mark, #0F4C81); }
+  @media (prefers-color-scheme: dark) { .bt-mark { fill: var(--bt-mark, #8FBCEC); } }
+</style>
+<path class="bt-mark" fill-rule="evenodd" d="
+  M 4.01 13.41 A 8.5 8.5 0 1 1 6.31 16.82 L 2.6 20.4 Z
+  M 7.2 14.6 V 11.8 A 1.2 1.2 0 0 1 9.6 11.8 V 14.6 Z
+  M 10.8 14.6 V 9.8 A 1.2 1.2 0 0 1 13.2 9.8 V 14.6 Z
+  M 14.4 14.6 V 7.8 A 1.2 1.2 0 0 1 16.8 7.8 V 14.6 Z
+"/>
+</svg>

@@ -1,0 +1,844 @@
+<!doctype html>
+<html lang="hu" data-theme="night">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BistroTech, értékeléskezelés éttermeknek</title>
+<meta name="description" content="Minden értékelés egy helyen. Minden reggel egy jelentés. A BistroTech letölti az éttermeid Google-értékeléseit, megírja rájuk a választ, és reggelente elküldi, mi történt tegnap.">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#1a0f14">
+<!-- Website lab, direction C "Éjjel", home page. v0.1.0, 2026-09-25.
+     The evening bistro: the product is the hero, shown working. The hero is an HTML mock of
+     the four-tab app (Ma, Értékelések, Válaszok, Kimutatások); the Válaszok tab holds the
+     try-it approve flow. Night is the app's Paprika éjjel tokens, day is Piac. The switch in
+     the nav remembers the choice; the default follows the system, night when unknown.
+     All data in the mock is one closed, fictional week that agrees with the report bubble:
+     yesterday's four reviews are the report's numbers, the fifth is the unanswered two-star
+     from szept. 12 that the try-it reply answers. -->
+<script>
+  (function () {
+    var t = null;
+    try { t = localStorage.getItem("bt-lab-ejjel-theme"); } catch (e) { t = null; }
+    if (t !== "day" && t !== "night") {
+      t = (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) ? "day" : "night";
+    }
+    document.documentElement.setAttribute("data-theme", t);
+    document.documentElement.className += " js";
+  })();
+</script>
+<link rel="preload" href="../shared/fonts/bricolage-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../shared/fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/svg+xml" href="../shared/logo/bistrotech-favicon.svg">
+</head>
+<body>
+<a class="skip" href="#main">Ugrás a tartalomra</a>
+
+<svg class="sprite" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false">
+  <symbol id="g-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20v-6M12 20V7M19 20v-9"/></symbol>
+  <symbol id="g-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+  <symbol id="g-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="g-warn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5 21 19.5H3z"/><path d="M12 10v4M12 17h.01"/></symbol>
+  <symbol id="g-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="g-star" viewBox="0 0 12 12"><path fill="currentColor" d="M 6 .4 7.41 4.06 11.33 4.27 8.28 6.74 9.29 10.53 6 8.4 2.71 10.53 3.72 6.74 .67 4.27 4.59 4.06 Z"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="i-cards" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="7.5" width="13" height="12" rx="2.5"/><path d="M8 4.5h9.5a3 3 0 0 1 3 3V16"/><path d="M7 12h6M7 15.5h4"/></symbol>
+  <symbol id="i-bubble" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a7.5 7.5 0 0 1-11.3 6.47L4.5 19.5l1.45-4.1A7.5 7.5 0 1 1 20 11.5z"/></symbol>
+  <symbol id="i-bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M7.5 16.5v-4M12 16.5v-9M16.5 16.5v-6"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.75"/><path d="M12 3.5v1.75M12 18.75v1.75M3.5 12h1.75M18.75 12h1.75M6 6l1.25 1.25M16.75 16.75 18 18M6 18l1.25-1.25M16.75 7.25 18 6"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14.6A7.5 7.5 0 0 1 9.4 5a7.5 7.5 0 1 0 9.6 9.6z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7.5h15M4.5 12h15M4.5 16.5h15"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16.5V11a6 6 0 1 1 12 0v5.5l1.5 1.5h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></symbol>
+  <symbol id="i-swap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 8.5h14l-3.5-3.5M19.5 15.5h-14l3.5 3.5"/></symbol>
+  <symbol id="i-listminus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h11M4.5 11.5h11M4.5 16.5h6M15 16.5h5"/></symbol>
+  <symbol id="i-team" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="M15.5 5.8a3 3 0 0 1 0 5.4M17 14.1a5.5 5.5 0 0 1 3.5 4.9"/></symbol>
+  <symbol id="i-ask" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a7.5 7.5 0 0 1-11.3 6.47L4.5 19.5l1.45-4.1A7.5 7.5 0 1 1 20 11.5z"/><path d="M10.3 9.7a1.9 1.9 0 1 1 2.6 1.75c-.55.25-.9.7-.9 1.3M12 15.1h.01"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 17.5h2"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12.4V5A1.5 1.5 0 0 1 5 3.5h7.4l8.1 8.1a1.5 1.5 0 0 1 0 2.1l-6.8 6.8a1.5 1.5 0 0 1-2.1 0z"/><circle cx="8" cy="8" r="1.25"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 5.5v13l10-6.5z"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 5.5A1.5 1.5 0 0 1 6 4h12.5v14H6a1.5 1.5 0 0 0-1.5 1.5z"/><path d="M4.5 19.5A1.5 1.5 0 0 0 6 21h12.5v-3M8.5 8h6M8.5 11h4"/></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5 5.5 4.5h13L20 9.5M4 9.5h16M4 9.5a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0 2.7 2.7 0 0 0 5.3 0M5.5 12.5V19.5h13v-7M10 19.5v-4h4v4"/></symbol>
+  <symbol id="bt-mark" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M 4.01 13.41 A 8.5 8.5 0 1 1 6.31 16.82 L 2.6 20.4 Z M 7.2 14.6 V 11.8 A 1.2 1.2 0 0 1 9.6 11.8 V 14.6 Z M 10.8 14.6 V 9.8 A 1.2 1.2 0 0 1 13.2 9.8 V 14.6 Z M 14.4 14.6 V 7.8 A 1.2 1.2 0 0 1 16.8 7.8 V 14.6 Z"/></symbol>
+</svg>
+
+<header class="nav-wrap">
+  <div class="nav glass-strong">
+    <a class="logo" href="index.html" aria-label="BistroTech, főoldal">
+      <svg class="lockup" width="162" height="28" viewBox="0 0 760 131" aria-hidden="true" focusable="false">
+        <g transform="translate(-8.1,-4.4) scale(6.2)">
+          <path class="bt-mark" fill-rule="evenodd" d="M 4.01 13.41 A 8.5 8.5 0 1 1 6.31 16.82 L 2.6 20.4 Z M 7.2 14.6 V 11.8 A 1.2 1.2 0 0 1 9.6 11.8 V 14.6 Z M 10.8 14.6 V 9.8 A 1.2 1.2 0 0 1 13.2 9.8 V 14.6 Z M 14.4 14.6 V 7.8 A 1.2 1.2 0 0 1 16.8 7.8 V 14.6 Z"/>
+        </g>
+        <g transform="translate(154,15)">
+          <g class="bt-word">
+            <path transform="translate(0,0)" d="M 6 6 V 94 M 6 6 H 30 A 22 22 0 0 1 30 50 H 6 M 6 50 H 30 A 22 22 0 0 1 30 94 H 6"/>
+            <path transform="translate(66,0)" d="M 7 34 V 94"/>
+            <path transform="translate(88,0)" d="M 44 47 C 44 37 35 34 25 34 C 15 34 6 37 6 47 C 6 57 16 60 25 64 C 34 68 44 71 44 81 C 44 91 35 94 25 94 C 15 94 6 91 6 81"/>
+            <path transform="translate(146,0)" d="M 22 14 V 82 A 12 12 0 0 0 34 94 M 6 34 H 38"/>
+            <path transform="translate(196,0)" d="M 6 94 V 52 A 18 18 0 0 1 24 34"/>
+            <circle transform="translate(230,0)" cx="36" cy="64" r="30"/>
+            <path transform="translate(306,0)" d="M 6 6 H 58 M 32 6 V 94"/>
+            <path transform="translate(372,0)" d="M 6 64 H 66 A 30 30 0 1 0 60.6 81.2"/>
+            <path transform="translate(452,0)" d="M 60.6 46.8 A 30 30 0 1 0 60.6 81.2"/>
+            <path transform="translate(532,0)" d="M 6 6 V 94 M 6 61 A 27 27 0 0 1 60 61 V 94"/>
+          </g>
+          <circle class="bt-dot" cx="73" cy="16" r="7"/>
+        </g>
+      </svg>
+    </a>
+    <nav class="nav-main" id="nav-main" aria-label="Fő navigáció">
+      <ul class="nav-links">
+        <li><a href="#reggel">Hogyan működik</a></li>
+        <li><a href="#csoportoknak">Csoportoknak</a></li>
+        <li><a href="#csomagok">Csomagok</a></li>
+        <li><a href="sugo.html">Súgó</a></li>
+        <li><a href="https://zsombp.github.io/npi-review-system/">Belépés</a></li>
+      </ul>
+      <p class="lang"><span class="lang-on" aria-current="true">HU</span><span class="lang-sep" aria-hidden="true">·</span><a href="#" hreflang="en" lang="en">EN</a></p>
+      <a class="btn btn-primary nav-cta-menu" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen</a>
+    </nav>
+    <button type="button" class="mode" id="mode" role="switch" aria-checked="true" aria-label="Éjjel">
+      <span class="mode-track" aria-hidden="true">
+        <svg class="mode-sun" width="16" height="16"><use href="#i-sun"/></svg>
+        <svg class="mode-moon" width="16" height="16"><use href="#i-moon"/></svg>
+        <span class="mode-knob"></span>
+      </span>
+    </button>
+    <a class="btn btn-primary btn-sm nav-cta" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen</a>
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-main">
+      <svg class="nt-open" width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg>
+      <svg class="nt-close" width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-close"/></svg>
+      <span>Menü</span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-copy">
+      <h1 id="hero-title"><span class="h1-a">Minden értékelés egy helyen.</span> <span class="h1-b">Minden reggel egy jelentés.</span></h1>
+      <div class="hero-sub">
+        <p class="lead">A BistroTech letölti az éttermeid Google-értékeléseit, megírja rájuk a választ, és reggelente elküldi, mi történt tegnap. Minden választ te hagysz jóvá.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary btn-lg" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen, 14 napig<svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-ghost btn-lg" href="#reggel">Nézd meg, hogyan működik</a>
+        </div>
+      </div>
+      <ul class="trust">
+        <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Minden étterem, minden nap, egy jelentésben.</li>
+        <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Minden választ te hagysz jóvá, mielőtt kimegy.</li>
+        <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Magyarul, magyar éttermeknek.</li>
+        <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>14 napig ingyen, kötöttség nélkül.</li>
+      </ul>
+    </div>
+
+    <div class="wrap-wide stage" id="stage" data-anim>
+
+      <!-- The daily report, copied from platform/landing/index.html and kept line for line.
+           One deliberate change: the unanswered negative names Példa Bisztró instead of
+           Minta Étterem, because the copy deck puts the same guest sentence at Példa Bisztró
+           in the try-it reply, and one sentence cannot belong to two restaurants on one page.
+           No number changed: 2+0+1+0+0 = 3, 0+0+0+1+0 = 1, 3+1+0 = 4. -->
+      <figure class="report-figure">
+        <p class="scene-time" aria-hidden="true">[07:45]</p>
+        <div class="chat-row">
+          <span class="report-glow" aria-hidden="true"></span>
+          <span class="avatar" aria-hidden="true"><svg width="18" height="18"><use href="#bt-mark"/></svg></span>
+          <div class="report glass-strong">
+            <div class="report-head">
+              <svg class="glyph" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-chart"/></svg>
+              <span class="report-title">BISTROTECH NAPI JELENTÉS</span>
+            </div>
+            <p class="line r-date">
+              <svg class="glyph quiet" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-cal"/></svg>
+              <span class="muted sm">2026. szept. 15., kedd</span>
+            </p>
+            <hr>
+            <div class="venue">
+              <p class="line">
+                <svg class="glyph" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-pin"/></svg>
+                <span><b>Példa Bisztró</b> · <b>3</b> új · átlag <b>4,33</b></span>
+              </p>
+              <p class="stars">
+                <span class="s5"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>5<span class="sr-only"> csillag</span>: <b>2</b></span>
+                <span class="s4"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>4<span class="sr-only"> csillag</span>: 0</span>
+                <span class="s3"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>3<span class="sr-only"> csillag</span>: 1</span>
+                <span class="s2"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>2<span class="sr-only"> csillag</span>: <b>0</b></span>
+                <span class="s1"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>1<span class="sr-only"> csillag</span>: <b>0</b></span>
+              </p>
+              <p class="google">Google: 4,6 (1284)</p>
+            </div>
+            <div class="venue">
+              <p class="line">
+                <svg class="glyph" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-pin"/></svg>
+                <span><b>Minta Étterem</b> · <b>1</b> új · átlag <b>2,00</b><span class="dot-neg" aria-hidden="true"></span></span>
+              </p>
+              <p class="stars">
+                <span class="s5"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>5<span class="sr-only"> csillag</span>: <b>0</b></span>
+                <span class="s4"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>4<span class="sr-only"> csillag</span>: 0</span>
+                <span class="s3"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>3<span class="sr-only"> csillag</span>: 0</span>
+                <span class="s2"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>2<span class="sr-only"> csillag</span>: <b>1</b></span>
+                <span class="s1"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>1<span class="sr-only"> csillag</span>: <b>0</b></span>
+              </p>
+              <p class="google">Google: 4,4 (612)</p>
+            </div>
+            <div class="venue">
+              <p class="line quiet-venue">
+                <svg class="glyph quiet" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-pin"/></svg>
+                <span><b>Teszt Kávézó</b> · 0 új · Google: 4,7 (238)</span>
+              </p>
+            </div>
+            <hr>
+            <p class="line total"><span>Σ Összesen: 4 új értékelés</span></p>
+            <p class="stars">
+              <span class="s5"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>5<span class="sr-only"> csillag</span>: <b>2</b></span>
+              <span class="s4"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>4<span class="sr-only"> csillag</span>: 0</span>
+              <span class="s3"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>3<span class="sr-only"> csillag</span>: 1</span>
+              <span class="s2"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>2<span class="sr-only"> csillag</span>: <b>1</b></span>
+              <span class="s1"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>1<span class="sr-only"> csillag</span>: <b>0</b></span>
+            </p>
+            <hr>
+            <p class="line">
+              <svg class="glyph warn" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-warn"/></svg>
+              <span><b>Megválaszolatlan negatívok</b> · 1</span>
+            </p>
+            <p class="line r-neg">
+              <span class="dot-neg" aria-hidden="true"></span>
+              <span>Példa Bisztró · 2<svg class="star-neg" width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="sr-only"> csillag</span> · szept. 12.</span>
+            </p>
+            <p class="quote">„A leves langyos volt, és húsz percet vártunk a számlára.”</p>
+            <p class="report-time"><span class="sr-only">Érkezett: </span>7:45</p>
+          </div>
+        </div>
+        <figcaption class="caption"><span class="cap-label">Illusztráció.</span> Az éttermek nevei, a szövegek és a számok kitaláltak. A felépítés a valódi napi jelentésé.</figcaption>
+      </figure>
+
+      <!-- The app, as a working mock. One markup for both frames: a desktop window when the
+           figure is 600 px or wider, a phone below that (container query). The tabs follow the
+           ARIA tabs pattern; the Válaszok tab is the try-it. Nothing leaves the page. -->
+      <section class="try" aria-labelledby="try-title">
+        <h2 id="try-title" class="try-title"><span class="live-dot" aria-hidden="true"></span>Próbáld ki: hagyj jóvá egy választ.</h2>
+        <figure class="device-figure">
+          <div class="device-stage">
+          <span class="device-glow" aria-hidden="true"></span>
+          <div class="device">
+            <div class="app" id="app" data-state="pending" data-view="ma">
+              <div class="app-top" aria-hidden="true">
+                <span class="app-top-mark"><svg width="24" height="24"><use href="#bt-mark"/></svg></span>
+                <span class="app-top-menu"><svg width="18" height="18"><use href="#i-menu"/></svg>Menü</span>
+              </div>
+
+              <div class="app-rail">
+                <div class="app-brand" aria-hidden="true">
+                  <svg class="lockup" width="160" height="28" viewBox="0 0 760 131" focusable="false">
+                    <g transform="translate(-8.1,-4.4) scale(6.2)">
+                      <path class="bt-mark" fill-rule="evenodd" d="M 4.01 13.41 A 8.5 8.5 0 1 1 6.31 16.82 L 2.6 20.4 Z M 7.2 14.6 V 11.8 A 1.2 1.2 0 0 1 9.6 11.8 V 14.6 Z M 10.8 14.6 V 9.8 A 1.2 1.2 0 0 1 13.2 9.8 V 14.6 Z M 14.4 14.6 V 7.8 A 1.2 1.2 0 0 1 16.8 7.8 V 14.6 Z"/>
+                    </g>
+                    <g transform="translate(154,15)">
+                      <g class="bt-word">
+                        <path transform="translate(0,0)" d="M 6 6 V 94 M 6 6 H 30 A 22 22 0 0 1 30 50 H 6 M 6 50 H 30 A 22 22 0 0 1 30 94 H 6"/>
+                        <path transform="translate(66,0)" d="M 7 34 V 94"/>
+                        <path transform="translate(88,0)" d="M 44 47 C 44 37 35 34 25 34 C 15 34 6 37 6 47 C 6 57 16 60 25 64 C 34 68 44 71 44 81 C 44 91 35 94 25 94 C 15 94 6 91 6 81"/>
+                        <path transform="translate(146,0)" d="M 22 14 V 82 A 12 12 0 0 0 34 94 M 6 34 H 38"/>
+                        <path transform="translate(196,0)" d="M 6 94 V 52 A 18 18 0 0 1 24 34"/>
+                        <circle transform="translate(230,0)" cx="36" cy="64" r="30"/>
+                        <path transform="translate(306,0)" d="M 6 6 H 58 M 32 6 V 94"/>
+                        <path transform="translate(372,0)" d="M 6 64 H 66 A 30 30 0 1 0 60.6 81.2"/>
+                        <path transform="translate(452,0)" d="M 60.6 46.8 A 30 30 0 1 0 60.6 81.2"/>
+                        <path transform="translate(532,0)" d="M 6 6 V 94 M 6 61 A 27 27 0 0 1 60 61 V 94"/>
+                      </g>
+                      <circle class="bt-dot" cx="73" cy="16" r="7"/>
+                    </g>
+                  </svg>
+                </div>
+                <p class="app-group" aria-hidden="true">Ma</p>
+                <div class="app-tabs" role="tablist" aria-label="A BistroTech fülei">
+                  <button type="button" class="app-tab" role="tab" id="t-ma" aria-controls="p-ma" aria-selected="true" tabindex="0">
+                    <svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-home"/></svg><span class="app-tab-label">Ma</span>
+                  </button>
+                  <button type="button" class="app-tab" role="tab" id="t-ert" aria-controls="p-ert" aria-selected="false" tabindex="-1">
+                    <svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-cards"/></svg><span class="app-tab-label">Értékelések</span>
+                  </button>
+                  <button type="button" class="app-tab" role="tab" id="t-val" aria-controls="p-val" aria-selected="false" tabindex="-1">
+                    <svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-bubble"/></svg><span class="app-tab-label">Válaszok</span>
+                    <span class="app-badge" data-show="pending"><span aria-hidden="true">1</span><span class="sr-only">, 1 válasz vár rád</span></span>
+                  </button>
+                  <button type="button" class="app-tab" role="tab" id="t-kim" aria-controls="p-kim" aria-selected="false" tabindex="-1">
+                    <svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-bars"/></svg><span class="app-tab-label">Kimutatások</span>
+                  </button>
+                </div>
+                <div class="app-rail-more" aria-hidden="true">
+                  <p class="app-group">Továbbiak <span>+</span></p>
+                  <p class="app-group">Fiók</p>
+                  <p class="app-more-item">Éttermek</p>
+                  <p class="app-more-item">Csapat</p>
+                  <p class="app-more-item">Beállítások</p>
+                  <p class="app-more-item">Súgó</p>
+                </div>
+              </div>
+
+              <div class="app-main" id="app-main">
+
+                <!-- Ma -->
+                <div class="app-panel" role="tabpanel" id="p-ma" aria-labelledby="t-ma" tabindex="0">
+                  <p class="m-hello"><span class="m-hello-a">Jó reggelt.</span> <strong class="m-head" data-show="pending">Egy válasz vár rád.</strong><strong class="m-head" data-show="approved" hidden>Ma nincs teendőd.</strong><strong class="m-head" data-show="skipped" hidden>Egy súlyos értékelésre még nem válaszolt senki.</strong></p>
+
+                  <div class="m-card m-todo" data-show="pending">
+                    <p class="m-eyebrow"><span class="m-dot" aria-hidden="true"></span>Erre válaszolj először</p>
+                    <p class="m-card-title">2 csillag, Példa Bisztró</p>
+                    <p class="m-bq">„A leves langyos volt, és húsz percet vártunk a számlára.”</p>
+                    <p class="m-small">Minta Katalin · szept. 12. · magyar · a válasz kész, csak rá kell nézned</p>
+                    <p class="m-actions"><button type="button" class="m-btn" data-act="review">Válasz átnézése</button></p>
+                  </div>
+                  <div class="m-card m-calm" data-show="approved" hidden>
+                    <p class="m-card-title">Ma nincs teendőd</p>
+                    <p class="m-p">Nincs jóváhagyásra váró válasz.</p>
+                  </div>
+                  <div class="m-card m-todo" data-show="skipped" hidden>
+                    <p class="m-eyebrow"><span class="m-dot" aria-hidden="true"></span>Válasz nélkül</p>
+                    <p class="m-card-title">2 csillag, Példa Bisztró</p>
+                    <p class="m-bq">„A leves langyos volt, és húsz percet vártunk a számlára.”</p>
+                    <p class="m-small">Minta Katalin · szept. 12. · magyar</p>
+                    <p class="m-actions"><button type="button" class="m-btn" data-act="open-waiting">Megnézem őket</button></p>
+                  </div>
+
+                  <p class="m-h2">Az éttermeid <span class="m-pill">7 nap</span></p>
+                  <ul class="m-venues">
+                    <li><span class="m-vname">Példa Bisztró</span><span class="m-vrow">4 új · átlag 3,75</span><span class="m-tag m-neg">1 súlyos</span></li>
+                    <li><span class="m-vname">Minta Étterem</span><span class="m-vrow">1 új · átlag 2,00</span><span class="m-tag m-neg">1 súlyos</span></li>
+                    <li><span class="m-vname">Teszt Kávézó</span><span class="m-vrow">0 új</span><span class="m-tag m-pos">rendben</span></li>
+                  </ul>
+                </div>
+
+                <!-- Értékelések -->
+                <div class="app-panel" role="tabpanel" id="p-ert" aria-labelledby="t-ert" tabindex="0" hidden>
+                  <p class="m-h1" tabindex="-1" id="ert-title">Értékelések</p>
+                  <p class="m-intro">Minden értékelés, amit a Google-on találtunk. Szűrd le, amire kíváncsi vagy.</p>
+                  <label class="sr-only" for="rv-q">Keresés a szövegben</label>
+                  <div class="m-search">
+                    <svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-search"/></svg>
+                    <input id="rv-q" type="search" placeholder="pl. gulyás, pincér, várakozás" autocomplete="off" spellcheck="false">
+                  </div>
+                  <div class="m-chips" role="group" aria-label="Gyors szűrők">
+                    <button type="button" class="m-chip" data-f="all" aria-pressed="true">Összes</button>
+                    <button type="button" class="m-chip" data-f="waiting" aria-pressed="false">Válaszra vár</button>
+                    <button type="button" class="m-chip" data-f="serious" aria-pressed="false">1 és 2 csillag</button>
+                    <button type="button" class="m-chip" data-f="five" aria-pressed="false">5 csillag</button>
+                  </div>
+                  <p class="m-count" id="rv-count">5 találat</p>
+                  <p class="sr-only" id="rv-live" aria-live="polite"></p>
+                  <ul class="m-reviews">
+                    <li class="m-review" data-rating="5" data-waiting="0">
+                      <p class="m-rv-top"><span class="m-venue">Példa Bisztró</span><span class="m-stars" role="img" aria-label="5 csillag az 5-ből"><svg class="st on" width="13" height="13"><use href="#g-star"/></svg><svg class="st on" width="13" height="13"><use href="#g-star"/></svg><svg class="st on" width="13" height="13"><use href="#g-star"/></svg><svg class="st on" width="13" height="13"><use href="#g-star"/></svg><svg class="st on" width="13" height="13"><use href="#g-star"/></svg></span><span class="m-starnum" aria-hidden="true">5/5</span></p>
+                      <p class="m-meta">Teszt Vera · szept. 14. · magyar</p>
+                      <p class="m-quote">„Foglalás nélkül is kaptunk asztalt, tíz percen belül megérkezett az étel. Ajánlom.”</p>
+                      <p class="m-tags"><span class="m-tag m-pos">Pozitív</span><span class="m-tag">foglalás</span><span class="m-tag">a kiszolgálás gyorsasága</span></p>
+                      <p class="m-status">Megválaszolva: szept. 14.</p>
+                    </li>
+                    <li class="m-review" data-rating="5" data-waiting="0">
+                      <p class="m-rv-top"><span class="m-venue">Példa Bisztró</span><span class="m-stars" role="img" aria-label="5 csillag az 5-ből"><svg class="st on" width="13" height="13"><use href="#g-star"/></svg><svg class="st on" width="13" height="13"><use href="#g-star"/></svg><svg class="st on" width="13" height="13"><use href="#g-star"/></svg><svg class="st on" width="13" height="13"><use href="#g-star"/></svg><svg class="st on" width="13" height="13"><use href="#g-star"/></svg></span><span class="m-starnum" aria-hidden="true">5/5</span></p>
+                      <p class="m-meta">Példa Gergő · szept. 14. · magyar</p>
+                      <p class="m-plain">Csak csillagozás, szöveg nélkül.</p>
+                      <p class="m-tags"><span class="m-tag m-pos">Pozitív</span></p>
+                      <p class="m-status">Megválaszolva: szept. 14.</p>
+                    </li>
+                    <li class="m-review" data-rating="3" data-waiting="0">
+                      <p class="m-rv-top"><span class="m-venue">Példa Bisztró</span><span class="m-stars" role="img" aria-label="3 csillag az 5-ből"><svg class="st on" width="13" height="13"><use href="#g-star"/></svg><svg class="st on" width="13" height="13"><use href="#g-star"/></svg><svg class="st on" width="13" height="13"><use href="#g-star"/></svg><svg class="st" width="13" height="13"><use href="#g-star"/></svg><svg class="st" width="13" height="13"><use href="#g-star"/></svg></span><span class="m-starnum" aria-hidden="true">3/5</span></p>
+                      <p class="m-meta">Minta Csaba · szept. 14. · magyar</p>
+                      <p class="m-quote">„Korrekt hely, semmi kiemelkedő. Az árak az utóbbi hónapokban emelkedtek.”</p>
+                      <p class="m-tags"><span class="m-tag m-warn">Semleges</span><span class="m-tag">árak</span></p>
+                      <p class="m-status">Megválaszolva: szept. 14.</p>
+                    </li>
+                    <li class="m-review" data-rating="2" data-waiting="0">
+                      <p class="m-rv-top"><span class="m-venue">Minta Étterem</span><span class="m-stars" role="img" aria-label="2 csillag az 5-ből"><svg class="st on" width="13" height="13"><use href="#g-star"/></svg><svg class="st on" width="13" height="13"><use href="#g-star"/></svg><svg class="st" width="13" height="13"><use href="#g-star"/></svg><svg class="st" width="13" height="13"><use href="#g-star"/></svg><svg class="st" width="13" height="13"><use href="#g-star"/></svg></span><span class="m-starnum" aria-hidden="true">2/5</span></p>
+                      <p class="m-meta">Teszt Zoltán · szept. 14. · magyar</p>
+                      <p class="m-plain">Csak csillagozás, szöveg nélkül.</p>
+                      <p class="m-tags"><span class="m-tag m-neg">Negatív</span></p>
+                      <p class="m-status">Megválaszolva: szept. 14.</p>
+                    </li>
+                    <li class="m-review" data-rating="2" data-waiting="1">
+                      <p class="m-rv-top"><span class="m-venue">Példa Bisztró</span><span class="m-stars" role="img" aria-label="2 csillag az 5-ből"><svg class="st on" width="13" height="13"><use href="#g-star"/></svg><svg class="st on" width="13" height="13"><use href="#g-star"/></svg><svg class="st" width="13" height="13"><use href="#g-star"/></svg><svg class="st" width="13" height="13"><use href="#g-star"/></svg><svg class="st" width="13" height="13"><use href="#g-star"/></svg></span><span class="m-starnum" aria-hidden="true">2/5</span></p>
+                      <p class="m-meta">Minta Katalin · szept. 12. · magyar</p>
+                      <p class="m-quote">„A leves langyos volt, és húsz percet vártunk a számlára.”</p>
+                      <p class="m-tags"><span class="m-tag m-neg">Negatív</span><span class="m-tag">várakozás</span><span class="m-tag">számla</span></p>
+                      <p class="m-status m-status-open">Megválaszolatlan</p>
+                    </li>
+                  </ul>
+                  <p class="m-empty" id="rv-empty" hidden>Nincs a szűrésnek megfelelő értékelés. Vedd le a szűrők egyikét.</p>
+                </div>
+
+                <!-- Válaszok: the try-it -->
+                <div class="app-panel" role="tabpanel" id="p-val" aria-labelledby="t-val" tabindex="0" hidden>
+                  <p class="m-h1">Válaszok</p>
+                  <p class="m-intro">Itt olvasod el a válaszokat, mielőtt kimennek a Google-re.</p>
+                  <p class="m-note" data-show="pending">Jóváhagyásra vár: 1.</p>
+
+                  <article class="m-card m-draft" data-show="pending" aria-labelledby="draft-title">
+                    <p class="m-eyebrow m-eyebrow-plain">1 / 1</p>
+                    <p class="m-rv-top"><span class="m-card-title m-draft-title" id="draft-title" tabindex="-1">Példa Bisztró</span><span class="m-stars" role="img" aria-label="2 csillag az 5-ből"><svg class="st on" width="15" height="15"><use href="#g-star"/></svg><svg class="st on" width="15" height="15"><use href="#g-star"/></svg><svg class="st" width="15" height="15"><use href="#g-star"/></svg><svg class="st" width="15" height="15"><use href="#g-star"/></svg><svg class="st" width="15" height="15"><use href="#g-star"/></svg></span><span class="m-starnum" aria-hidden="true">2/5</span></p>
+                    <p class="m-meta">Minta Katalin · szept. 12. · magyar</p>
+                    <p class="m-quote">„A leves langyos volt, és húsz percet vártunk a számlára.”</p>
+                    <label class="m-label" for="draft-text">A válasz</label>
+                    <textarea id="draft-text" class="m-textarea" rows="5" spellcheck="false">Kedves Katalin, köszönjük, hogy megírta. Sajnáljuk, hogy langyos volt a leves, és sokat kellett várnia a számlára. Továbbadtuk a konyhának és a felszolgálóknak. Reméljük, visszatér, és akkor minden a helyén lesz. A Példa Bisztró csapata</textarea>
+                    <p class="m-edited" id="draft-edited" hidden><span class="m-tag m-tag-edit">Módosítva</span><button type="button" class="m-link" data-act="restore">Eredeti visszaállítása</button></p>
+                    <p class="m-error" id="draft-error" role="alert" hidden>A válasz szövege nem lehet üres.</p>
+                    <div class="m-chips m-rewrite" role="group" aria-labelledby="rw-label">
+                      <span class="m-rw-label" id="rw-label">Átírás:</span>
+                      <button type="button" class="m-chip" data-variant="shorter">Rövidebb</button>
+                      <button type="button" class="m-chip" data-variant="warmer">Melegebb</button>
+                      <button type="button" class="m-chip" data-variant="firmer">Határozottabb</button>
+                      <button type="button" class="m-chip" data-variant="formal">Magázó</button>
+                      <button type="button" class="m-chip" data-variant="informal">Tegező</button>
+                    </div>
+                    <p class="m-actions">
+                      <button type="button" class="m-btn" data-act="approve" aria-keyshortcuts="A">Jóváhagyás</button>
+                      <button type="button" class="m-btn m-btn-2" data-act="skip" aria-keyshortcuts="S">Kihagyás</button>
+                    </p>
+                    <p class="m-keys">Billentyűk: A jóváhagy, S kihagy, E szerkeszt, U visszavon.</p>
+                  </article>
+
+                  <div class="m-card m-done" data-show="approved skipped" hidden>
+                    <p class="m-card-title" id="done-title" tabindex="-1">Minden választ átnéztél</p>
+                    <p class="m-p">Nincs több jóváhagyásra váró válasz.</p>
+                    <p class="m-after" data-show="approved" hidden>Ha a Google-on kezelőnek vettél fel minket, pár percen belül kitesszük. Ha még nem, egy gombbal kimásolod, és megnyitjuk neked a Google-t.</p>
+                    <p class="m-after" data-show="skipped" hidden>A kihagyott értékelés válasz nélkül marad. Az Értékelések között később is megtalálod.</p>
+                    <p class="m-actions">
+                      <button type="button" class="m-btn" data-act="home">Vissza a Mához</button>
+                      <button type="button" class="m-btn m-btn-2" data-act="reset">Újrakezdés</button>
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Kimutatások -->
+                <div class="app-panel" role="tabpanel" id="p-kim" aria-labelledby="t-kim" tabindex="0" hidden>
+                  <p class="m-h1">Kimutatások</p>
+                  <p class="m-intro">Hogyan alakultak a számok az időszakban, éttermenként.</p>
+                  <p class="m-period"><span>Időszak</span><span class="m-pill m-pill-on">7 nap</span></p>
+                  <dl class="m-figures">
+                    <div><dt>Új értékelés</dt><dd>5</dd></div>
+                    <div><dt>Új értékelések átlaga</dt><dd>3,40</dd></div>
+                    <div><dt>1 vagy 2 csillagos arány</dt><dd class="m-neg-n">40%</dd></div>
+                    <div><dt>Megválaszolatlan negatív</dt><dd class="m-neg-n">1</dd></div>
+                  </dl>
+                  <p class="m-h2">Éttermek összehasonlítása</p>
+                  <div class="m-table-wrap">
+                    <table class="m-table">
+                      <caption class="sr-only">Éttermek összehasonlítása, az elmúlt 7 nap</caption>
+                      <thead>
+                        <tr><th scope="col">Étterem</th><th scope="col" class="num">Új</th><th scope="col" class="num">Átlag</th><th scope="col" class="num">1 vagy 2 csillag</th><th scope="col" class="num">Google most</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr><th scope="row">Példa Bisztró</th><td class="num">4</td><td class="num">3,75</td><td class="num m-neg-n">1</td><td class="num">4,6</td></tr>
+                        <tr><th scope="row">Minta Étterem</th><td class="num">1</td><td class="num">2,00</td><td class="num m-neg-n">1</td><td class="num">4,4</td></tr>
+                        <tr class="quiet"><th scope="row">Teszt Kávézó</th><td class="num">0</td><td class="num"><span class="sr-only">nincs adat</span></td><td class="num">0</td><td class="num">4,7</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="m-toast" id="m-toast" hidden>
+                  <span class="m-toast-text"><span data-show="approved">Jóváhagyva.</span><span data-show="skipped" hidden>Kihagyva.</span></span>
+                  <button type="button" class="m-toast-undo" data-act="undo" aria-keyshortcuts="U">Visszavonom</button>
+                  <span class="m-toast-bar" aria-hidden="true"><i></i></span>
+                </div>
+              </div>
+
+              <p class="sr-only" id="app-live" aria-live="polite"></p>
+
+              <!-- Strings the script swaps in. The five variants are the copy deck's, word for
+                   word; Magázó is the default text, as the deck says. -->
+              <div class="app-data" hidden>
+                <p data-variant="default">Kedves Katalin, köszönjük, hogy megírta. Sajnáljuk, hogy langyos volt a leves, és sokat kellett várnia a számlára. Továbbadtuk a konyhának és a felszolgálóknak. Reméljük, visszatér, és akkor minden a helyén lesz. A Példa Bisztró csapata</p>
+                <p data-variant="shorter">Kedves Katalin, köszönjük, és sajnáljuk a langyos levest meg a hosszú várakozást. Továbbadtuk a csapatnak. A Példa Bisztró csapata</p>
+                <p data-variant="warmer">Kedves Katalin, nagyon köszönjük, hogy időt szánt ránk. Bosszant minket, hogy langyos volt a leves, és hogy ennyit kellett várnia a számlára. Továbbadtuk a konyhának és a felszolgálóknak. Szeretnénk, ha legközelebb jó szívvel állna fel az asztaltól. A Példa Bisztró csapata</p>
+                <p data-variant="firmer">Kedves Katalin, köszönjük a visszajelzést. A leves hőmérséklete és a húsz perc várakozás a számlára nem felel meg annak, ahogy dolgozni szeretnénk. Mindkettőt továbbadtuk a konyhának és a felszolgálóknak. A Példa Bisztró csapata</p>
+                <p data-variant="informal">Kedves Katalin, köszönjük, hogy megírtad. Sajnáljuk, hogy langyos volt a leves, és sokat kellett várnod a számlára. Továbbadtuk a konyhának és a felszolgálóknak. Reméljük, visszajössz, és akkor minden a helyén lesz. A Példa Bisztró csapata</p>
+                <p data-say="shorter">A válasz most rövidebb.</p>
+                <p data-say="warmer">A válasz most melegebb.</p>
+                <p data-say="firmer">A válasz most határozottabb.</p>
+                <p data-say="formal">A válasz most magázó.</p>
+                <p data-say="informal">A válasz most tegező.</p>
+                <p data-say="restored">Az eredeti válasz visszaállítva.</p>
+                <p data-say="approved">Jóváhagyva. Nyolc másodpercig visszavonhatod.</p>
+                <p data-say="skipped">Kihagyva. Nyolc másodpercig visszavonhatod.</p>
+                <p data-say="undone">Visszavonva. A válasz újra jóváhagyásra vár.</p>
+                <p data-say="reset">A válasz újra jóváhagyásra vár.</p>
+                <p data-say="results">találat</p>
+              </div>
+            </div>
+          </div>
+          </div>
+          <figcaption class="caption"><span class="cap-label">Illusztráció.</span> A vendégek, az éttermek, a szövegek és a számok kitaláltak. Innen nem megy ki semmi.</figcaption>
+        </figure>
+      </section>
+    </div>
+  </section>
+
+  <!-- THE MORNING, as a timeline on glass -->
+  <section class="morning section" id="reggel" aria-labelledby="reggel-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="reggel-title">Egy reggel a BistroTechhel</h2>
+        <p class="section-intro">Akkor nyitod meg, ha jóvá akarsz hagyni egy választ, vissza akarsz nézni egy hónapot, vagy el akarod olvasni, mit írtak a vendégek.</p>
+      </div>
+      <div class="bed bed-a">
+      <ol class="timeline">
+        <li class="tl tl-report">
+          <span class="tl-node" aria-hidden="true"><svg width="18" height="18"><use href="#i-clock"/></svg></span>
+          <article class="tl-card glass">
+            <p class="tl-time">[07:45]</p>
+            <h3>Napi jelentés</h3>
+            <p>Abban az órában érkezik, amit beállítasz. Telegramon, ha összekötöd, és mindig a fiókodban.</p>
+            <div class="notif" aria-hidden="true">
+              <p class="notif-top"><span class="avatar avatar-sm"><svg width="13" height="13"><use href="#bt-mark"/></svg></span><span class="notif-app">BistroTech</span><span class="notif-time">7:45</span></p>
+              <p class="notif-title">BISTROTECH NAPI JELENTÉS</p>
+              <p class="notif-line">2026. szept. 15., kedd</p>
+              <p class="notif-line">Σ Összesen: 4 új értékelés</p>
+              <p class="notif-line notif-warn"><svg width="13" height="13"><use href="#g-warn"/></svg><span>Megválaszolatlan negatívok&nbsp;·&nbsp;1</span></p>
+            </div>
+          </article>
+        </li>
+        <li class="tl">
+          <span class="tl-node" aria-hidden="true"><svg width="18" height="18"><use href="#i-home"/></svg></span>
+          <article class="tl-card glass">
+            <p class="tl-time">[Ma]</p>
+            <h3>Ma</h3>
+            <p>Egy mondatban megmondja, mi a teendő. Alatta kártyákon a részletek.</p>
+            <div class="tl-shot">
+              <div class="phone"><img src="../shared/img/app-overview-mobile.png" width="780" height="1688" loading="lazy" alt="A Ma képernyő telefonon. Fent egy mondat arról, hány válasz vár, alatta kártyákon a részletek."></div>
+            </div>
+          </article>
+        </li>
+        <li class="tl">
+          <span class="tl-node" aria-hidden="true"><svg width="18" height="18"><use href="#i-bubble"/></svg></span>
+          <article class="tl-card glass">
+            <p class="tl-time">[Válaszok]</p>
+            <h3>Válaszok</h3>
+            <p>A válaszok sorban állnak, elöl a legrosszabb értékelés. Elolvasod, ha kell, átírod, jóváhagyod.</p>
+            <div class="tl-shot">
+              <div class="phone"><img src="../shared/img/app-drafts-mobile.png" width="780" height="1688" loading="lazy" alt="A Válaszok képernyő telefonon. Egy vendég értékelése, alatta a kész válasz, Jóváhagyás és Kihagyás gombbal."></div>
+            </div>
+          </article>
+        </li>
+        <li class="tl">
+          <span class="tl-node" aria-hidden="true"><svg width="18" height="18"><use href="#i-cards"/></svg></span>
+          <article class="tl-card glass">
+            <p class="tl-time">[Értékelések]</p>
+            <h3>Értékelések</h3>
+            <p>Minden értékelés egy helyen, kereshetően, étterem és csillag szerint.</p>
+            <div class="tl-shot">
+              <div class="phone"><img src="../shared/img/app-reviews-mobile.png" width="780" height="1688" loading="lazy" alt="Az Értékelések képernyő telefonon. Kereső és gyors szűrők, alattuk az értékelések kártyákon."></div>
+            </div>
+          </article>
+        </li>
+        <li class="tl">
+          <span class="tl-node" aria-hidden="true"><svg width="18" height="18"><use href="#i-bars"/></svg></span>
+          <article class="tl-card glass">
+            <p class="tl-time">[Kimutatások]</p>
+            <h3>Kimutatások</h3>
+            <p>Megnézed, mi ismétlődik: témák, éttermek egymás mellett, napszakok.</p>
+            <div class="tl-shot">
+              <div class="phone"><img src="../shared/img/app-insights-mobile.png" width="780" height="1688" loading="lazy" alt="A Kimutatások képernyő telefonon. Az időszak számai, éttermenként."></div>
+            </div>
+          </article>
+        </li>
+      </ol>
+      </div>
+      <p class="caption caption-wide">A képek a bemutatófiókról készültek. Az éttermek nevei, a vendégek szövegei és a számok kitaláltak.</p>
+    </div>
+  </section>
+
+  <!-- FEATURES as glass tiles. The ninth, Napi jelentés, opens the timeline above. -->
+  <section class="features section" aria-labelledby="features-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="features-title">Amit még tud</h2>
+      </div>
+      <div class="bed bed-b">
+      <ul class="feature-grid">
+        <li class="feature glass">
+          <span class="f-icon" aria-hidden="true"><svg width="22" height="22"><use href="#i-bell"/></svg></span>
+          <h3>Riasztás</h3>
+          <p>Szólunk, ha egy étteremnél egycsillagos sorozat jön, vagy esik az átlag.</p>
+        </li>
+        <li class="feature glass">
+          <span class="f-icon" aria-hidden="true"><svg width="22" height="22"><use href="#i-swap"/></svg></span>
+          <h3>Módosításfigyelő</h3>
+          <p>Látod, ha egy vendég utólag átírja az értékelését, és azt is, miről mire.</p>
+        </li>
+        <li class="feature glass">
+          <span class="f-icon" aria-hidden="true"><svg width="22" height="22"><use href="#i-listminus"/></svg></span>
+          <h3>Listafigyelő</h3>
+          <p>Ha a Google értékeléseket vesz le a profilodról, a jelentésben látod.</p>
+        </li>
+        <li class="feature glass">
+          <span class="f-icon" aria-hidden="true"><svg width="22" height="22"><use href="#i-tag"/></svg></span>
+          <h3>Témák és ételek</h3>
+          <p>Kiolvassuk, mi ismétlődik a vendégek szövegeiben, és melyik fogásról mit írnak.</p>
+        </li>
+        <li class="feature glass">
+          <span class="f-icon" aria-hidden="true"><svg width="22" height="22"><use href="#i-ask"/></svg></span>
+          <h3>Asszisztens</h3>
+          <p>Kérdezhetsz tőle. A saját értékeléseidből válaszol, és megmondja, mennyiből.</p>
+        </li>
+        <li class="feature glass">
+          <span class="f-icon" aria-hidden="true"><svg width="22" height="22"><use href="#i-team"/></svg></span>
+          <h3>Csapat</h3>
+          <p>Meghívod a kollégákat, és te döntöd el, ki melyik éttermet látja.</p>
+        </li>
+        <li class="feature glass">
+          <span class="f-icon" aria-hidden="true"><svg width="22" height="22"><use href="#i-link"/></svg></span>
+          <h3>Tripadvisor</h3>
+          <p>Ha bemásolod az étterem Tripadvisor-címét, azok az értékelések is megjönnek, külön.</p>
+        </li>
+        <li class="feature glass">
+          <span class="f-icon" aria-hidden="true"><svg width="22" height="22"><use href="#i-phone"/></svg></span>
+          <h3>Telefonon</h3>
+          <p>Felteheted a telefonod kezdőképernyőjére, és úgy nyílik, mint egy alkalmazás.</p>
+        </li>
+      </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT STARTS -->
+  <section class="start section" id="indulas" aria-labelledby="indulas-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="indulas-title">Hogyan indul</h2>
+        <p class="section-intro">Négy lépés. Az étterem felvétele után pár perccel már látod az értékeléseidet. A Google-hozzáférést külön állítod be, és csak a válaszok kitételéhez kell.</p>
+      </div>
+      <div class="bed bed-c">
+      <ol class="steps">
+        <li class="step glass">
+          <span class="step-n">1</span>
+          <h3>Regisztrálsz</h3>
+          <p>Megadod az e-mail-címed és egy jelszót. A próbaidőszak 14 napig tart, és alatta nem állítunk ki számlát.</p>
+        </li>
+        <li class="step glass">
+          <span class="step-n">2</span>
+          <h3>Felveszed az éttermet</h3>
+          <p>Megkeresed az éttermet név szerint. Pár percen belül látod a legutóbbi értékeléseit és az első számokat. Több étterem is mehet egy fiókba.</p>
+        </li>
+        <li class="step glass">
+          <span class="step-n">3</span>
+          <h3>Kezelőnek felveszel minket</h3>
+          <p>A Google cégprofilon kezelőként felveszed a mi fiókunkat. Ettől kezdve ki tudjuk tenni a jóváhagyott válaszokat. Amíg ez nincs meg, a kész választ egy gombbal kimásolod, és magad illeszted be. A hozzáférést bármikor visszaveheted.</p>
+        </li>
+        <li class="step glass">
+          <span class="step-n">4</span>
+          <h3>Beállítod a napi jelentést</h3>
+          <p>Összekötöd a Telegramot, és kiválasztod az időpontot. Az első napi jelentés a következő reggelen érkezik, utána minden nap ugyanakkor. A fiókodban akkor is megtalálod, ha nem kötsz össze semmit.</p>
+        </li>
+      </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFERENCE. D-004: the group is never named, no venue, no review. -->
+  <section class="reference section" aria-labelledby="ref-title">
+    <div class="wrap">
+      <div class="bed bed-b">
+      <div class="ref glass">
+        <div class="ref-text">
+          <h2 id="ref-title">Tizenegy étterem, minden reggel</h2>
+          <p class="ref-lead">A BistroTech egy tizenegy éttermet üzemeltető budapesti csoportnál fut, minden reggel. Ott kezdődött, és ott megy élesben azóta is.</p>
+          <p class="ref-note">A csoportot és az éttermeit nem nevezzük meg, és nem mutatunk tőlük értékelést. Ez a mi döntésünk, nem az ügyfél kérése.</p>
+        </div>
+        <div class="ref-art" aria-hidden="true" data-anim>
+          <span class="ref-win" style="--i:0"></span><span class="ref-win" style="--i:1"></span><span class="ref-win" style="--i:2"></span><span class="ref-win" style="--i:3"></span><span class="ref-win" style="--i:4"></span><span class="ref-win" style="--i:5"></span><span class="ref-win" style="--i:6"></span><span class="ref-win" style="--i:7"></span><span class="ref-win" style="--i:8"></span><span class="ref-win" style="--i:9"></span><span class="ref-win" style="--i:10"></span>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES. D-006: no price exists, every slot says "Ár hamarosan". -->
+  <section class="plans section" id="csomagok" aria-labelledby="csomagok-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="csomagok-title">Mi van a csomagokban</h2>
+        <p class="section-intro">Három csomag. A figyelés, a napi jelentés és a válaszok mindháromban benne vannak. A különbség az, hogy mennyit olvasunk ki a vendégek szövegeiből.</p>
+      </div>
+      <div class="bed bed-a">
+      <ul class="plan-grid">
+        <li class="plan glass">
+          <span class="plan-meter" aria-hidden="true"><i class="on"></i><i></i><i></i></span>
+          <h3>Induló</h3>
+          <p>Az alap, minden étteremhez.</p>
+          <p class="price"><span class="price-label">Havi díj éttermenként, + áfa</span><span class="price-value">Ár hamarosan</span></p>
+        </li>
+        <li class="plan glass">
+          <span class="plan-meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></span>
+          <h3>Elemző</h3>
+          <p>Arra válaszol, mit mondanak folyton.</p>
+          <p class="price"><span class="price-label">Havi díj éttermenként, + áfa</span><span class="price-value">Ár hamarosan</span></p>
+        </li>
+        <li class="plan glass">
+          <span class="plan-meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span>
+          <h3>Teljes</h3>
+          <p>Arra válaszol, kiről és miről beszélnek.</p>
+          <p class="price"><span class="price-label">Havi díj éttermenként, + áfa</span><span class="price-value">Ár hamarosan</span></p>
+        </li>
+      </ul>
+      <div class="addon glass">
+        <div class="addon-text">
+          <h3>Automata válasz <span class="addon-tag">bármelyik csomaghoz</span></h3>
+          <p>Alapból csak a pozitív értékelésekre megy ki válasz úgy, hogy előtte senki nem olvassa el. Az egy- és kétcsillagosakra csak akkor, ha te kapcsolod be.</p>
+        </div>
+        <p class="price"><span class="price-label">Havi díj éttermenként, + áfa</span><span class="price-value">Ár hamarosan</span></p>
+      </div>
+      </div>
+      <p class="more-link"><a href="#">Minden részlet a Csomagok oldalon<svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></p>
+    </div>
+  </section>
+
+  <!-- HELP AND GROUPS, side by side -->
+  <div class="wrap duo section bed bed-c">
+    <section class="duo-card glass" aria-labelledby="sugo-title">
+      <span class="f-icon" aria-hidden="true"><svg width="22" height="22"><use href="#i-book"/></svg></span>
+      <h2 id="sugo-title">Súgó és videók</h2>
+      <p>Minden lépéshez leírás képekkel és egy rövid videó a fiókból. Magyarul.</p>
+      <ul class="link-list">
+        <li><a href="sugo.html">Válasz jóváhagyása<svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="#">A napi jelentés beállítása<svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="#">Kezelőnek felveszel minket a Google-on<svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></li>
+      </ul>
+      <p class="duo-cta"><a class="btn btn-ghost" href="sugo.html">Irány a súgó</a></p>
+    </section>
+    <section class="duo-card glass" id="csoportoknak" aria-labelledby="csop-title">
+      <span class="f-icon" aria-hidden="true"><svg width="22" height="22"><use href="#i-store"/></svg></span>
+      <h2 id="csop-title">Csoportoknak</h2>
+      <p>Több étterem egy fiókban, egymás mellett. Te döntöd el, ki melyik éttermet látja. Tíz étterem fölött a csomagot és az árat személyesen végigvesszük veled.</p>
+      <p class="duo-cta"><a class="btn btn-ghost" href="#">Kérj bemutatót</a></p>
+    </section>
+  </div>
+
+  <!-- FAQ -->
+  <section class="faq section" aria-labelledby="faq-title">
+    <div class="wrap faq-grid">
+      <div class="faq-head">
+        <h2 id="faq-title">Gyakori kérdések</h2>
+      </div>
+      <div class="faq-list bed bed-a">
+        <details class="qa glass">
+          <summary><span>Kell hozzá bármit telepíteni?</span><svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-chev"/></svg></summary>
+          <p>Nem. Böngészőben megy, telefonon és gépen is. Ha szeretnéd, a telefonod kezdőképernyőjére is felteheted.</p>
+        </details>
+        <details class="qa glass">
+          <summary><span>Hozzányúltok a Google-profilomhoz?</span><svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-chev"/></svg></summary>
+          <p>Csak akkor, ha kezelőként felveszel minket. Akkor a jóváhagyott válaszokat mi tesszük ki. A hozzáférést bármikor visszaveheted.</p>
+        </details>
+        <details class="qa glass">
+          <summary><span>Kimehet válasz a tudtom nélkül?</span><svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-chev"/></svg></summary>
+          <p>Nem. Minden választ te hagysz jóvá. Az automata válasz külön kapcsolható be, és alapból csak a pozitív értékelésekre megy.</p>
+        </details>
+        <details class="qa glass">
+          <summary><span>Milyen nyelven írjátok a választ?</span><svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-chev"/></svg></summary>
+          <p>Azon a nyelven, amelyen a vendég írt.</p>
+        </details>
+        <details class="qa glass">
+          <summary><span>Kell Telegram?</span><svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-chev"/></svg></summary>
+          <p>Nem. A jelentés minden reggel a fiókodban is megvan. Telegramra akkor küldjük, ha összekötöd.</p>
+        </details>
+        <details class="qa glass">
+          <summary><span>Mennyibe kerül?</span><svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-chev"/></svg></summary>
+          <p>A csomagok árát hamarosan közzétesszük. A 14 napos próbaidő alatt nem állítunk ki számlát.</p>
+        </details>
+        <details class="qa glass">
+          <summary><span>Több étterem is mehet egy fiókba?</span><svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-chev"/></svg></summary>
+          <p>Igen. Tíz étterem fölött a csomagot személyesen végigvesszük veled.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA, with a glow -->
+  <section class="final section" aria-labelledby="final-title">
+    <div class="wrap final-wrap" data-anim>
+      <div class="final-glow" aria-hidden="true"><i class="sg sg-1"></i><i class="sg sg-2"></i></div>
+      <div class="final-card glass-strong">
+        <h2 id="final-title">Kezdd el ingyen, 14 napig</h2>
+        <p>Regisztrálsz, felveszed az éttermet, és pár perc múlva látod az értékeléseidet. Az első jelentés másnap reggel jön.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary btn-lg" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen, 14 napig<svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-ghost btn-lg" href="#">Kérj bemutatót</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="index.html" aria-label="BistroTech, főoldal">
+          <svg class="lockup" width="162" height="28" viewBox="0 0 760 131" aria-hidden="true" focusable="false">
+            <g transform="translate(-8.1,-4.4) scale(6.2)">
+              <path class="bt-mark" fill-rule="evenodd" d="M 4.01 13.41 A 8.5 8.5 0 1 1 6.31 16.82 L 2.6 20.4 Z M 7.2 14.6 V 11.8 A 1.2 1.2 0 0 1 9.6 11.8 V 14.6 Z M 10.8 14.6 V 9.8 A 1.2 1.2 0 0 1 13.2 9.8 V 14.6 Z M 14.4 14.6 V 7.8 A 1.2 1.2 0 0 1 16.8 7.8 V 14.6 Z"/>
+            </g>
+            <g transform="translate(154,15)">
+              <g class="bt-word">
+                <path transform="translate(0,0)" d="M 6 6 V 94 M 6 6 H 30 A 22 22 0 0 1 30 50 H 6 M 6 50 H 30 A 22 22 0 0 1 30 94 H 6"/>
+                <path transform="translate(66,0)" d="M 7 34 V 94"/>
+                <path transform="translate(88,0)" d="M 44 47 C 44 37 35 34 25 34 C 15 34 6 37 6 47 C 6 57 16 60 25 64 C 34 68 44 71 44 81 C 44 91 35 94 25 94 C 15 94 6 91 6 81"/>
+                <path transform="translate(146,0)" d="M 22 14 V 82 A 12 12 0 0 0 34 94 M 6 34 H 38"/>
+                <path transform="translate(196,0)" d="M 6 94 V 52 A 18 18 0 0 1 24 34"/>
+                <circle transform="translate(230,0)" cx="36" cy="64" r="30"/>
+                <path transform="translate(306,0)" d="M 6 6 H 58 M 32 6 V 94"/>
+                <path transform="translate(372,0)" d="M 6 64 H 66 A 30 30 0 1 0 60.6 81.2"/>
+                <path transform="translate(452,0)" d="M 60.6 46.8 A 30 30 0 1 0 60.6 81.2"/>
+                <path transform="translate(532,0)" d="M 6 6 V 94 M 6 61 A 27 27 0 0 1 60 61 V 94"/>
+              </g>
+              <circle class="bt-dot" cx="73" cy="16" r="7"/>
+            </g>
+          </svg>
+        </a>
+        <p class="foot-line">Értékeléskezelés éttermeknek.</p>
+      </div>
+      <nav class="foot-col" aria-labelledby="foot-product">
+        <h2 class="foot-h" id="foot-product">Termék</h2>
+        <ul>
+          <li><a href="#reggel">Hogyan működik</a></li>
+          <li><a href="#csoportoknak">Csoportoknak</a></li>
+          <li><a href="#csomagok">Csomagok</a></li>
+          <li><a href="https://zsombp.github.io/npi-review-system/">Belépés</a></li>
+        </ul>
+      </nav>
+      <nav class="foot-col" aria-labelledby="foot-help">
+        <h2 class="foot-h" id="foot-help">Segítség</h2>
+        <ul>
+          <li><a href="sugo.html">Súgó</a></li>
+          <li><a href="#">Videók</a></li>
+          <li><a href="#">Kérj bemutatót</a></li>
+        </ul>
+      </nav>
+      <nav class="foot-col" aria-labelledby="foot-legal">
+        <h2 class="foot-h" id="foot-legal">Jogi</h2>
+        <ul>
+          <li><a href="#">ÁSZF</a></li>
+          <li><a href="#">Adatkezelési tájékoztató</a></li>
+          <li><a href="#">Impresszum</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <p>A BistroTechet a Netpromotion Invest Kft. üzemelteti. Magyarul beszélünk.</p>
+      <p class="lang"><span class="lang-on" aria-current="true">HU</span><span class="lang-sep" aria-hidden="true">·</span><a href="#" hreflang="en" lang="en">EN</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>

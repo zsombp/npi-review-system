@@ -1,0 +1,138 @@
+<!doctype html>
+<!-- BistroTech website lab, v0.1.0, 2026-09-25. Three directions for the public website,
+     each a full home page and one help-centre article with real copy and real product
+     screenshots. Pick one; the site, the help centre and the tutorials get built on it.
+     Brief: BRIEF.md. Copy: shared/copy-hu.md. All example data is fictional. -->
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BistroTech weboldal lab</title>
+<style>
+  :root {
+    --bg: #ecebe7; --panel: #ffffff; --ink: #1b1b1b; --muted: #5a5a57; --line: #d6d4ce;
+    --on: #1b1b1b; --on-ink: #ffffff; --focus: #2a48f5;
+    font-family: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg: #151514; --panel: #1f1f1d; --ink: #ecece9; --muted: #a6a6a0; --line: #34342f; --on: #ecece9; --on-ink: #151514; --focus: #8fb0ff; }
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { height: 100%; }
+  body { background: var(--bg); color: var(--ink); display: flex; flex-direction: column; }
+  header { padding: 14px 16px 10px; display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center; border-bottom: 1px solid var(--line); background: var(--panel); }
+  h1 { font-size: 16px; font-weight: 700; letter-spacing: -0.01em; margin-right: 6px; }
+  h1 span { color: var(--muted); font-weight: 500; }
+  .group { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+  .label { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-right: 2px; }
+  button, .open { font: 600 14px/1 inherit; font-family: inherit; min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1.5px solid var(--on); background: transparent; color: var(--ink); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
+  button[aria-pressed="true"] { background: var(--on); color: var(--on-ink); }
+  button:focus-visible, .open:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; border: 1px solid rgba(0,0,0,.25); }
+  .open { border-style: dashed; font-weight: 500; }
+  .note { flex-basis: 100%; font-size: 14px; line-height: 1.45; color: var(--muted); max-width: 110ch; }
+  .note b { color: var(--ink); }
+  main { flex: 1; min-height: 0; display: flex; justify-content: center; padding: 16px; }
+  .stage { width: 100%; height: 100%; display: flex; justify-content: center; align-items: flex-start; }
+  .stage.desktop iframe { width: 100%; height: 100%; min-height: 70vh; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+  .phone { width: 414px; max-width: 100%; height: min(880px, 100%); min-height: 600px; padding: 12px; border-radius: 48px; background: #0d0d0d; box-shadow: 0 20px 50px rgba(0,0,0,.25); }
+  .phone iframe { width: 100%; height: 100%; border: 0; border-radius: 36px; background: #fff; display: block; }
+  .keys { font-size: 12px; color: var(--muted); }
+  kbd { font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; padding: 1px 5px; }
+  @media (max-width: 700px) {
+    .keys { display: none; }
+    main { padding: 8px; }
+    .phone { padding: 0; border-radius: 0; background: none; box-shadow: none; width: 100%; }
+    .phone iframe { border-radius: 10px; border: 1px solid var(--line); }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>BistroTech weboldal <span>lab, 2026. szept. 25.</span></h1>
+  <div class="group" role="group" aria-label="Irány">
+    <span class="label">Irány</span>
+    <button type="button" data-dir="a-piac"><i class="dot" style="background:#c2321b"></i>A · Piac</button>
+    <button type="button" data-dir="b-pop"><i class="dot" style="background:#2a48f5"></i>B · Pop</button>
+    <button type="button" data-dir="c-ejjel"><i class="dot" style="background:#ff7a5c;box-shadow:inset 0 0 0 3px #1a0f14"></i>C · Éjjel</button>
+  </div>
+  <div class="group" role="group" aria-label="Oldal">
+    <span class="label">Oldal</span>
+    <button type="button" data-page="index.html">Főoldal</button>
+    <button type="button" data-page="sugo.html">Súgócikk videóval</button>
+  </div>
+  <div class="group" role="group" aria-label="Méret">
+    <span class="label">Méret</span>
+    <button type="button" data-view="desktop">Asztali</button>
+    <button type="button" data-view="phone">Telefon</button>
+  </div>
+  <a class="open" id="open" href="a-piac/index.html" target="_blank" rel="noopener">Megnyitás külön lapon</a>
+  <span class="keys"><kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> irány · <kbd>F</kbd> <kbd>S</kbd> oldal · <kbd>T</kbd> telefon</span>
+  <p class="note" id="note" aria-live="polite"></p>
+</header>
+<main>
+  <div class="stage desktop" id="stage">
+    <iframe id="frame" title="A kiválasztott irány"></iframe>
+  </div>
+</main>
+<script>
+(() => {
+  const NOTES = {
+    "a-piac": "<b>A · Piac.</b> Az app saját nappali kinézete kerül a weboldalra: meleg piaci színek, üveg a lebegő elemeken, kártyák, egy kártya egy gondolat. A legbiztonságosabb választás: a weboldal és az app egy család.",
+    "b-pop": "<b>B · Pop.</b> Hangos és vidám: teli színblokkok, óriási betűk, vastag fekete keretek, matricák, futó sáv példa-értékelésekkel. Ez az, ami 2026-os díjas oldalnak néz ki, és a legerősebben kitűnik a szürke szoftveroldalak közül.",
+    "c-ejjel": "<b>C · Éjjel.</b> Esti bisztró: sötét, meleg, neon és gyertyafény, teljes üveg. A főszereplő maga a termék: a nyitóképben kattintható app-makett, benne a jóváhagyás. Van nappali kapcsoló is. A prémium választás.",
+  };
+  const DIRS = ["a-piac", "b-pop", "c-ejjel"];
+  const state = { dir: "a-piac", page: "index.html", view: matchMedia("(max-width: 700px)").matches ? "phone" : "desktop" };
+  const read = () => {
+    const [d, p, v] = location.hash.replace("#", "").split("/");
+    if (DIRS.includes(d)) state.dir = d;
+    if (p === "sugo") state.page = "sugo.html"; else if (p === "fooldal") state.page = "index.html";
+    if (v === "phone" || v === "desktop") state.view = v;
+  };
+  const stage = document.getElementById("stage");
+  const note = document.getElementById("note");
+  const open = document.getElementById("open");
+  let frame = document.getElementById("frame");
+  const render = (push) => {
+    const src = `${state.dir}/${state.page}`;
+    for (const b of document.querySelectorAll("[data-dir]")) b.setAttribute("aria-pressed", String(b.dataset.dir === state.dir));
+    for (const b of document.querySelectorAll("[data-page]")) b.setAttribute("aria-pressed", String(b.dataset.page === state.page));
+    for (const b of document.querySelectorAll("[data-view]")) b.setAttribute("aria-pressed", String(b.dataset.view === state.view));
+    note.innerHTML = NOTES[state.dir];
+    open.href = src;
+    const phone = state.view === "phone";
+    stage.className = "stage " + (phone ? "phone-stage" : "desktop");
+    let wrap = stage.querySelector(".phone");
+    if (phone && !wrap) { wrap = document.createElement("div"); wrap.className = "phone"; stage.appendChild(wrap); wrap.appendChild(frame); }
+    if (!phone && wrap) { stage.appendChild(frame); wrap.remove(); }
+    if (!frame.src.endsWith(src)) frame.src = src;
+    const hash = `#${state.dir}/${state.page === "sugo.html" ? "sugo" : "fooldal"}/${state.view}`;
+    if (push && location.hash !== hash) history.replaceState(null, "", hash);
+  };
+  document.addEventListener("click", (e) => {
+    const b = e.target.closest("button");
+    if (!b) return;
+    if (b.dataset.dir) state.dir = b.dataset.dir;
+    if (b.dataset.page) state.page = b.dataset.page;
+    if (b.dataset.view) state.view = b.dataset.view;
+    render(true);
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.metaKey || e.ctrlKey || e.altKey || /input|textarea|select/i.test(e.target.tagName)) return;
+    const k = e.key.toLowerCase();
+    if (["1", "2", "3"].includes(k)) state.dir = DIRS[Number(k) - 1];
+    else if (k === "f") state.page = "index.html";
+    else if (k === "s") state.page = "sugo.html";
+    else if (k === "t") state.view = state.view === "phone" ? "desktop" : "phone";
+    else return;
+    render(true);
+  });
+  addEventListener("hashchange", () => { read(); render(false); });
+  read();
+  render(true);
+})();
+</script>
+</body>
+</html>

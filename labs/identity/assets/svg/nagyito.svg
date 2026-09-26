@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Nagyító egy értékeléskártya fölött">
+<title>Nagyító egy értékeléskártya fölött</title>
+<!-- BistroTech Pop spot illustration, v0.1.0, 2026-09-26. Source: tools/build_svg.py.
+     Outline 2.5 and a 7 px hard shadow in currentColor (ink by default, white on a dark
+     ground when the page sets color: #fff); details ink 6 px; fills from the Pop blocks. -->
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g>
+      <rect x="30" y="36" width="138" height="116" rx="16"/>
+      <rect x="-10" y="0" width="20" height="46" rx="10" transform="translate(182 170) rotate(-45)"/>
+      <circle cx="156" cy="140" r="42"/>
+    </g>
+  </g>
+  <g stroke="currentColor" stroke-width="2.5">
+    <rect x="30" y="36" width="138" height="116" rx="16" fill="#a78bfa"/>
+    <path d="M52 62H104" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M52 86H144" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M52 106H128" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M52 126H96" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <rect x="-10" y="0" width="20" height="46" rx="10" transform="translate(182 170) rotate(-45)" fill="#ff2d9b"/>
+    <circle cx="156" cy="140" r="42" fill="#ffe500"/>
+    <circle cx="156" cy="140" r="30" fill="#ffffff"/>
+    <path d="M138 132H174" fill="none" stroke="#0a0a0a" stroke-width="10"/>
+    <path d="M138 152H162" fill="none" stroke="#0a0a0a" stroke-width="10"/>
+  </g>
+</g>
+</svg>

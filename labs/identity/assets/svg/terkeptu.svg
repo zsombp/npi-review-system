@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Térképtű">
+<title>Térképtű</title>
+<!-- BistroTech Pop spot illustration, v0.1.0, 2026-09-26. Source: tools/build_svg.py.
+     Outline 2.5 and a 7 px hard shadow in currentColor (ink by default, white on a dark
+     ground when the page sets color: #fff); details ink 6 px; fills from the Pop blocks. -->
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g>
+      <ellipse cx="120" cy="198" rx="44" ry="11"/>
+      <path d="M120 196C104 170 64 142 64 92A56 56 0 1 1 176 92C176 142 136 170 120 196Z"/>
+    </g>
+  </g>
+  <g stroke="currentColor" stroke-width="2.5">
+    <ellipse cx="120" cy="198" rx="44" ry="11" fill="#38d6e0"/>
+    <path d="M120 196C104 170 64 142 64 92A56 56 0 1 1 176 92C176 142 136 170 120 196Z" fill="#ff2d9b"/>
+    <circle cx="120" cy="92" r="22" fill="#ffffff"/>
+  </g>
+</g>
+</svg>

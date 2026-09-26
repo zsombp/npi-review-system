@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Válasz: szövegbuborék">
+<title>Válasz: szövegbuborék</title>
+<!-- BistroTech Pop spot illustration, v0.1.0, 2026-09-26. Source: tools/build_svg.py.
+     Outline 2.5 and a 7 px hard shadow in currentColor (ink by default, white on a dark
+     ground when the page sets color: #fff); details ink 6 px; fills from the Pop blocks. -->
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g>
+      <path d="M66 58H172A34 34 0 0 1 206 92V128A34 34 0 0 1 172 162H170Q174 177 191 187Q195 191 188 193Q155 191 132 162H66A34 34 0 0 1 32 128V92A34 34 0 0 1 66 58Z"/>
+      <circle cx="44" cy="58" r="21"/>
+    </g>
+  </g>
+  <g stroke="currentColor" stroke-width="2.5">
+    <path d="M66 58H172A34 34 0 0 1 206 92V128A34 34 0 0 1 172 162H170Q174 177 191 187Q195 191 188 193Q155 191 132 162H66A34 34 0 0 1 32 128V92A34 34 0 0 1 66 58Z" fill="#ff2d9b"/>
+    <path d="M68 90H176" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M68 110H160" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M68 130H122" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <circle cx="44" cy="58" r="21" fill="#9be15d"/>
+    <path d="M34.2 58.05L41 64L52.05 52.1" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+  </g>
+</g>
+</svg>

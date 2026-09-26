@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Papírzacskó">
+<title>Papírzacskó</title>
+<!-- BistroTech Pop spot illustration, v0.1.0, 2026-09-26. Source: tools/build_svg.py.
+     Outline 2.5 and a 7 px hard shadow in currentColor (ink by default, white on a dark
+     ground when the page sets color: #fff); details ink 6 px; fills from the Pop blocks. -->
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g transform="rotate(4 120 120)">
+      <path d="M60 88H180L186 200Q187 208 179 208H61Q53 208 54 200Z"/>
+    </g>
+  </g>
+  <g transform="rotate(4 120 120)" stroke="currentColor" stroke-width="2.5">
+    <path d="M60 88H180L186 200Q187 208 179 208H61Q53 208 54 200Z" fill="#ff7a3d"/>
+    <path d="M60 88H180L181.6 112H58.4Z" fill="#ffe500"/>
+    <path d="M98 100C98 58 142 58 142 100" fill="none" stroke-width="6"/>
+    <circle cx="98" cy="101" r="4.5" fill="#0a0a0a" stroke="none"/>
+    <circle cx="142" cy="101" r="4.5" fill="#0a0a0a" stroke="none"/>
+  </g>
+</g>
+</svg>

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Asztali kártya QR-mintával">
+<title>Asztali kártya QR-mintával</title>
+<!-- BistroTech Pop spot illustration, v0.1.0, 2026-09-26. Source: tools/build_svg.py.
+     Outline 2.5 and a 7 px hard shadow in currentColor (ink by default, white on a dark
+     ground when the page sets color: #fff); details ink 6 px; fills from the Pop blocks. -->
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g>
+      <path d="M156 44L200 184Q202 192 194 194L169 200Z"/>
+      <path d="M70 40H152Q158 40 159 46L170 196Q171 204 163 204H59Q51 204 52 196L63 46Q64 40 70 40Z"/>
+    </g>
+  </g>
+  <g stroke="currentColor" stroke-width="2.5">
+    <path d="M156 44L200 184Q202 192 194 194L169 200Z" fill="#9be15d"/>
+    <path d="M70 40H152Q158 40 159 46L170 196Q171 204 163 204H59Q51 204 52 196L63 46Q64 40 70 40Z" fill="#9be15d"/>
+    <rect x="80" y="58" width="62" height="14" rx="7" fill="#ff2d9b"/>
+    <rect x="74" y="86" width="75" height="75" rx="8" fill="#ffffff"/>
+    <rect x="82.5" y="93.5" width="18" height="18" rx="2" fill="none" stroke="#0a0a0a" stroke-width="3"/>
+    <rect x="88" y="99" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="124.5" y="93.5" width="18" height="18" rx="2" fill="none" stroke="#0a0a0a" stroke-width="3"/>
+    <rect x="130" y="99" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="82.5" y="135.5" width="18" height="18" rx="2" fill="none" stroke="#0a0a0a" stroke-width="3"/>
+    <rect x="88" y="141" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="109" y="92" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="102" y="99" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="116" y="99" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="109" y="106" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="116" y="106" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="81" y="113" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="95" y="113" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="109" y="113" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="123" y="113" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="130" y="113" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="88" y="120" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="95" y="120" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="116" y="120" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="137" y="120" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="81" y="127" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="109" y="127" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="116" y="127" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="130" y="127" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="102" y="134" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="123" y="134" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="130" y="134" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="109" y="141" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="123" y="141" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="137" y="141" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="102" y="148" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="109" y="148" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+    <rect x="130" y="148" width="7" height="7" fill="#0a0a0a" stroke="none"/>
+  </g>
+</g>
+</svg>

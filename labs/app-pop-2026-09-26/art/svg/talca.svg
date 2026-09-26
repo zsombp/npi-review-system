@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Üres tálca">
+<title>Üres tálca</title>
+<!-- BistroTech Pop spot illustration, v0.1.0, 2026-09-26. Source: tools/build_svg.py.
+     Outline 2.5 and a 7 px hard shadow in currentColor (ink by default, white on a dark
+     ground when the page sets color: #fff); details ink 6 px; fills from the Pop blocks. -->
+<g stroke-linejoin="round" stroke-linecap="round">
+  <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+    <g>
+      <path d="M54 114H186Q196 114 200 122L220 168Q224 178 212 178H28Q16 178 20 168L40 122Q44 114 54 114Z"/>
+      <path d="M54 102H186Q196 102 200 110L220 156Q224 166 212 166H28Q16 166 20 156L40 110Q44 102 54 102Z"/>
+      <circle cx="190" cy="62" r="21"/>
+    </g>
+  </g>
+  <g stroke="currentColor" stroke-width="2.5">
+    <path d="M54 114H186Q196 114 200 122L220 168Q224 178 212 178H28Q16 178 20 168L40 122Q44 114 54 114Z" fill="#38d6e0"/>
+    <path d="M54 102H186Q196 102 200 110L220 156Q224 166 212 166H28Q16 166 20 156L40 110Q44 102 54 102Z" fill="#38d6e0"/>
+    <path d="M66 114H174Q181 114 184 120L199 150Q202 156 195 156H45Q38 156 41 150L56 120Q59 114 66 114Z" fill="#ffffff"/>
+    <path d="M41 129L36 141" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <path d="M199 129L204 141" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+    <circle cx="190" cy="62" r="21" fill="#9be15d"/>
+    <path d="M180.2 62.05L187 68L198.05 56.1" fill="none" stroke="#0a0a0a" stroke-width="6"/>
+  </g>
+</g>
+</svg>

@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="hu" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Válasz jóváhagyása · BistroTech súgó</title>
+<meta name="description" content="Minden új értékeléshez megírjuk a választ. Amíg nem hagyod jóvá, nem megy ki sehova. Így nézed át őket.">
+<meta name="theme-color" content="#38d6e0">
+<link rel="preload" href="../shared/fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../shared/fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/svg+xml" href="../shared/logo/bistrotech-favicon.svg">
+<script>document.documentElement.className = "js";</script>
+<!-- BistroTech website lab, direction B "Pop": help article "Válasz jóváhagyása".
+     v0.1.0, 2026-09-25. Copy: ../shared/copy-hu.md, help article part. The article list
+     under the search is a small fixed list for the lab; only this article exists.
+     The video is the real <video> element over the recording in ../shared/video (portrait,
+     a phone at 2x), in a phone frame. If a file is missing, the frame still reads as designed
+     and pressing play shows "A videó készül.". The step chapters take their times from the
+     caption track at run time, so a new recording never leaves a stale number here. -->
+</head>
+<body>
+<a class="skip" href="#main">Ugrás a tartalomra</a>
+
+<svg class="sprite" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="2.5"/><path d="m16 10.5 5-3v9l-5-3"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3.5 12.3V4.5a1 1 0 0 1 1-1h7.8l8.2 8.2-8.8 8.8z"/><circle cx="8.5" cy="8.5" r="1.5"/></symbol>
+  <symbol id="i-kbd" viewBox="0 0 24 24"><rect x="3" y="6.5" width="18" height="11" rx="2.5"/><path d="M7 10h.01M10 10h.01M13 10h.01M16 10h.01M8 14h8"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5M12 8h.01"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="2.5"/><path d="m4.5 7.5 7.5 5.5 7.5-5.5"/></symbol>
+</svg>
+
+<header class="site-head">
+  <div class="nav-bar">
+    <a class="logo" href="index.html" aria-label="BistroTech, főoldal">
+      <svg class="lockup" width="162" height="28" viewBox="0 0 760 131" aria-hidden="true" focusable="false">
+        <g transform="translate(-8.1,-4.4) scale(6.2)">
+          <path class="bt-mark" fill-rule="evenodd" d="M 4.01 13.41 A 8.5 8.5 0 1 1 6.31 16.82 L 2.6 20.4 Z M 7.2 14.6 V 11.8 A 1.2 1.2 0 0 1 9.6 11.8 V 14.6 Z M 10.8 14.6 V 9.8 A 1.2 1.2 0 0 1 13.2 9.8 V 14.6 Z M 14.4 14.6 V 7.8 A 1.2 1.2 0 0 1 16.8 7.8 V 14.6 Z"/>
+        </g>
+        <g transform="translate(154,15)">
+          <g class="bt-word">
+            <path transform="translate(0,0)" d="M 6 6 V 94 M 6 6 H 30 A 22 22 0 0 1 30 50 H 6 M 6 50 H 30 A 22 22 0 0 1 30 94 H 6"/>
+            <path transform="translate(66,0)" d="M 7 34 V 94"/>
+            <path transform="translate(88,0)" d="M 44 47 C 44 37 35 34 25 34 C 15 34 6 37 6 47 C 6 57 16 60 25 64 C 34 68 44 71 44 81 C 44 91 35 94 25 94 C 15 94 6 91 6 81"/>
+            <path transform="translate(146,0)" d="M 22 14 V 82 A 12 12 0 0 0 34 94 M 6 34 H 38"/>
+            <path transform="translate(196,0)" d="M 6 94 V 52 A 18 18 0 0 1 24 34"/>
+            <circle transform="translate(230,0)" cx="36" cy="64" r="30"/>
+            <path transform="translate(306,0)" d="M 6 6 H 58 M 32 6 V 94"/>
+            <path transform="translate(372,0)" d="M 6 64 H 66 A 30 30 0 1 0 60.6 81.2"/>
+            <path transform="translate(452,0)" d="M 60.6 46.8 A 30 30 0 1 0 60.6 81.2"/>
+            <path transform="translate(532,0)" d="M 6 6 V 94 M 6 61 A 27 27 0 0 1 60 61 V 94"/>
+          </g>
+          <circle class="bt-dot" cx="73" cy="16" r="7"/>
+        </g>
+      </svg>
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu">
+      <svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg>
+      <span>Menü</span>
+    </button>
+    <div class="site-menu" id="site-menu">
+      <nav class="nav-main" aria-label="Fő navigáció">
+        <ul>
+          <li><a href="index.html#hogyan-mukodik">Hogyan működik</a></li>
+          <li><a href="index.html#csoportoknak">Csoportoknak</a></li>
+          <li><a href="index.html#csomagok">Csomagok</a></li>
+          <li><a href="sugo.html" aria-current="page">Súgó</a></li>
+          <li><a href="https://zsombp.github.io/npi-review-system/">Belépés</a></li>
+        </ul>
+      </nav>
+      <div class="nav-end">
+        <p class="lang"><span class="lang-on" aria-current="true">HU</span><a href="#" hreflang="en" lang="en">EN</a></p>
+        <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="blk blk-cyan help-hero" aria-label="Keresés a súgóban">
+    <div class="wrap">
+      <p class="help-kicker"><span class="w-stk">Súgó<span class="sticker sticker-help" aria-hidden="true">magyarul</span></span></p>
+      <p class="help-sub">Minden lépéshez leírás képekkel és egy rövid videó a fiókból. Magyarul.</p>
+      <form class="help-search" role="search" action="#" novalidate>
+        <label for="help-q">Keresés a súgóban</label>
+        <div class="search-field">
+          <svg class="ic" width="26" height="26" aria-hidden="true" focusable="false"><use href="#i-search"/></svg>
+          <input id="help-q" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="Keress a súgóban, például: napi jelentés" aria-describedby="results-count" aria-controls="results-list">
+        </div>
+      </form>
+      <div class="cats" role="group" aria-label="Témakörök">
+        <button type="button" class="chip" data-cat="kezdes" aria-pressed="false">Kezdés</button>
+        <button type="button" class="chip" data-cat="jelentes" aria-pressed="false">Napi jelentés</button>
+        <button type="button" class="chip" data-cat="ertekelesek" aria-pressed="false">Értékelések</button>
+        <button type="button" class="chip" data-cat="valaszok" aria-pressed="false">Válaszok</button>
+        <button type="button" class="chip" data-cat="kimutatasok" aria-pressed="false">Kimutatások</button>
+        <button type="button" class="chip" data-cat="csapat" aria-pressed="false">Csapat és fiók</button>
+        <button type="button" class="chip" data-cat="elofizetes" aria-pressed="false">Előfizetés</button>
+      </div>
+      <p class="results-count" id="results-count" role="status" aria-live="polite"></p>
+      <div class="results" id="results" hidden>
+        <ul class="results-list" id="results-list">
+          <li data-cat="kezdes"><a href="#"><span class="res-title">Regisztráció</span><span class="res-cat c-yellow">Kezdés</span></a></li>
+          <li data-cat="kezdes"><a href="#"><span class="res-title">Étterem felvétele</span><span class="res-cat c-yellow">Kezdés</span></a></li>
+          <li data-cat="kezdes"><a href="#"><span class="res-title">Kezelőnek felveszel minket a Google-on</span><span class="res-cat c-yellow">Kezdés</span></a></li>
+          <li data-cat="kezdes"><a href="#"><span class="res-title">A BistroTech a telefonod kezdőképernyőjén</span><span class="res-cat c-yellow">Kezdés</span></a></li>
+          <li data-cat="jelentes"><a href="#"><span class="res-title">A napi jelentés beállítása</span><span class="res-cat c-orange">Napi jelentés</span></a></li>
+          <li data-cat="jelentes"><a href="#"><span class="res-title">Telegram összekötése</span><span class="res-cat c-orange">Napi jelentés</span></a></li>
+          <li data-cat="ertekelesek"><a href="#"><span class="res-title">Keresés az értékelések között</span><span class="res-cat c-cyan">Értékelések</span></a></li>
+          <li data-cat="ertekelesek"><a href="#"><span class="res-title">Tripadvisor-értékelések</span><span class="res-cat c-cyan">Értékelések</span></a></li>
+          <li data-cat="valaszok"><a href="sugo.html" aria-current="page"><span class="res-title">Válasz jóváhagyása<span class="res-here">Ezt olvasod</span></span><span class="res-cat c-pink">Válaszok</span></a></li>
+          <li data-cat="valaszok"><a href="#"><span class="res-title">Automata válasz: mit kapcsolsz be</span><span class="res-cat c-pink">Válaszok</span></a></li>
+          <li data-cat="kimutatasok"><a href="#"><span class="res-title">Mi ismétlődik: témák és napszakok</span><span class="res-cat c-green">Kimutatások</span></a></li>
+          <li data-cat="csapat"><a href="#"><span class="res-title">Kollégák meghívása</span><span class="res-cat c-lilac">Csapat és fiók</span></a></li>
+          <li data-cat="csapat"><a href="#"><span class="res-title">Ki melyik éttermet látja</span><span class="res-cat c-lilac">Csapat és fiók</span></a></li>
+          <li data-cat="elofizetes"><a href="#"><span class="res-title">A 14 napos próbaidő</span><span class="res-cat c-white">Előfizetés</span></a></li>
+          <li data-cat="elofizetes"><a href="#"><span class="res-title">Mi van a csomagokban</span><span class="res-cat c-white">Előfizetés</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap help-main">
+    <nav class="crumbs" aria-label="Útvonal">
+      <ol>
+        <li><a href="sugo.html">Súgó</a></li>
+        <li><a href="#">Válaszok</a></li>
+        <li><span aria-current="page">Válasz jóváhagyása</span></li>
+      </ol>
+    </nav>
+
+    <div class="help-layout">
+      <article class="article" aria-labelledby="art-title">
+        <header class="art-head">
+          <h1 id="art-title">Válasz <span class="mk mk-pink">jóváhagyása<svg class="mk-line" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M2 7.5C20 4 40 9.5 60 6.5S88 4.5 98 7.5"/></svg></span></h1>
+          <ul class="meta" aria-label="A leírásról">
+            <li class="c-pink"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-tag"/></svg>Válaszok</li>
+            <li><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>2 perc olvasás</li>
+            <li class="c-yellow"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-video"/></svg>Videóval</li>
+          </ul>
+          <p class="art-intro">Minden új értékeléshez megírjuk a választ. Amíg nem hagyod jóvá, nem megy ki sehova. Így nézed át őket.</p>
+        </header>
+
+        <figure class="vid" id="video" data-state="idle" aria-labelledby="vid-cap">
+          <div class="vid-card">
+            <div class="vid-phone">
+              <div class="vid-screen">
+                <p class="vid-empty" aria-hidden="true"><span>Videó</span>Válasz jóváhagyása</p>
+                <video class="vid-el" controls muted playsinline preload="none" width="780" height="1688" poster="../shared/video/valasz-jovahagyas-poster.png" aria-label="Videó: válasz jóváhagyása a fiókban" aria-describedby="vid-cap">
+                  <source src="../shared/video/valasz-jovahagyas.mp4" type='video/mp4; codecs="avc1.640028"'>
+                  <source src="../shared/video/valasz-jovahagyas.webm" type='video/webm; codecs="vp9"'>
+                  <track kind="captions" srclang="hu" label="Magyar" src="../shared/video/valasz-jovahagyas.hu.vtt" default>
+                  <track kind="captions" srclang="en" label="English" src="../shared/video/valasz-jovahagyas.en.vtt">
+                </video>
+                <button class="vid-play" type="button">
+                  <span class="vid-play-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg></span>
+                  Lejátszás
+                </button>
+                <div class="vid-missing" tabindex="-1" hidden>
+                  <p class="vid-missing-t">A videó készül.</p>
+                  <p>Addig olvasd el lent <a href="#lepesek">a lépéseket</a>.</p>
+                </div>
+              </div>
+            </div>
+            <div class="vid-side">
+              <p class="sticker vid-tag">Videó a fiókból</p>
+              <p class="vid-lead">Így hagysz jóvá egy választ, a Válaszok fültől a visszavonásig.</p>
+              <div class="chapters" hidden>
+                <p class="chapters-label" id="ch-label">Ugrás a lépéshez</p>
+                <ol class="chapters-list" aria-labelledby="ch-label">
+                  <li><button type="button" class="chapter c-yellow" data-cue="Nyisd meg a Válaszok"><span class="ch-t"></span><span class="ch-l">Nyisd meg a Válaszok fület</span></button></li>
+                  <li><button type="button" class="chapter c-pink" data-cue="Elöl a legrosszabb"><span class="ch-t"></span><span class="ch-l">Olvasd el a választ</span></button></li>
+                  <li><button type="button" class="chapter c-cyan" data-cue="Ha kell, írd át"><span class="ch-t"></span><span class="ch-l">Írd át, ha kell</span></button></li>
+                  <li><button type="button" class="chapter c-green" data-cue="Nyomd meg a Jóváhagyás"><span class="ch-t"></span><span class="ch-l">Jóváhagyás és visszavonás</span></button></li>
+                  <li><button type="button" class="chapter c-orange" data-cue="Ha a Google-on"><span class="ch-t"></span><span class="ch-l">Kitesszük, vagy kimásolod</span></button></li>
+                  <li><button type="button" class="chapter c-lilac" data-cue="Billentyűzettel gyorsabb"><span class="ch-t"></span><span class="ch-l">Billentyűzettel gyorsabb</span></button></li>
+                </ol>
+              </div>
+            </div>
+          </div>
+          <p class="sr-only vid-status" role="status" aria-live="polite"></p>
+          <figcaption id="vid-cap">A videó a bemutatófiókról készült, hang nélkül, magyar felirattal. Az éttermek nevei, a vendégek szövegei és a számok kitaláltak.</figcaption>
+        </figure>
+
+        <h2 class="hsteps-title" id="lepesek">Lépésről lépésre</h2>
+        <ol class="hsteps">
+          <li class="hstep">
+            <span class="hstep-n c-yellow" aria-hidden="true">1</span>
+            <div class="hstep-body step1">
+              <p>Nyisd meg a <span class="ui">Válaszok</span> fület. A fül mellett látod, hány válasz vár.</p>
+              <figure class="shot">
+                <div class="crop">
+                  <img src="../shared/img/app-drafts-mobile.png" width="780" height="1688" loading="lazy" decoding="async" alt="A Válaszok képernyő alja telefonon: fent a Jóváhagyás és a Kihagyás gomb, lent a fülek. A Válaszok fül mellett a szám mutatja, hány válasz vár.">
+                  <span class="crop-ring" aria-hidden="true"></span>
+                </div>
+                <figcaption>A kép a bemutatófiókról készült. Az éttermek nevei, a vendégek szövegei és a számok kitaláltak.</figcaption>
+              </figure>
+            </div>
+          </li>
+          <li class="hstep">
+            <span class="hstep-n c-pink" aria-hidden="true">2</span>
+            <div class="hstep-body"><p>Elöl a legrosszabb értékelés áll. Olvasd el, alatta a kész válasz.</p></div>
+          </li>
+          <li class="hstep">
+            <span class="hstep-n c-cyan" aria-hidden="true">3</span>
+            <div class="hstep-body"><p>Ha kell, írd át. Az <span class="ui">Átírás</span> gombokkal rövidebbre, melegebbre vagy határozottabbra kérheted, magázóra vagy tegezőre fordíthatod. Az eredetit bármikor visszaállíthatod.</p></div>
+          </li>
+          <li class="hstep">
+            <span class="hstep-n c-green" aria-hidden="true">4</span>
+            <div class="hstep-body"><p>Nyomd meg a <span class="ui">Jóváhagyás</span> gombot. Nyolc másodpercig visszavonhatod.</p></div>
+          </li>
+          <li class="hstep">
+            <span class="hstep-n c-orange" aria-hidden="true">5</span>
+            <div class="hstep-body"><p>Ha a <span class="nowrap">Google-on</span> kezelőnek vettél fel minket, pár percen belül kitesszük a választ. Ha még nem, a <span class="ui">Másolás és Google megnyitása</span> gombbal kimásolod, és a <span class="nowrap">Google-on</span> beilleszted.</p></div>
+          </li>
+        </ol>
+
+        <section class="tip" id="billentyuk" aria-labelledby="tip-title">
+          <div class="tip-head">
+            <span class="tip-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-kbd"/></svg></span>
+            <h2 id="tip-title">Billentyűzettel gyorsabb</h2>
+          </div>
+          <ul class="keys">
+            <li><kbd>A</kbd>jóváhagy</li>
+            <li><kbd>S</kbd>kihagy</li>
+            <li><span class="pair"><kbd>J</kbd>és<kbd>K</kbd></span>lépked</li>
+            <li><kbd>E</kbd>szerkeszt</li>
+            <li><kbd>O</kbd>megnyitja a Google-t</li>
+            <li><kbd>U</kbd>visszavon</li>
+          </ul>
+        </section>
+
+        <div class="note">
+          <svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-info"/></svg>
+          <p>A kihagyott értékelés válasz nélkül marad. Az Értékelések között később is megtalálod.</p>
+        </div>
+
+        <section class="feedback" aria-labelledby="fb-q">
+          <p class="fb-q" id="fb-q">Segített ez a leírás?</p>
+          <div class="fb-btns" role="group" aria-labelledby="fb-q">
+            <button type="button" class="btn btn-white" data-fb="igen" aria-pressed="false">Igen</button>
+            <button type="button" class="btn btn-white" data-fb="nem" aria-pressed="false">Nem</button>
+          </div>
+          <p class="fb-done" role="status" aria-live="polite"></p>
+        </section>
+
+        <section class="related" id="kapcsolodo" aria-labelledby="rel-title">
+          <h2 id="rel-title">Kapcsolódó leírások</h2>
+          <ul class="link-list">
+            <li><a href="#">Automata válasz: mit kapcsolsz be<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></li>
+            <li><a href="#">Kezelőnek felveszel minket a Google-on<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></li>
+            <li><a href="#">A napi jelentés beállítása<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></li>
+          </ul>
+        </section>
+
+        <section class="contact" aria-labelledby="contact-t">
+          <p class="contact-t" id="contact-t">Nem találod, amit keresel? Írj nekünk, magyarul válaszolunk.</p>
+          <a class="btn btn-yellow" href="#"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>Írj nekünk</a>
+        </section>
+      </article>
+
+      <aside class="help-side" aria-label="Ebben a leírásban">
+        <div class="side-box">
+          <h2>Ebben a leírásban</h2>
+          <ol>
+            <li class="c-yellow"><a href="#video">Videó</a></li>
+            <li class="c-pink"><a href="#lepesek">Lépésről lépésre</a></li>
+            <li class="c-cyan"><a href="#billentyuk">Billentyűzettel gyorsabb</a></li>
+            <li class="c-green"><a href="#kapcsolodo">Kapcsolódó leírások</a></li>
+          </ol>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <p class="foot-line">Értékeléskezelés éttermeknek.</p>
+      <p class="foot-op">A BistroTechet a Netpromotion Invest Kft. üzemelteti. Magyarul beszélünk.</p>
+      <p class="lang lang-foot"><span class="lang-on" aria-current="true">HU</span><a href="#" hreflang="en" lang="en">EN</a></p>
+    </div>
+    <nav class="foot-col" aria-labelledby="foot-product">
+      <h2 id="foot-product">BistroTech</h2>
+      <ul>
+        <li><a href="index.html#hogyan-mukodik">Hogyan működik</a></li>
+        <li><a href="index.html#csoportoknak">Csoportoknak</a></li>
+        <li><a href="index.html#csomagok">Csomagok</a></li>
+        <li><a href="https://zsombp.github.io/npi-review-system/">Belépés</a></li>
+      </ul>
+    </nav>
+    <nav class="foot-col" aria-labelledby="foot-help">
+      <h2 id="foot-help">Segítség</h2>
+      <ul>
+        <li><a href="sugo.html">Súgó</a></li>
+        <li><a href="#video">Videók</a></li>
+        <li><a href="#">Kérj bemutatót</a></li>
+      </ul>
+    </nav>
+    <nav class="foot-col" aria-labelledby="foot-docs">
+      <h2 id="foot-docs">Dokumentumok</h2>
+      <ul>
+        <li><a href="#">ÁSZF</a></li>
+        <li><a href="#">Adatkezelési tájékoztató</a></li>
+        <li><a href="#">Impresszum</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="wrap foot-mega">
+    <a class="logo logo-mega" href="index.html" aria-label="BistroTech, főoldal">
+      <svg class="lockup" width="760" height="131" viewBox="0 0 760 131" aria-hidden="true" focusable="false">
+        <g transform="translate(-8.1,-4.4) scale(6.2)">
+          <path class="bt-mark" fill-rule="evenodd" d="M 4.01 13.41 A 8.5 8.5 0 1 1 6.31 16.82 L 2.6 20.4 Z M 7.2 14.6 V 11.8 A 1.2 1.2 0 0 1 9.6 11.8 V 14.6 Z M 10.8 14.6 V 9.8 A 1.2 1.2 0 0 1 13.2 9.8 V 14.6 Z M 14.4 14.6 V 7.8 A 1.2 1.2 0 0 1 16.8 7.8 V 14.6 Z"/>
+        </g>
+        <g transform="translate(154,15)">
+          <g class="bt-word">
+            <path transform="translate(0,0)" d="M 6 6 V 94 M 6 6 H 30 A 22 22 0 0 1 30 50 H 6 M 6 50 H 30 A 22 22 0 0 1 30 94 H 6"/>
+            <path transform="translate(66,0)" d="M 7 34 V 94"/>
+            <path transform="translate(88,0)" d="M 44 47 C 44 37 35 34 25 34 C 15 34 6 37 6 47 C 6 57 16 60 25 64 C 34 68 44 71 44 81 C 44 91 35 94 25 94 C 15 94 6 91 6 81"/>
+            <path transform="translate(146,0)" d="M 22 14 V 82 A 12 12 0 0 0 34 94 M 6 34 H 38"/>
+            <path transform="translate(196,0)" d="M 6 94 V 52 A 18 18 0 0 1 24 34"/>
+            <circle transform="translate(230,0)" cx="36" cy="64" r="30"/>
+            <path transform="translate(306,0)" d="M 6 6 H 58 M 32 6 V 94"/>
+            <path transform="translate(372,0)" d="M 6 64 H 66 A 30 30 0 1 0 60.6 81.2"/>
+            <path transform="translate(452,0)" d="M 60.6 46.8 A 30 30 0 1 0 60.6 81.2"/>
+            <path transform="translate(532,0)" d="M 6 6 V 94 M 6 61 A 27 27 0 0 1 60 61 V 94"/>
+          </g>
+          <circle class="bt-dot" cx="73" cy="16" r="7"/>
+        </g>
+      </svg>
+    </a>
+    <p class="foot-meta">Weboldal-lab, B irány: Pop. v0.1.0, 2026-09-25.</p>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
