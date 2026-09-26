@@ -1,50 +1,83 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BistroTech, your venues' Google reviews in one place</title>
-<meta name="description" content="Every venue's Google reviews, the replies and the numbers in one place. The report arrives every morning. Free for 14 days.">
+<title>BistroTech, your venues&#x27; Google reviews in one place</title>
+<meta name="description" content="All your venues&#x27; Google reviews, the replies and the numbers in one place. The report arrives every morning. Free for 14 days.">
+<meta name="theme-color" content="#ffe500">
+<link rel="canonical" href="https://zsombp.github.io/npi-review-system/landing/en/">
+
+<link rel="alternate" hreflang="hu" href="https://zsombp.github.io/npi-review-system/landing/">
+<link rel="alternate" hreflang="en" href="https://zsombp.github.io/npi-review-system/landing/en/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BistroTech">
 <meta property="og:locale" content="en_GB">
 <meta property="og:locale:alternate" content="hu_HU">
-<meta property="og:title" content="BistroTech, your venues&#39; Google reviews in one place">
-<meta property="og:description" content="Every venue&#39;s Google reviews, the replies and the numbers in one place. The report arrives every morning. Free for 14 days.">
-<link rel="alternate" hreflang="hu" href="../index.html">
-<link rel="alternate" hreflang="en" href="index.html">
-<link rel="stylesheet" href="../style.css">
-<link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<!-- BistroTech landing, en, v0.4.0, 2026-09-17. The English twin of ../index.html,
-     rewritten against docs/design/DESIGN-BRIEF-v0.1.0.md section 8 and
-     docs/design/COPY-GUIDE-v0.1.0.md. Written as English, not as a word-for-word
-     rendering of the Hungarian: the sentences are shorter, the contractions are
-     allowed, and the money and dates are en-GB.
-     Every path is relative and one level up, because the site is served from
-     /npi-review-system/landing/. -->
-<!-- TODO-PROOF: no canonical tag, no absolute hreflang, no Open Graph image, no
-     metric, no customer quote and no logo anywhere on this page. Same reasons as
-     the Hungarian page: the public domain is undecided, a share card needs a real
-     asset, D-006 forbids an unmeasured number and D-009 collects proof only after
-     a customer is paying. -->
-</head>
-<body>
-<a class="skip" href="#main">Skip to the content</a>
+<meta property="og:title" content="BistroTech, your venues&#x27; Google reviews in one place">
+<meta property="og:description" content="All your venues&#x27; Google reviews, the replies and the numbers in one place. The report arrives every morning. Free for 14 days.">
+<meta property="og:url" content="https://zsombp.github.io/npi-review-system/landing/en/">
 
-<!-- The pictogram set, redrawn from the emoji the product sends to Telegram,
-     because published material never pastes an emoji (BRAND section 8 rule 3). -->
-<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
-  <symbol id="g-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20v-6M12 20V7M19 20v-9"/></symbol>
-  <symbol id="g-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
-  <symbol id="g-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
-  <symbol id="g-warn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5 21 19.5H3z"/><path d="M12 10v4M12 17h.01"/></symbol>
-  <symbol id="g-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
-  <symbol id="g-star" viewBox="0 0 12 12"><path fill="currentColor" d="M 6 .4 7.41 4.06 11.33 4.27 8.28 6.74 9.29 10.53 6 8.4 2.71 10.53 3.72 6.74 .67 4.27 4.59 4.06 Z"/></symbol>
+<meta property="og:image" content="https://zsombp.github.io/npi-review-system/landing/img/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="BistroTech: every review in one place, one report every morning.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../css/site.css?v=f3e299ab03">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<script>document.documentElement.className = "js";</script>
+<!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
+     content/en/; edit those and rebuild, never dist/ by hand. -->
+
+</head>
+<body class="pg-home">
+<a class="skip" href="#main">Skip to the content</a>
+<!-- Pictograms. 24 px grid, 1.5 px stroke, currentColor, round caps and joins (BRAND
+     section 7). The star is the one filled shape and appears only as data. -->
+<svg class="sprite" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false">
+  <symbol id="g-chart" viewBox="0 0 24 24"><path d="M5 20v-6M12 20V7M19 20v-9"/></symbol>
+  <symbol id="g-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+  <symbol id="g-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="g-warn" viewBox="0 0 24 24"><path d="M12 4.5 21 19.5H3z"/><path d="M12 10v4M12 17h.01"/></symbol>
+  <symbol id="g-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="g-star" viewBox="0 0 12 12"><path fill="currentColor" stroke="none" d="M 6 .4 7.41 4.06 11.33 4.27 8.28 6.74 9.29 10.53 6 8.4 2.71 10.53 3.72 6.74 .67 4.27 4.59 4.06 Z"/></symbol>
+  <symbol id="g-star-o" viewBox="0 0 12 12"><path fill="none" stroke="currentColor" stroke-width="1" d="M 6 1.3 7.1 4.5 10.5 4.7 7.85 6.85 8.7 10.1 6 8.3 3.3 10.1 4.15 6.85 1.5 4.7 4.9 4.5 Z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16.5V11a6 6 0 1 1 12 0v5.5l1.5 1.5h-15z"/><path d="M10 20.5a2.2 2.2 0 0 0 4 0"/></symbol>
+  <symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8.5h14.5M15 5l3.5 3.5L15 12M20 15.5H5.5M9 12l-3.5 3.5L9 19"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6.5h11M9 12h11M9 17.5h6M4.5 6.5h.01M4.5 12h.01M4.5 17.5h.01"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3.5"/><path d="M3 19.5c.8-3.2 3.2-5 6-5s5.2 1.8 6 5M15.5 5.2a3.5 3.5 0 0 1 0 6.6M17.5 14.8c1.8.6 3 2.2 3.5 4.7"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c.9-3.6 3.7-5.5 7-5.5s6.1 1.9 7 5.5"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15.5" r="4"/><path d="M11 12.5 19.5 4M16 7.5l2.5 2.5M13.5 10l2 2"/></symbol>
+  <symbol id="i-ask" viewBox="0 0 24 24"><path d="M4 5.5h16v10.5H10.5L6 19.5V16H4z"/><path d="M10.1 9a1.9 1.9 0 1 1 2.7 1.7c-.5.3-.8.6-.8 1.2v.2M12 14h.01"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 17.5h2"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3.5 12.3V4.5a1 1 0 0 1 1-1h7.8l8.2 8.2-8.8 8.8z"/><circle cx="8.5" cy="8.5" r="1.5"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5M12 8h.01"/></symbol>
+  <symbol id="i-undo" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="2.5"/><path d="m16 10.5 5-3v9l-5-3"/></symbol>
+  <symbol id="i-kbd" viewBox="0 0 24 24"><rect x="3" y="6.5" width="18" height="11" rx="2.5"/><path d="M7 10h.01M10 10h.01M13 10h.01M16 10h.01M8 14h8"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="2.5"/><path d="m4.5 7.5 7.5 5.5 7.5-5.5"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9.5 18h5M10.5 21h3"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.7.5 1.1 1.3 1.1 2.1v.1h5v-.1c0-.8.4-1.6 1.1-2.1A6 6 0 0 0 12 3z"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6.5 3.5h7l4 4v13h-11z"/><path d="M13.5 3.5v4h4M9 12h6M9 15.5h6"/></symbol>
+  <symbol id="i-cup" viewBox="0 0 24 24"><path d="M4.5 9h12v5.5a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5z"/><path d="M16.5 10.5h1.2a2.8 2.8 0 0 1 0 5.6h-1.6M8 3.5c-.6 1 .6 2 0 3M12 3.5c-.6 1 .6 2 0 3"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12.5H6z"/><path d="M9 10.5V7a3 3 0 0 1 6 0v3.5"/></symbol>
 </svg>
 
-<header class="top">
-  <div class="wrap">
-    <a class="logo" href="index.html" aria-label="BistroTech, home">
+<header class="site-head">
+  <div class="nav-bar">
+    <a class="logo" href="./" aria-label="BistroTech, home page">
       <svg class="lockup" width="162" height="28" viewBox="0 0 760 131" aria-hidden="true" focusable="false">
         <g transform="translate(-8.1,-4.4) scale(6.2)">
           <path class="bt-mark" fill-rule="evenodd" d="M 4.01 13.41 A 8.5 8.5 0 1 1 6.31 16.82 L 2.6 20.4 Z M 7.2 14.6 V 11.8 A 1.2 1.2 0 0 1 9.6 11.8 V 14.6 Z M 10.8 14.6 V 9.8 A 1.2 1.2 0 0 1 13.2 9.8 V 14.6 Z M 14.4 14.6 V 7.8 A 1.2 1.2 0 0 1 16.8 7.8 V 14.6 Z"/>
@@ -65,420 +98,573 @@
           <circle class="bt-dot" cx="73" cy="16" r="7"/>
         </g>
       </svg>
+
     </a>
-    <nav aria-label="Main navigation">
-      <a href="#how-it-starts">How it starts</a>
-      <a href="#plans">Plans</a>
-      <a href="#demo">Ask for a demo</a>
-      <a href="https://zsombp.github.io/npi-review-system/">Sign in</a>
-      <span class="lang">
-        <a href="../index.html" hreflang="hu" lang="hu">HU</a><span aria-current="true">EN</span>
-      </span>
-    </nav>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu">
+      <svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg>
+      <span>Menu</span>
+    </button>
+    <div class="site-menu" id="site-menu">
+      <nav class="nav-main" aria-label="Main navigation">
+        <ul>
+          <li><a href="how-it-works/">How it works</a></li>
+          <li><a href="for-groups/">For groups</a></li>
+          <li><a href="packages/">Packages</a></li>
+          <li><a href="help/">Help</a></li>
+          <li><a href="https://zsombp.github.io/npi-review-system/">Sign in</a></li>
+          
+        </ul>
+      </nav>
+      <div class="nav-end">
+        <p class="lang"><a href="../" hreflang="hu" lang="hu">HU</a><span class="lang-on" aria-current="true">EN</span></p>
+        <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup">Start free</a>
+      </div>
+    </div>
   </div>
 </header>
 
+
 <main id="main">
 
-  <section class="hero" id="daily-report" aria-labelledby="hero-title">
+  <!-- Hero: the deck's shorter H1, set as a poster. The report bubble is the landing's markup
+       (content/hu/report.json; build.py checks that its numbers add up). -->
+  <section class="blk blk-yellow hero" aria-labelledby="hero-title">
+    <span id="daily-report" class="anchor" aria-hidden="true"></span>
     <div class="wrap hero-grid">
-      <div>
-        <h1 id="hero-title">Every review in one place. One report every morning.</h1>
-        <p class="lede">BistroTech downloads your venues' Google reviews, drafts a reply to each, and tells you every morning what happened yesterday. You approve every reply. The numbers and the reviews stay on the site for whenever you want them.</p>
+      <h1 id="hero-title" class="h-hero"><span class="line"><span class="w-stk">Every<span class="sticker sticker-free" aria-hidden="true"><span>14 days</span><span>free</span></span></span></span> <span class="line">review.</span> <span class="line">One <span class="mk mk-pink">place.<svg class="mk-line" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M2 8.5C18 4 36 9.5 54 6.5S86 4 98 7.5"/></svg></span></span></h1>
+
+      <div class="hero-copy">
+        <p class="lead">BistroTech downloads your venues&#x27; Google reviews, writes a reply to each, and tells you every morning what happened yesterday. You approve every reply.</p>
         <div class="cta-row">
-          <a class="btn" href="https://zsombp.github.io/npi-review-system/signup">Start free for 14 days</a>
-          <a class="btn secondary" href="#demo">Ask for a demo</a>
+          <a class="btn btn-blue btn-lg" href="https://zsombp.github.io/npi-review-system/signup">Start free for 14 days<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-white btn-lg" href="how-it-works/">See how it works</a>
         </div>
-        <ul class="facts">
-          <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Every venue, every day, in one report.</li>
-          <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>You approve every reply before it goes out.</li>
-          <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>In Hungarian or English, for restaurants in Hungary.</li>
-          <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Free for 14 days, no minimum term.</li>
+        <ul class="trust" role="list">
+          <li><span class="trust-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#g-check"/></svg></span>Every venue, every day, in one report.</li>
+          <li><span class="trust-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#g-check"/></svg></span>You approve every reply before it goes out.</li>
+          <li><span class="trust-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#g-check"/></svg></span>In Hungarian or English, for restaurants in Hungary.</li>
+          <li><span class="trust-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#g-check"/></svg></span>Free for 14 days, no minimum term.</li>
+          
         </ul>
       </div>
 
-      <!-- The daily report is the hero image and there is no other. It is the real
-           message set as type, following buildDailyReport line for line, with the
-           three differences BRAND section 8 requires of published material: the
-           pictograms redrawn as inline SVG, a middle dot rather than an em dash,
-           and the brand in the header rather than the parent group's internal name.
-           Numbers and dates are en-GB per COPY-GUIDE section 4.2.
-           The counts add up: 2+0+1+0+0 = 3, 0+0+0+1+0 = 1, and 3+1+0 = 4. -->
-      <figure class="report-figure">
-        <div class="report">
-          <div class="report-head">
-            <svg class="glyph" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-chart"/></svg>
-            <span class="report-title">BISTROTECH DAILY REPORT</span>
-          </div>
-          <p class="line" style="margin-top:4px">
-            <svg class="glyph quiet" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-cal"/></svg>
-            <span class="muted sm">15 Sep 2026</span>
-          </p>
+      <figure class="hero-report">
+        <div class="report-tilt tilt">
+          <p class="sticker sticker-note">One report every morning.</p>
+          <div class="report" lang="hu">
+  <div class="report-head">
+    <svg class="glyph" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-chart"/></svg>
+    <span class="report-title">BISTROTECH NAPI JELENTÉS</span>
+  </div>
+  <p class="line line-date">
+    <svg class="glyph quiet" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-cal"/></svg>
+    <span class="muted sm">2026. szept. 15., kedd</span>
+  </p>
+  <hr>
+  <div class="venue">
+    <p class="line">
+      <svg class="glyph" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-pin"/></svg>
+      <span><b>Példa Bisztró</b> · <b>3</b> új · átlag <b>4,33</b></span>
+    </p>
+    <p class="stars">
+      <span class="s5"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">5<span class="sr-only"> csillagos</span>:</span><b>2</b></span>
+      <span class="s4"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">4<span class="sr-only"> csillagos</span>:</span><span>0</span></span>
+      <span class="s3"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">3<span class="sr-only"> csillagos</span>:</span><span>1</span></span>
+      <span class="s2"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">2<span class="sr-only"> csillagos</span>:</span><b>0</b></span>
+      <span class="s1"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">1<span class="sr-only"> csillagos</span>:</span><b>0</b></span>
+      
+    </p>
+    <p class="google">Google: 4,6 (1284)</p>
+  </div>
+  <div class="venue">
+    <p class="line">
+      <svg class="glyph" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-pin"/></svg>
+      <span><b>Minta Étterem</b> · <b>1</b> új · átlag <b>2,00</b><span class="dot-neg" aria-hidden="true"></span></span>
+    </p>
+    <p class="stars">
+      <span class="s5"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">5<span class="sr-only"> csillagos</span>:</span><b>0</b></span>
+      <span class="s4"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">4<span class="sr-only"> csillagos</span>:</span><span>0</span></span>
+      <span class="s3"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">3<span class="sr-only"> csillagos</span>:</span><span>0</span></span>
+      <span class="s2"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">2<span class="sr-only"> csillagos</span>:</span><b>1</b></span>
+      <span class="s1"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">1<span class="sr-only"> csillagos</span>:</span><b>0</b></span>
+      
+    </p>
+    <p class="google">Google: 4,4 (612)</p>
+  </div>
+  <div class="venue">
+    <p class="line quiet-venue">
+      <svg class="glyph quiet" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-pin"/></svg>
+      <span><b>Teszt Kávézó</b> · 0 új · Google: 4,7 (238)</span>
+    </p>
+  </div>
+  <hr>
+  <p class="line total"><span>Σ Összesen: 4 új értékelés</span></p>
+  <p class="stars">
+    <span class="s5"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">5<span class="sr-only"> csillagos</span>:</span><b>2</b></span>
+    <span class="s4"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">4<span class="sr-only"> csillagos</span>:</span><span>0</span></span>
+    <span class="s3"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">3<span class="sr-only"> csillagos</span>:</span><span>1</span></span>
+    <span class="s2"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">2<span class="sr-only"> csillagos</span>:</span><b>1</b></span>
+    <span class="s1"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">1<span class="sr-only"> csillagos</span>:</span><b>0</b></span>
+    
+  </p>
+  <hr>
+  <p class="line">
+    <svg class="glyph warn" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-warn"/></svg>
+    <span><b>Megválaszolatlan negatívok</b> · 1</span>
+  </p>
+  <p class="line line-neg">
+    <span class="dot-neg dot-lead" aria-hidden="true"></span>
+    <span>Minta Étterem · 2<svg class="star-neg" width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="sr-only"> csillag</span> · szept. 12.</span>
+  </p>
+  <p class="quote">„A leves langyos volt, és húsz percet vártunk a számlára.”</p>
+  <p class="report-time">7:45</p>
+</div>
 
-          <hr>
-
-          <div class="venue">
-            <p class="line">
-              <svg class="glyph" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-pin"/></svg>
-              <span><b>Példa Bisztró</b> · <b>3</b> new · average <b>4.33</b></span>
-            </p>
-            <p class="stars">
-              <span class="s5"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>5: <b>2</b></span>
-              <span class="s4"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>4: 0</span>
-              <span class="s3"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>3: 1</span>
-              <span class="s2"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>2: <b>0</b></span>
-              <span class="s1"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>1: <b>0</b></span>
-            </p>
-            <p class="google">Google: 4.6 (1,284)</p>
-          </div>
-
-          <div class="venue">
-            <p class="line">
-              <svg class="glyph" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-pin"/></svg>
-              <span><b>Minta Étterem</b> · <b>1</b> new · average <b>2.00</b><span class="dot-neg" aria-hidden="true"></span></span>
-            </p>
-            <p class="stars">
-              <span class="s5"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>5: <b>0</b></span>
-              <span class="s4"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>4: 0</span>
-              <span class="s3"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>3: 0</span>
-              <span class="s2"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>2: <b>1</b></span>
-              <span class="s1"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>1: <b>0</b></span>
-            </p>
-            <p class="google">Google: 4.4 (612)</p>
-          </div>
-
-          <div class="venue">
-            <p class="line quiet-venue">
-              <svg class="glyph quiet" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-pin"/></svg>
-              <span><b>Teszt Kávézó</b> · 0 new · Google: 4.7 (238)</span>
-            </p>
-          </div>
-
-          <hr>
-
-          <p class="line total"><span>Σ Total: 4 new reviews</span></p>
-          <p class="stars">
-            <span class="s5"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>5: <b>2</b></span>
-            <span class="s4"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>4: 0</span>
-            <span class="s3"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>3: 1</span>
-            <span class="s2"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>2: <b>1</b></span>
-            <span class="s1"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>1: <b>0</b></span>
-          </p>
-
-          <hr>
-
-          <p class="line">
-            <svg class="glyph warn" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-warn"/></svg>
-            <span><b>Unanswered negatives</b> · 1</span>
-          </p>
-          <p class="line" style="margin-top:12px">
-            <span class="dot-neg" aria-hidden="true" style="margin:0 4px 0 0"></span>
-            <span>Minta Étterem · 2<svg width="12" height="12" aria-hidden="true" focusable="false" style="color:var(--bt-negative)"><use href="#g-star"/></svg> · 12 Sep 2026</span>
-          </p>
-          <p class="quote">“The soup was lukewarm and we waited twenty minutes for the bill.”</p>
         </div>
-        <p class="report-meta">07:45</p>
-        <figcaption class="caption">Illustration. The venue names, the text and the numbers are made up. The structure is the real daily report.</figcaption>
+        <figcaption class="caption">Illustration, shown in Hungarian. You choose the report&#x27;s language for your account. The venue names, the texts and the numbers are made up. The structure is the real daily report.</figcaption>
       </figure>
     </div>
   </section>
 
-  <!-- Two real captures of the running app, from ../img/, taken by
-       scripts/screenshots.mjs against the demo account, where every venue name,
-       guest text and number is fictional by design. The files are 2880x1800, so the
-       width and height below are the real pixel sizes and the browser holds the box
-       before the file arrives. The app is captured in Hungarian and the note says
-       so. Two, not three and not a carousel: DESIGN-BRIEF section 8.1. -->
-  <section id="the-site" aria-labelledby="site-title">
-    <div class="wrap">
-      <h2 id="site-title">Your daily work</h2>
-      <p class="lede">You open it when you want to approve a reply, look back over a month, or read what your guests wrote.</p>
-      <div class="shots">
-        <figure>
-          <img src="../img/app-overview-desktop.png" width="2880" height="1800" loading="lazy" decoding="async"
-               alt="The Overview page in BistroTech: six figures for the period at the top, then one row per venue with the star breakdown and the average.">
-          <figcaption><b>Overview.</b> New reviews in the period, the star breakdown, the average and the unanswered negatives, one row per venue.</figcaption>
-        </figure>
-        <figure>
-          <img src="../img/app-drafts-desktop.png" width="2880" height="1800" loading="lazy" decoding="async"
-               alt="The Replies page: a guest's review, the editable reply below it, with Approve and Skip buttons.">
-          <figcaption><b>Replies.</b> A reply ready for every review, which you can rewrite before you approve it. Nothing reaches Google until you do.</figcaption>
-        </figure>
+  <!-- The marquee: short fictional reviews, each marked as an example, pausable, still under
+       reduced motion. The second list is the loop's copy and is hidden from assistive tech. -->
+  <section class="blk blk-black band" aria-label="Example reviews">
+    <div class="wrap band-head">
+      <p class="band-label"><span class="band-tag">Examples</span>This is how the reviews come in, from every venue to one place.</p>
+      <button class="band-toggle" type="button" data-paused="false">
+        <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+        <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+        <span class="band-toggle-tx" data-on="Pause" data-off="Play">Pause</span>
+      </button>
+    </div>
+    <div class="marquee" role="group" tabindex="0" aria-label="Example reviews">
+      <div class="marquee-inner">
+        <ul class="marquee-list">
+          <li class="snip snip-white"><p class="snip-top"><span class="snip-tag">Example</span><span class="rate r5"><svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>5<span class="sr-only"> stars</span></span><span class="snip-where">Példa Bisztró</span></p><p class="snip-q">“The fried chicken was divine, and it came out fast.”</p><p class="snip-who">Teszt Anna</p></li>
+          <li class="snip snip-yellow"><p class="snip-top"><span class="snip-tag">Example</span><span class="rate r2"><svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>2<span class="sr-only"> stars</span></span><span class="snip-where">Minta Étterem</span></p><p class="snip-q">“We waited twenty minutes for our table, and we had booked.”</p><p class="snip-who">Példa Gergő</p></li>
+          <li class="snip snip-cyan"><p class="snip-top"><span class="snip-tag">Example</span><span class="rate r4"><svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>4<span class="sr-only"> stars</span></span><span class="snip-where">Teszt Kávézó</span></p><p class="snip-q">“Good coffee. Next time I&#x27;d like the cake warmer.”</p><p class="snip-who">Minta Dóra</p></li>
+          <li class="snip snip-white"><p class="snip-top"><span class="snip-tag">Example</span><span class="rate r5"><svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>5<span class="sr-only"> stars</span></span><span class="snip-where">Minta Étterem</span></p><p class="snip-q">“Kind service, and there was a children&#x27;s menu too.”</p><p class="snip-who">Példa Réka</p></li>
+          <li class="snip snip-pink"><p class="snip-top"><span class="snip-tag">Example</span><span class="rate r1"><svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>1<span class="sr-only"> star</span></span><span class="snip-where">Példa Bisztró</span></p><p class="snip-q">“The side dish was cold, and nobody asked how it was.”</p><p class="snip-who">Teszt Bence</p></li>
+          <li class="snip snip-white"><p class="snip-top"><span class="snip-tag">Example</span><span class="rate r3"><svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>3<span class="sr-only"> stars</span></span><span class="snip-where">Teszt Kávézó</span></p><p class="snip-q">“Everything was fine, only the music is loud.”</p><p class="snip-who">Minta Péter</p></li>
+          <li class="snip snip-green"><p class="snip-top"><span class="snip-tag">Example</span><span class="rate r5"><svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>5<span class="sr-only"> stars</span></span><span class="snip-where">Példa Bisztró</span></p><p class="snip-q">“Lovely goulash and very friendly staff.”</p><p class="snip-who">Teszt Emma</p></li>
+          <li class="snip snip-white"><p class="snip-top"><span class="snip-tag">Example</span><span class="rate r4"><svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>4<span class="sr-only"> stars</span></span><span class="snip-where">Minta Étterem</span></p><p class="snip-q" lang="de">“Gutes Essen, aber etwas laut.”</p><p class="snip-who">Minta Lili</p></li>
+          
+        </ul>
+        <ul class="marquee-list marquee-copy" aria-hidden="true">
+          <li class="snip snip-white"><p class="snip-top"><span class="snip-tag">Example</span><span class="rate r5"><svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>5</span><span class="snip-where">Példa Bisztró</span></p><p class="snip-q">“The fried chicken was divine, and it came out fast.”</p><p class="snip-who">Teszt Anna</p></li>
+          <li class="snip snip-yellow"><p class="snip-top"><span class="snip-tag">Example</span><span class="rate r2"><svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>2</span><span class="snip-where">Minta Étterem</span></p><p class="snip-q">“We waited twenty minutes for our table, and we had booked.”</p><p class="snip-who">Példa Gergő</p></li>
+          <li class="snip snip-cyan"><p class="snip-top"><span class="snip-tag">Example</span><span class="rate r4"><svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>4</span><span class="snip-where">Teszt Kávézó</span></p><p class="snip-q">“Good coffee. Next time I&#x27;d like the cake warmer.”</p><p class="snip-who">Minta Dóra</p></li>
+          <li class="snip snip-white"><p class="snip-top"><span class="snip-tag">Example</span><span class="rate r5"><svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>5</span><span class="snip-where">Minta Étterem</span></p><p class="snip-q">“Kind service, and there was a children&#x27;s menu too.”</p><p class="snip-who">Példa Réka</p></li>
+          <li class="snip snip-pink"><p class="snip-top"><span class="snip-tag">Example</span><span class="rate r1"><svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>1</span><span class="snip-where">Példa Bisztró</span></p><p class="snip-q">“The side dish was cold, and nobody asked how it was.”</p><p class="snip-who">Teszt Bence</p></li>
+          <li class="snip snip-white"><p class="snip-top"><span class="snip-tag">Example</span><span class="rate r3"><svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>3</span><span class="snip-where">Teszt Kávézó</span></p><p class="snip-q">“Everything was fine, only the music is loud.”</p><p class="snip-who">Minta Péter</p></li>
+          <li class="snip snip-green"><p class="snip-top"><span class="snip-tag">Example</span><span class="rate r5"><svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>5</span><span class="snip-where">Példa Bisztró</span></p><p class="snip-q">“Lovely goulash and very friendly staff.”</p><p class="snip-who">Teszt Emma</p></li>
+          <li class="snip snip-white"><p class="snip-top"><span class="snip-tag">Example</span><span class="rate r4"><svg width="14" height="14" aria-hidden="true" focusable="false"><use href="#g-star"/></svg>4</span><span class="snip-where">Minta Étterem</span></p><p class="snip-q" lang="de">“Gutes Essen, aber etwas laut.”</p><p class="snip-who">Minta Lili</p></li>
+          
+        </ul>
+        
       </div>
-      <p class="caption">The screenshots come from the demo account. The venue names, the guest texts and the numbers are made up. The app is shown in Hungarian; it runs in English too.</p>
+    </div>
+    <p class="wrap caption band-caption">Illustration. The guests, the venues and the texts are made up.</p>
+  </section>
+
+  <!-- The morning: one idea per card, the four tabs of the app, real captures of the demo
+       account in a phone frame drawn in CSS. -->
+  <section class="blk blk-blue" id="how-it-works" aria-labelledby="morning-title">
+    <span id="the-site" class="anchor" aria-hidden="true"></span>
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="morning-title">A <span class="hl hl-yellow">morning</span> with BistroTech</h2>
+        <p class="sec-intro">You open it when you want to approve a reply, look back over a month, or read what your guests wrote.</p>
+      </div>
+      <ul class="day-cards" role="list">
+        <li class="day-card c-yellow tilt">
+          <h3>Today</h3>
+          <p>One sentence tells you what needs doing. The details sit on cards below it.</p>
+          <div class="phone"><div class="phone-screen"><img src="../img/help/app-overview-mobile.png" width="780" height="1688" loading="lazy" decoding="async" alt="The Today screen on a phone: a sentence at the top saying how many replies are waiting, cards with the details below."></div></div>
+        </li>
+        <li class="day-card c-pink tilt">
+          <h3>Replies</h3>
+          <p>The replies wait in a queue, the worst review first. You read it, rewrite it if you need to, and approve it.</p>
+          <div class="phone"><div class="phone-screen"><img src="../img/help/app-drafts-mobile.png" width="780" height="1688" loading="lazy" decoding="async" alt="The Replies screen on a phone: a review, the ready reply below it, and the Approve and Skip buttons."></div></div>
+        </li>
+        <li class="day-card c-cyan tilt">
+          <h3>Reviews</h3>
+          <p>Every review in one place, searchable by venue and by star.</p>
+          <div class="phone"><div class="phone-screen"><img src="../img/help/app-reviews-mobile.png" width="780" height="1688" loading="lazy" decoding="async" alt="The Reviews screen on a phone: a search field, quick filters and the list of reviews."></div></div>
+        </li>
+        <li class="day-card c-green tilt">
+          <h3>Analysis</h3>
+          <p>You see what keeps repeating: themes, venues side by side, times of day.</p>
+          <div class="phone"><div class="phone-screen"><img src="../img/help/app-insights-mobile.png" width="780" height="1688" loading="lazy" decoding="async" alt="The Analysis screen on a phone: a period picker and the numbers for the period."></div></div>
+        </li>
+        
+      </ul>
+      <p class="caption caption-on-dark">The pictures are from the demo account, in the Hungarian version of the app; it runs in English too. The venue names, the guest texts and the numbers are made up.</p>
     </div>
   </section>
 
-  <section id="how-it-starts" aria-labelledby="starts-title">
+  <!-- Try it: a fictional review and its drafted reply. Everything runs in this page; the
+       rewrite chips swap in the deck's pre-written variants, no model call. -->
+  <section class="blk blk-pink try-sec" id="try-it" aria-labelledby="try-title">
     <div class="wrap">
-      <h2 id="starts-title">How it starts</h2>
-      <p class="lede">Four steps. A few minutes after you add the venue you can already see your reviews. Google access is set up separately, and only posting replies needs it.</p>
-      <ol class="steps">
-        <li>
-          <div>
+      <div class="sec-head">
+        <h2 id="try-title">Try it: approve a <span class="mk mk-yellow">reply.<svg class="mk-line" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M2 8.5C18 4 36 9.5 54 6.5S86 4 98 7.5"/></svg></span></h2>
+      </div>
+      <div class="try card" data-state="pending">
+        <p class="sticker sticker-try" aria-hidden="true">You approve every reply.</p>
+        <div class="try-review">
+          <p class="try-venue">Példa Bisztró</p>
+          <p class="try-rating">
+            <span class="try-stars" aria-hidden="true"><svg width="20" height="20" focusable="false"><use href="#g-star"/></svg><svg width="20" height="20" focusable="false"><use href="#g-star"/></svg><svg width="20" height="20" focusable="false"><use href="#g-star-o"/></svg><svg width="20" height="20" focusable="false"><use href="#g-star-o"/></svg><svg width="20" height="20" focusable="false"><use href="#g-star-o"/></svg></span>
+            <span aria-hidden="true">2/5</span><span class="sr-only">2 stars out of 5</span>
+          </p>
+          <p class="try-guest">Minta Katalin</p>
+          <blockquote class="try-text"><p>“The soup was lukewarm, and we waited twenty minutes for the bill.”</p></blockquote>
+        </div>
+        <div class="try-reply">
+          <label class="try-label" for="try-text">The reply</label>
+          <div class="try-field">
+            <textarea id="try-text" class="try-area" rows="4" spellcheck="false">Dear Katalin, thank you for writing to us. We are sorry the soup was lukewarm and that you had to wait so long for the bill. We have passed this on to the kitchen and the waiting staff. We hope you will come back, and then everything will be as it should be.
+
+The Példa Bisztró team</textarea>
+            <p class="stamp stamp-ok" aria-hidden="true">Approved</p>
+            <p class="stamp stamp-skip" aria-hidden="true">Skipped</p>
+          </div>
+          <div class="try-chips" role="group" aria-labelledby="try-chips-label">
+            <span class="try-chips-label" id="try-chips-label">Rewrite</span>
+            <button type="button" class="chip" data-variant="rovidebb" data-say="Made it shorter." aria-pressed="false">Shorter</button>
+            <button type="button" class="chip" data-variant="melegebb" data-say="Made it warmer." aria-pressed="false">Warmer</button>
+            <button type="button" class="chip" data-variant="hatarozottabb" data-say="Made it firmer." aria-pressed="false">Firmer</button>
+            <button type="button" class="chip" data-variant="magazo" data-say="Switched it to formal." aria-pressed="false">Formal</button>
+            <button type="button" class="chip" data-variant="tegezo" data-say="Switched it to informal." aria-pressed="false">Informal</button>
+            
+          </div>
+          <div class="try-actions">
+            <button type="button" class="btn btn-blue" data-act="approve">Approve</button>
+            <button type="button" class="btn btn-white" data-act="skip">Skip</button>
+            <button type="button" class="btn-text" data-act="restore">Restore original</button>
+          </div>
+          <div class="try-after try-after-ok">
+            <span class="try-after-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#g-check"/></svg></span>
+            <p>If you have added us as a manager on Google, we post it within a few minutes. If not, you copy it with one button, and we open Google for you.</p>
+          </div>
+          <div class="try-after try-after-skip">
+            <span class="try-after-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-info"/></svg></span>
+            <p>A skipped review stays without a reply. You can still find it later under Reviews.</p>
+          </div>
+          <button type="button" class="btn btn-white try-reset" data-act="reset">Start again</button>
+        </div>
+        <p class="sr-only" id="try-live" role="status" aria-live="polite"></p>
+      </div>
+      <p class="caption">Illustration. The guest, the venue and the text are made up. Nothing is sent from here.</p>
+
+      <div class="toast" id="try-toast" hidden>
+        <p class="toast-msg" aria-hidden="true">Approved.</p>
+        <button type="button" class="toast-undo" data-act="undo"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-undo"/></svg>Undo</button>
+        <span class="toast-bar" aria-hidden="true"></span>
+      </div>
+
+      <!-- The deck's pre-written variants, read by site.js; in the page so the copy checker
+           reads them too. -->
+      <div class="variants" id="try-variants" hidden data-signature="The Példa Bisztró team" data-toast-ok="Approved." data-toast-skip="Skipped.">
+        <p data-v="eredeti">Dear Katalin, thank you for writing to us. We are sorry the soup was lukewarm and that you had to wait so long for the bill. We have passed this on to the kitchen and the waiting staff. We hope you will come back, and then everything will be as it should be. The Példa Bisztró team</p>
+        <p data-v="rovidebb">Dear Katalin, thank you, and we are sorry about the lukewarm soup and the long wait. We have passed it on to the team. The Példa Bisztró team</p>
+        <p data-v="melegebb">Dear Katalin, thank you so much for taking the time to write to us. It bothers us that the soup was lukewarm and that you had to wait so long for the bill. We have passed this on to the kitchen and the waiting staff. Next time we would like you to leave the table happy. The Példa Bisztró team</p>
+        <p data-v="hatarozottabb">Dear Katalin, thank you for the feedback. A lukewarm soup and a twenty-minute wait for the bill are not how we want to work. We have passed both on to the kitchen and the waiting staff. The Példa Bisztró team</p>
+        <p data-v="magazo">Dear Katalin, thank you for writing to us. We are sorry the soup was lukewarm and that you had to wait so long for the bill. We have passed this on to the kitchen and the waiting staff. We hope you will come back, and then everything will be as it should be. The Példa Bisztró team</p>
+        <p data-v="tegezo">Hi Katalin, thanks for writing to us. Sorry the soup was lukewarm and you had to wait so long for the bill. We&#x27;ve passed it on to the kitchen and the waiting staff. Hope you&#x27;ll come back, and then everything will be as it should be. The Példa Bisztró team</p>
+        <p data-say="approve">Approved. If you have added us as a manager on Google, we post it within a few minutes. If not, you copy it with one button, and we open Google for you.</p>
+        <p data-say="skip">Skipped. A skipped review stays without a reply.</p>
+        <p data-say="undo">Undone. The reply is waiting for approval again.</p>
+        <p data-say="reset">The reply is waiting for approval again.</p>
+        <p data-say="restore">The original is back.</p>
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="blk blk-white" id="features" aria-labelledby="feat-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="feat-title">What <span class="hl hl-pink">else</span> is in it</h2>
+      </div>
+      <ul class="tiles" role="list">
+        <li class="tile c-yellow tilt"><span class="tile-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg></span><h3>Daily report</h3><p>It arrives at the hour you set. On Telegram if you connect it, and always in your account.</p></li>
+        <li class="tile c-orange tilt"><span class="tile-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-bell"/></svg></span><h3>Alert</h3><p>We tell you when one-star reviews come in a run at a venue, or its average slips.</p></li>
+        <li class="tile c-lilac tilt"><span class="tile-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-swap"/></svg></span><h3>Edit watch</h3><p>You see when a guest rewrites a review afterwards, and what changed into what.</p></li>
+        <li class="tile c-cyan tilt"><span class="tile-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-list"/></svg></span><h3>Listing watch</h3><p>If Google takes reviews off your profile, you see it in the report.</p></li>
+        <li class="tile c-blue tilt"><span class="tile-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-users"/></svg></span><h3>Team</h3><p>You invite your colleagues and decide who sees which venue.</p></li>
+        <li class="tile c-pink tilt"><span class="tile-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-ask"/></svg></span><h3>Assistant</h3><p>You can ask it questions. It answers from your own reviews and says how many it read.</p></li>
+        <li class="tile c-green tilt"><span class="tile-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-link"/></svg></span><h3>Tripadvisor</h3><p>Paste in the venue&#x27;s Tripadvisor address, and those reviews come in too, kept apart.</p></li>
+        <li class="tile c-white tilt"><span class="tile-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg></span><h3>On your phone</h3><p>You can put it on your phone&#x27;s home screen, and it opens like an app.</p></li>
+        <li class="tile c-yellow tilt"><span class="tile-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-tag"/></svg></span><h3>Themes and dishes</h3><p>We read out what keeps repeating in what guests write, and what they say about each dish.</p></li>
+        
+      </ul>
+      <p class="more-link"><a href="how-it-works/">See how it works<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></p>
+    </div>
+  </section>
+
+  <section class="blk blk-green" id="getting-started" aria-labelledby="start-title">
+    <span id="how-it-starts" class="anchor" aria-hidden="true"></span>
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="start-title">How it <span class="mk mk-blue">starts<svg class="mk-line" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M2 8.5C18 4 36 9.5 54 6.5S86 4 98 7.5"/></svg></span></h2>
+        <p class="sec-intro">Four steps. A few minutes after you add the venue, you can see your reviews. Google access is set up separately, and only posting replies needs it.</p>
+      </div>
+      <ol class="steps" role="list">
+        <li class="step">
+          <span class="step-n" aria-hidden="true">1</span>
+          <div class="step-card card">
             <h3>You sign up</h3>
             <p>You give an email address and a password. The trial runs for 14 days, and we do not invoice during it.</p>
           </div>
         </li>
-        <li>
-          <div>
+        <li class="step">
+          <span class="step-n" aria-hidden="true">2</span>
+          <div class="step-card card">
             <h3>You add the venue</h3>
-            <p>You find the venue on Google. Within minutes you see its latest reviews and the first figures. One account can hold several venues.</p>
+            <p>You find the venue by name. Within minutes you see its latest reviews and the first numbers. One account can hold several venues.</p>
           </div>
         </li>
-        <li>
-          <div>
+        <li class="step">
+          <span class="step-n" aria-hidden="true">3</span>
+          <div class="step-card card">
             <h3>You add us as a manager</h3>
-            <p>On the Google Business Profile you add our account as a manager. From then on we can post the replies you approved. Until then you copy the finished reply with one button and paste it yourself. You can take that access back at any time.</p>
+            <p>On your Google Business Profile, you add our account as a manager. From then on we can post the replies you approved. Until then, you copy the finished reply with one button and paste it in yourself. You can take the access back at any time.</p>
           </div>
         </li>
-        <li>
-          <div>
+        <li class="step">
+          <span class="step-n" aria-hidden="true">4</span>
+          <div class="step-card card">
             <h3>You set up the daily report</h3>
-            <p>You connect Telegram and choose the time. The first daily report arrives the next morning, then every day at the same time. It is on the site too, even if you connect nothing.</p>
+            <p>You connect Telegram and pick the time. The first daily report arrives the next morning, then every day at the same time. It is in your account even if you connect nothing.</p>
           </div>
         </li>
+        
       </ol>
     </div>
   </section>
 
-  <!-- D-006: no price until Q-017 and Q-023 are settled. The grid lives in
-       script.js and reaches the page only when data-prices below reads "on". Until
-       then every slot reads "Price soon", which is also what a reader with
-       JavaScript off sees. Flipping the one word publishes all nine cells and the
-       add-on, in both languages. -->
-  <section id="plans" data-prices="off" aria-labelledby="plans-title">
+  <!-- D-004: the reference installation is described and nothing more. No name, no venue, no
+     review, no count of anything, no logo. -->
+<section class="blk blk-black ref" id="reference" aria-labelledby="ref-title">
+  <div class="wrap ref-grid">
+    <h2 id="ref-title">Eleven venues, every <span class="mk mk-pink">morning<svg class="mk-line" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M2 7C20 3.5 40 9.5 58 6S88 4.5 98 8"/></svg></span></h2>
+    <p class="ref-lead">BistroTech runs every morning at a Budapest group with eleven venues. That is where it started, and it has run live there ever since.</p>
+    <p class="ref-note"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-info"/></svg><span>We do not name the group or its venues, and we show no reviews from them. That is our own decision, not a customer&#x27;s request.</span></p>
+  </div>
+</section>
+
+
+  <!-- D-006: every price slot says exactly "Ár hamarosan" until site.json prices.public is true. -->
+  <section class="blk blk-lilac" id="plans" aria-labelledby="plans-title">
     <div class="wrap">
-      <h2 id="plans-title">What the plans contain</h2>
-      <p class="lede">Three plans. Monitoring, the daily report and the replies are in all three. What changes is how much we read out of what your guests wrote.</p>
-
-      <div class="plans">
-        <div class="plan">
-          <h3>Starter</h3>
-          <p class="sub">The base, at every venue.</p>
-          <ul>
-            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Every venue's Google reviews, every day</li>
-            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>A daily report at the hour you set</li>
-            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>A reply drafted for every review, approved by you</li>
-            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Reply tracking: who is still waiting, and since when</li>
-            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>An alert when one-star reviews arrive in a run, or the average slips</li>
-            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Listing watch: when Google takes reviews off the profile</li>
-            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Rate and rank: how many reviews arrive, and where you sit in search</li>
-            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Edit watch: when a guest rewrites a review afterwards</li>
-          </ul>
-          <p class="plan-price" data-plan="indulo" data-band-2-9="2 to 9 venues" data-band-10plus="10 venues or more">
-            <span class="label">Per venue per month, plus VAT</span>
-            <span class="value">Price soon</span>
-            <span class="band"></span>
-          </p>
-        </div>
-
-        <div class="plan">
-          <h3>Analyst</h3>
-          <p class="sub">Answers what they keep saying.</p>
-          <ul>
-            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Everything in Starter</li>
-            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Themes: what repeats in what guests wrote, and how often</li>
-            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Your venues compared with each other</li>
-            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Negatives by time of day: lunch, afternoon, evening</li>
-            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Guest mix: what language your guests write in</li>
-            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>A weekly summary</li>
-          </ul>
-          <p class="plan-price" data-plan="elemzo" data-band-2-9="2 to 9 venues" data-band-10plus="10 venues or more">
-            <span class="label">Per venue per month, plus VAT</span>
-            <span class="value">Price soon</span>
-            <span class="band"></span>
-          </p>
-        </div>
-
-        <div class="plan">
-          <h3>Full</h3>
-          <p class="sub">Answers who and what they talk about.</p>
-          <ul>
-            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Everything in Analyst</li>
-            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Staff mentions: who gets named and praised, and how often</li>
-            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Dish mentions: what guests write about each dish</li>
-            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Monthly summary: what changed in the month, on one page</li>
-            <li><svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#g-check"/></svg>Dispute pack: dated evidence for Google when a review storm hits</li>
-          </ul>
-          <p class="plan-price" data-plan="teljes" data-band-2-9="2 to 9 venues" data-band-10plus="10 venues or more">
-            <span class="label">Per venue per month, plus VAT</span>
-            <span class="value">Price soon</span>
-            <span class="band"></span>
-          </p>
-        </div>
+      <div class="sec-head">
+        <h2 id="plans-title">What is in the <span class="hl hl-yellow">packages</span></h2>
+        <p class="sec-intro">Three packages. Monitoring, the daily report and the replies are in all three. The difference is how much we read out of what your guests write.</p>
       </div>
+      <ul class="plans" role="list">
+        <li class="plan card tilt">
+          <div class="plan-top c-yellow"><h3>Starter</h3><p>The base, for every venue.</p></div>
+          <p class="plan-price">
+            <span class="plan-label">Per venue per month, plus VAT</span>
+            <span class="plan-value">Price coming soon</span>
+          </p>
 
-      <div class="addon">
-        <h3>Automatic replies</h3>
-        <p>You can turn this on with any plan. By default only positive reviews are answered without anybody reading the reply first. One-star and two-star reviews are answered only if you turn that on, and we write the consequence at the click.</p>
+        </li>
+        <li class="plan card tilt">
+          <div class="plan-top c-cyan"><h3>Analyst</h3><p>Answers what guests keep saying.</p></div>
+          <p class="plan-price">
+            <span class="plan-label">Per venue per month, plus VAT</span>
+            <span class="plan-value">Price coming soon</span>
+          </p>
+
+        </li>
+        <li class="plan card tilt">
+          <div class="plan-top c-pink"><h3>Full</h3><p>Answers who and what guests talk about.</p></div>
+          <p class="plan-price">
+            <span class="plan-label">Per venue per month, plus VAT</span>
+            <span class="plan-value">Price coming soon</span>
+          </p>
+
+        </li>
+        
+      </ul>
+      <div class="addon card">
+        <div class="addon-text">
+          <h3>Auto-answer <span class="addon-sub">with any package</span></h3>
+          <p>By default, only positive reviews get a reply that nobody reads first. One-star and two-star reviews get one only if you turn that on.</p>
+        </div>
         <p class="plan-price">
-          <span class="label">Per venue per month, plus VAT</span>
-          <span class="value" data-addon data-band-1="1 venue" data-band-2-9="2 to 9 venues" data-band-10plus="10 or more">Price soon</span>
-        </p>
+            <span class="plan-label">Per venue per month, plus VAT</span>
+            <span class="plan-value">Price coming soon</span>
+          </p>
+
       </div>
-
-      <p class="note">Above ten venues we go through the plan and the price with you. Ask for a demo.</p>
+      <p class="more-link"><a href="packages/">All the details on the Packages page<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></p>
     </div>
   </section>
 
-  <section id="assistant" aria-labelledby="assistant-title">
-    <div class="wrap">
-      <h2 id="assistant-title">The assistant</h2>
-      <p class="lede">You can ask it a question. It answers from your own reviews, and says how many it read.</p>
-
-      <div class="chat">
-        <p class="ask"><span class="sr-only">Question: </span>What did guests complain about most at Példa Bisztró in September?</p>
-        <div class="answer">
-          <p><span class="sr-only">Answer: </span>Three themes repeat.</p>
-          <ul>
-            <li><span>Waiting</span><b>14 reviews · average 3.1</b></li>
-            <li><span>Price</span><b>9 reviews · average 3.4</b></li>
-            <li><span>Noise</span><b>5 reviews · average 3.8</b></li>
-          </ul>
-          <p style="margin-top:12px">Waiting comes up on Friday and Saturday evenings.</p>
-          <p class="source">From Példa Bisztró's 84 September reviews.</p>
-        </div>
+  <div class="split">
+    <section class="blk blk-cyan split-half" id="help-and-videos" aria-labelledby="help-title">
+      <div class="split-in">
+        <h2 id="help-title">Help and <span class="hl hl-white">videos</span></h2>
+        <p>Every step written up with pictures, and a short video from the account. In English.</p>
+        <ul class="link-list" role="list">
+          <li><a href="help/approving-a-reply/">Approving a reply<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></li>
+          <li><a href="help/setting-up-the-daily-report/">Setting up the daily report<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></li>
+          <li><a href="help/adding-us-as-a-manager/">Adding us as a manager on Google<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></li>
+          
+        </ul>
+        <a class="btn btn-white" href="help/">Open the help centre</a>
       </div>
-      <p class="caption">Illustration. The venue name and the numbers are made up.</p>
-    </div>
-  </section>
-
-  <!-- D-004: the eleven-venue reference installation is described anonymously, with
-       no group name, no venue names and no real review content. D-010: the partner
-       appears nowhere in anything the venture publishes. -->
-  <section id="reference" aria-labelledby="reference-title">
-    <div class="wrap reference">
-      <h2 id="reference-title">Eleven venues, every morning</h2>
-      <p class="lede">BistroTech runs every morning at a Budapest group with eleven venues. That is where it started and where it still runs live.</p>
-      <p class="muted">We do not name the group or its venues, and we show no reviews from them. That is our own decision, not a customer's request.</p>
-    </div>
-  </section>
-
-  <section class="start" id="start" aria-labelledby="start-title">
-    <div class="wrap">
-      <h2 id="start-title">Start free for 14 days</h2>
-      <p class="lede">You sign up, you add the venue, and the first report arrives tomorrow morning. We do not invoice during the trial, and there is nothing to cancel.</p>
-      <div class="cta-row">
-        <a class="btn" href="https://zsombp.github.io/npi-review-system/signup">Start free for 14 days</a>
-        <a class="btn secondary" href="#demo">Ask for a demo</a>
+    </section>
+    <section class="blk blk-orange split-half" id="for-groups" aria-labelledby="groups-title">
+      <div class="split-in">
+        <h2 id="groups-title">For <span class="hl hl-white">groups</span></h2>
+        <p>Several venues in one account, side by side. You decide who sees which venue. Above ten venues, we go through the package and the price with you in person.</p>
+        <a class="btn btn-white" href="demo/">Ask for a demo</a>
+        <p class="more-link"><a href="for-groups/">All the details on the For groups page<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></p>
       </div>
-      <p class="note">More venues, or a group? Ask for a demo and we'll go through it with you.</p>
-    </div>
-  </section>
+    </section>
+  </div>
 
-  <section id="demo" aria-labelledby="demo-title">
-    <div class="wrap">
-      <h2 id="demo-title">Ask for a demo</h2>
-      <div class="form-grid">
-        <div>
-          <p>We look at your venues' Google profiles, show you what the first daily report would look like with your own data, and answer your questions.</p>
-          <p class="muted sm">BistroTech is operated by Netpromotion Invest Kft. We speak Hungarian and English.</p>
-          <!-- TODO-PROOF: no response-time promise on this page. The thank-you state
-               says one working day, which is the operator's own working intention. -->
-        </div>
-
-        <div id="form-panel">
-          <!-- The contract is supabase/functions/lead/README.md and is unchanged:
-               the same endpoint, the same public anon key in both headers, the same
-               field names and limits, the same company_website honeypot, the same
-               429 answer. Only the source tag and the two error lines belong to
-               this page. -->
-          <form class="demo" id="demo-form" novalidate
-                data-endpoint="https://jumaxvgckuxbwaiwjdte.supabase.co/functions/v1/lead"
-                data-key="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1bWF4dmdja3V4YndhaXdqZHRlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc1NzkwMTQsImV4cCI6MjEwMzE1NTAxNH0.fh_xIhYKBGY_RbcG-9giQ9ZM9X1ODhbVa1QW5nbp00Y"
-                data-source="landing-en"
-                data-sending="Sending"
-                data-error="That message did not go out. Try again, or call the number at the foot of this page."
-                data-error-rate="Too many attempts from this connection. Wait an hour, or call the number at the foot of this page.">
-            <label>Your name
-              <input type="text" name="name" autocomplete="name" maxlength="120" required>
-            </label>
-            <label>Restaurant or company name
-              <input type="text" name="restaurant" autocomplete="organization" maxlength="160" required>
-            </label>
-            <div class="two">
-              <label>Email address
-                <input type="email" name="email" autocomplete="email" maxlength="254" required>
-              </label>
-              <label>Phone number (optional)
-                <input type="tel" name="phone" autocomplete="tel" maxlength="40">
-              </label>
-            </div>
-            <label>How many venues
-              <input type="number" name="venues" min="1" max="500" step="1" inputmode="numeric" required>
-            </label>
-            <label>Message (optional)
-              <textarea name="message" maxlength="2000" rows="4"></textarea>
-            </label>
-            <!-- Honeypot. Hidden from people, filled in by bots, rejected by the function. -->
-            <div class="hp" aria-hidden="true">
-              <label>Website
-                <input type="text" name="company_website" tabindex="-1" autocomplete="off">
-              </label>
-            </div>
-            <button class="btn" type="submit">Ask for a demo</button>
-            <p class="status" id="form-status" role="status" aria-live="polite"></p>
-            <p class="formnote">We use what you send here to get in touch and to prepare an offer. The details are in the <a href="../legal/adatkezeles.html" hreflang="hu" lang="hu">privacy notice</a>, which is in Hungarian.</p>
-          </form>
-        </div>
-
-        <div class="thanks" id="thanks" hidden>
-          <h3>We have it.</h3>
-          <p>We'll be in touch within one working day on the details you gave, and we'll arrange a time.</p>
-        </div>
+  <section class="blk blk-white" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq-grid">
+      <div class="sec-head faq-head">
+        <h2 id="faq-title">Common <span class="hl hl-yellow">questions</span></h2>
+        <p class="faq-more">More detail in the help centre. <a href="help/">Open the help centre</a></p>
       </div>
+      <div class="faq">
+  <details class="faq-item" open>
+    <summary><h3>Do I need to install anything?</h3><span class="faq-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg></span></summary>
+    <p>No. It runs in the browser, on your phone and on a computer. If you like, you can also put it on your phone&#x27;s home screen.</p>
+  </details>
+  <details class="faq-item">
+    <summary><h3>Do you touch my Google Business Profile?</h3><span class="faq-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg></span></summary>
+    <p>Only if you add us as a manager. Then we post the replies you approved. You can take the access back at any time.</p>
+  </details>
+  <details class="faq-item">
+    <summary><h3>Can a reply go out without me knowing?</h3><span class="faq-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg></span></summary>
+    <p>No. You approve every reply. Auto-answer is switched on separately, and by default it only answers positive reviews.</p>
+  </details>
+  <details class="faq-item">
+    <summary><h3>What language do you write the reply in?</h3><span class="faq-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg></span></summary>
+    <p>In the language the guest wrote in.</p>
+  </details>
+  <details class="faq-item">
+    <summary><h3>Do I need Telegram?</h3><span class="faq-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg></span></summary>
+    <p>No. The report is in your account every morning as well. We send it to Telegram if you connect it.</p>
+  </details>
+  <details class="faq-item">
+    <summary><h3>How much does it cost?</h3><span class="faq-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg></span></summary>
+    <p>We will publish the package prices soon. We do not invoice during the 14-day trial.</p>
+  </details>
+  <details class="faq-item">
+    <summary><h3>Can several venues go in one account?</h3><span class="faq-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg></span></summary>
+    <p>Yes. Above ten venues, we go through the package with you in person.</p>
+  </details>
+  
+</div>
+
     </div>
   </section>
 
+  <section class="blk blk-blue final" id="start" aria-labelledby="final-title">
+  <div class="wrap final-in">
+    <h2 id="final-title" class="h-final">Start <span class="hl hl-yellow">free</span> for 14 <span class="w-stk">days<span class="sticker sticker-final" aria-hidden="true">no minimum term</span></span></h2>
+    <p class="lead">You sign up, add the venue, and a few minutes later you see your reviews. The first report arrives the next morning.</p>
+    <div class="cta-row">
+      <a class="btn btn-yellow btn-lg" href="https://zsombp.github.io/npi-review-system/signup">Start free for 14 days<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn-white btn-lg" href="demo/">Ask for a demo</a>
+    </div>
+  </div>
+</section>
+
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I need to install anything?", "acceptedAnswer": {"@type": "Answer", "text": "No. It runs in the browser, on your phone and on a computer. If you like, you can also put it on your phone's home screen."}}, {"@type": "Question", "name": "Do you touch my Google Business Profile?", "acceptedAnswer": {"@type": "Answer", "text": "Only if you add us as a manager. Then we post the replies you approved. You can take the access back at any time."}}, {"@type": "Question", "name": "Can a reply go out without me knowing?", "acceptedAnswer": {"@type": "Answer", "text": "No. You approve every reply. Auto-answer is switched on separately, and by default it only answers positive reviews."}}, {"@type": "Question", "name": "What language do you write the reply in?", "acceptedAnswer": {"@type": "Answer", "text": "In the language the guest wrote in."}}, {"@type": "Question", "name": "Do I need Telegram?", "acceptedAnswer": {"@type": "Answer", "text": "No. The report is in your account every morning as well. We send it to Telegram if you connect it."}}, {"@type": "Question", "name": "How much does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "We will publish the package prices soon. We do not invoice during the 14-day trial."}}, {"@type": "Question", "name": "Can several venues go in one account?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Above ten venues, we go through the package with you in person."}}]}</script>
+  <script type="application/json" id="legacy-anchors">{"daily-report": "", "the-site": "#how-it-works", "how-it-starts": "#getting-started", "plans": "", "reference": "", "start": "", "assistant": "how-it-works/#assistant", "demo": "demo/"}</script>
 </main>
-
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <h2>Operator</h2>
-        <dl>
-          <dt>Company</dt><dd>Netpromotion Invest Kereskedelmi és Szolgáltató Korlátolt Felelősségű Társaság (Netpromotion Invest Kft.)</dd>
-          <dt>Registered office</dt><dd>1056 Budapest, Duna utca 3. földszint 1., Hungary</dd>
-          <dt>Company number</dt><dd>01-09-269936, Fővárosi Törvényszék Cégbírósága</dd>
-          <dt>VAT number</dt><dd>10907850-2-41</dd>
-          <dt>Phone</dt><dd><a href="tel:+36302222444">+36 30 2222 444</a></dd>
-        </dl>
-        <!-- TODO-PROOF: company number to be checked against the official cégkivonat
-             before publication. No email address is published: the company's general
-             address is a personal Gmail account and the BistroTech address on a
-             company domain does not exist yet. -->
-      </div>
-      <div>
-        <h2>BistroTech</h2>
-        <ul>
-          <li><a href="#daily-report">The daily report</a></li>
-          <li><a href="#the-site">The site</a></li>
-          <li><a href="#how-it-starts">How it starts</a></li>
-          <li><a href="#plans">Plans</a></li>
-          <li><a href="#demo">Ask for a demo</a></li>
-          <li><a href="https://zsombp.github.io/npi-review-system/signup">Start free</a></li>
-          <li><a href="https://zsombp.github.io/npi-review-system/">Sign in</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2>Documents</h2>
-        <ul>
-          <li><a href="../legal/aszf.html" hreflang="hu" lang="hu">ÁSZF (terms, in Hungarian)</a></li>
-          <li><a href="../legal/adatkezeles.html" hreflang="hu" lang="hu">Adatkezelés (privacy, in Hungarian)</a></li>
-          <li><a href="../index.html" hreflang="hu" lang="hu">Magyar</a></li>
-        </ul>
-      </div>
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <p class="foot-line">Review management for restaurants.</p>
+      <p class="foot-op">BistroTech is operated by Netpromotion Invest Kft. We speak Hungarian and English.</p>
+      <p class="lang lang-foot"><a href="../" hreflang="hu" lang="hu">HU</a><span class="lang-on" aria-current="true">EN</span></p>
     </div>
-    <p class="colophon">
-      <span class="colo-brand"><svg class="foot-mark" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M 4.01 13.41 A 8.5 8.5 0 1 1 6.31 16.82 L 2.6 20.4 Z M 7.2 14.6 V 11.8 A 1.2 1.2 0 0 1 9.6 11.8 V 14.6 Z M 10.8 14.6 V 9.8 A 1.2 1.2 0 0 1 13.2 9.8 V 14.6 Z M 14.4 14.6 V 7.8 A 1.2 1.2 0 0 1 16.8 7.8 V 14.6 Z"/></svg>BistroTech is a service of Netpromotion Invest Kft.</span>
-      <span>Page v0.4.0, 2026-09-17.</span>
-      <span>The legal documents are drafts, not yet reviewed by a lawyer.</span>
-    </p>
+    <nav class="foot-col" aria-labelledby="foot-1">
+      <h2 id="foot-1">BistroTech</h2>
+      <ul>
+        <li><a href="how-it-works/">How it works</a></li>
+        <li><a href="for-groups/">For groups</a></li>
+        <li><a href="packages/">Packages</a></li>
+        <li><a href="https://zsombp.github.io/npi-review-system/">Sign in</a></li>
+        
+      </ul>
+    </nav>
+    <nav class="foot-col" aria-labelledby="foot-2">
+      <h2 id="foot-2">Help</h2>
+      <ul>
+        <li><a href="help/">Help centre</a></li>
+        <li><a href="help/videos/">Videos</a></li>
+        <li><a href="demo/">Ask for a demo</a></li>
+        
+      </ul>
+    </nav>
+    <nav class="foot-col" aria-labelledby="foot-3">
+      <h2 id="foot-3">Documents</h2>
+      <ul>
+        <li><a href="../aszf/" hreflang="hu">Terms (ÁSZF)</a></li>
+        <li><a href="../adatkezeles/" hreflang="hu">Privacy notice</a></li>
+        <li><a href="../impresszum/" hreflang="hu">Imprint</a></li>
+        
+      </ul>
+      <p class="foot-meta">These three are in Hungarian.</p>
+    </nav>
+    
+  </div>
+  <div class="wrap"><div class="foot-company">
+    <h2 class="foot-company-t">Operator</h2>
+    <dl>
+      <div><dt>Company</dt><dd>Netpromotion Invest Kereskedelmi és Szolgáltató Korlátolt Felelősségű Társaság (Netpromotion Invest Kft.)</dd></div>
+      <div><dt>Registered office</dt><dd>1056 Budapest, Duna utca 3. földszint 1., Hungary</dd></div>
+      <div><dt>Company number</dt><dd>01-09-269936, Fővárosi Törvényszék Cégbírósága</dd></div>
+      <div><dt>Tax number</dt><dd>10907850-2-41</dd></div>
+      <div><dt>Phone</dt><dd><a href="tel:+36302222444">+36 30 2222 444</a></dd></div>
+    </dl>
+    <!-- TODO-PROOF: cégjegyzékszám to be checked against the official cégkivonat before publication (carried over from docs/legal/aszf-hu.md section 1). -->
+    <!-- TODO-PROOF: no e-mail address is published here. The company's general address is a personal Gmail account; the BistroTech address on a company domain does not exist yet. Until it does, the form and the phone number are the only contact routes. Same TODO as in aszf-hu.md section 1. -->
+    
+  </div></div>
+  <div class="wrap foot-mega">
+    <a class="logo logo-mega" href="./" aria-label="BistroTech, home page">
+      <svg class="lockup" width="760" height="131" viewBox="0 0 760 131" aria-hidden="true" focusable="false">
+        <g transform="translate(-8.1,-4.4) scale(6.2)">
+          <path class="bt-mark" fill-rule="evenodd" d="M 4.01 13.41 A 8.5 8.5 0 1 1 6.31 16.82 L 2.6 20.4 Z M 7.2 14.6 V 11.8 A 1.2 1.2 0 0 1 9.6 11.8 V 14.6 Z M 10.8 14.6 V 9.8 A 1.2 1.2 0 0 1 13.2 9.8 V 14.6 Z M 14.4 14.6 V 7.8 A 1.2 1.2 0 0 1 16.8 7.8 V 14.6 Z"/>
+        </g>
+        <g transform="translate(154,15)">
+          <g class="bt-word">
+            <path transform="translate(0,0)" d="M 6 6 V 94 M 6 6 H 30 A 22 22 0 0 1 30 50 H 6 M 6 50 H 30 A 22 22 0 0 1 30 94 H 6"/>
+            <path transform="translate(66,0)" d="M 7 34 V 94"/>
+            <path transform="translate(88,0)" d="M 44 47 C 44 37 35 34 25 34 C 15 34 6 37 6 47 C 6 57 16 60 25 64 C 34 68 44 71 44 81 C 44 91 35 94 25 94 C 15 94 6 91 6 81"/>
+            <path transform="translate(146,0)" d="M 22 14 V 82 A 12 12 0 0 0 34 94 M 6 34 H 38"/>
+            <path transform="translate(196,0)" d="M 6 94 V 52 A 18 18 0 0 1 24 34"/>
+            <circle transform="translate(230,0)" cx="36" cy="64" r="30"/>
+            <path transform="translate(306,0)" d="M 6 6 H 58 M 32 6 V 94"/>
+            <path transform="translate(372,0)" d="M 6 64 H 66 A 30 30 0 1 0 60.6 81.2"/>
+            <path transform="translate(452,0)" d="M 60.6 46.8 A 30 30 0 1 0 60.6 81.2"/>
+            <path transform="translate(532,0)" d="M 6 6 V 94 M 6 61 A 27 27 0 0 1 60 61 V 94"/>
+          </g>
+          <circle class="bt-dot" cx="73" cy="16" r="7"/>
+        </g>
+      </svg>
+
+    </a>
+    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.1.0, 2026-09-26.</span></p>
   </div>
 </footer>
 
-<script src="../script.js" defer></script>
+<script src="../js/site.js?v=2f3910565a" defer></script>
 </body>
 </html>
+
