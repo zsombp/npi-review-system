@@ -1,8 +1,29 @@
-/* BistroTech website, Pop: site.js, v0.1.0, 2026-09-26.
+/* BistroTech website, Pop: site.js, v0.3.3, 2026-09-27 (v0.3.2 the same day; v0.3.1, v0.3.0, v0.2.0 and
+   v0.1.0 on 2026-09-26).
+   v0.3.3, the layout audit's Part 6 follow-up: the introduction video's cut check also runs when full
+   screen ends and when the phone turns, so a cut hidden on leaving full screen is paused (initIntroCuts).
+   v0.3.2, the layout audit's Part 5 follow-up (LAYOUT-AUDIT-WEBSITE-2026-09-26.md): the introduction
+   video's hidden cut fetches nothing, not even its still (initIntroCuts), and pauses if it leaves the
+   screen while playing.
+   v0.3.1, part 4 of docs/reviews/CODEX-MOTION-REVIEW-2026-09-26.md: the marquee's loop and its row
+   change places without moving a card (the pause sent it back to its start); a touchscreen that also
+   hovers counts as touch once touched, so a flick's momentum holds the loops there too, with the
+   scroll's end where the browser reports it.
+   v0.3.0 is below.
+   v0.3.0, the findings of docs/reviews/CODEX-MOTION-REVIEW-2026-09-26.md part 2: a finger or pen down
+   holds every loop and the page wakes when it lifts (P1.1); a hidden tab pauses every loop at once,
+   keeps no timer and does not wake the page on return (P2.1); each loop is watched for "out of view"
+   on its own (P2.3); the sleep is one timeout, not a five-second poll; reduced motion switched on or
+   off during the try-it countdown keeps the time left (P2.2).
+   v0.2.0 (D-052, motion; docs/design/MOTION-v0.1.0.md v0.2.0): the marquee's own pause became the
+   page pause (initMotion): one state for the Mozgás button in the header and the band's button,
+   kept in this browser; a loop runs only while its block is in view and not after 60 s without
+   input; and under reduced motion the try-it undo line steps down once a second instead of
+   gliding. Nothing else changed.
    Vanilla, no dependencies. One file for every page; each part looks for its own markup first.
    No sentence lives here: every word a visitor sees comes from the page (a text node or a data
    attribute), so the English site will reuse this file as it is.
-   Parts: the phone menu, the marquee pause, the try-it reply, the help search (reads
+   Parts: the phone menu, the page pause and the loops, the try-it reply, the help search (reads
    sugo/kereses.json from this site when the search is first used), the video blocks, was this
    helpful, the demo request form (platform/landing/script.js, unchanged in what it sends), and the
    landing's old #anchors on the home page.
@@ -47,18 +68,171 @@
     });
   }
 
-  /* ---- the marquee: a visible pause, as WCAG 2.2.2 asks for moving content ---- */
-  function initMarquee() {
-    var btn = $(".band-toggle");
-    var track = $(".marquee");
-    if (!btn || !track) return;
-    var label = btn.querySelector(".band-toggle-tx");
-    btn.addEventListener("click", function () {
-      var paused = btn.getAttribute("data-paused") !== "true";
-      btn.setAttribute("data-paused", paused ? "true" : "false");
-      track.classList.toggle("is-paused", paused);
-      label.textContent = label.getAttribute(paused ? "data-off" : "data-on");
+  /* ---- motion: the page pause, in view, asleep, hidden, under a finger (WCAG 2.2.2) ---------------
+     One state for every [data-motion-toggle] (the Mozgás button in the header, the marquee's own),
+     kept in this browser under motion.paused; the head's script puts it on <html> before the first
+     paint. Every loop pauses through one inherited property, --loop-play (site.css), set to paused:
+       - on <html> while the page is asleep (60 s without input, until the next input), hidden (the
+         tab is not shown: at once, and no timer runs meanwhile; coming back does not wake it), or
+         interacting (a finger or pen is down, and SETTLE_MS after the last one lifts; on a phone a
+         scroll counts too), so nothing moves under a finger and the finger that wakes the page does
+         not start what is under it: the page wakes when it lifts;
+       - on a loop's block (.loop-host, its section) under the pointer or with the focus inside;
+       - on the loop itself when it is out of view (.is-out: each loop is watched on its own, so one
+         below the fold stops although its section's top is on screen).
+     Under reduced motion nothing loops and the buttons are not shown. v0.3.0: the findings of
+     docs/reviews/CODEX-MOTION-REVIEW-2026-09-26.md part 2 (P1.1, P1.2, P2.1, P2.3). */
+  var LOOPS = ".marquee, .sticker-free, .sticker-note, .sticker-final, .sticker-page, .sticker-help, .illo-render img";
+  var SLEEP_MS = 60000;
+  var SETTLE_MS = 1200;
+  function initMotion() {
+    var root = document.documentElement;
+    var buttons = $all("[data-motion-toggle]");
+    function paused() { return root.getAttribute("data-paused") === "true"; }
+    function sync() {
+      var p = paused();
+      buttons.forEach(function (b) {
+        b.setAttribute("data-paused", p ? "true" : "false");
+        var tx = b.querySelector("[data-on]");
+        if (tx) tx.textContent = tx.getAttribute(p ? "data-off" : "data-on");
+        if (b.hasAttribute("data-label-on")) b.setAttribute("aria-label", b.getAttribute(p ? "data-label-off" : "data-label-on"));
+      });
+    }
+    // the marquee rolls or is the row you scroll (data-row), and its place is carried over both ways:
+    // the loop's offset becomes the row's scroll position, the row's scroll position the point the
+    // loop goes on from, so pausing and starting again move no card (the motion review, part 4)
+    var mq = $(".marquee");
+    var inner = mq && mq.querySelector(".marquee-inner");
+    var firstList = inner && inner.querySelector(".marquee-list");
+    var ROUND_MS = 64000; // --m-band
+    function span() { return firstList ? firstList.getBoundingClientRect().width : 0; }
+    function wrap(x, m) { return m > 0 ? ((x % m) + m) % m : 0; }
+    function toRow() {
+      if (!mq || mq.hasAttribute("data-row")) return;
+      var t = window.getComputedStyle(inner).transform;
+      var p = t && t !== "none" && window.DOMMatrixReadOnly ? wrap(-new window.DOMMatrixReadOnly(t).m41, span()) : 0;
+      mq.setAttribute("data-row", "");
+      inner.style.animationDelay = "";
+      mq.scrollLeft = p;
+    }
+    function toRoll() {
+      if (!mq || !mq.hasAttribute("data-row")) return;
+      var s = span();
+      var p = wrap(mq.scrollLeft, s);
+      inner.style.animationDelay = s > 0 ? (-(p / s) * ROUND_MS) + "ms" : "";
+      mq.removeAttribute("data-row");
+      mq.scrollLeft = 0;
+    }
+    function keyboardIn() { return !!(mq && mq.matches(":focus-visible")); }
+    function marqueeFollows() {
+      if (!mq) return;
+      if (reduceMotion.matches) { mq.setAttribute("data-row", ""); inner.style.animationDelay = ""; return; }
+      if (paused() || keyboardIn()) toRow(); else toRoll();
+    }
+    function setPaused(p) {
+      // the marquee becomes the row before the page is paused, and rolls again after it is not
+      if (p) toRow();
+      if (p) root.setAttribute("data-paused", "true"); else root.removeAttribute("data-paused");
+      try { if (p) window.localStorage.setItem("motion.paused", "1"); else window.localStorage.removeItem("motion.paused"); } catch (e) { /* this visit only */ }
+      if (!p) marqueeFollows();
+      sync();
+      armSleep();
+    }
+    buttons.forEach(function (b) { b.addEventListener("click", function () { setPaused(!paused()); }); });
+    sync();
+    if (mq) {
+      if (paused() || reduceMotion.matches) mq.setAttribute("data-row", "");
+      mq.addEventListener("focusin", function () { window.setTimeout(marqueeFollows, 0); });
+      mq.addEventListener("focusout", function () { window.setTimeout(marqueeFollows, 0); });
+    }
+
+    // out of view: each loop on its own; its section groups the pointer and the focus
+    if ("IntersectionObserver" in window) {
+      var io = new window.IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { e.target.classList.toggle("is-out", !e.isIntersecting); });
+      });
+      $all(LOOPS).forEach(function (el) {
+        var host = el.closest("section, .blk") || el.parentElement;
+        if (host) host.classList.add("loop-host");
+        io.observe(el);
+      });
+    }
+
+    // asleep: one timeout, armed only while loops may run; firing early (there was input since), it
+    // re-arms for the rest
+    var last = Date.now();
+    var sleepTimer = null;
+    function armSleep() {
+      window.clearTimeout(sleepTimer);
+      sleepTimer = null;
+      if (paused() || reduceMotion.matches || document.hidden || root.hasAttribute("data-asleep")) return;
+      sleepTimer = window.setTimeout(function () {
+        sleepTimer = null;
+        if (Date.now() - last >= SLEEP_MS) { if (!paused() && !document.hidden) root.setAttribute("data-asleep", "true"); }
+        else armSleep();
+      }, Math.max(0, SLEEP_MS - (Date.now() - last)));
+    }
+    var fingers = [];
+    var settle = null;
+    function wake() {
+      last = Date.now();
+      if (fingers.length || root.hasAttribute("data-interacting")) return; // it wakes when the finger lifts
+      if (root.hasAttribute("data-asleep")) { root.removeAttribute("data-asleep"); armSleep(); }
+      else if (!sleepTimer) armSleep();
+    }
+    function hold() {
+      window.clearTimeout(settle);
+      settle = null;
+      root.setAttribute("data-interacting", "true");
+    }
+    function letGo() {
+      if (fingers.length) return;
+      window.clearTimeout(settle);
+      settle = window.setTimeout(function () {
+        settle = null;
+        root.removeAttribute("data-interacting");
+        if (!noHover) touching = false;
+        wake();
+      }, SETTLE_MS);
+    }
+    var capture = { passive: true, capture: true };
+    var noHover = !!(window.matchMedia && window.matchMedia("(hover: none)").matches);
+    // a touch interaction: on a phone always, and on a touchscreen that also hovers from a touch or pen
+    // press until the page has settled after it, so a flick's momentum holds the loops there too (the
+    // motion review, part 4: that was keyed on the device's hover alone)
+    var touching = noHover;
+    window.addEventListener("pointerdown", function (e) {
+      last = Date.now();
+      if (e.pointerType === "mouse") { if (!noHover) touching = false; wake(); return; } // a mouse covers nothing; the pointer's own hover pauses what it is on
+      touching = true;
+      if (fingers.indexOf(e.pointerId) < 0) fingers.push(e.pointerId);
+      hold();
+    }, capture);
+    function lift(e) {
+      var i = fingers.indexOf(e.pointerId);
+      if (i < 0) return;
+      fingers.splice(i, 1);
+      letGo();
+    }
+    window.addEventListener("pointerup", lift, capture);
+    window.addEventListener("pointercancel", lift, capture);
+    // every scroll of a touch interaction, and its end where the browser reports it (the settle's
+    // timeout is the fallback where it does not)
+    function scrolled() { if (touching) { last = Date.now(); hold(); letGo(); } else wake(); }
+    window.addEventListener("scroll", scrolled, capture);
+    window.addEventListener("scrollend", function () { if (touching) { hold(); letGo(); } }, capture);
+    ["pointermove", "keydown", "wheel"].forEach(function (ev) {
+      window.addEventListener(ev, function (e) { if (ev === "pointermove" && e.pointerType !== "mouse") { last = Date.now(); return; } wake(); }, capture);
     });
+
+    // hidden: every loop pauses at once and no timer is kept; coming back does not wake the page
+    function visibility() {
+      if (document.hidden) { root.setAttribute("data-hidden", "true"); window.clearTimeout(sleepTimer); sleepTimer = null; }
+      else { root.removeAttribute("data-hidden"); armSleep(); }
+    }
+    document.addEventListener("visibilitychange", visibility);
+    if (reduceMotion.addEventListener) reduceMotion.addEventListener("change", function () { marqueeFollows(); armSleep(); });
+    visibility();
   }
 
   /* ---- try it: approve a drafted reply ------------------------------------- */
@@ -151,19 +325,48 @@
         run();
       }
     }
+    /* Under reduced motion the line does not glide: it steps down once a second (site.css reads
+       --left), and holds with the timer. Reduced motion switched on or off during a countdown shows
+       the time actually left, from where the countdown stands, and does not move the deadline (P2.2
+       of the motion review: the line jumped back to full). */
+    var stepper = null;
+    function rest() { return timer ? left - (Date.now() - since) : left; }
+    function step() {
+      bar.style.setProperty("--left", String(Math.max(0, Math.ceil(rest() / 1000)) / 8));
+    }
+    function lineFollows() {
+      if (toast.hidden) return;
+      window.clearInterval(stepper);
+      stepper = null;
+      if (reduceMotion.matches) { step(); stepper = window.setInterval(step, 250); return; }
+      bar.style.removeProperty("--left");
+      bar.classList.remove("is-running");
+      void bar.offsetWidth;
+      bar.style.animationDelay = -(8000 - Math.max(0, rest())) + "ms";
+      bar.classList.add("is-running");
+    }
+    if (reduceMotion.addEventListener) reduceMotion.addEventListener("change", lineFollows);
     function showToast(msg) {
       toastMsg.textContent = msg;
       toast.hidden = false;
       bar.classList.remove("is-running");
+      bar.style.animationDelay = "";
       void bar.offsetWidth;
       bar.classList.add("is-running");
       holds = { hover: false, focus: false };
       left = 8000;
       run();
+      window.clearInterval(stepper);
+      stepper = null;
+      if (reduceMotion.matches) { step(); stepper = window.setInterval(step, 250); }
     }
     function hideToast() {
       window.clearTimeout(timer);
       timer = null;
+      window.clearInterval(stepper);
+      stepper = null;
+      bar.style.removeProperty("--left");
+      bar.style.animationDelay = "";
       toast.hidden = true;
       toast.classList.remove("is-paused");
       bar.classList.remove("is-running");
@@ -392,6 +595,41 @@
     });
   }
 
+  /* ---- the introduction video: two cuts, the stylesheet shows the one that fits the window ---- */
+  /* Only the cut on screen gets its still (data-poster), so the hidden cut downloads nothing: its video
+     already waits for a press (preload="none"), and a poster attribute would fetch its still at once.
+     When the window changes shape the other cut gets its still, and a cut that leaves the screen while
+     playing is paused, so a hidden video does not go on talking.
+     v0.3.3 (the Codex review's part 6): the check also runs when full screen ends and when the phone turns,
+     not only on a resize. A cut in full screen stays shown whatever the window's shape (site.css), so a
+     phone turned during full screen changes nothing until full screen ends, and leaving it fires no resize
+     where the window keeps its size: the cut hidden then went on playing (measured in Chromium: the 9:16
+     cut, full screen, turned to 844 x 390, left full screen: hidden and still playing). An iPhone plays full
+     screen natively (webkitDisplayingFullscreen, webkitendfullscreen on the video), outside the page's
+     layout, so a cut playing there is never paused by a turn of the page under it. */
+  function initIntroCuts() {
+    var cuts = $all(".intro-vid video[data-poster]");
+    if (!cuts.length) return;
+    function update() {
+      cuts.forEach(function (v) {
+        var shown = v.getClientRects().length > 0;
+        if (shown && !v.getAttribute("poster")) v.setAttribute("poster", v.getAttribute("data-poster"));
+        if (!shown && !v.paused && !v.webkitDisplayingFullscreen) v.pause();
+      });
+    }
+    var timer = 0;
+    function later() {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(update, 150);
+    }
+    update();
+    window.addEventListener("resize", later);
+    window.addEventListener("orientationchange", later);
+    document.addEventListener("fullscreenchange", later);
+    document.addEventListener("webkitfullscreenchange", later);
+    cuts.forEach(function (v) { v.addEventListener("webkitendfullscreen", later); });
+  }
+
   /* ---- was this helpful ----------------------------------------------------- */
   function initFeedback() {
     var box = $(".feedback");
@@ -547,10 +785,11 @@
 
   initLegacyAnchors();
   initMenu();
-  initMarquee();
+  initMotion();
   initTry();
   initHelpSearch();
   $all(".vid").forEach(initVideo);
+  initIntroCuts();
   initFeedback();
   initForm();
   initTables();

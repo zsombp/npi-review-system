@@ -2,7 +2,7 @@
 <html lang="hu" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>A napi jelentés beállítása · BistroTech súgó</title>
 <meta name="description" content="Beállítod, hány órakor jöjjön a napi jelentés, és összekötöd a Telegramot, ha oda is kéred.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/hu/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Mozgás megállítása" data-label-on="Mozgás megállítása" data-label-off="Mozgás indítása">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Mozgás</span>
+        </button>
         <p class="lang"><span class="lang-on" aria-current="true">HU</span><a href="../../en/help/setting-up-the-daily-report/" hreflang="en" lang="en">EN</a></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen</a>
       </div>
@@ -182,14 +187,14 @@
         <div class="art-body">
           <h2 id="az-idopont">Az időpont</h2>
 <ol class="hsteps" role="list" id="lepesek"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Nyisd meg a <b class="ui">Beállítások</b> oldalt. A tetején áll, hány órakor megy ki a jelentés, és melyik időzóna szerint.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>A <b class="ui">Fiók</b> kártyán válaszd ki az órát <b class="ui">A napi jelentés órája</b> mezőben.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Nyomd meg az oldal alján a <b class="ui">Mentés</b> gombot.</p></div></li></ol>
-<p>Új fióknál a jelentés reggel 8:<span class="nw">00-kor</span> megy ki, a fiók időzónája szerint.</p>
+<p>Új fióknál a jelentés reggel 8:<span class="hy">00-kor</span> megy ki, a fiók időzónája szerint.</p>
 <h2 id="telegram-osszekotese">Telegram összekötése</h2>
-<ol class="hsteps" role="list"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>A <b class="ui">Beállítások</b> oldal <b class="ui">Telegram címzettek</b> kártyáján, a <b class="ui">Napi jelentés</b> sorban nyomd meg az <b class="ui">Összekötés</b> gombot.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Ha magadnak kéred, nyomd meg a <b class="ui">Megnyitás Telegramon</b> linket, és a Telegramban indítsd el a beszélgetést.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Ha a csapatod csoportjába kéred, vedd fel a csoportba a BistroTech <span class="nw">Telegram-fiókját</span>. A nevét a panel kiírja.</p></div></li><li class="hstep"><span class="hstep-n c-green" aria-hidden="true">4</span><div class="hstep-body"><p>Utána küldd el a csoportban a panelen látható parancsot. A <b class="ui">Másolás</b> gombbal kimásolhatod.</p></div></li><li class="hstep"><span class="hstep-n c-orange" aria-hidden="true">5</span><div class="hstep-body"><p>Amikor a kód megérkezik, a panel megmutatja, melyik beszélgetés küldte. Ha ez a jó, nyomd meg az <b class="ui">Igen, ide</b> gombot.</p></div></li></ol>
+<ol class="hsteps" role="list"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>A <b class="ui">Beállítások</b> oldal <b class="ui">Telegram címzettek</b> kártyáján, a <b class="ui">Napi jelentés</b> sorban nyomd meg az <b class="ui">Összekötés</b> gombot.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Ha magadnak kéred, nyomd meg a <b class="ui">Megnyitás Telegramon</b> linket, és a Telegramban indítsd el a beszélgetést.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Ha a csapatod csoportjába kéred, vedd fel a csoportba a BistroTech <span class="hy">Telegram-fiókját</span>. A nevét a panel kiírja.</p></div></li><li class="hstep"><span class="hstep-n c-green" aria-hidden="true">4</span><div class="hstep-body"><p>Utána küldd el a csoportban a panelen látható parancsot. A <b class="ui">Másolás</b> gombbal kimásolhatod.</p></div></li><li class="hstep"><span class="hstep-n c-orange" aria-hidden="true">5</span><div class="hstep-body"><p>Amikor a kód megérkezik, a panel megmutatja, melyik beszélgetés küldte. Ha ez a jó, nyomd meg az <b class="ui">Igen, ide</b> gombot.</p></div></li></ol>
 <p>A kód 10 percig érvényes. Ha lejárt, nyomd meg újra az <b class="ui">Összekötés</b> gombot.</p>
 <h2 id="telegram-nelkul">Telegram nélkül</h2>
 <p>Ha nem kötsz össze semmit, a jelentés akkor is elkészül a beállított órában. Az <b class="ui">Elküldött üzenetek</b> oldalon olvashatod, a menü <b class="ui">Fiók</b> csoportjában. Az ilyen jelentés mellett ez áll: „Csak itt, az oldalon. Nincs összekötve Telegram.”</p>
 <p>Hogy a telefonod szóljon, amikor megjött, lásd: <a href="../../sugo/telefonra-teves/">Tedd fel a telefonodra</a>.</p>
-<p>Az <span class="nw">e-mailben</span> küldött jelentés később indul. A <b class="ui">Beállítások</b> oldal <b class="ui">Levélben is</b> kártyáján a kapcsolókat már most beállíthatod.</p>
+<p>Az <span class="hy">e-mailben</span> küldött jelentés később indul. A <b class="ui">Beállítások</b> oldal <b class="ui">Levélben is</b> kártyáján a kapcsolókat már most beállíthatod.</p>
 <h2 id="a-masik-ket-cimzett">A másik két címzett</h2>
 <p>A <b class="ui">Marketing</b> címzett a helyezések heti összefoglalóját kapja, a <b class="ui">Riasztás</b> a riasztásokat. Mindkettőt ugyanígy kötöd össze. Lásd: <a href="../../sugo/riasztasok/">Riasztások</a>.</p>
 <aside class="callout callout-tip" role="note"><p class="callout-label"><span class="callout-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-bulb"/></svg></span>Tipp</p><p>A napi jelentés beszélgetésében kérdezhetsz is. Írd a /kerdes parancs után a kérdést, például: /kerdes mi volt a héten a Példa Bisztróban. Az asszisztens a saját értékeléseidből válaszol.</p></aside>
@@ -315,11 +320,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

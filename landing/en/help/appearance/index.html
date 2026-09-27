@@ -2,7 +2,7 @@
 <html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Appearance: style, colours, font · BistroTech help</title>
 <meta name="description" content="You choose how BistroTech looks for you, and which language you see it in.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/en/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Stop motion" data-label-on="Stop motion" data-label-off="Start motion">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Motion</span>
+        </button>
         <p class="lang"><a href="../../../sugo/megjelenes/" hreflang="hu" lang="hu">HU</a><span class="lang-on" aria-current="true">EN</span></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup?lang=en">Start free</a>
       </div>
@@ -191,6 +196,12 @@
 <h2 id="in-the-glass-style-only">In the Glass style only</h2>
 <p>The <b class="ui">Glass</b> switch: <b class="ui">Off</b>, <b class="ui">On the menu</b> or <b class="ui">On the cards too</b>. Beside it, the <b class="ui">Blur</b> and <b class="ui">Opacity</b> sliders.</p>
 <p><b class="ui">Back to the default</b> restores Pop, automatic colours and Space Grotesk.</p>
+<h2 id="motion-and-sounds">Motion and sounds</h2>
+<p>The <b class="ui">Motion</b> row decides how much moves on screen:</p>
+<ul class="art-list" role="list"><li><b class="ui">Calm</b>: only what you start moves.</li><li><b class="ui">Lively</b>: arrivals and feedback, once. Nothing repeats.</li><li><b class="ui">Playful</b>: slow life in the background too, such as the band of yesterday's reviews on <b class="ui">Today</b>. You can pause it any time.</li><li><b class="ui">Automatic</b>: Playful, unless your device asks for less motion.</li></ul>
+<p>Playful exists only in the Pop style; Glass and Classic go up to Lively. If your device asks for less motion, nothing moves by itself, whatever you choose.</p>
+<p><b class="ui">Pause motion</b>, at the foot of the left rail and in the <b class="ui">Menu</b> on a phone, stops everything that moves by itself at once. The band of yesterday's reviews has its own <b class="ui">Pause</b> button too.</p>
+<p>The <b class="ui">Sounds</b> row is <b class="ui">Off</b> by default. Set it to <b class="ui">On</b> and a short sound plays when you approve, skip, undo or switch something. It never plays by itself, and it never tells you anything the screen does not.</p>
 <h2 id="the-language">The language</h2>
 <p>You set the language of the pages with the <b class="ui">Language</b> menu: <b class="ui">Magyar</b> or <b class="ui">English</b>. This is your own setting too.</p>
 <p>The language of the daily report is separate. It comes from the <b class="ui">Language</b> field of the <b class="ui">Account</b> card on the <b class="ui">Settings</b> page, and it applies to everyone in the account.</p>
@@ -222,7 +233,7 @@
   <a class="btn btn-yellow" href="../../demo/"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>Write to us</a>
 </section>
 
-        <p class="art-updated">Updated: 26 September 2026</p>
+        <p class="art-updated">Updated: 27 September 2026</p>
       </article>
 
       <aside class="help-side" aria-label="In this article">
@@ -233,8 +244,9 @@
             <li class="c-pink"><a href="#three-steps-in-order">Three steps, in order</a></li>
             <li class="c-cyan"><a href="#light-or-dark">Light or dark</a></li>
             <li class="c-green"><a href="#in-the-glass-style-only">In the Glass style only</a></li>
-            <li class="c-orange"><a href="#the-language">The language</a></li>
-            <li class="c-lilac"><a href="#related">Related articles</a></li>
+            <li class="c-orange"><a href="#motion-and-sounds">Motion and sounds</a></li>
+            <li class="c-lilac"><a href="#the-language">The language</a></li>
+            <li class="c-yellow"><a href="#related">Related articles</a></li>
             
           </ol>
         </div>
@@ -318,11 +330,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

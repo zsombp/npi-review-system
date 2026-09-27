@@ -2,7 +2,7 @@
 <html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Disputing reviews with Google · BistroTech help</title>
 <meta name="description" content="You open a case on suspicious reviews and get a dated document for your report to Google.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/en/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Stop motion" data-label-on="Stop motion" data-label-off="Start motion">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Motion</span>
+        </button>
         <p class="lang"><a href="../../../sugo/panasz-a-google-nal/" hreflang="hu" lang="hu">HU</a><span class="lang-on" aria-current="true">EN</span></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup?lang=en">Start free</a>
       </div>
@@ -181,12 +186,12 @@
 
         <div class="art-body">
           <h2 id="when-to-open-a-case">When to open a case</h2>
-<ul class="art-list" role="list"><li>When several <span class="nw">one-star</span> reviews arrived at a venue in a short time.</li><li>When guests lowered an earlier rating afterwards.</li><li>When Google took reviews off your venue's listing.</li><li>When you want to report a single review.</li></ul>
+<ul class="art-list" role="list"><li>When several <span class="hy">one-star</span> reviews arrived at a venue in a short time.</li><li>When guests lowered an earlier rating afterwards.</li><li>When Google took reviews off your venue's listing.</li><li>When you want to report a single review.</li></ul>
 <h2 id="opening-a-case">Opening a case</h2>
 <ol class="hsteps" role="list" id="steps"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Press the <b class="ui">New case</b> button.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p><b class="ui">The last 14 days</b> list offers our alerts and the days the review count fell. If one fits, the <b class="ui">Use this one</b> button fills in the form with it.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>If you know about something we did not see, fill in the form by hand. The fields are <b class="ui">Venue</b>, <b class="ui">What you are documenting</b>, <b class="ui">From this day</b> and <b class="ui">To this day</b>.</p></div></li><li class="hstep"><span class="hstep-n c-green" aria-hidden="true">4</span><div class="hstep-body"><p>Press the <b class="ui">Open the case</b> button.</p></div></li></ol>
 <h2 id="the-document">The document</h2>
 <p>In the list of cases, open the case with the <b class="ui">Open</b> link. The <b class="ui">Open the document</b> button opens the document in a new tab, and from there you can save it as a PDF with the browser's print. The <b class="ui">Download as Markdown</b> button gives it to you as a text file.</p>
-<p>The document holds the venue and the Business Profile id, the window, and the review count day by day. Next to that, the <span class="nw">one-star</span> reviews against the venue's previous 90 days, and every review in the window, word for word. At the end come the changed reviews, our alerts and Google's own pages, with the date we read them.</p>
+<p>The document holds the venue and the Business Profile id, the window, and the review count day by day. Next to that, the <span class="hy">one-star</span> reviews against the venue's previous 90 days, and every review in the window, word for word. At the end come the changed reviews, our alerts and Google's own pages, with the date we read them.</p>
 <p>The document does not claim the reviews are fake. Whether a review comes down is Google's decision alone.</p>
 <h2 id="reporting-to-google">Reporting to Google</h2>
 <p>You send the report yourself. At Google, you can report the reviews from your Business Profile or from Google's Reviews Management Tool. You have to say which policy they break. After a refusal you can appeal once, and one appeal takes at most ten reviews.</p>
@@ -318,11 +323,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

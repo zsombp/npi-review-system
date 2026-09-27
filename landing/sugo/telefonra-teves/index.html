@@ -2,7 +2,7 @@
 <html lang="hu" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Tedd fel a telefonodra · BistroTech súgó</title>
 <meta name="description" content="A BistroTech a kezdőképernyőről úgy nyílik meg, mint egy alkalmazás, és értesítést is küldhet.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/hu/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Mozgás megállítása" data-label-on="Mozgás megállítása" data-label-off="Mozgás indítása">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Mozgás</span>
+        </button>
         <p class="lang"><span class="lang-on" aria-current="true">HU</span><a href="../../en/help/putting-it-on-your-phone/" hreflang="en" lang="en">EN</a></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen</a>
       </div>
@@ -181,14 +186,14 @@
 
         <div class="art-body">
           <h2 id="androidon">Androidon</h2>
-<ol class="hsteps" role="list" id="lepesek"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Nyisd meg a BistroTechet a <span class="nw">Chrome-ban</span>, és lépj be.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Ha az oldal tetején megjelenik a <b class="ui">Telepítsd a kezdőképernyőre</b> sáv, nyomd meg a <b class="ui">Telepítés</b> gombot.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Hagyd jóvá a böngésző kérdését.</p></div></li></ol>
+<ol class="hsteps" role="list" id="lepesek"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Nyisd meg a BistroTechet a <span class="hy">Chrome-ban</span>, és lépj be.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Ha az oldal tetején megjelenik a <b class="ui">Telepítsd a kezdőképernyőre</b> sáv, nyomd meg a <b class="ui">Telepítés</b> gombot.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Hagyd jóvá a böngésző kérdését.</p></div></li></ol>
 <p>Ha a sávot korábban elrejtetted, a Chrome menüjéből is feltelepítheted.</p>
-<h2 id="iphone-on"><span class="nw">iPhone-on</span></h2>
+<h2 id="iphone-on"><span class="hy">iPhone-on</span></h2>
 <ol class="hsteps" role="list"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Nyisd meg a BistroTechet a Safariban, és lépj be.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Nyisd meg a <b class="ui">Megosztás</b> menüt.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Válaszd a <b class="ui">Főképernyőhöz adás</b> pontot, és hagyd jóvá.</p></div></li></ol>
 <h2 id="ertesites-a-telefonra">Értesítés a telefonra</h2>
-<ol class="hsteps" role="list"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Nyisd meg a <b class="ui">Fiókom</b> oldalt: a menüben kattints a saját <span class="nw">e-mail-címedre</span>.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Az <b class="ui">Értesítés ezen az eszközön</b> kártyán nyomd meg a <b class="ui">Bekapcsolás</b> gombot, és engedélyezd a böngésző kérdésére.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Jelöld be, miről szóljunk: <b class="ui">Gyenge értékelés érkezett</b>, <b class="ui">Megjött a reggeli jelentés</b>.</p></div></li></ol>
-<p><span class="nw">iPhone-on</span> az értesítés csak a kezdőképernyőre tett BistroTechből működik. Az értesítés arra az eszközre szól, amelyen bekapcsoltad. Minden eszközön külön kapcsolod be.</p>
-<p>A gyenge értékelésről akkor szólunk, ha a <b class="ui">Beállítások</b> oldalon be van kapcsolva az azonnali jelzés, és van összekötött <span class="nw">Telegram-beszélgetés</span>. Lásd: <a href="../../sugo/riasztasok/">Riasztások</a>.</p>
+<ol class="hsteps" role="list"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Nyisd meg a <b class="ui">Fiókom</b> oldalt: a menüben kattints a saját <span class="hy">e-mail-címedre</span>.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Az <b class="ui">Értesítés ezen az eszközön</b> kártyán nyomd meg a <b class="ui">Bekapcsolás</b> gombot, és engedélyezd a böngésző kérdésére.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Jelöld be, miről szóljunk: <b class="ui">Gyenge értékelés érkezett</b>, <b class="ui">Megjött a reggeli jelentés</b>.</p></div></li></ol>
+<p><span class="hy">iPhone-on</span> az értesítés csak a kezdőképernyőre tett BistroTechből működik. Az értesítés arra az eszközre szól, amelyen bekapcsoltad. Minden eszközön külön kapcsolod be.</p>
+<p>A gyenge értékelésről akkor szólunk, ha a <b class="ui">Beállítások</b> oldalon be van kapcsolva az azonnali jelzés, és van összekötött <span class="hy">Telegram-beszélgetés</span>. Lásd: <a href="../../sugo/riasztasok/">Riasztások</a>.</p>
         </div>
 
         <section class="feedback" aria-labelledby="fb-q">
@@ -310,11 +315,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

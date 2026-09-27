@@ -2,7 +2,7 @@
 <html lang="hu" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Módosított és eltűnt értékelések · BistroTech súgó</title>
 <meta name="description" content="Mi történik, ha egy vendég átírja az értékelését, vagy ha a Google levesz egyet.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/hu/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Mozgás megállítása" data-label-on="Mozgás megállítása" data-label-off="Mozgás indítása">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Mozgás</span>
+        </button>
         <p class="lang"><span class="lang-on" aria-current="true">HU</span><a href="../../en/help/changed-and-removed-reviews/" hreflang="en" lang="en">EN</a></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen</a>
       </div>
@@ -181,7 +186,7 @@
 
         <div class="art-body">
           <h2 id="ha-a-vendeg-atirja">Ha a vendég átírja</h2>
-<p>A <span class="nw">Google-on</span> egy vendég egy étteremről egy értékelést írhat. Ha átírja, a Google néha új azonosítót ad neki. Mi ettől még egy értékelésnek tekintjük, és nem számoljuk újra.</p>
+<p>A <span class="hy">Google-on</span> egy vendég egy étteremről egy értékelést írhat. Ha átírja, a Google néha új azonosítót ad neki. Mi ettől még egy értékelésnek tekintjük, és nem számoljuk újra.</p>
 <ul class="art-list" role="list"><li>Az <b class="ui">Értékelések</b> fülön mindig a legfrissebb változatot látod.</li><li>A régi változatot is megőrizzük, ebből írjuk ki a változást.</li><li>A napi jelentés „Módosított értékelések” része felsorolja, miről mire változott. Például öt csillagról egyre, vagy azt, hogy csak a szöveg módosult.</li><li>A lerontott értékelések állnak elöl, az új szövegükkel.</li><li>A számokba a változás nem kerül bele újra.</li></ul>
 <p>Ha egy étteremnél néhány napon belül több vendég is lerontja az értékelését, mintariasztást küldünk. Lásd: <a href="../../sugo/riasztasok/">Riasztások</a>.</p>
 <aside class="callout callout-tip" role="note"><p class="callout-label"><span class="callout-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-bulb"/></svg></span>Tipp</p><p>Az <b class="ui">Asszisztens</b> oldalon is megkérdezheted, mely értékelések változtak egy időszakban.</p></aside>
@@ -189,7 +194,7 @@
 <p>A Google néha eltávolít értékeléseket, például ha szabályba ütköznek. Ezt abból látjuk, hogy a cégprofilodon látható értékelésszám csökken.</p>
 <ul class="art-list" role="list"><li>A napi jelentés „Google eltávolítás” sora kiírja, ha a szám az előző méréshez képest legalább kettővel csökkent.</li><li>Egyetlen értékelés esését nem jelezzük, mert az a Google saját mozgása.</li><li>A számból nem tudjuk megmondani, pontosan melyik értékelés tűnt el.</li></ul>
 <p>A sort a <b class="ui">Beállítások</b> oldal <b class="ui">Jelentés</b> kártyáján kapcsolhatod ki és be. Lásd: <a href="../../sugo/jelentes-kulon-sorai/">A jelentés külön sorai és a havi összefoglaló</a>.</p>
-<p>Ha a csökkenést gyanúsnak tartod, nyiss rá ügyet a <b class="ui">Panaszok</b> oldalon. Lásd: <a href="../../sugo/panasz-a-google-nal/">Panasz a <span class="nw">Google-nál</span></a>.</p>
+<p>Ha a csökkenést gyanúsnak tartod, nyiss rá ügyet a <b class="ui">Panaszok</b> oldalon. Lásd: <a href="../../sugo/panasz-a-google-nal/">Panasz a <span class="hy">Google-nál</span></a>.</p>
         </div>
 
         <section class="feedback" aria-labelledby="fb-q">
@@ -310,11 +315,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

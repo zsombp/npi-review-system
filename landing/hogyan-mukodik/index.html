@@ -2,7 +2,7 @@
 <html lang="hu" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Hogyan működik · BistroTech</title>
 <meta name="description" content="Akkor nyitod meg, ha jóvá akarsz hagyni egy választ, vissza akarsz nézni egy hónapot, vagy el akarod olvasni, mit írtak a vendégek.">
 <meta name="theme-color" content="#2a48f5">
@@ -24,10 +24,11 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../css/site.css?v=dc93e4933a">
+<noscript><style>.intro-vid > video[data-poster] { display: none; }</style></noscript>
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/hu/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +116,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Mozgás megállítása" data-label-on="Mozgás megállítása" data-label-off="Mozgás indítása">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Mozgás</span>
+        </button>
         <p class="lang"><span class="lang-on" aria-current="true">HU</span><a href="../en/how-it-works/" hreflang="en" lang="en">EN</a></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen</a>
       </div>
@@ -165,15 +171,30 @@
     <div class="wrap">
       <h2 id="t-intro">Az egész <span class="mk mk-yellow">44<svg class="mk-line" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M2 7C20 3.5 40 9.5 58 6S88 4.5 98 8"/></svg></span> másodpercben</h2>
       <p class="sec-intro">Egy reggel a BistroTechhel, az első értékeléstől odáig, hogy ma nincs teendőd. Hang nélkül is érthető: minden szó a képen van.</p>
+      <!-- site v0.6.0, 2026-09-27: each cut's still is data-poster; site.js gives it to the cut on screen only,
+             so the hidden cut downloads nothing (preload="none" already keeps its video). The same day, the
+             Part 6 follow-up: a browser without script shows the copies in the noscript below instead, whose
+             stills are ordinary posters (the head hides the two cuts above there); with script the noscript is
+             never read, so nothing in it is downloaded. Keep the two pairs in step. -->
       <figure class="intro-vid" aria-labelledby="t-intro">
-        <video class="intro-wide" controls playsinline preload="none" width="1920" height="1080" poster="../video/intro-hu-poster.png" aria-label="A BistroTech bemutatkozó videója, 44 másodperc">
+        <video class="intro-wide" controls playsinline preload="none" width="1920" height="1080" data-poster="../video/intro-hu-poster.png" aria-label="A BistroTech bemutatkozó videója, 44 másodperc">
           <source src="../video/intro-hu.mp4" type='video/mp4; codecs="avc1.640028, mp4a.40.2"'>
           <source src="../video/intro-hu.webm" type='video/webm; codecs="vp9, opus"'>
         </video>
-        <video class="intro-tall" controls playsinline preload="none" width="1080" height="1920" poster="../video/intro-vertical-hu-poster.png" aria-label="A BistroTech bemutatkozó videója, 44 másodperc">
+        <video class="intro-tall" controls playsinline preload="none" width="1080" height="1920" data-poster="../video/intro-vertical-hu-poster.png" aria-label="A BistroTech bemutatkozó videója, 44 másodperc">
           <source src="../video/intro-vertical-hu.mp4" type='video/mp4; codecs="avc1.640028, mp4a.40.2"'>
           <source src="../video/intro-vertical-hu.webm" type='video/webm; codecs="vp9, opus"'>
         </video>
+        <noscript>
+          <video class="intro-wide" controls playsinline preload="none" width="1920" height="1080" poster="../video/intro-hu-poster.png" aria-label="A BistroTech bemutatkozó videója, 44 másodperc">
+            <source src="../video/intro-hu.mp4" type='video/mp4; codecs="avc1.640028, mp4a.40.2"'>
+            <source src="../video/intro-hu.webm" type='video/webm; codecs="vp9, opus"'>
+          </video>
+          <video class="intro-tall" controls playsinline preload="none" width="1080" height="1920" poster="../video/intro-vertical-hu-poster.png" aria-label="A BistroTech bemutatkozó videója, 44 másodperc">
+            <source src="../video/intro-vertical-hu.mp4" type='video/mp4; codecs="avc1.640028, mp4a.40.2"'>
+            <source src="../video/intro-vertical-hu.webm" type='video/webm; codecs="vp9, opus"'>
+          </video>
+        </noscript>
         <figcaption>Illusztráció. Az éttermek, a vendégek, a szövegek és a számok kitaláltak.</figcaption>
       </figure>
       <details class="intro-text">
@@ -333,7 +354,7 @@
           <div class="qa-item"><dt>Kimehet válasz a tudtom nélkül?</dt><dd>Nem. Minden választ te hagysz jóvá. Az automata válasz külön kapcsolható be, és alapból csak a pozitív értékelésekre megy.</dd></div>
           
         </dl>
-        <p class="more-link"><a href="../#probald-ki">Próbáld ki: hagyj jóvá egy választ.<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></p>
+        <p class="more-link"><a href="../#probald-ki">Próbáld ki: hagyj jóvá egy <span class="link-end">választ.<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a></p>
         <p class="help-link"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>A súgóban: <a href="../sugo/valasz-jovahagyasa/">Válasz jóváhagyása</a></span></p>
 
       </div>
@@ -363,7 +384,7 @@
           <h3>Heti összefoglaló</h3>
           <p>Hétfőn, nem sokkal a napi jelentés után megy ki a heti összefoglaló: a most záruló hét éttermenként az előző héthez mérve, a változás irányával, a legtöbbet említett munkatársakkal, a visszatérő témákkal és a nyelvek megoszlásával.</p>
         </div>
-        <p class="more-link"><a href="../csomagok/">Minden részlet a Csomagok oldalon<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></p>
+        <p class="more-link"><a href="../csomagok/">Minden részlet a Csomagok <span class="link-end">oldalon<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a></p>
       </div>
       <figure class="tour-visual">
         <div class="phone phone-full"><div class="phone-screen"><img src="../img/help/app-insights-mobile.png" width="780" height="1688" loading="lazy" decoding="async" alt="A Kimutatások képernyő telefonon: az időszak választója a 30 nappal, alatta az időszak számai színes kártyákon."></div></div>
@@ -441,7 +462,7 @@
 
   <section class="blk blk-blue final" id="kezdes" aria-labelledby="final-title">
   <div class="wrap final-in">
-    <h2 id="final-title" class="h-final">Kezdd el <span class="hl hl-yellow">ingyen,</span> 14 <span class="w-stk">napig<span class="sticker sticker-final" aria-hidden="true">kötöttség nélkül</span></span></h2>
+    <h2 id="final-title" class="h-final">Kezdd el <span class="hl hl-yellow">ingyen,</span> <span class="w-stk"><span class="nw">14 napig</span><span class="sticker sticker-final" aria-hidden="true">kötöttség nélkül</span></span></h2>
     <p class="lead">Regisztrálsz, felveszed az éttermet, és pár perc múlva látod az értékeléseidet. Az első jelentés másnap reggel jön.</p>
     <div class="cta-row">
       <a class="btn btn-yellow btn-lg" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen, 14 napig<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
@@ -525,11 +546,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../js/site.js?v=2f3910565a" defer></script>
+<script src="../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

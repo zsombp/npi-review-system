@@ -2,7 +2,7 @@
 <html lang="hu" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Az asszisztens · BistroTech súgó</title>
 <meta name="description" content="Kérdezhetsz a saját értékeléseidről és számaidról, és az asszisztens megmutatja, miből válaszolt.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/hu/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Mozgás megállítása" data-label-on="Mozgás megállítása" data-label-off="Mozgás indítása">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Mozgás</span>
+        </button>
         <p class="lang"><span class="lang-on" aria-current="true">HU</span><a href="../../en/help/the-assistant/" hreflang="en" lang="en">EN</a></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen</a>
       </div>
@@ -184,8 +189,8 @@
 <ol class="hsteps" role="list" id="lepesek"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Nyomd meg az <b class="ui">Új kérdés</b> gombot, vagy válassz a javasolt kérdések közül, például „Mi történt a héten?”.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Írd be a kérdést, és nyomd meg a <b class="ui">Küldés</b> gombot. Az <kbd>Enter</kbd> is elküldi, a <kbd>Shift</kbd> és az <kbd>Enter</kbd> együtt új sort kezd.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>A válasz fölött ott vannak a sorok, amelyekből dolgozott: értékelések, napi számok, nevek, témák. Így minden szám mellett látod, miből lett.</p></div></li></ol>
 <p>Naponta meghatározott számú kérdés fér bele, az oldal kiírja, hányat használtál el mára. A beszélgetések megmaradnak, a <b class="ui">Beszélgetések</b> listájából bármelyiket folytathatod.</p>
 <h2 id="amit-megtehet-helyetted">Amit megtehet helyetted</h2>
-<p>Az asszisztens jóváhagyhat vagy kihagyhat egy választ, és kiteheti a <span class="nw">Google-re</span> a már jóváhagyottat. Ezt csak akkor teszi, ha a saját üzenetedben kérted.</p>
-<ul class="art-list" role="list"><li>A saját belépéseddel dolgozik, ezért amihez neked nincs jogod, ahhoz neki sincs.</li><li>A válasz szövegét nem írja át. Ha módosítanál rajta, azt a <b class="ui">Válaszok</b> fülön teheted meg.</li><li>Az adatlapra javaslatot írhat, de a <span class="nw">Google-on</span> magától semmit nem változtat meg. A javaslat az <b class="ui">Adatlap</b> oldalon vár a döntésedre.</li></ul>
+<p>Az asszisztens jóváhagyhat vagy kihagyhat egy választ, és kiteheti a <span class="hy">Google-re</span> a már jóváhagyottat. Ezt csak akkor teszi, ha a saját üzenetedben kérted.</p>
+<ul class="art-list" role="list"><li>A saját belépéseddel dolgozik, ezért amihez neked nincs jogod, ahhoz neki sincs.</li><li>A válasz szövegét nem írja át. Ha módosítanál rajta, azt a <b class="ui">Válaszok</b> fülön teheted meg.</li><li>Az adatlapra javaslatot írhat, de a <span class="hy">Google-on</span> magától semmit nem változtat meg. A javaslat az <b class="ui">Adatlap</b> oldalon vár a döntésedre.</li></ul>
 <h2 id="telegramon">Telegramon</h2>
 <p>A napi jelentés beszélgetésében a /kerdes paranccsal is kérdezhetsz: írd a parancs után a kérdést. Ott az asszisztens az elmúlt 30 nap adataiból válaszol.</p>
 <aside class="callout callout-tip" role="note"><p class="callout-label"><span class="callout-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-bulb"/></svg></span>Tipp</p><p>A <b class="ui">Beállítások</b> oldalon, az <b class="ui">Amit az asszisztensnek tudnia kell az éttermekről</b> mezőben megadhatod az éttermek régi nevét vagy becenevét. Így akkor is érti a kérdést, ha a vendégek vagy a kollégák másképp hívják az éttermet.</p></aside>
@@ -310,11 +315,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

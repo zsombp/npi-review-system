@@ -2,7 +2,7 @@
 <html lang="hu" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Válasz kézzel, Google-hozzáférés nélkül · BistroTech súgó</title>
 <meta name="description" content="Ha nem vettél fel minket kezelőnek, a kész választ egy gombbal kimásolod, és te illeszted be a Google-on.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/hu/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Mozgás megállítása" data-label-on="Mozgás megállítása" data-label-off="Mozgás indítása">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Mozgás</span>
+        </button>
         <p class="lang"><span class="lang-on" aria-current="true">HU</span><a href="../../en/help/posting-a-reply-by-hand/" hreflang="en" lang="en">EN</a></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen</a>
       </div>
@@ -181,15 +186,15 @@
 
         <div class="art-body">
           <h2 id="lepesrol-lepesre">Lépésről lépésre</h2>
-<ol class="hsteps" role="list" id="lepesek"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>A <b class="ui">Válaszok</b> fülön hagyd jóvá a választ a <b class="ui">Jóváhagyás</b> gombbal.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Megjelenik <b class="ui">A válasz kész</b> panel. Nyomd meg a <b class="ui">Másolás és Google megnyitása</b> gombot.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>A válasz a vágólapra kerül, és új lapon megnyílik az értékelés a <span class="nw">Google-on</span>.</p></div></li><li class="hstep"><span class="hstep-n c-green" aria-hidden="true">4</span><div class="hstep-body"><p>A <span class="nw">Google-on</span> válaszolj az értékelésre: illeszd be a szöveget, és küldd el.</p></div></li></ol>
+<ol class="hsteps" role="list" id="lepesek"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>A <b class="ui">Válaszok</b> fülön hagyd jóvá a választ a <b class="ui">Jóváhagyás</b> gombbal.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Megjelenik <b class="ui">A válasz kész</b> panel. Nyomd meg a <b class="ui">Másolás és Google megnyitása</b> gombot.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>A válasz a vágólapra kerül, és új lapon megnyílik az értékelés a <span class="hy">Google-on</span>.</p></div></li><li class="hstep"><span class="hstep-n c-green" aria-hidden="true">4</span><div class="hstep-body"><p>A <span class="hy">Google-on</span> válaszolj az értékelésre: illeszd be a szöveget, és küldd el.</p></div></li></ol>
 <p>Ha nincs linkünk az értékeléshez, a panelen a <b class="ui">Válasz másolása</b> gomb jelenik meg. Ilyenkor a Google cégprofilodban keresd meg az értékelést.</p>
 <h2 id="ha-most-nem-ersz-ra">Ha most nem érsz rá</h2>
-<p>Nyomd meg a <b class="ui">Később</b> gombot. A válasz a <b class="ui">Válaszok</b> fülön, a <b class="ui">Jóváhagyva, közzététel előtt</b> listában vár, „kézzel kell kitenni” jelöléssel. Innen a <b class="ui">Válasz másolása</b> gombbal és a <b class="ui">Megnyitás a <span class="nw">Google-on</span></b> linkkel bármikor folytathatod.</p>
+<p>Nyomd meg a <b class="ui">Később</b> gombot. A válasz a <b class="ui">Válaszok</b> fülön, a <b class="ui">Jóváhagyva, közzététel előtt</b> listában vár, „kézzel kell kitenni” jelöléssel. Innen a <b class="ui">Válasz másolása</b> gombbal és a <b class="ui">Megnyitás a <span class="hy">Google-on</span></b> linkkel bármikor folytathatod.</p>
 <h2 id="tripadvisor-ertekelesnel">Tripadvisor-értékelésnél</h2>
 <p>A Tripadvisorra nem tudunk írni. Ott a <b class="ui">Másolás és Tripadvisor megnyitása</b> gomb jelenik meg, és a választ a Tripadvisor tulajdonosi fiókodban teszed ki.</p>
 <h2 id="amit-erdemes-tudni">Amit érdemes tudni</h2>
 <p>Azt, hogy a választ kézzel kitetted, nem látjuk. A válasz ezért a jóváhagyott listán marad, és az értékelés nálunk továbbra is megválaszolatlannak látszik.</p>
-<p>Ha nem szeretnéd kézzel kitenni a válaszokat, vegyél fel minket kezelőnek. Lásd: <a href="../../sugo/kezelo-hozzaferes/">Kezelőnek felveszel minket a <span class="nw">Google-on</span></a>.</p>
+<p>Ha nem szeretnéd kézzel kitenni a válaszokat, vegyél fel minket kezelőnek. Lásd: <a href="../../sugo/kezelo-hozzaferes/">Kezelőnek felveszel minket a <span class="hy">Google-on</span></a>.</p>
         </div>
 
         <section class="feedback" aria-labelledby="fb-q">
@@ -312,11 +317,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

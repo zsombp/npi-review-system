@@ -2,7 +2,7 @@
 <html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>What the numbers in the daily report mean · BistroTech help</title>
 <meta name="description" content="What we count as new, what each venue&#x27;s lines show, and what the parts at the end of the report mean.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/en/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Stop motion" data-label-on="Stop motion" data-label-off="Start motion">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Motion</span>
+        </button>
         <p class="lang"><a href="../../../sugo/mit-jelentenek-a-szamok/" hreflang="hu" lang="hu">HU</a><span class="lang-on" aria-current="true">EN</span></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup?lang=en">Start free</a>
       </div>
@@ -183,7 +188,7 @@
           <h2 id="what-counts-as-new">What counts as new</h2>
 <ul class="art-list" role="list"><li>A review is new when the guest posted it in the 24 hours before the report.</li><li>Google sometimes releases a review late. Then the first report after it arrives counts it, up to seven days after it was posted.</li><li>Every review is counted by exactly one report. If a report is made again, it gives the same number.</li><li>If the guest rewrites the review, we do not count it again. A separate part shows the change, see: <a href="../../help/changed-and-removed-reviews/">Changed and removed reviews</a>.</li></ul>
 <h2 id="for-each-venue">For each venue</h2>
-<ul class="art-list" role="list"><li>The number of new reviews and their average.</li><li>The star breakdown, from five down to one.</li><li>The venue's Google rating and its total number of reviews.</li><li>A red mark if a <span class="nw">one-star</span> or <span class="nw">two-star</span> review arrived.</li></ul>
+<ul class="art-list" role="list"><li>The number of new reviews and their average.</li><li>The star breakdown, from five down to one.</li><li>The venue's Google rating and its total number of reviews.</li><li>A red mark if a <span class="hy">one-star</span> or <span class="hy">two-star</span> review arrived.</li></ul>
 <p>Venues with no new review get one line each at the end of the list. Below them, the “Total” line gives the numbers for the whole account.</p>
 <figure class="shot shot-phone"><div class="shot-frame"><img src="../../../img/help/what-the-numbers-mean.png" width="780" height="2058" loading="lazy" decoding="async" alt="The daily report of 15 September on the Sent messages page, from the demo account: two venues with new reviews, the third in one line, then the Összesen (Total) line and the Megválaszolatlan negatívok (Unanswered negatives) part with two reviews. The report is in Hungarian, the account&#x27;s report language."></div><figcaption>The picture is from the demo account. The venue names, the guest texts and the numbers are made up.</figcaption></figure>
 <h2 id="at-the-end-of-the-report">At the end of the report</h2>
@@ -316,11 +321,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

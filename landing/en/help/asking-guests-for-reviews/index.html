@@ -2,7 +2,7 @@
 <html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Asking guests for a review · BistroTech help</title>
 <meta name="description" content="You make a short link and a QR code, from which a guest can write a review on Google.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/en/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Stop motion" data-label-on="Stop motion" data-label-off="Start motion">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Motion</span>
+        </button>
         <p class="lang"><a href="../../../sugo/ertekeles-kerese/" hreflang="hu" lang="hu">HU</a><span class="lang-on" aria-current="true">EN</span></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup?lang=en">Start free</a>
       </div>
@@ -186,7 +191,7 @@
 <h2 id="what-the-guest-sees">What the guest sees</h2>
 <p>The guest sees a short page. We thank them for the visit and ask them to write how it was. The page speaks the language of the guest's phone: Hungarian, English, German, French, Italian or Spanish, and English for any other language. Apart from the language, every guest sees the same thing.</p>
 <h2 id="the-rules-the-link-keeps">The rules the link keeps</h2>
-<ul class="art-list" role="list"><li>We ask everyone the same way. We do not ask first whether they were happy.</li><li>We promise nothing in return, no discount and no gift. Google forbids it and may remove reviews because of it.</li><li>We do not ask the guest to name anyone, and there are no <span class="nw">per-waiter</span> codes.</li></ul>
+<ul class="art-list" role="list"><li>We ask everyone the same way. We do not ask first whether they were happy.</li><li>We promise nothing in return, no discount and no gift. Google forbids it and may remove reviews because of it.</li><li>We do not ask the guest to name anyone, and there are no <span class="hy">per-waiter</span> codes.</li></ul>
 <h2 id="printing">Printing</h2>
 <p>The printable card and the QR code download are coming soon. Until then you can try the link and share it, but its address will change later. So for now, do not print the QR code on the screen either.</p>
 <h2 id="switching-off-and-deleting">Switching off and deleting</h2>
@@ -315,11 +320,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

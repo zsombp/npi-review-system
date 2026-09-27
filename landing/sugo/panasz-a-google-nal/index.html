@@ -2,7 +2,7 @@
 <html lang="hu" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Panasz a Google-nál · BistroTech súgó</title>
 <meta name="description" content="Gyanús értékelésekre ügyet nyitsz, és dátumozott dokumentumot kapsz a Google-nek szóló bejelentéshez.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/hu/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Mozgás megállítása" data-label-on="Mozgás megállítása" data-label-off="Mozgás indítása">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Mozgás</span>
+        </button>
         <p class="lang"><span class="lang-on" aria-current="true">HU</span><a href="../../en/help/disputing-reviews-with-google/" hreflang="en" lang="en">EN</a></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen</a>
       </div>
@@ -185,11 +190,11 @@
 <h2 id="az-ugy-megnyitasa">Az ügy megnyitása</h2>
 <ol class="hsteps" role="list" id="lepesek"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Nyomd meg az <b class="ui">Új ügy</b> gombot.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p><b class="ui">Az elmúlt 14 nap</b> listája felkínálja a riasztásainkat és azokat a napokat, amikor esett az értékelésszám. Ha valamelyik illik, az <b class="ui">Ezt választom</b> gombbal kitöltöd vele az űrlapot.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Ha olyanról tudsz, amit mi nem láttunk, töltsd ki kézzel az űrlapot. A mezők: <b class="ui">Étterem</b>, <b class="ui">Mit dokumentálsz</b>, <b class="ui">Ettől a naptól</b> és <b class="ui">Eddig a napig</b>.</p></div></li><li class="hstep"><span class="hstep-n c-green" aria-hidden="true">4</span><div class="hstep-body"><p>Nyomd meg az <b class="ui">Ügy megnyitása</b> gombot.</p></div></li></ol>
 <h2 id="a-dokumentum">A dokumentum</h2>
-<p>Az ügyek listájában nyisd ki az ügyet a <b class="ui">Megnyitás</b> linkkel. A <b class="ui">Dokumentum megnyitása</b> gomb új lapon nyitja meg a dokumentumot, onnan a böngésző nyomtatásával <span class="nw">PDF-be</span> mentheted. A <b class="ui">Letöltés Markdownban</b> gombbal szövegfájlként kapod meg.</p>
+<p>Az ügyek listájában nyisd ki az ügyet a <b class="ui">Megnyitás</b> linkkel. A <b class="ui">Dokumentum megnyitása</b> gomb új lapon nyitja meg a dokumentumot, onnan a böngésző nyomtatásával <span class="hy">PDF-be</span> mentheted. A <b class="ui">Letöltés Markdownban</b> gombbal szövegfájlként kapod meg.</p>
 <p>A dokumentumban benne van az étterem és a cégprofil azonosítója, az időszak és az értékelésszám napról napra. Mellette az egycsillagosok az étterem előző 90 napjához mérve, és az időszak minden értékelése szó szerint. A végén a módosított értékelések, a riasztásaink és a Google saját oldalai, a beolvasás dátumával.</p>
-<p>A dokumentum nem állítja, hogy az értékelések hamisak. Arról, hogy egy értékelés <span class="nw">lekerül-e</span>, egyedül a Google dönt.</p>
-<h2 id="a-bejelentes-a-google-nal">A bejelentés a <span class="nw">Google-nál</span></h2>
-<p>A bejelentést neked kell elküldened. A <span class="nw">Google-nál</span> a cégprofilodból vagy a Google értékeléskezelő eszközéből jelentheted be az értékeléseket. Meg kell adnod, melyik szabályba ütköznek. Elutasítás után egyszer fellebbezhetsz, és egy fellebbezésbe legfeljebb tíz értékelés fér.</p>
+<p>A dokumentum nem állítja, hogy az értékelések hamisak. Arról, hogy egy értékelés <span class="hy">lekerül-e</span>, egyedül a Google dönt.</p>
+<h2 id="a-bejelentes-a-google-nal">A bejelentés a <span class="hy">Google-nál</span></h2>
+<p>A bejelentést neked kell elküldened. A <span class="hy">Google-nál</span> a cégprofilodból vagy a Google értékeléskezelő eszközéből jelentheted be az értékeléseket. Meg kell adnod, melyik szabályba ütköznek. Elutasítás után egyszer fellebbezhetsz, és egy fellebbezésbe legfeljebb tíz értékelés fér.</p>
 <aside class="callout callout-warn" role="note"><p class="callout-label"><span class="callout-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#g-warn"/></svg></span>Figyelem</p><p>Ha valaki pénzt kér azért, hogy levegye az értékeléseket, ne fizess, és ne válaszolj neki. Erre a Google külön bejelentő űrlapot tart fenn.</p></aside>
 <h2 id="utana">Utána</h2>
 <p>Az ügy <b class="ui">Amit a Google mondott</b> részében töltsd ki az <b class="ui">Állapot</b>, a <b class="ui">Google ügyszám</b> és a <b class="ui">Jegyzet</b> mezőt. Utána nyomd meg a <b class="ui">Mentés</b> gombot.</p>
@@ -317,11 +322,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

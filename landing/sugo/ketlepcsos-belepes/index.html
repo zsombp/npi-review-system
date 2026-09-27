@@ -2,7 +2,7 @@
 <html lang="hu" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Jelszó és kétlépcsős belépés · BistroTech súgó</title>
 <meta name="description" content="A Fiókom oldalon módosítod a jelszavad, kilépsz a többi eszközről, és bekapcsolod a kétlépcsős belépést.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/hu/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Mozgás megállítása" data-label-on="Mozgás megállítása" data-label-off="Mozgás indítása">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Mozgás</span>
+        </button>
         <p class="lang"><span class="lang-on" aria-current="true">HU</span><a href="../../en/help/password-and-two-step-sign-in/" hreflang="en" lang="en">EN</a></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen</a>
       </div>
@@ -174,7 +179,7 @@
             <li><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>3 perc olvasás</li>
             
           </ul>
-          <p class="art-intro">A <b class="ui">Fiókom</b> oldal a saját belépésedé, nem az éttermek fiókjáé. A menüben a saját <span class="nw">e-mail-címedre</span> kattintva nyílik meg.</p>
+          <p class="art-intro">A <b class="ui">Fiókom</b> oldal a saját belépésedé, nem az éttermek fiókjáé. A menüben a saját <span class="hy">e-mail-címedre</span> kattintva nyílik meg.</p>
         </header>
 
         
@@ -183,7 +188,7 @@
           <h2 id="ketlepcsos-belepes">Kétlépcsős belépés</h2>
 <p>A jelszó mellé egy hatjegyű kód is kell, amelyet a telefonod hitelesítő alkalmazása ad, például a Google Authenticator. Ha a jelszavad kiszivárog, a fiókodba akkor sem lehet belépni.</p>
 <ol class="hsteps" role="list" id="lepesek"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>A <b class="ui">Kétlépcsős belépés</b> kártyán nyomd meg a <b class="ui">Bekapcsolás</b> gombot.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Olvasd be a megjelenő kódot a hitelesítő alkalmazással, vagy írd be a kulcsot kézzel.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Írd be az alkalmazás hatjegyű kódját, és nyomd meg az <b class="ui">Ellenőrzés és bekapcsolás</b> gombot.</p></div></li></ol>
-<p>Ezután belépéskor a jelszó után a kódot is kérjük. Ha a kód nem stimmel, nézd meg, hogy <span class="nw">pontos-e</span> a telefonod órája. Kikapcsolni a <b class="ui">Kikapcsolás</b> gombbal tudod, ehhez is friss kód kell.</p>
+<p>Ezután belépéskor a jelszó után a kódot is kérjük. Ha a kód nem stimmel, nézd meg, hogy <span class="hy">pontos-e</span> a telefonod órája. Kikapcsolni a <b class="ui">Kikapcsolás</b> gombbal tudod, ehhez is friss kód kell.</p>
 <aside class="callout callout-warn" role="note"><p class="callout-label"><span class="callout-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#g-warn"/></svg></span>Figyelem</p><p>Ha elveszted a telefont, amelyen a hitelesítő alkalmazás van, magad nem tudsz belépni. Ilyenkor csak mi tudjuk kikapcsolni a kétlépcsős belépést. Mentsd el a kulcsot egy második helyre is, például egy jelszókezelőbe.</p></aside>
 <h2 id="jelszo-modositasa">Jelszó módosítása</h2>
 <ol class="hsteps" role="list"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>A <b class="ui">Jelszó</b> kártyán írd be a mostani jelszavadat a <b class="ui">Jelenlegi jelszó</b> mezőbe.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Írd be az újat az <b class="ui">Új jelszó</b> és az <b class="ui">Új jelszó még egyszer</b> mezőbe. Legalább 8 karakter legyen.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Ha a többi eszközön is ki akarsz lépni, jelöld be <b class="ui">A többi eszközön is jelentkeztess ki</b> mezőt.</p></div></li><li class="hstep"><span class="hstep-n c-green" aria-hidden="true">4</span><div class="hstep-body"><p>Nyomd meg a <b class="ui">Jelszó módosítása</b> gombot.</p></div></li></ol>
@@ -310,11 +315,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

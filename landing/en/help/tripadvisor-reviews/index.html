@@ -2,7 +2,7 @@
 <html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Tripadvisor reviews · BistroTech help</title>
 <meta name="description" content="If the venue is on Tripadvisor, we bring in its reviews there too, kept apart from the Google numbers.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/en/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Stop motion" data-label-on="Stop motion" data-label-off="Start motion">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Motion</span>
+        </button>
         <p class="lang"><a href="../../../sugo/tripadvisor/" hreflang="hu" lang="hu">HU</a><span class="lang-on" aria-current="true">EN</span></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup?lang=en">Start free</a>
       </div>
@@ -184,7 +189,7 @@
 <ol class="hsteps" role="list" id="steps"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Open the venue's page on Tripadvisor and copy its address from the browser's address bar. The address starts like this: “tripadvisor.com/Restaurant_Review-”.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>In BistroTech, open the <b class="ui">Venues</b> page and click the venue's name.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>On the <b class="ui">Tripadvisor</b> card, paste the address into the <b class="ui">The venue's Tripadvisor address</b> field.</p></div></li><li class="hstep"><span class="hstep-n c-green" aria-hidden="true">4</span><div class="hstep-body"><p>Press the <b class="ui">Connect</b> button.</p></div></li></ol>
 <p>The first download brings up to 150 reviews from the last six months, and takes a few minutes. Meanwhile the card refreshes by itself. After that we refresh once a day, before the morning report.</p>
 <h2 id="what-changes-then">What changes then</h2>
-<ul class="art-list" role="list"><li>On the <b class="ui">Reviews</b> tab, Tripadvisor reviews get a mark of their own. With the <b class="ui">All sites</b> picker, you can ask for only them, or only the Google reviews.</li><li>In the daily report, a separate line shows the new Tripadvisor reviews. They do not mix into the Google numbers.</li><li>We write replies to these too. But we cannot post to Tripadvisor, so you copy the reply and post it from your Tripadvisor owner account. See: <a href="../../help/posting-a-reply-by-hand/">Posting a reply by hand, without Google access</a>.</li><li><span class="nw">Auto-answer</span> never posts a reply to a Tripadvisor review by itself.</li></ul>
+<ul class="art-list" role="list"><li>On the <b class="ui">Reviews</b> tab, Tripadvisor reviews get a mark of their own. With the <b class="ui">All sites</b> picker, you can ask for only them, or only the Google reviews.</li><li>In the daily report, a separate line shows the new Tripadvisor reviews. They do not mix into the Google numbers.</li><li>We write replies to these too. But we cannot post to Tripadvisor, so you copy the reply and post it from your Tripadvisor owner account. See: <a href="../../help/posting-a-reply-by-hand/">Posting a reply by hand, without Google access</a>.</li><li><span class="hy">Auto-answer</span> never posts a reply to a Tripadvisor review by itself.</li></ul>
 <h2 id="if-something-goes-wrong">If something goes wrong</h2>
 <p>If the download fails, the card shows the reason, and we try again the next morning. If the address is not a Tripadvisor restaurant page, the card says so, and nothing changes.</p>
 <h2 id="switching-it-off">Switching it off</h2>
@@ -312,11 +317,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

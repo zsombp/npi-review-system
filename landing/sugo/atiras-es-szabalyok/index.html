@@ -2,7 +2,7 @@
 <html lang="hu" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Átírás és a válaszok szabályai · BistroTech súgó</title>
 <meta name="description" content="Így igazítod a válaszokat a hangodhoz az átírás gombokkal, a hangvétellel, a szabályokkal és az aláírással.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/hu/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Mozgás megállítása" data-label-on="Mozgás megállítása" data-label-off="Mozgás indítása">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Mozgás</span>
+        </button>
         <p class="lang"><span class="lang-on" aria-current="true">HU</span><a href="../../en/help/rewriting-and-reply-rules/" hreflang="en" lang="en">EN</a></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen</a>
       </div>
@@ -187,13 +192,13 @@
 <figure class="shot shot-wide"><div class="shot-frame"><img src="../../img/help/atiras-es-szabalyok.png" width="1628" height="1588" loading="lazy" decoding="async" alt="A Válaszok fül egyik válasza: egy háromcsillagos értékelés, alatta a kész válasz, az Átírás alatt az öt gomb, lent a Jóváhagyás és a Nem válaszolok gomb."></div><figcaption>A kép a bemutatófiókról készült. Az éttermek nevei, a vendégek szövegei és a számok kitaláltak.</figcaption></figure>
 <h2 id="a-hangvetel">A hangvétel</h2>
 <ol class="hsteps" role="list" id="lepesek"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Nyisd meg a <b class="ui">Beállítások</b> oldalt, és keresd meg a <b class="ui">Válaszok hangvétele</b> kártyát.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>A <b class="ui">Hangvétel</b> mezőbe írd le, hogyan szóljanak a válaszok: milyen megszólítást használjunk, mit kerüljünk, hogyan írjuk alá.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Nyomd meg az oldal alján a <b class="ui">Mentés</b> gombot.</p></div></li></ol>
-<p><span class="nw">Egy-egy</span> étteremnek saját kiegészítést is adhatsz. Az <b class="ui">Éttermek</b> oldalon az étterem sorában kattints a <b class="ui">Hangvétel</b> linkre.</p>
+<p><span class="hy">Egy-egy</span> étteremnek saját kiegészítést is adhatsz. Az <b class="ui">Éttermek</b> oldalon az étterem sorában kattints a <b class="ui">Hangvétel</b> linkre.</p>
 <h2 id="a-szabalyok">A szabályok</h2>
 <p>A <b class="ui">Beállítások</b> oldal <b class="ui">Válaszok szabályai</b> kártyáján néhány kemény szabályt adsz meg. A kártyának saját <b class="ui">Mentés</b> gombja van.</p>
 <ul class="art-list" role="list"><li><b class="ui">Megszólítás</b>: <b class="ui">Ahogy a vendég írt (bizonytalan esetben magázás)</b>, <b class="ui">Mindig magázás</b> vagy <b class="ui">Mindig tegezés</b>.</li><li><b class="ui">Aláírás a válasz végén</b>: ha üresen hagyod, az étterem neve zárja a választ. Éttermenként felülírhatod az <b class="ui">Éttermek</b> oldalon, a <b class="ui">Hangvétel</b> panel <b class="ui">Aláírás a válaszok végén</b> mezőjében.</li><li><b class="ui">Amit soha ne írjon</b>: vesszővel elválasztott szavak. A toldalékos alakokat is figyeljük. Ha a válasz mégis tartalmazná valamelyiket, nem készül el.</li><li><b class="ui">Legfeljebb ennyi szó</b>: alapból pozitív értékelésre 70, negatívra 120 szó.</li></ul>
 <p>A szabályok a következő értékeléstől érvényesek. A már megírt válaszokat nem írjuk át. A hangvételt és a szabályokat a fiók tulajdonosa állítja.</p>
 <h2 id="amit-mindig-betartunk">Amit mindig betartunk</h2>
-<ul class="art-list" role="list"><li>Nem ígérünk visszatérítést, kedvezményt, ingyen ételt vagy más kárpótlást.</li><li>Nem írunk a válaszba telefonszámot, <span class="nw">e-mail-címet</span> vagy linket.</li><li>Negatív értékelésnél egyszer kérünk elnézést, nem vitatkozunk, és nem hibáztatjuk a vendéget.</li></ul>
+<ul class="art-list" role="list"><li>Nem ígérünk visszatérítést, kedvezményt, ingyen ételt vagy más kárpótlást.</li><li>Nem írunk a válaszba telefonszámot, <span class="hy">e-mail-címet</span> vagy linket.</li><li>Negatív értékelésnél egyszer kérünk elnézést, nem vitatkozunk, és nem hibáztatjuk a vendéget.</li></ul>
         </div>
 
         <section class="feedback" aria-labelledby="fb-q">
@@ -316,11 +321,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

@@ -2,7 +2,7 @@
 <html lang="hu" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Kollégák meghívása · BistroTech súgó</title>
 <meta name="description" content="Meghívó linkkel vagy e-mail-címmel hívod be a kollégáidat a fiókba.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/hu/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Mozgás megállítása" data-label-on="Mozgás megállítása" data-label-off="Mozgás indítása">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Mozgás</span>
+        </button>
         <p class="lang"><span class="lang-on" aria-current="true">HU</span><a href="../../en/help/inviting-colleagues/" hreflang="en" lang="en">EN</a></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen</a>
       </div>
@@ -183,14 +188,14 @@
           <h2 id="meghivo-link">Meghívó link</h2>
 <ol class="hsteps" role="list" id="lepesek"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>A <b class="ui">Meghívó link készítése</b> kártyán a <b class="ui">Szerep</b> mezőben válaszd ki, hogy <b class="ui">Tag</b>, <b class="ui">Tulajdonos</b> vagy <b class="ui">Megfigyelő</b> legyen.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Nyomd meg a <b class="ui">Link készítése</b> gombot.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Másold ki a linket a <b class="ui">Link másolása</b> gombbal. Most tedd meg, mert később nem tudjuk újra megmutatni.</p></div></li><li class="hstep"><span class="hstep-n c-green" aria-hidden="true">4</span><div class="hstep-body"><p>Küldd el a kollégádnak üzenetben. A link hét napig él, és egyszer lehet vele csatlakozni.</p></div></li></ol>
 <p>A kollégád a linken látja a fiók nevét és a szerepét. Ha még nincs belépése, a <b class="ui">Regisztrálok</b> gombbal regisztrál. Ha van, a <b class="ui">Van már fiókom, belépek</b> gombbal lép be. Utána a <b class="ui">Csatlakozom</b> gombbal kerül a fiókba.</p>
-<h2 id="meghivas-e-mail-cimmel">Meghívás <span class="nw">e-mail-címmel</span></h2>
-<p>Ha a kollégádnak már van <span class="nw">BistroTech-belépése</span>, az <span class="nw">e-mail-címével</span> is meghívhatod.</p>
-<ol class="hsteps" role="list"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Az <b class="ui">Új ember meghívása</b> kártyán írd be a címét az <b class="ui"><span class="nw">E-mail</span> cím</b> mezőbe, és válaszd ki a szerepét.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Nyomd meg a <b class="ui">Meghívás</b> gombot.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Szólj neki, hogy lépjen be. A következő belépésekor bekerül a fiókba.</p></div></li></ol>
+<h2 id="meghivas-e-mail-cimmel">Meghívás <span class="hy">e-mail-címmel</span></h2>
+<p>Ha a kollégádnak már van <span class="hy">BistroTech-belépése</span>, az <span class="hy">e-mail-címével</span> is meghívhatod.</p>
+<ol class="hsteps" role="list"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Az <b class="ui">Új ember meghívása</b> kártyán írd be a címét az <b class="ui"><span class="hy">E-mail</span> cím</b> mezőbe, és válaszd ki a szerepét.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Nyomd meg a <b class="ui">Meghívás</b> gombot.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Szólj neki, hogy lépjen be. A következő belépésekor bekerül a fiókba.</p></div></li></ol>
 <p>Ha a kollégádnak még nincs belépése, a meghívó linket használd.</p>
 <h2 id="fuggo-meghivok">Függő meghívók</h2>
 <p>A még fel nem használt meghívók a <b class="ui">Függő meghívók</b> listában állnak, a lejárat dátumával. A <b class="ui">Visszavonás</b> gombbal bármelyiket érvényteleníted.</p>
 <h2 id="megfigyelo-meghivasa">Megfigyelő meghívása</h2>
-<p>A megfigyelő mindent lát, de nem változtat semmin. Linkkel és <span class="nw">e-mail-címmel</span> is meghívhatod: a <b class="ui">Szerep</b> mezőben válaszd a <b class="ui">Megfigyelő</b> szerepet. A szerepekről bővebben: <a href="../../sugo/szerepek-es-hozzaferes/">Szerepek és hozzáférés éttermenként</a>.</p>
+<p>A megfigyelő mindent lát, de nem változtat semmin. Linkkel és <span class="hy">e-mail-címmel</span> is meghívhatod: a <b class="ui">Szerep</b> mezőben válaszd a <b class="ui">Megfigyelő</b> szerepet. A szerepekről bővebben: <a href="../../sugo/szerepek-es-hozzaferes/">Szerepek és hozzáférés éttermenként</a>.</p>
         </div>
 
         <section class="feedback" aria-labelledby="fb-q">
@@ -313,11 +318,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

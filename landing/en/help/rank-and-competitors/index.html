@@ -2,7 +2,7 @@
 <html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Your rank on Google Maps and your competitors · BistroTech help</title>
 <meta name="description" content="You see where you stand in the Maps results for a search, and how the nearby restaurants are doing.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/en/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Stop motion" data-label-on="Stop motion" data-label-off="Start motion">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Motion</span>
+        </button>
         <p class="lang"><a href="../../../sugo/helyezes-es-versenytarsak/" hreflang="hu" lang="hu">HU</a><span class="lang-on" aria-current="true">EN</span></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup?lang=en">Start free</a>
       </div>
@@ -183,7 +188,7 @@
           <h2 id="the-search-phrase-and-the-starting-point">The search phrase and the starting point</h2>
 <p>The search phrase is what a guest would type into Google Maps, for example “goulash budapest”. The starting point is a point on the map we measure the search from. We need it because Google puts the places near the searcher first.</p>
 <h2 id="adding-a-phrase">Adding a phrase</h2>
-<ol class="hsteps" role="list" id="steps"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>If you have no phrase yet, press the <b class="ui">Add the first phrase</b> button. After that you work on the <b class="ui">New search phrase</b> card.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>In the <b class="ui">Search phrase</b> field, type what a guest would search for.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>In the <b class="ui">Name of the starting point</b> field, give the point a name, for example “Deák tér”.</p></div></li><li class="hstep"><span class="hstep-n c-green" aria-hidden="true">4</span><div class="hstep-body"><p>Open Maps with the <b class="ui">Open Google Maps to find coordinates</b> link. <span class="nw">Right-click</span> the point a guest would search from, and copy the two numbers.</p></div></li><li class="hstep"><span class="hstep-n c-orange" aria-hidden="true">5</span><div class="hstep-body"><p>Paste them into the <b class="ui">Latitude (lat)</b> and <b class="ui">Longitude (lng)</b> fields. You can also paste both at once into the first field.</p></div></li><li class="hstep"><span class="hstep-n c-lilac" aria-hidden="true">6</span><div class="hstep-body"><p>Press the <b class="ui">Add phrase</b> button.</p></div></li></ol>
+<ol class="hsteps" role="list" id="steps"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>If you have no phrase yet, press the <b class="ui">Add the first phrase</b> button. After that you work on the <b class="ui">New search phrase</b> card.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>In the <b class="ui">Search phrase</b> field, type what a guest would search for.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>In the <b class="ui">Name of the starting point</b> field, give the point a name, for example “Deák tér”.</p></div></li><li class="hstep"><span class="hstep-n c-green" aria-hidden="true">4</span><div class="hstep-body"><p>Open Maps with the <b class="ui">Open Google Maps to find coordinates</b> link. <span class="hy">Right-click</span> the point a guest would search from, and copy the two numbers.</p></div></li><li class="hstep"><span class="hstep-n c-orange" aria-hidden="true">5</span><div class="hstep-body"><p>Paste them into the <b class="ui">Latitude (lat)</b> and <b class="ui">Longitude (lng)</b> fields. You can also paste both at once into the first field.</p></div></li><li class="hstep"><span class="hstep-n c-lilac" aria-hidden="true">6</span><div class="hstep-body"><p>Press the <b class="ui">Add phrase</b> button.</p></div></li></ol>
 <p>We measure once every morning, so a new phrase's result appears after the next morning run. You can have at most 30 active phrases at a time.</p>
 <h2 id="the-table-of-positions">The table of positions</h2>
 <p>For each phrase you see the position, the change over 7 days and the day it was measured. If the venue is not in the top 20, we say so. The <b class="ui">History</b> button shows the earlier measurements. <b class="ui">Switch off</b> leaves the phrase out of the morning run, and the earlier data stays.</p>
@@ -317,11 +322,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

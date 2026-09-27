@@ -2,7 +2,7 @@
 <html lang="hu" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Válasz jóváhagyása · BistroTech súgó</title>
 <meta name="description" content="Így nézed át és hagyod jóvá a kész válaszokat.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/hu/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Mozgás megállítása" data-label-on="Mozgás megállítása" data-label-off="Mozgás indítása">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Mozgás</span>
+        </button>
         <p class="lang"><span class="lang-on" aria-current="true">HU</span><a href="../../en/help/approving-a-reply/" hreflang="en" lang="en">EN</a></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen</a>
       </div>
@@ -224,8 +229,8 @@
 
         <div class="art-body">
           <h2 id="lepesrol-lepesre">Lépésről lépésre</h2>
-<ol class="hsteps" role="list" id="lepesek"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Nyisd meg a <b class="ui">Válaszok</b> fület. A fül mellett látod, hány válasz vár.</p><figure class="shot shot-phone"><div class="shot-frame"><img src="../../img/help/app-drafts-mobile.png" width="780" height="1688" loading="lazy" decoding="async" alt="A Válaszok képernyő telefonon: az első a hat váró válasz közül, fent az értékelés, alatta a kész válasz, lent a Jóváhagyás és a Nem válaszolok gomb."></div><figcaption>A kép a bemutatófiókról készült. Az éttermek nevei, a vendégek szövegei és a számok kitaláltak.</figcaption></figure></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Elöl a legrosszabb értékelés áll. Olvasd el, alatta a kész válasz.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Ha kell, írd át. Az <b class="ui">Átírás</b> gombokkal rövidebbre, melegebbre vagy határozottabbra kérheted, magázóra vagy tegezőre fordíthatod. Az eredetit bármikor visszaállíthatod.</p></div></li><li class="hstep"><span class="hstep-n c-green" aria-hidden="true">4</span><div class="hstep-body"><p>Nyomd meg a <b class="ui">Jóváhagyás</b> gombot. Nyolc másodpercig visszavonhatod.</p></div></li><li class="hstep"><span class="hstep-n c-orange" aria-hidden="true">5</span><div class="hstep-body"><p>Ha a <span class="nw">Google-on</span> <a href="../../sugo/kezelo-hozzaferes/">kezelőnek vettél fel minket</a>, pár percen belül kitesszük a választ. Ha még nem, a <b class="ui">Másolás és Google megnyitása</b> gombbal kimásolod, és a <span class="nw">Google-on</span> beilleszted.</p></div></li></ol>
-<aside class="callout callout-tip" role="note"><p class="callout-label"><span class="callout-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-bulb"/></svg></span>Tipp</p><p>Billentyűzettel gyorsabb. <kbd>A</kbd> jóváhagy, <kbd>S</kbd> nem válaszol, <kbd>J</kbd> és <kbd>K</kbd> lépked, <kbd>E</kbd> szerkeszt, <kbd>O</kbd> megnyitja a <span class="nw">Google-t</span>, <kbd>U</kbd> visszavon.</p></aside>
+<ol class="hsteps" role="list" id="lepesek"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Nyisd meg a <b class="ui">Válaszok</b> fület. A fül mellett látod, hány válasz vár.</p><figure class="shot shot-phone"><div class="shot-frame"><img src="../../img/help/app-drafts-mobile.png" width="780" height="1688" loading="lazy" decoding="async" alt="A Válaszok képernyő telefonon: az első a hat váró válasz közül, fent az értékelés, alatta a kész válasz, lent a Jóváhagyás és a Nem válaszolok gomb."></div><figcaption>A kép a bemutatófiókról készült. Az éttermek nevei, a vendégek szövegei és a számok kitaláltak.</figcaption></figure></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Elöl a legrosszabb értékelés áll. Olvasd el, alatta a kész válasz.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Ha kell, írd át. Az <b class="ui">Átírás</b> gombokkal rövidebbre, melegebbre vagy határozottabbra kérheted, magázóra vagy tegezőre fordíthatod. Az eredetit bármikor visszaállíthatod.</p></div></li><li class="hstep"><span class="hstep-n c-green" aria-hidden="true">4</span><div class="hstep-body"><p>Nyomd meg a <b class="ui">Jóváhagyás</b> gombot. Nyolc másodpercig visszavonhatod.</p></div></li><li class="hstep"><span class="hstep-n c-orange" aria-hidden="true">5</span><div class="hstep-body"><p>Ha a <span class="hy">Google-on</span> <a href="../../sugo/kezelo-hozzaferes/">kezelőnek vettél fel minket</a>, pár percen belül kitesszük a választ. Ha még nem, a <b class="ui">Másolás és Google megnyitása</b> gombbal kimásolod, és a <span class="hy">Google-on</span> beilleszted.</p></div></li></ol>
+<aside class="callout callout-tip" role="note"><p class="callout-label"><span class="callout-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-bulb"/></svg></span>Tipp</p><p>Billentyűzettel gyorsabb. <kbd>A</kbd> jóváhagy, <kbd>S</kbd> nem válaszol, <kbd>J</kbd> és <kbd>K</kbd> lépked, <kbd>E</kbd> szerkeszt, <kbd>O</kbd> megnyitja a <span class="hy">Google-t</span>, <kbd>U</kbd> visszavon.</p></aside>
 <p>Ha a <b class="ui">Nem válaszolok</b> gombot nyomod meg, az értékelést válasz nélkül lezárjuk. Az <b class="ui">Értékelések</b> között később is megtalálod.</p>
         </div>
 
@@ -347,11 +352,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

@@ -2,7 +2,7 @@
 <html lang="hu" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mit jelentenek a számok a napi jelentésben · BistroTech súgó</title>
 <meta name="description" content="Mit számolunk újnak, mi áll éttermenként, és mit jelentenek a jelentés végén álló részek.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/hu/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Mozgás megállítása" data-label-on="Mozgás megállítása" data-label-off="Mozgás indítása">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Mozgás</span>
+        </button>
         <p class="lang"><span class="lang-on" aria-current="true">HU</span><a href="../../en/help/what-the-numbers-mean/" hreflang="en" lang="en">EN</a></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen</a>
       </div>
@@ -183,11 +188,11 @@
           <h2 id="mi-szamit-ujnak">Mi számít újnak</h2>
 <ul class="art-list" role="list"><li>Új az az értékelés, amelyet a vendég a jelentést megelőző 24 órában tett közzé.</li><li>A Google néha késve adja ki az értékelést. Ilyenkor az érkezése utáni első jelentés számolja meg, legfeljebb hét nappal a közzététele után.</li><li>Minden értékelést pontosan egy jelentés számol meg. Ha egy jelentés újra elkészül, ugyanazt a számot adja.</li><li>Ha a vendég átírja az értékelését, nem számoljuk újra. A változást külön rész mutatja, lásd: <a href="../../sugo/modositott-ertekelesek/">Módosított és eltűnt értékelések</a>.</li></ul>
 <h2 id="ettermenkent">Éttermenként</h2>
-<ul class="art-list" role="list"><li>Az új értékelések száma és az átlaguk.</li><li>A csillagok bontása ötöstől egyig.</li><li>Az étterem <span class="nw">Google-átlaga</span> és az összes értékelésének száma.</li><li>Piros jelölés, ha egy- vagy kétcsillagos értékelés érkezett.</li></ul>
-<p>Az új értékelés nélküli éttermek a lista végén kapnak <span class="nw">egy-egy</span> sort. Alattuk az „Összesen” sor az egész fiók számait adja.</p>
+<ul class="art-list" role="list"><li>Az új értékelések száma és az átlaguk.</li><li>A csillagok bontása ötöstől egyig.</li><li>Az étterem <span class="hy">Google-átlaga</span> és az összes értékelésének száma.</li><li>Piros jelölés, ha egy- vagy kétcsillagos értékelés érkezett.</li></ul>
+<p>Az új értékelés nélküli éttermek a lista végén kapnak <span class="hy">egy-egy</span> sort. Alattuk az „Összesen” sor az egész fiók számait adja.</p>
 <figure class="shot shot-phone"><div class="shot-frame"><img src="../../img/help/mit-jelentenek-a-szamok.png" width="780" height="2058" loading="lazy" decoding="async" alt="A szeptember 15-i napi jelentés az Elküldött üzenetek oldalon, a bemutatófiókból: két étterem új értékelésekkel, a harmadik egy sorban, alatta az Összesen sor és a Megválaszolatlan negatívok két értékeléssel."></div><figcaption>A kép a bemutatófiókról készült. Az éttermek nevei, a vendégek szövegei és a számok kitaláltak.</figcaption></figure>
 <h2 id="a-jelentes-vegen">A jelentés végén</h2>
-<ul class="art-list" role="list"><li>„Megválaszolatlan negatívok”: a legfeljebb 14 napos, háromcsillagos vagy gyengébb értékelések, amelyek legalább egy napja várnak. Még nem látunk rájuk választ. A legrégebbi áll elöl, mindegyiknél link visz az értékeléshez.</li><li>„Nincs friss adat”: azok az éttermek, ahol a letöltés hibázott vagy kimaradt. A következő sikeres letöltés pótolja őket.</li><li>Ha egyik étteremnél sem érkezett új értékelés, a jelentés ezt figyelmeztetésként jelzi. Kisebb étteremnél ez gyakori, és nem hibát jelent.</li><li>Ha összekötötted a Tripadvisort, külön sor mutatja az ottani új értékeléseket. Ezek a <span class="nw">Google-számokban</span> nem szerepelnek.</li></ul>
+<ul class="art-list" role="list"><li>„Megválaszolatlan negatívok”: a legfeljebb 14 napos, háromcsillagos vagy gyengébb értékelések, amelyek legalább egy napja várnak. Még nem látunk rájuk választ. A legrégebbi áll elöl, mindegyiknél link visz az értékeléshez.</li><li>„Nincs friss adat”: azok az éttermek, ahol a letöltés hibázott vagy kimaradt. A következő sikeres letöltés pótolja őket.</li><li>Ha egyik étteremnél sem érkezett új értékelés, a jelentés ezt figyelmeztetésként jelzi. Kisebb étteremnél ez gyakori, és nem hibát jelent.</li><li>Ha összekötötted a Tripadvisort, külön sor mutatja az ottani új értékeléseket. Ezek a <span class="hy">Google-számokban</span> nem szerepelnek.</li></ul>
 <h2 id="az-elemzes">Az elemzés</h2>
 <p>A második üzenet a nap szöveges értékeléseiből készül. A „Név szerinti említések” rész a vendégek által megnevezett munkatársakat sorolja fel, a „Témák” rész azt, ami ismétlődött. Ha aznap nem érkezett szöveges értékelés, ez az üzenet elmarad.</p>
 <h2 id="ugyanezek-a-szamok-a-ma-fulon">Ugyanezek a számok a Ma fülön</h2>
@@ -315,11 +320,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

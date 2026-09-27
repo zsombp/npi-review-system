@@ -2,7 +2,7 @@
 <html lang="hu" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Megjelenés: stílus, színek, betű · BistroTech súgó</title>
 <meta name="description" content="Kiválasztod, hogyan nézzen ki nálad a BistroTech, és milyen nyelven lásd.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/hu/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Mozgás megállítása" data-label-on="Mozgás megállítása" data-label-off="Mozgás indítása">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Mozgás</span>
+        </button>
         <p class="lang"><span class="lang-on" aria-current="true">HU</span><a href="../../en/help/appearance/" hreflang="en" lang="en">EN</a></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen</a>
       </div>
@@ -191,6 +196,12 @@
 <h2 id="csak-az-uveg-stilusban">Csak az Üveg stílusban</h2>
 <p>Az <b class="ui">Üveghatás</b> kapcsolója: <b class="ui">Nincs</b>, <b class="ui">A menün</b> vagy <b class="ui">A kártyákon is</b>. Mellette az <b class="ui">Elmosás</b> és az <b class="ui">Átlátszatlanság</b> csúszkája.</p>
 <p>A <b class="ui">Vissza az alapra</b> linkkel visszaállítod a Pop stílust, az automatikus színeket és a Space Grotesk betűt.</p>
+<h2 id="mozgas-es-hangok">Mozgás és hangok</h2>
+<p>A <b class="ui">Mozgás</b> sor dönti el, mennyi mozog a képernyőn:</p>
+<ul class="art-list" role="list"><li><b class="ui">Nyugodt</b>: csak az mozdul, amit te indítasz.</li><li><b class="ui">Élénk</b>: érkezés és visszajelzés, egyszer. Semmi nem ismétlődik.</li><li><b class="ui">Játékos</b>: lassú élet a háttérben is, például a tegnapi értékelések szalagja a <b class="ui">Ma</b> oldalon. Bármikor megállíthatod.</li><li><b class="ui">Automatikus</b>: Játékos, amíg a készüléked nem kér kevesebb mozgást.</li></ul>
+<p>A Játékos szint csak a Pop stílusban van, az Üveg és a Klasszikus stílus legfeljebb Élénk. Ha a készüléked kevesebb mozgást kér, semmi nem mozdul magától, bármit választasz.</p>
+<p>A bal oldali sáv alján, telefonon a <b class="ui">Menü</b>ben, a <b class="ui">Mozgás megállítása</b> gomb egyszerre megállít mindent, ami magától mozog. A tegnapi értékelések szalagjának saját <b class="ui">Megállítás</b> gombja is van.</p>
+<p>A <b class="ui">Hangok</b> sor alapból <b class="ui">Ki</b>. Ha <b class="ui">Be</b>-re állítod, rövid hang szól, amikor jóváhagysz, kihagysz, visszavonsz vagy átkapcsolsz valamit. Magától soha nem szól, és semmit nem mond, amit a képernyő ne mondana.</p>
 <h2 id="a-nyelv">A nyelv</h2>
 <p>Az oldal nyelvét a menü <b class="ui">Nyelv</b> választójával állítod: <b class="ui">Magyar</b> vagy <b class="ui">English</b>. Ez is a te beállításod.</p>
 <p>A napi jelentés nyelve ettől független. Azt a <b class="ui">Beállítások</b> oldalon, a <b class="ui">Fiók</b> kártya <b class="ui">Nyelv</b> mezője adja, és a fiók minden tagjára érvényes.</p>
@@ -222,7 +233,7 @@
   <a class="btn btn-yellow" href="../../bemutato/"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>Írj nekünk</a>
 </section>
 
-        <p class="art-updated">Frissítve: 2026. szeptember 26.</p>
+        <p class="art-updated">Frissítve: 2026. szeptember 27.</p>
       </article>
 
       <aside class="help-side" aria-label="Ebben a leírásban">
@@ -233,8 +244,9 @@
             <li class="c-pink"><a href="#harom-lepes-sorban">Három lépés, sorban</a></li>
             <li class="c-cyan"><a href="#vilagos-vagy-sotet">Világos vagy sötét</a></li>
             <li class="c-green"><a href="#csak-az-uveg-stilusban">Csak az Üveg stílusban</a></li>
-            <li class="c-orange"><a href="#a-nyelv">A nyelv</a></li>
-            <li class="c-lilac"><a href="#kapcsolodo">Kapcsolódó leírások</a></li>
+            <li class="c-orange"><a href="#mozgas-es-hangok">Mozgás és hangok</a></li>
+            <li class="c-lilac"><a href="#a-nyelv">A nyelv</a></li>
+            <li class="c-yellow"><a href="#kapcsolodo">Kapcsolódó leírások</a></li>
             
           </ol>
         </div>
@@ -317,11 +329,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

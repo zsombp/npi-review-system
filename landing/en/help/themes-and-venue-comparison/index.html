@@ -2,7 +2,7 @@
 <html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Themes and comparing your venues · BistroTech help</title>
 <meta name="description" content="The Analysis tab shows what keeps repeating in what guests write, and how your venues compare side by side.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/en/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Stop motion" data-label-on="Stop motion" data-label-off="Start motion">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Motion</span>
+        </button>
         <p class="lang"><a href="../../../sugo/temak-es-osszehasonlitas/" hreflang="hu" lang="hu">HU</a><span class="lang-on" aria-current="true">EN</span></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup?lang=en">Start free</a>
       </div>
@@ -181,7 +186,7 @@
 
         <div class="art-body">
           <h2 id="the-main-numbers">The main numbers</h2>
-<ul class="art-list" role="list"><li><b class="ui">New reviews</b> and <b class="ui">Average of new reviews</b>: the reviews that arrived in the period.</li><li><b class="ui"><span class="nw">1-star</span> or <span class="nw">2-star</span> share</b>: of the new reviews.</li><li><b class="ui">Unanswered negatives</b>: three stars or fewer, with no owner reply.</li><li><b class="ui">Reviews analysed</b>: what percentage of the new reviews we have analysed so far.</li></ul>
+<ul class="art-list" role="list"><li><b class="ui">New reviews</b> and <b class="ui">Average of new reviews</b>: the reviews that arrived in the period.</li><li><b class="ui"><span class="hy">1-star</span> or <span class="hy">2-star</span> share</b>: of the new reviews.</li><li><b class="ui">Unanswered negatives</b>: three stars or fewer, with no owner reply.</li><li><b class="ui">Reviews analysed</b>: what percentage of the new reviews we have analysed so far.</li></ul>
 <h2 id="the-two-charts">The two charts</h2>
 <ul class="art-list" role="list"><li><b class="ui">Google rating over time</b>: per venue, from the daily check. Click a venue's name to hide or show its line.</li><li><b class="ui">New reviews per day</b>: all venues together.</li></ul>
 <p>Under both, the <b class="ui">Show as table</b> link shows the same in numbers.</p>
@@ -191,9 +196,9 @@
 <ul class="art-list" role="list"><li>A review counts a theme once.</li><li>Complaint: a review with a negative sentiment, or of three stars or fewer.</li><li>Praise: a review with a positive sentiment, or of four stars or more.</li><li>For each theme you see at which venues it came up most.</li></ul>
 <p>Every theme gets one name, so you can compare themes across venues and languages.</p>
 <h2 id="staff-mentions">Staff mentions</h2>
-<p>This table shows the staff guests named, spelled the way the guests wrote them. A mention is positive when it is in a <span class="nw">four-star</span> or <span class="nw">five-star</span> review. It is negative in a review of three stars or fewer. You see the details on the <b class="ui">Recognition</b> page, see: <a href="../../help/recognition-and-staff-mentions/">Recognition and staff mentions</a>.</p>
+<p>This table shows the staff guests named, spelled the way the guests wrote them. A mention is positive when it is in a <span class="hy">four-star</span> or <span class="hy">five-star</span> review. It is negative in a review of three stars or fewer. You see the details on the <b class="ui">Recognition</b> page, see: <a href="../../help/recognition-and-staff-mentions/">Recognition and staff mentions</a>.</p>
 <h2 id="venue-comparison">Venue comparison</h2>
-<p>The last table puts your venues side by side. The columns: new reviews, average, <span class="nw">one-star</span> and <span class="nw">two-star</span> reviews, unanswered negatives, the Google rating now, change and total reviews. The change is the difference between the first and the last daily check of the period.</p>
+<p>The last table puts your venues side by side. The columns: new reviews, average, <span class="hy">one-star</span> and <span class="hy">two-star</span> reviews, unanswered negatives, the Google rating now, change and total reviews. The change is the difference between the first and the last daily check of the period.</p>
         </div>
 
         <section class="feedback" aria-labelledby="fb-q">
@@ -318,11 +323,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

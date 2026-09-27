@@ -2,7 +2,7 @@
 <html lang="hu" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Az adatlap figyelése · BistroTech súgó</title>
 <meta name="description" content="Az Adatlap oldal megmutatja, mi áll rólad a Google cégprofilodon, mi avult el rajta, és mit javasolunk rá.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/hu/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Mozgás megállítása" data-label-on="Mozgás megállítása" data-label-off="Mozgás indítása">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Mozgás</span>
+        </button>
         <p class="lang"><span class="lang-on" aria-current="true">HU</span><a href="../../en/help/watching-your-listing/" hreflang="en" lang="en">EN</a></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen</a>
       </div>
@@ -174,21 +179,21 @@
             <li><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>2 perc olvasás</li>
             
           </ul>
-          <p class="art-intro">Az <b class="ui">Adatlap</b> oldalt a menü <b class="ui">Továbbiak</b> csoportjában találod. Csak azoknál az éttermeknél működik, ahol kezelőként felvettél minket a Google cégprofilodon. Lásd: <a href="../../sugo/kezelo-hozzaferes/">Kezelőnek felveszel minket a <span class="nw">Google-on</span></a>.</p>
+          <p class="art-intro">Az <b class="ui">Adatlap</b> oldalt a menü <b class="ui">Továbbiak</b> csoportjában találod. Csak azoknál az éttermeknél működik, ahol kezelőként felvettél minket a Google cégprofilodon. Lásd: <a href="../../sugo/kezelo-hozzaferes/">Kezelőnek felveszel minket a <span class="hy">Google-on</span></a>.</p>
         </header>
 
         
 
         <div class="art-body">
           <h2 id="amit-ettermenkent-latsz">Amit éttermenként látsz</h2>
-<ul class="art-list" role="list"><li><b class="ui">Utolsó beolvasás</b>: mikor olvastuk be utoljára az adatlapot.</li><li><b class="ui">Bemutatkozás</b>: hány karakter hosszú.</li><li><b class="ui">Nyitvatartás</b>: ki <span class="nw">van-e</span> írva.</li><li><b class="ui">Ünnepi nyitvatartás 30 napra</b>, <b class="ui">Fényképek</b> és <b class="ui">Nyitott javaslat</b>.</li><li><b class="ui">Nyitvatartást említő értékelés</b>: hány értékelés említette a nyitvatartást az elmúlt 30 napban.</li></ul>
+<ul class="art-list" role="list"><li><b class="ui">Utolsó beolvasás</b>: mikor olvastuk be utoljára az adatlapot.</li><li><b class="ui">Bemutatkozás</b>: hány karakter hosszú.</li><li><b class="ui">Nyitvatartás</b>: ki <span class="hy">van-e</span> írva.</li><li><b class="ui">Ünnepi nyitvatartás 30 napra</b>, <b class="ui">Fényképek</b> és <b class="ui">Nyitott javaslat</b>.</li><li><b class="ui">Nyitvatartást említő értékelés</b>: hány értékelés említette a nyitvatartást az elmúlt 30 napban.</li></ul>
 <p>Az adatlapot nem olvassuk be magunktól. A fiók tulajdonosa az <b class="ui">Adatlap beolvasása</b> gombbal indítja, és utána frissítjük a javaslatokat.</p>
 <h2 id="a-javaslatok">A javaslatok</h2>
 <p>A javaslatok a nálunk lévő számokból jönnek. Javaslatot teszünk, ha vendégek zárt ajtót találtak, miközben az adatlap szerint nyitva volt az étterem. Akkor is, ha közeleg egy ünnepnap ünnepi nyitvatartás nélkül, ha rövid vagy régi a bemutatkozás, vagy ha kevés a fénykép. A hét jó értékeléseiből heti bejegyzést is javaslunk.</p>
 <p>Szöveget csak a heti bejegyzéshez írunk. A többinél azt látod, mi áll most az adatlapon, és mi a jelzés mögötte. A nyitvatartásodat nem találjuk ki.</p>
 <p>A <b class="ui">Jóváhagyom</b> és az <b class="ui">Elvetem</b> gombbal döntesz. Ezt a fiók tulajdonosa teheti meg.</p>
-<h2 id="a-google-re-iras">A <span class="nw">Google-re</span> írás</h2>
-<p>A <span class="nw">Google-re</span> írás még nincs bekapcsolva. A jóváhagyott javaslat megmarad, és a kártya kiírja, hogy még nem ment ki. Erről az oldalról most semmi nem kerül ki a <span class="nw">Google-re</span>.</p>
+<h2 id="a-google-re-iras">A <span class="hy">Google-re</span> írás</h2>
+<p>A <span class="hy">Google-re</span> írás még nincs bekapcsolva. A jóváhagyott javaslat megmarad, és a kártya kiírja, hogy még nem ment ki. Erről az oldalról most semmi nem kerül ki a <span class="hy">Google-re</span>.</p>
         </div>
 
         <section class="feedback" aria-labelledby="fb-q">
@@ -310,11 +315,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

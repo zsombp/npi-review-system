@@ -1,4 +1,49 @@
-/* BistroTech website, Pop: site.css, v0.1.0, 2026-09-26.
+/* BistroTech website, Pop: site.css, v0.4.3, 2026-09-27 (v0.4.2, v0.4.1 and v0.4.0 the same day; v0.3.1, v0.3.0,
+   v0.2.0 and v0.1.0 on 2026-09-26).
+   v0.4.3, the Codex review's last website exchange (CODEX-LAYOUT-REVIEW-2026-09-26.md): under enlarged text
+   two things still scrolled a phone sideways. A link list's label may break inside a word that cannot fit
+   (overflow-wrap: anywhere, which a flex row's text can shrink by) and its arrow never shrinks, so the arrow
+   stays inside the link; the help video card's single column may be narrower than its widest word (minmax(0,
+   1fr), its parts at most its width, their text breaking where a word cannot fit), and so may its list of
+   chapters, whose labels break inside a word only where it cannot fit. At the normal text size
+   nothing moves (the boxes of both, measured before and after at ten widths on six pages).
+   v0.4.2, the Codex review's part 6 (LAYOUT-AUDIT-WEBSITE-2026-09-26.md, "Part 6 follow-up"): a help
+   article's hyphenated word (.hy) may break after its hyphen where the article is narrower than 14.5 of its
+   em, which happens only under text zoom, so it no longer scrolls a phone sideways and breaks nowhere else;
+   the footer has four columns only where every link fits its column on one line (a container query in the
+   footer's em, 60.25 em: 1085 px at the normal size; it was a window query at 880 px).
+   v0.4.1, the Codex review's part 5 follow-up (LAYOUT-AUDIT-WEBSITE-2026-09-26.md, "Part 5 follow-up"):
+   the no-JS header is in the page's flow at every width; the FAQ heading sticks only where it fits
+   (from a 600 px window); the footer has two columns only where the longest link fits one line (a
+   container query in the footer's em, 442 px); a marked word (.mk) may break inside itself where it
+   cannot fit its line (it kept white-space: nowrap); the home hero puts the report beside the heading
+   where the room holds both (a container query, 58 em of room, 1140 px) and the heading sizes from its
+   own column, so its size no longer jumps at 1024 or 1200 px; a more-link's arrow and its last word are
+   one unit, centred by a flex box (.link-end); the introduction video shows the 9:16 cut where it is the
+   larger of the two (the room's shape, not the phone's), never as a strip on a short window. v0.4.0 is below.
+   v0.4.0, the layout audit (docs/reviews/LAYOUT-AUDIT-WEBSITE-2026-09-26.md, tools/layout_matrix.mjs):
+   every page holds from 280 to 3440 px wide and 320 px high up. The gutter grows with the window
+   instead of jumping, and clears a notch (safe areas); one header clearance (--clear) for anchors
+   and sticky blocks; the header fits at 280 px and switches to the full bar only where it fits (a
+   container query in its own em, 1160 px at the normal size); the phone menu scrolls inside a short
+   window; the no-JS header takes its own room. Poster headings size to their column and to their
+   longest word; a heading's sticker sits in the heading's line; body text keeps to about 80
+   characters a line; icons sit on their label's first line; sticky visuals only where they fit;
+   stickers and marked words hold under text-only zoom. Motion is unchanged. v0.3.1 is below.
+   v0.3.1 (the motion review, part 4): the marquee is a row you scroll by default and rolls unless it
+   is the row (data-row, set by site.js with its place carried over), so the pause no longer sends it
+   back to its start; the rolling rule no longer depends on the page pause directly.
+   v0.3.0 is below.
+   v0.3.0 (docs/reviews/CODEX-MOTION-REVIEW-2026-09-26.md part 2): every loop pauses through one
+   inherited property, --loop-play, which a finger on the page, a hidden tab, the focus in a loop's
+   block (the marquee with the keyboard on its button) and a loop out of view on its own now set too.
+   v0.2.0 is below.
+   v0.2.0 (D-052, motion; docs/design/MOTION-v0.1.0.md v0.2.0): the motion section is rewritten for
+   Játékos with a page pause (the Mozgás button in the header, one state with the band's button):
+   the stickers drift, the rendered toys rock, the first heading's phrase and marker arrive once,
+   every loop stops out of view, asleep, under the pointer and with the keyboard in its block, and
+   under reduced motion the undo line steps instead of gliding. Nothing else changed.
+   Earlier: site.css, v0.1.0, 2026-09-26.
    One stylesheet for every page. Built on the website lab's direction B (docs/design/lab/
    website-2026-09-25/b-pop/style.css, chosen by the operator, D-047) and the design language in
    docs/design/POP-SYSTEM-v0.1.0.md. Static, no build step of its own, no external request.
@@ -87,16 +132,24 @@
   --r-xl: 26px;
   --sh: 4px;
   --maxw: 1280px;
-  --gutter: 16px;
-  --head-h: 88px;
+  /* The gutter grows with the window: 16 px on a phone (390 px and less), 32 px at 600, 48 px from
+     1024, with no jump between (v0.4.0; it was 16, 32 and 48 in steps). Each side also clears a
+     notch or a rounded screen corner: the page is viewport-fit=cover, so the colour blocks run to the
+     edge and the words keep out of the safe area. */
+  --gutter: clamp(16px, min(calc(16px + (100vw - 390px) * .0762), calc(32px + (100vw - 600px) * .0377)), 48px);
+  --gl: max(var(--gutter), env(safe-area-inset-left, 0px));
+  --gr: max(var(--gutter), env(safe-area-inset-right, 0px));
+  /* The header: the floating bar sits --head-top from the top (the status bar's safe area where there
+     is one), 64 px tall, 12 px under it; --clear is what an anchor or a sticky block keeps free. */
+  --head-top: max(12px, env(safe-area-inset-top, 0px));
+  --head-h: calc(var(--head-top) + 76px);
+  --clear: calc(var(--head-h) + 12px);
   --focus: var(--ink);
 }
-@media (min-width: 600px) { :root { --gutter: 32px; } }
-@media (min-width: 1024px) { :root { --gutter: 48px; } }
 
 /* --- base ---------------------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; scroll-padding-top: 100px; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: var(--clear); }
 body {
   margin: 0;
   background: var(--paper);
@@ -117,9 +170,16 @@ h1, h2, h3 {
   margin: 0;
   text-wrap: balance;
 }
-h2 { font-size: clamp(40px, calc(24px + 4.3vw), 86px); line-height: .96; letter-spacing: -.035em; }
+/* v0.4.0: the size also follows the heading's own column (100cqi, where the column is a container:
+   .sec-head, .tour-text, .split-in, .page-hero-main, .demo-intro) and, under about 310 px, the window,
+   so the longest word of a heading (másodpercben, 6.8 em wide) fits its line instead of breaking */
+h2 { font-size: clamp(32px, min(max(40px, calc(24px + 4.3vw)), calc((100vw - 32px) / 6.9), calc(100cqi / 6.9)), 86px); line-height: .96; letter-spacing: -.035em; }
+.sec-head, .tour-text, .split-in, .page-hero-main, .demo-intro { container-type: inline-size; }
 h3 { font-size: clamp(23px, calc(19px + .8vw), 30px); line-height: 1.08; letter-spacing: -.02em; }
 p { margin: 0 0 1em; text-wrap: pretty; }
+/* short display text breaks into even lines, like the headings (v0.4.0) */
+.btn, .chip, .sticker, .foot-line, .contact-t, .fb-q, .cat-a-title, .vid-mini-t, .res-title, .try-venue,
+.qa dt, .vid-lead, .snip-q, .more-link a, .link-list a, .plan-value, .ref-lead, .note-card p { text-wrap: balance; }
 p:last-child { margin-bottom: 0; }
 a { color: inherit; text-decoration-thickness: 2px; text-underline-offset: .18em; }
 button, input, textarea { font: inherit; color: inherit; }
@@ -128,7 +188,7 @@ button { -webkit-tap-highlight-color: transparent; }
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 ::selection { background: var(--yellow); color: var(--ink); }
 
-.wrap { width: 100%; max-width: calc(var(--maxw) + 2 * var(--gutter)); margin: 0 auto; padding: 0 var(--gutter); }
+.wrap { width: 100%; max-width: calc(var(--maxw) + var(--gl) + var(--gr)); margin: 0 auto; padding: 0 var(--gr) 0 var(--gl); }
 .sr-only {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
@@ -186,13 +246,18 @@ button { -webkit-tap-highlight-color: transparent; }
 }
 
 .sec-head { max-width: 980px; }
-.sec-intro { margin: 24px 0 0; font-size: clamp(18px, calc(16px + .4vw), 21px); line-height: 1.5; max-width: 40em; }
+/* v0.4.0: body text keeps to about 80 characters a line on a wide screen (it ran to 95 here, 130 in
+   the legal text); the measures below are in em of each block's own size */
+.sec-intro { margin: 24px 0 0; font-size: clamp(18px, calc(16px + .4vw), 21px); line-height: 1.5; max-width: 34em; }
 .lead { font-size: clamp(19px, calc(16px + .55vw), 23px); line-height: 1.45; }
-.caption { margin: 24px 0 0; font-size: 14px; line-height: 1.45; max-width: 52em; }
+.caption { margin: 24px 0 0; font-size: 14px; line-height: 1.45; max-width: 36em; }
 
 /* One word per headline, set apart: a colour block with the Pop outline ... */
 .hl {
   display: inline-block;
+  /* never wider than its line: with text-only zoom a long word breaks instead of being cut (at the
+     normal size every marked word fits, v0.4.0) */
+  overflow-wrap: anywhere;
   padding: 0 .1em .04em;
   margin: 0 .02em;
   background: var(--hl);
@@ -205,8 +270,13 @@ button { -webkit-tap-highlight-color: transparent; }
 .hl-yellow { --hl: var(--yellow); }
 .hl-pink { --hl: var(--pink); }
 .hl-white { --hl: var(--paper); }
-/* ... or a thick marker stroke drawn in SVG under it. */
-.mk { position: relative; display: inline-block; z-index: 0; white-space: nowrap; }
+/* ... or a thick marker stroke drawn in SVG under it. The marked word is one box with its stroke, never
+   wider than its line: where it fits (every width at the normal text size) it is one line with the stroke
+   under it, and only where it cannot fit (text-only zoom on a phone) it breaks inside the box, the stroke
+   under its last line (v0.4.1: it kept white-space: nowrap, which cancelled the break, and "asszisztens"
+   and "jelentésben" ran up to 39 px past their heading at 280 to 340 px at 1.5 times the text). Its own
+   white-space, so a marked word tied to a number (.nw, build.py) can still break inside itself. */
+.mk { position: relative; display: inline-block; z-index: 0; max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
 .mk-line {
   position: absolute; z-index: -1;
   left: -.03em; bottom: -.1em; width: calc(100% + .06em); height: .2em;
@@ -268,24 +338,26 @@ button { -webkit-tap-highlight-color: transparent; }
 
 /* --- header -------------------------------------------------------------- */
 .site-head {
+  /* a container: the bar's layout follows its own width in its own em (below) */
+  container: head / inline-size;
   position: sticky; top: 0; z-index: 60;
   height: var(--head-h);
-  padding: 12px var(--gutter) 0;
+  padding: var(--head-top) var(--gr) 0 var(--gl);
   pointer-events: none;
 }
 .nav-bar {
   pointer-events: auto;
   position: relative;
   max-width: var(--maxw); height: 64px; margin: 0 auto;
-  display: flex; align-items: center; gap: 12px;
-  padding: 0 10px 0 18px;
+  display: flex; align-items: center; gap: clamp(8px, 3vw, 12px);
+  padding: 0 10px 0 clamp(12px, 4vw, 18px);
   background: var(--paper); color: var(--ink);
   border: 2px solid var(--ink); border-radius: var(--r-lg);
   box-shadow: var(--sh) var(--sh) 0 var(--ink);
   --focus: var(--ink);
 }
 .logo { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink); text-decoration: none; flex: none; --bt-mark: var(--blue); --bt-ink: var(--ink); }
-.lockup { display: block; width: 162px; height: 28px; }
+.lockup { display: block; width: clamp(120px, 38vw, 162px); height: auto; aspect-ratio: 760 / 131; }
 .bt-mark { fill: var(--bt-mark); }
 .bt-word { fill: none; stroke: var(--bt-ink); stroke-width: 12; stroke-linecap: butt; stroke-linejoin: round; }
 .bt-dot { fill: var(--bt-ink); stroke: none; }
@@ -300,6 +372,11 @@ button { -webkit-tap-highlight-color: transparent; }
   font: 700 16px/1 var(--font-d); cursor: pointer;
 }
 .menu-btn:active { transform: translate(3px, 3px); box-shadow: none; }
+/* under 310 px the logo and the button with its word do not fit: the word is kept for screen readers */
+@media (max-width: 309.98px) {
+  .menu-btn { padding: 8px; }
+  .menu-btn span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+}
 .nav-main ul { list-style: none; margin: 0; padding: 0; }
 .nav-main a {
   display: flex; align-items: center; min-height: 44px;
@@ -314,10 +391,18 @@ button { -webkit-tap-highlight-color: transparent; }
 .lang a { color: var(--ink); }
 .lang a:hover { text-decoration: underline; }
 
-@media (max-width: 1099.98px) {
+/* The full bar needs about 58 em of the header's text in Hungarian (1050 px at 18 px; 55 em in English):
+   below 59 em the menu button (v0.4.0; it switched at a 1100 px window, where the links and the button
+   wrapped onto two lines). In em, so a larger text switches it earlier: with text-only zoom the bar
+   never breaks its labels. At the normal size this is a window of about 1160 px. */
+@container head (width < 59em) {
   .js .site-menu:not(.is-open) { display: none; }
   .site-menu {
     position: absolute; top: calc(100% + 10px); left: -2px; right: -2px;
+    /* a landscape phone is shorter than the menu: it scrolls inside the window */
+    max-height: calc(100vh - var(--head-h) - 12px);
+    max-height: calc(100dvh - var(--head-h) - 12px - env(safe-area-inset-bottom, 0px));
+    overflow-y: auto; overscroll-behavior: contain;
     padding: 10px 16px 18px;
     background: var(--paper);
     border: 2px solid var(--ink); border-radius: var(--r-lg);
@@ -328,10 +413,18 @@ button { -webkit-tap-highlight-color: transparent; }
   .nav-end { justify-content: space-between; margin-top: 12px; flex-wrap: wrap; }
   .nav-end .btn { flex: 1 1 auto; min-height: 52px; font-size: 18px; }
   .no-js .menu-btn { display: none; }
-  .no-js .site-menu { position: static; border: 0; box-shadow: none; }
+  .no-js .site-menu { position: static; border: 0; box-shadow: none; max-height: none; }
   .no-js .nav-bar { height: auto; flex-wrap: wrap; padding: 8px 12px; }
 }
-@media (min-width: 1100px) {
+/* Without script the phone menu is open in the bar, so the header never floats: at every width it takes
+   its own room, in the page's flow and as tall as its bar (v0.4.1; below 1160 px only, by a window query,
+   while the bar's own em query could still open the menu at a wider window under text-only zoom: at 1280
+   px and 1.3 times the text a 402 px bar stayed sticky over the first block, the Codex review part 5).
+   With nothing floating, the first block keeps no room for the header (--head-h is 0, so its padding is
+   the same as with script, minus the header) and anchors and sticky blocks keep 12 px (--clear). */
+html.no-js { --head-h: 0px; }
+.no-js .site-head { position: relative; height: auto; padding-bottom: 12px; }
+@container head (width >= 59em) {
   .menu-btn { display: none; }
   .site-menu { flex: 1; display: flex; align-items: center; gap: 16px; }
   .nav-main { margin: 0 auto; }
@@ -341,22 +434,29 @@ button { -webkit-tap-highlight-color: transparent; }
 }
 
 /* --- hero ---------------------------------------------------------------- */
-/* A three-line poster headline; beside it, from 1200 px, the report as a tilted sticker card.
-   The circle sticker rides on the first word, so it never lands on other text. */
+/* A three-line poster headline; beside it, where the room holds both (below), the report as a tilted
+   sticker card. The circle sticker rides on the first word, so it never lands on other text.
+   hero-wrap is the room (a container), hero-main the heading's own column (a container), v0.4.1. */
 .hero {
   margin-top: calc(-1 * var(--head-h));
   padding-top: calc(var(--head-h) + 28px);
   padding-bottom: 72px;
   border-top: 0;
 }
+.hero-wrap { container: hero / inline-size; }
 .hero-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; }
+.hero-main { container-type: inline-size; }
 .h-hero {
-  font-size: clamp(56px, calc(37px + 6.9vw), 120px);
+  /* --hf is the size, kept as a value so the round sticker can sit on the first line's bottom;
+     under 350 px it follows the window so that "Minden" and the sticker share the first line */
+  --hf: clamp(46px, min(calc(37px + 6.9vw), 17.5vw), 120px);
+  font-size: var(--hf);
   line-height: .9;
   letter-spacing: -.045em;
   text-wrap: initial;
 }
-.h-hero { position: relative; }
+.h-hero { position: relative; container-type: inline-size; }
+@container (max-width: 5em) { .h-hero .sticker-free { display: none; } }
 .h-hero .line { display: block; }
 .w-stk { position: relative; display: inline-block; }
 @media (max-width: 599.98px) { .h-hero .w-stk { position: static; } }
@@ -364,9 +464,10 @@ button { -webkit-tap-highlight-color: transparent; }
 .hero-copy .lead { max-width: 30em; margin: 0; }
 .hero-copy .cta-row { margin-top: 28px; }
 .trust { list-style: none; margin: 32px 0 0; padding: 0; display: grid; gap: 12px; font-weight: 600; }
-.trust li { display: flex; align-items: center; gap: 12px; line-height: 1.3; }
+/* v0.4.0: the disc sits on the first line when a line wraps (it was centred between two lines) */
+.trust li { display: flex; align-items: flex-start; gap: 12px; line-height: 1.3; }
 .trust-ic {
-  flex: none; display: grid; place-items: center; width: 30px; height: 30px;
+  flex: none; display: grid; place-items: center; width: 30px; height: 30px; margin-top: calc((1lh - 30px) / 2);
   background: var(--ink); color: var(--yellow); border-radius: 50%;
 }
 .trust-ic .ic { width: 18px; height: 18px; stroke-width: 2; }
@@ -374,24 +475,31 @@ button { -webkit-tap-highlight-color: transparent; }
 .hero-report { position: relative; margin: 60px 0 0; }
 .report-tilt { position: relative; transform: rotate(2deg); }
 .sticker-note {
-  position: absolute; z-index: 2; left: -6px; bottom: -22px;
+  position: absolute; z-index: 2; left: 0; bottom: -22px;
   background: var(--ink); color: var(--yellow);
-  font-size: 17px; padding: 10px 16px;
+  font-size: clamp(14px, 4.6vw, 17px); padding: 10px 16px; max-width: 100%; text-wrap: balance;
   transform: rotate(-5deg);
   box-shadow: 3px 3px 0 var(--pink);
 }
+/* The round sticker on the first word sits on the first line's bottom and never reaches into the
+   second line (v0.4.0: it was centred on the line and its lower edge lay on "értékelés"): on a phone
+   in the heading's top right corner, from 600 px beside the word. */
 .sticker-free {
+  --sf: max(clamp(70px, 21vw, 84px), 5.1em);
   position: absolute; z-index: 3;
-  right: 0; top: -6px;
+  right: 0; top: calc(var(--hf) * .9 - var(--sf));
   display: grid; place-content: center; gap: 2px; text-align: center;
-  width: 84px; height: 84px; padding: 0;
+  width: var(--sf); height: var(--sf); padding: 0;
   border-radius: 50%;
   background: var(--pink);
-  font-size: 16px; line-height: 1; letter-spacing: -.01em;
+  font-size: clamp(14px, 4vw, 16px); line-height: 1; letter-spacing: -.01em;
   transform: rotate(-12deg);
 }
 .sticker-free span { display: block; }
 .hero-report .caption { margin-top: 44px; max-width: 30em; }
+/* v0.4.0: the note is stuck on the card's bottom left and turned; the card keeps its last 38 px free
+   for it, so neither the time nor the quote is under it at any width */
+.report-tilt:has(> .sticker-note) .report { padding-bottom: max(38px, 2.4em); }
 
 /* The daily report bubble: the real structure, set as a Pop sticker card. */
 .report {
@@ -438,25 +546,39 @@ button { -webkit-tap-highlight-color: transparent; }
 .report-time { margin-top: 10px !important; text-align: right; font: 600 13px/1 var(--font-d); color: var(--muted); }
 
 @media (min-width: 600px) {
+  .hero { padding-top: calc(var(--head-h) + 36px); }
   .trust { grid-template-columns: 1fr 1fr; gap: 14px 24px; }
   .hero-report { max-width: 460px; margin-left: auto; margin-right: auto; }
-  .sticker-free { right: auto; left: calc(100% + .2em); top: 50%; translate: 0 -50%; width: 112px; height: 112px; font-size: 19px; }
+  .sticker-note { left: -6px; }
+  .sticker-free { --sf: max(112px, 5.9em); right: auto; left: calc(100% + .2em); top: auto; bottom: 0; font-size: 19px; }
 }
 @media (min-width: 1024px) {
   .hero { padding-top: calc(var(--head-h) + 36px); padding-bottom: 96px; }
-  .hero-grid { grid-template-columns: minmax(0, 1fr) 380px; column-gap: 40px; }
-  .h-hero { font-size: clamp(72px, calc((100vw - 516px) / 5.4), 128px); }
-  .hero-copy { grid-column: 1; margin-top: 34px; }
-  .hero-report { grid-column: 2; grid-row: 1 / span 2; margin: 18px 0 0; max-width: none; }
+}
+/* The report stands beside the heading where the room holds both: from 58 em (1044 px of room, a 1140 px
+   window at the normal size), where the heading's own column (624 px) holds it at the size it had in one
+   column (115.6 px, 5.4 of it to a line), so the switch moves the report and leaves the heading's size
+   alone. The report column (380 to 430 px) and the gap (40 to 56 px) grow with the room, and the heading
+   sizes from its column (container units). v0.4.1: the two columns started at a 1024 px window, where the
+   heading fell from 107.6 to 94.1 px in one pixel, and fell again from 126.5 to 114.4 at 1200, where the
+   report column jumped from 380 to 430 (the Codex review, part 2 #3 and #9). In em, so a larger text keeps
+   one column longer. */
+@container hero (width >= 58em) {
+  .hero-grid {
+    --rep: clamp(380px, calc(380px + (100cqi - 58em) * .357), 430px);
+    --rgap: clamp(40px, calc(40px + (100cqi - 58em) * .114), 56px);
+    grid-template-columns: minmax(0, 1fr) var(--rep); column-gap: var(--rgap);
+  }
+  /* 100cqi here is the heading's column (hero-main), and the same for the round sticker, whose own
+     container is the heading, as wide as its column */
+  .h-hero { --hf: clamp(72px, calc(100cqi / 5.4), 128px); }
+  .hero-copy { margin-top: 34px; }
+  .hero-report { margin: 18px 0 0; max-width: none; }
   .sticker-note { left: -30px; }
-  .trust { grid-template-columns: 1fr; }
 }
 @media (min-width: 1200px) {
-  .hero-grid { grid-template-columns: minmax(0, 1fr) 430px; column-gap: 56px; }
-  .h-hero { font-size: clamp(72px, calc((100vw - 582px) / 5.4), 128px); }
-  .sticker-free { width: 136px; height: 136px; font-size: 23px; top: 52%; left: calc(100% + .3em); }
+  .sticker-free { --sf: max(136px, 5.9em); font-size: 23px; left: calc(100% + .3em); }
   .sticker-note { left: -34px; }
-  .trust { grid-template-columns: 1fr 1fr; }
 }
 
 /* --- the marquee band ----------------------------------------------------- */
@@ -479,10 +601,13 @@ button { -webkit-tap-highlight-color: transparent; }
 .band-toggle .ic-play { display: none; }
 .band-toggle[data-paused="true"] .ic-play { display: block; }
 .band-toggle[data-paused="true"] .ic-pause { display: none; }
-.marquee { margin-top: 18px; overflow: hidden; padding: 10px 0 18px; --focus: var(--yellow); }
+/* The marquee is a row you scroll unless site.js makes it roll (the motion section): without script,
+   under reduced motion and while paused it stays the row, its copy hidden where nothing ever rolls. */
+.marquee { margin-top: 18px; overflow-x: auto; padding: 10px 0 18px; scrollbar-color: var(--yellow) var(--ink); --focus: var(--yellow); }
 .marquee:focus-visible { outline-offset: -3px; }
 .marquee-inner { display: flex; width: max-content; }
 .marquee-list { display: flex; gap: 22px; margin: 0; padding: 0 22px 0 0; list-style: none; }
+.marquee-copy { display: none; }
 .snip {
   flex: none; width: 292px;
   padding: 14px 16px 14px;
@@ -519,7 +644,8 @@ button { -webkit-tap-highlight-color: transparent; }
   box-shadow: 6px 6px 0 var(--ink);
   overflow: hidden;
 }
-.day-card h3 { font-size: clamp(30px, calc(22px + 1.2vw), 38px); letter-spacing: -.03em; }
+.day-card { container-type: inline-size; }
+.day-card h3 { font-size: clamp(24px, 15.5cqi, 38px); letter-spacing: -.03em; }
 .day-card p { margin: 10px 0 0; font-size: 17px; line-height: 1.45; }
 .phone { margin: auto auto 0; padding-top: 24px; width: min(66%, 230px); }
 .phone-screen {
@@ -554,7 +680,7 @@ button { -webkit-tap-highlight-color: transparent; }
   box-shadow: 8px 8px 0 var(--ink);
 }
 .sticker-try {
-  position: absolute; z-index: 2; top: -20px; right: 14px;
+  position: absolute; z-index: 2; bottom: calc(100% - 17px); right: 14px;
   background: var(--yellow); transform: rotate(3deg);
   font-size: 15px; max-width: 70%;
 }
@@ -600,7 +726,7 @@ button { -webkit-tap-highlight-color: transparent; }
 .try-after p { margin: 0; }
 .try-after-ok { background: var(--tint-pos); }
 .try-after-skip { background: #f4f4f4; }
-.try-after-ic { flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--ink); color: #fff; }
+.try-after-ic { flex: none; display: grid; place-items: center; width: 30px; height: 30px; margin-top: calc((1lh - 30px) / 2); border-radius: 50%; background: var(--ink); color: #fff; }
 .try-after-ic .ic { width: 18px; height: 18px; stroke-width: 2; }
 .try-reset { display: none; margin-top: 18px; }
 .stamp {
@@ -622,13 +748,13 @@ button { -webkit-tap-highlight-color: transparent; }
 @media (min-width: 1000px) {
   .try { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 40px; padding: 40px; }
   .try-review { padding: 26px; }
-  .sticker-try { right: 40px; top: -24px; font-size: 17px; }
+  .sticker-try { right: 40px; bottom: calc(100% - 15px); font-size: 17px; }
 }
 
 .toast {
   position: fixed; z-index: 80;
-  left: 16px; right: 16px; bottom: 16px;
-  display: flex; align-items: center; gap: 16px;
+  left: var(--gl); right: var(--gr); bottom: max(16px, calc(env(safe-area-inset-bottom, 0px) + 8px));
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px;
   padding: 12px 12px 16px 20px;
   background: var(--ink); color: #fff;
   border: 2px solid var(--ink); border-radius: 16px;
@@ -636,7 +762,7 @@ button { -webkit-tap-highlight-color: transparent; }
   overflow: hidden;
   --focus: var(--yellow);
 }
-.toast-msg { margin: 0; font: 700 19px/1.1 var(--font-d); }
+.toast-msg { margin: 0; min-width: 0; font: 700 19px/1.1 var(--font-d); }
 .toast-undo {
   margin-left: auto;
   display: inline-flex; align-items: center; gap: 8px;
@@ -648,7 +774,7 @@ button { -webkit-tap-highlight-color: transparent; }
 .toast-undo .ic { width: 20px; height: 20px; stroke-width: 1.75; }
 .toast-bar { position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: var(--yellow); transform-origin: left center; }
 @media (min-width: 600px) {
-  .toast { left: 50%; right: auto; bottom: 24px; width: 440px; margin-left: -220px; }
+  .toast { left: 50%; right: auto; bottom: max(24px, calc(env(safe-area-inset-bottom, 0px) + 8px)); width: 440px; margin-left: -220px; }
 }
 
 /* --- features: tiles in block colours -------------------------------------- */
@@ -668,7 +794,8 @@ button { -webkit-tap-highlight-color: transparent; }
 .tile { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 16px; align-items: center; }
 .tile h3 { font-size: clamp(24px, calc(19px + .7vw), 29px); }
 .tile p { grid-column: 1 / -1; margin: 14px 0 0; font-size: 17px; line-height: 1.45; }
-@media (min-width: 700px) {
+@media (min-width: 700px), (max-width: 351.98px) {
+  /* under 352 px beside the icon there is no room for Módosításfigyelő (it broke inside the word) */
   .tile { display: block; }
   .tile h3 { margin-top: 20px; }
   .tile p { margin-top: 10px; }
@@ -692,15 +819,17 @@ button { -webkit-tap-highlight-color: transparent; }
 .step-card p { margin: 10px 0 0; font-size: 17px; line-height: 1.5; }
 @media (min-width: 700px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 1200px) {
-  .steps { grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: start; }
-  .step:nth-child(even) { margin-top: 36px; }
+  /* four cards of one height, the even ones set 36 px lower (v0.4.0: they were as tall as their words,
+     and the row ended in four different places) */
+  .steps { grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: stretch; padding-bottom: 36px; }
+  .step:nth-child(even) { translate: 0 36px; }
 }
 
 /* --- reference --------------------------------------------------------------- */
 .ref-grid { display: grid; gap: 28px; }
 .ref h2 { max-width: 14em; }
 .ref-lead { margin: 0; font: 500 clamp(21px, calc(17px + .8vw), 28px)/1.35 var(--font-d); letter-spacing: -.01em; max-width: 30em; }
-.ref-note { margin: 0; display: flex; gap: 14px; align-items: flex-start; padding: 20px 22px; border: 2px solid #fff; border-radius: var(--r-md); font-size: 17px; line-height: 1.5; box-shadow: 5px 5px 0 var(--pink); }
+.ref-note { margin: 0; max-width: 40em; display: flex; gap: 14px; align-items: flex-start; padding: 20px 22px; border: 2px solid #fff; border-radius: var(--r-md); font-size: 17px; line-height: 1.5; box-shadow: 5px 5px 0 var(--pink); }
 .ref-note .ic { color: var(--yellow); margin-top: 1px; }
 @media (min-width: 1000px) {
   .ref-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: 64px; row-gap: 44px; align-items: start; }
@@ -715,6 +844,11 @@ button { -webkit-tap-highlight-color: transparent; }
 .plan-top p { margin: 8px 0 0; font-size: 18px; line-height: 1.4; }
 .plan-price { margin: 0; padding: 18px 24px 22px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; }
 .plan .plan-price { margin-top: auto; }
+.plans .plan { container-type: inline-size; }
+@container (max-width: 320px) {
+  .plan-price { flex-direction: column; align-items: flex-start; }
+  .plan-price .plan-value { font-size: 19px; }
+}
 .plan-label { font-size: 15px; line-height: 1.3; color: var(--muted); max-width: 11em; }
 .plan-value {
   display: inline-block; padding: 8px 14px;
@@ -728,11 +862,17 @@ button { -webkit-tap-highlight-color: transparent; }
 .addon-text { padding: 24px 24px 0; }
 .addon h3 { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; font-size: clamp(26px, calc(20px + 1vw), 34px); }
 .addon-sub { display: inline-block; padding: 5px 10px; border-radius: 8px; background: var(--yellow); color: var(--ink); font-size: 15px; letter-spacing: 0; transform: rotate(-2deg); }
-.addon-text p { margin: 12px 0 0; max-width: 44em; }
+.addon-text p { margin: 12px 0 0; max-width: 34em; }
 .addon .plan-label { color: #fff; }
 .addon .plan-value { box-shadow: 3px 3px 0 var(--pink); }
 .more-link { margin: 28px 0 0; }
-.more-link a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font: 700 18px/1.2 var(--font-d); color: var(--ink); }
+.more-link a { display: inline-block; min-height: 44px; padding: 11px 0; font: 700 18px/1.2 var(--font-d); color: var(--ink); }
+/* The last word and the arrow are one unit (build.py's arrow filter), so the arrow never starts a line
+   by itself, and the flex box centres it on its word's line at any text size (v0.4.1; it was an inline
+   block nudged 6 px down, 3.5 px low at 1.5 times the text). The unit draws its word's underline itself,
+   since a link's underline does not reach into an inline flex box. */
+.link-end { display: inline-flex; align-items: center; gap: 8px; text-decoration: inherit; }
+.link-end .ic { flex: none; }
 @media (min-width: 900px) {
   .plans { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .plans .plan:nth-child(1) { transform: rotate(-1deg); }
@@ -744,8 +884,8 @@ button { -webkit-tap-highlight-color: transparent; }
 
 /* --- help and groups, side by side -------------------------------------------- */
 .split { display: grid; grid-template-columns: minmax(0, 1fr); }
-.split-in { width: 100%; max-width: calc(640px + 2 * var(--gutter)); margin: 0 auto; padding: 0 var(--gutter); }
-.split-half h2 { font-size: clamp(40px, calc(24px + 3.4vw), 72px); }
+.split-in { width: 100%; max-width: calc(640px + var(--gl) + var(--gr)); margin: 0 auto; padding: 0 var(--gr) 0 var(--gl); }
+.split-half h2 { font-size: clamp(32px, min(max(40px, calc(24px + 3.4vw)), calc(100cqi / 6.8)), 72px); }
 .split-half p { margin: 22px 0 0; font-size: 19px; max-width: 32em; }
 .link-list { list-style: none; margin: 26px 0 30px; padding: 0; border-top: 2px solid var(--ink); }
 .link-list a {
@@ -756,13 +896,17 @@ button { -webkit-tap-highlight-color: transparent; }
   color: var(--ink); text-decoration: none;
 }
 .link-list a:hover { text-decoration: underline; }
+.link-list a { overflow-wrap: anywhere; }
+.link-list a > .ic { flex: none; }
 .split-half .btn { margin-top: 28px; }
 .split-half .link-list + .btn { margin-top: 0; }
 @media (min-width: 900px) {
   .split { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .split-half + .split-half { border-left: 2px solid var(--ink); }
-  .split-half:first-child .split-in { margin: 0 0 0 auto; max-width: calc(var(--maxw) / 2 + var(--gutter)); padding-right: 48px; }
-  .split-half:last-child .split-in { margin: 0 auto 0 0; max-width: calc(var(--maxw) / 2 + var(--gutter)); padding-left: 48px; }
+  /* the halves meet at the centre with the page's own gutter on each side (it was 48 px there
+     while the page's gutter was 32, so the edges did not line up from 900 to 1023 px) */
+  .split-half:first-child .split-in { margin: 0 0 0 auto; max-width: calc(var(--maxw) / 2 + var(--gl)); padding-right: var(--gutter); }
+  .split-half:last-child .split-in { margin: 0 auto 0 0; max-width: calc(var(--maxw) / 2 + var(--gr)); padding-left: var(--gutter); }
 }
 
 /* --- FAQ ------------------------------------------------------------------------ */
@@ -784,10 +928,15 @@ button { -webkit-tap-highlight-color: transparent; }
 .faq-ic { flex: none; display: grid; place-items: center; width: 40px; height: 40px; background: var(--paper); border: 2px solid var(--ink); border-radius: 50%; }
 .faq-ic .ic { width: 22px; height: 22px; stroke-width: 1.75; }
 .faq-item[open] .faq-ic { transform: rotate(45deg); }
-.faq-item > p { margin: 0; padding: 16px 20px 20px; font-size: 18px; }
+.faq-item > p { margin: 0; padding: 16px 20px 20px; font-size: 18px; max-width: calc(36em + 40px); }
 @media (min-width: 1000px) {
   .faq-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 64px; align-items: start; }
-  .faq-head { position: sticky; top: 120px; }
+}
+/* The heading beside the questions stays in view only where it fits under the header, like the tour's
+   visuals (v0.4.1; it stuck at every height): it is 150 to 200 px tall, about 410 under text-only zoom
+   at 1.5, so from a 600 px window, 480 px under the header. */
+@media (min-width: 1000px) and (min-height: 600px) {
+  .faq-head { position: sticky; top: calc(var(--clear) + 20px); }
 }
 
 /* --- final call to action ---------------------------------------------------------- */
@@ -796,19 +945,27 @@ button { -webkit-tap-highlight-color: transparent; }
 .h-final { font-size: clamp(50px, calc(28px + 6.2vw), 122px); line-height: .92; letter-spacing: -.045em; max-width: 11em; }
 .final .lead { margin: 30px 0 0; max-width: 34em; }
 .final .cta-row { margin-top: 36px; }
+/* v0.4.0: the sticker is in the heading's line right after its word, so it can never lie on the line
+   above (it hung beside "napig" and its top covered "ingyen,") or run off the window (the English
+   "no minimum term" at 280 to 360 and 832 to 1112 px). On a phone a pill, from 700 px the round one. */
+.h-final .w-stk { position: static; display: inline; }
 .sticker-final {
-  position: absolute; z-index: 2;
-  left: calc(100% + .22em); top: 62%;
-  display: grid; place-items: center; width: 92px; height: 92px; padding: 10px;
-  border-radius: 50%; background: var(--pink); text-align: center;
-  font-size: 15px; line-height: 1.05; letter-spacing: -.01em;
-  translate: 0 -50%;
-  transform: rotate(12deg);
+  position: relative; display: inline-block; vertical-align: middle;
+  margin: 0 0 0 .35em; padding: 8px 14px;
+  border-radius: 12px; background: var(--pink); text-align: center; white-space: nowrap;
+  font-size: 16px; line-height: 1.15; letter-spacing: -.01em;
+  transform: rotate(-4deg);
 }
-@media (min-width: 1100px) { .sticker-final { width: 122px; height: 122px; font-size: 19px; top: 64%; transform: rotate(9deg); } }
+@media (min-width: 700px) {
+  .sticker-final {
+    display: inline-grid; place-items: center; width: max(92px, 6.1em); height: max(92px, 6.1em); padding: 10px; margin: 0 0 0 .6em;
+    border-radius: 50%; white-space: normal; font-size: 15px; line-height: 1.05; transform: rotate(12deg);
+  }
+}
+@media (min-width: 1100px) { .sticker-final { width: max(122px, 6.4em); height: max(122px, 6.4em); font-size: 19px; transform: rotate(9deg); } }
 
 /* --- footer ---------------------------------------------------------------------- */
-.site-foot { background: var(--ink); color: #fff; border-top: 2px solid var(--ink); padding: 64px 0 36px; --focus: var(--yellow); }
+.site-foot { container: foot / inline-size; background: var(--ink); color: #fff; border-top: 2px solid var(--ink); padding: 64px 0 36px; --focus: var(--yellow); }
 .foot-grid { display: grid; gap: 36px; grid-template-columns: minmax(0, 1fr); }
 .foot-line { margin: 0; font: 700 clamp(26px, calc(20px + 1.2vw), 36px)/1.05 var(--font-d); letter-spacing: -.03em; }
 .foot-op { margin: 14px 0 0; max-width: 30em; }
@@ -817,25 +974,73 @@ button { -webkit-tap-highlight-color: transparent; }
 .lang-foot a { color: #fff; }
 .foot-col h2 { margin: 0 0 8px; font-size: 16px; line-height: 1.2; letter-spacing: 0; color: var(--yellow); }
 .foot-col ul { list-style: none; margin: 0; padding: 0; }
-.foot-col a { display: inline-flex; align-items: center; min-height: 44px; color: #fff; text-decoration: none; font-size: 17px; }
+.foot-col a { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; color: #fff; text-decoration: none; font-size: 17px; }
 .foot-col a:hover { text-decoration: underline; }
 .foot-mega { margin-top: 56px; }
 .logo-mega { display: block; --bt-mark: var(--yellow); --bt-ink: #fff; }
 .logo-mega .lockup { width: 100%; height: auto; }
 .foot-meta { margin: 22px 0 0; font-size: 14px; color: #bdbdbd; }
 .foot-brand { grid-column: 1 / -1; }
-@media (max-width: 799.98px) { .foot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 20px; } }
-@media (min-width: 800px) {
+/* Two columns only where both hold the longest link on one line (Adatkezelési tájékoztató, 172 px, 10.1
+   em): from a 26 em footer, a 442 px window at the normal size, where each column is 191 px (v0.4.1; from
+   340 px the columns were 144 px wide and the link broke onto two lines). In the footer's own em, so a
+   larger text keeps one column longer. The four columns come later and win. */
+@container foot (width >= 26em) { .foot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 20px; } }
+/* Four columns only where each link column holds that longest link on one line too: from a 60.25 em footer,
+   a 1085 px window at the normal size (the footer's text is 18 px from 1024 px), where a link column is 173
+   px; the link fits one line from 1075 px. Below 1024 px the text is 17 px and 60.25 em is 1024.25 px, wider
+   than any window there, so the four columns never come and go again below 1085. In the footer's own em, so
+   a larger text keeps two columns longer (v0.4.2; a window query at 880 px made the link columns 135 px, and
+   the link took two lines up to 1074 px). */
+@container foot (width >= 60.25em) {
   .foot-grid { grid-template-columns: minmax(0, 2fr) repeat(3, minmax(0, 1fr)); gap: 40px; }
   .foot-brand { grid-column: auto; }
 }
 
-/* --- motion: only for people who have not asked for less -------------------------- */
+/* --- motion (D-052; docs/design/MOTION-v0.1.0.md v0.2.0; POP-IDENTITY section 8) ---------------
+   The website runs at Játékos, the level D-052 chose for every surface; it has no setting of its
+   own. A device that asks for less motion gets nothing that moves by itself (the block at the end).
+   What loops, the marquee, the drifting stickers and the rocking renders, stops with the page pause
+   (html[data-paused]: the Mozgás button in the header card or the menu and the band's own button,
+   one state kept in this browser, set before the first paint by the head's script; the marquee is
+   then the row you scroll), after 60 s without input (html[data-asleep]), out of view (a .loop-host
+   without .in-view), under the pointer and with the keyboard in its block. site.js keeps those
+   states. Only transform and opacity move, through the separate translate, rotate and scale
+   properties; the marker's clip is the one named exception. */
+:root {
+  --m-tap: 120ms; --m-snap: 180ms; --m-lift: 220ms; --m-rise: 280ms; --m-stamp: 340ms; --m-land: 420ms;
+  --m-stick: 500ms; --m-draw: 520ms; --m-rock: 6s; --m-band: 64s;
+  --e-pop: cubic-bezier(.2, .9, .3, 1.3); --e-slam: cubic-bezier(.2, 1.5, .4, 1); --e-out: cubic-bezier(.2, 0, 0, 1);
+  --e-swing: cubic-bezier(.37, 0, .63, 1);
+}
+/* the page pause: a pill in the header card, a row in the phone's menu; hidden where nothing may move */
+.motion-btn {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; min-width: 44px; padding: 0 14px 0 10px;
+  background: transparent; color: var(--ink); border: 2px solid var(--ink); border-radius: 999px;
+  font: 700 14px/1 var(--font-d); cursor: pointer;
+}
+.motion-btn:hover { background: var(--yellow); }
+.motion-btn .ic { width: 20px; height: 20px; }
+.motion-btn .ic-play, .motion-btn[data-paused="true"] .ic-pause { display: none; }
+.motion-btn[data-paused="true"] .ic-play { display: block; }
+/* from the first paint, before site.js has run: the icons follow the stored pause */
+html[data-paused] :is(.motion-btn, .band-toggle) .ic-pause { display: none; }
+html[data-paused] :is(.motion-btn, .band-toggle) .ic-play { display: block; }
+@container head (59em <= width < 70.2em) {
+  /* the header card is full here (a window of 1160 to 1359 px at the normal size): the button keeps its
+     icon and its name, the links close up */
+  .motion-btn { justify-content: center; padding: 0; }
+  .motion-btn-tx { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .site-menu { gap: 10px; }
+  .nav-end { gap: 8px; }
+  .nav-main a { padding: 0 9px; }
+}
+
 @media (prefers-reduced-motion: no-preference) {
-  .btn, .chip, .menu-btn, .toast-undo { transition: transform .12s ease, box-shadow .12s ease, background-color .12s ease; }
+  .btn, .chip, .menu-btn, .toast-undo, .motion-btn { transition: transform var(--m-tap) ease, box-shadow var(--m-tap) ease, background-color var(--m-tap) ease; }
   .btn:hover { transform: translate(-2px, -2px); box-shadow: calc(var(--sh) + 2px) calc(var(--sh) + 2px) 0 var(--sh-c, var(--ink)); }
   .btn:active { transform: translate(var(--sh), var(--sh)); box-shadow: 0 0 0 var(--sh-c, var(--ink)); }
-  .tilt { transition: transform .22s cubic-bezier(.2, .9, .3, 1.3), box-shadow .22s ease; }
+  .tilt { transition: transform var(--m-lift) var(--e-pop), box-shadow var(--m-lift) ease; }
   .report-tilt:hover { transform: rotate(-1deg) translate(-4px, -4px); }
   .day-card:hover, .tile:hover, .plan:hover { transform: rotate(-1.4deg) translate(-3px, -3px); box-shadow: 10px 10px 0 var(--ink); }
   .day-card:nth-child(even):hover, .tile:nth-child(even):hover, .plan:nth-child(even):hover { transform: rotate(1.4deg) translate(-3px, -3px); }
@@ -843,31 +1048,69 @@ button { -webkit-tap-highlight-color: transparent; }
   .link-list .ic, .more-link .ic, .btn .ic { transition: transform .15s ease; }
   .link-list a:hover .ic, .more-link a:hover .ic, .btn:hover .ic { transform: translateX(4px); }
 
-  .marquee-inner { animation: marquee 64s linear infinite; }
-  .marquee:hover .marquee-inner, .marquee.is-paused .marquee-inner, .marquee:focus-visible .marquee-inner { animation-play-state: paused; }
+  /* A2 the marquee: 64 s a round. It rolls unless it is the row you scroll (data-row: paused, or the
+     keyboard in it), and site.js carries its place over both ways, so the page pause and the band's
+     button stop it where it is instead of sending it back to its start (the motion review, part 4);
+     the row keeps the loop's copy, so every place of the loop is in it. A stored pause is the row
+     from the first paint. */
+  html.js .marquee-copy { display: flex; }
+  html.js:not([data-paused]) .marquee:not([data-row]) { overflow: hidden; }
+  html.js:not([data-paused]) .marquee:not([data-row]) .marquee-inner { animation: marquee var(--m-band) linear infinite var(--loop-play, running); }
   @keyframes marquee { to { transform: translateX(-50%); } }
 
-  .sticker-free, .sticker-final, .sticker-note, .sticker-try { animation: pop-in .5s cubic-bezier(.2, 1.6, .4, 1) .35s both; }
+  /* F8 the page arrives: the first heading's phrase slaps on at 120 ms and its marker draws from
+     200 ms, once per load; the stickers are stuck on at 350 ms */
+  main h1 .hl { animation: bt-hl-in var(--m-land) var(--e-pop) 120ms both; }
+  main h1 .mk-line { animation: bt-mark var(--m-draw) var(--e-out) 200ms backwards; }
+  .sticker-try { animation: pop-in .5s cubic-bezier(.2, 1.6, .4, 1) .35s both; }
+  /* A1 then they drift: 1.5 px and .75deg either way around their own tilt, each at its own pace;
+     a sticker centred by translate (--sy) keeps its centring */
+  .sticker-free, .sticker-note, .sticker-final, .sticker-page, .sticker-help {
+    animation: pop-in .5s cubic-bezier(.2, 1.6, .4, 1) .35s both, bt-drift var(--drift, 7.2s) var(--e-swing) .85s infinite alternate var(--loop-play, running);
+  }
+  .sticker-note { --drift: 6.3s; }
+  .sticker-final { --drift: 8.1s; }
+  .sticker-page { --drift: 6.8s; }
+  .sticker-help { --drift: 7.6s; }
   @keyframes pop-in { from { scale: .2; opacity: 0; } }
-  .sticker-free:hover, .sticker-final:hover { rotate: 8deg; transition: rotate .2s ease; }
+  @keyframes bt-drift { from { translate: 0 calc(var(--sy, 0%) + 1.5px); rotate: -.75deg; } to { translate: 0 calc(var(--sy, 0%) - 1.5px); rotate: .75deg; } }
+  @keyframes bt-hl-in { from { scale: .85 .6; opacity: 0; } }
+  @keyframes bt-mark { from { clip-path: inset(-80% 100% -80% -12%); } to { clip-path: inset(-80% -12% -80% -12%); } }
+  /* the round stickers turn a little further under the pointer (their own tilt plus 8deg) */
+  .sticker-free:hover, .sticker-final:hover { transition: transform var(--m-snap) var(--e-pop); }
+  .sticker-free:hover { transform: rotate(-4deg); }
+  @media (min-width: 700px) { .sticker-final:hover { transform: rotate(20deg); } }
+  @media (min-width: 1100px) { .sticker-final:hover { transform: rotate(17deg); } }
+  /* A6 the rendered toys rock: 2.5deg either way and 4 px up, 6 s */
+  .illo-render img { animation: bt-rock var(--m-rock) var(--e-swing) infinite alternate var(--loop-play, running); }
+  @keyframes bt-rock { from { rotate: -2.5deg; translate: 0 0; } to { rotate: 2.5deg; translate: 0 -4px; } }
+
+  /* every loop stops where it is, through one inherited property: the page paused, asleep, hidden or
+     under a finger (site.js); its block under the pointer or with the focus inside (the keyboard on
+     the band's own button stops the marquee too); the loop itself out of view. An arrival still
+     playing plays on. */
+  html:is([data-paused], [data-asleep], [data-hidden], [data-interacting]) { --loop-play: paused; }
+  .loop-host:is(:hover, :focus-within), .is-out { --loop-play: paused; }
 
   .stamp { animation: stamp-in .32s cubic-bezier(.2, 1.5, .4, 1) both; }
   @keyframes stamp-in { from { transform: rotate(-3deg) scale(1.8); opacity: 0; } }
-  .toast:not([hidden]) { animation: toast-in .28s cubic-bezier(.2, 1.3, .4, 1) both; }
+  .toast:not([hidden]) { animation: toast-in var(--m-rise) cubic-bezier(.2, 1.3, .4, 1) both; }
   @keyframes toast-in { from { translate: 0 140%; } }
   .try-area { transition: background-color .5s ease; }
 }
-/* The eight-second undo is visible as a draining bar; it drains for everyone, because it is
-   information (how long the undo lasts), not decoration. */
+.sticker-free { --sy: 0%; }
+/* The eight-second undo is visible as a line; it drains for everyone, because it is information
+   (how long the undo lasts), not decoration. It holds while the pointer or the keyboard is on the
+   bar; under reduced motion it does not glide but steps down once a second (site.js, --left). */
 .toast-bar.is-running { animation: drain 8s linear forwards; }
 .toast.is-paused .toast-bar { animation-play-state: paused; }
 @keyframes drain { to { transform: scaleX(0); } }
 
 @media (prefers-reduced-motion: reduce) {
-  /* Nothing moves by itself: the marquee is a still row you can scroll, the stickers rest. */
-  .marquee { overflow-x: auto; scrollbar-color: var(--yellow) var(--ink); }
-  .marquee-copy { display: none; }
-  .band-toggle { display: none; }
+  /* Nothing moves by itself: the marquee is a still row you can scroll (its base), the stickers rest,
+     and the page pause has nothing to stop. */
+  .band-toggle, .motion-btn { display: none; }
+  .toast-bar.is-running { animation: none; transform: scaleX(var(--left, 1)); }
 }
 
 /* ===================================================================================
@@ -919,11 +1162,12 @@ button { -webkit-tap-highlight-color: transparent; }
 .crumbs ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 0 4px; font: 600 16px/1.2 var(--font-d); }
 .crumbs li { display: inline-flex; align-items: center; gap: 4px; }
 .crumbs li + li::before { content: "›"; padding: 0 6px; color: var(--ink); }
-.crumbs a { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink); }
+.crumbs a { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; color: var(--ink); }
 .crumbs [aria-current="page"] { color: var(--muted); }
 .help-layout { display: grid; gap: 48px; margin-top: 18px; }
-.article { min-width: 0; }
-.art-head h1 { font-size: clamp(48px, calc(26px + 5.2vw), 100px); line-height: .92; letter-spacing: -.045em; }
+/* a container (v0.4.2): its width in its own em decides whether a hyphenated word may break (.hy, below) */
+.article { min-width: 0; container: art / inline-size; }
+.art-head h1 { font-size: clamp(34px, min(max(48px, calc(26px + 5.2vw)), calc((100vw - 32px) / 6.2)), 100px); line-height: .92; letter-spacing: -.045em; }
 .meta { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin: 26px 0 0; padding: 0; }
 .meta li { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border: 2px solid var(--ink); border-radius: 999px; font: 600 15px/1.1 var(--font-d); background: var(--c, var(--paper)); }
 .meta .ic { width: 18px; height: 18px; stroke-width: 1.75; }
@@ -933,21 +1177,34 @@ button { -webkit-tap-highlight-color: transparent; }
    a yellow card, with the step chapters beside it. Behind the video, a flat placeholder keeps
    the frame designed if the poster is not there; pressing play then says "A videó készül." */
 /* The introduction video on the tour page (website v0.4.0, D-046, D-054): the 16:9 cut, and on a phone the 9:16
-   cut. preload="none", so the hidden one downloads nothing. Native controls; nothing plays by itself. */
+   cut. preload="none", so the hidden one downloads nothing, and its still only when shown (site.js, v0.4.1).
+   Native controls; nothing plays by itself. */
 .intro-sec h2 { color: var(--paper); }
 .intro-sec .sec-intro { color: var(--paper); }
 .intro-vid { margin: 32px 0 0; }
 .intro-vid video { display: block; width: 100%; height: auto; border: 2px solid var(--paper); border-radius: 18px; box-shadow: 8px 8px 0 var(--yellow); background: var(--ink); }
+/* never taller than the window under the header (a landscape phone or a short laptop window) */
+.intro-vid .intro-wide { width: auto; max-width: 100%; max-height: calc(100vh - var(--clear) - 32px); max-height: calc(100svh - var(--clear) - 32px); margin: 0 auto; }
 .intro-vid .intro-tall { display: none; }
 .intro-vid figcaption { margin-top: 18px; color: var(--paper); font-size: 15px; opacity: .85; }
 .intro-text { margin-top: 20px; color: var(--paper); max-width: 40em; }
 .intro-text summary { cursor: pointer; font-family: var(--font-d); font-weight: 700; min-height: 44px; display: inline-flex; align-items: center; }
 .intro-text ol { margin: 12px 0 0; padding-left: 1.4em; display: grid; gap: 6px; }
 .intro-text p { margin-top: 12px; font-size: 15px; opacity: .85; }
-@media (max-width: 700px) {
+/* The 9:16 cut where it shows larger than the 16:9 cut: where the room under the header is taller than
+   the column is wide, up to a column of about 750 px, where the two are the same size (the 9:16 cut is at
+   most 420 px wide). The room's shape in four steps of the window's: 3:4 up to 340 px wide, 4:5 to 460,
+   6:7 to 600, 9:10 to 830. Over 11 227 windows from 280 x 320 to 1300 x 1400 the cut shown is at most 9
+   percent smaller than the other (v0.4.1; it was the 9:16 cut on any upright window up to 700 px, 57
+   percent smaller at worst: a short upright window got a strip, 108 px wide at 280 x 320, and an upright
+   tablet the smaller 16:9 cut). site.js gives only the cut on screen its still (data-poster). */
+@media (max-width: 340px) and (max-aspect-ratio: 3/4), (min-width: 340.02px) and (max-width: 460px) and (max-aspect-ratio: 4/5),
+       (min-width: 460.02px) and (max-width: 600px) and (max-aspect-ratio: 6/7), (min-width: 600.02px) and (max-width: 830px) and (max-aspect-ratio: 9/10) {
   .intro-vid .intro-wide { display: none; }
-  .intro-vid .intro-tall { display: block; max-width: 420px; margin: 0 auto; }
+  .intro-vid .intro-tall { display: block; width: auto; max-width: min(100%, 420px); max-height: calc(100svh - var(--clear) - 32px); margin: 0 auto; }
 }
+/* a cut playing full screen stays shown when the window's shape changes under it */
+.intro-vid video:fullscreen { display: block; }
 
 .vid { margin: 40px 0 0; }
 .vid-card {
@@ -957,6 +1214,8 @@ button { -webkit-tap-highlight-color: transparent; }
   border: 2px solid var(--ink); border-radius: var(--r-xl);
   box-shadow: 8px 8px 0 var(--ink);
 }
+.vid-card { grid-template-columns: minmax(0, 1fr); }
+.vid-card > * { min-width: 0; max-width: 100%; overflow-wrap: break-word; }
 .vid-phone { width: min(100%, 272px); }
 .vid-screen {
   position: relative;
@@ -1005,6 +1264,9 @@ button { -webkit-tap-highlight-color: transparent; }
 .chapters { margin-top: 22px; }
 .chapters-label { margin: 0 0 10px; font: 700 15px/1.2 var(--font-d); }
 .chapters-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.chapters-list { grid-template-columns: minmax(0, 1fr); }
+.chapter .ch-l { min-width: 0; overflow-wrap: anywhere; }
+.chapter .ch-t { flex: none; }
 .chapter {
   width: 100%; display: flex; align-items: center; gap: 12px; text-align: left;
   min-height: 48px; padding: 6px 14px 6px 6px;
@@ -1040,7 +1302,7 @@ button { -webkit-tap-highlight-color: transparent; }
   box-shadow: 3px 3px 0 var(--ink);
 }
 .hstep-body { padding-top: 12px; }
-.hstep-body p { margin: 0; font-size: 18px; line-height: 1.55; }
+.hstep-body p { margin: 0; font-size: 18px; line-height: 1.55; max-width: 36em; }
 .ui {
   padding: 1px 7px; border: 2px solid var(--ink); border-radius: 8px; background: var(--paper);
   font: 700 .88em/1.45 var(--font-d);
@@ -1084,7 +1346,8 @@ kbd {
   .help-layout { grid-template-columns: minmax(0, 1fr) 300px; gap: 72px; }
   .article { max-width: 820px; }
   .help-side { display: block; }
-  .side-box { position: sticky; top: 120px; padding: 22px; background: var(--paper); border: 2px solid var(--ink); border-radius: var(--r-lg); box-shadow: 6px 6px 0 var(--ink); }
+  /* sticky, and never taller than the window it sticks in: in a short window it scrolls itself */
+  .side-box { position: sticky; top: calc(var(--clear) + 20px); max-height: calc(100vh - var(--clear) - 44px); overflow-y: auto; overscroll-behavior: contain; padding: 22px; background: var(--paper); border: 2px solid var(--ink); border-radius: var(--r-lg); box-shadow: 6px 6px 0 var(--ink); }
   .side-box h2 { font-size: 20px; letter-spacing: -.01em; }
   .side-box ol { list-style: none; margin: 12px 0 0; padding: 0; counter-reset: toc; }
   .side-box li { counter-increment: toc; }
@@ -1109,6 +1372,20 @@ kbd {
 
 .anchor { position: absolute; top: 0; left: 0; width: 1px; height: 1px; pointer-events: none; }
 .nw { white-space: nowrap; }
+/* A help article's hyphenated word (build.py's .hy, "Google-kapcsolat", 22 characters at most) stays on one
+   line, as .nw did. Only where the article is narrower than 14.5 of its own em may it break after its hyphen:
+   at the normal size the article is never that narrow (248 px of 17 px text is 14.59 em at a 280 px window),
+   so no word breaks differently there; under text zoom it is (1.5 times the text: up to a 403 px window), and
+   a word that cannot fit its line breaks there instead of running past it (v0.4.2). Measured on the 121 words
+   of the help pages: at the normal size every word lies exactly where it did at every width from 280 to 1440
+   px; at 1.05 to 2 times the text no word runs past its line from 280 to 480 px (before, at 1.3 and 1.5 times,
+   such a word made five help pages scroll sideways, by up to 75 px: "Tripadvisor-oldalának"). An inline
+   block, the other way to keep a word whole until it cannot fit, would move words at the normal size: a
+   comma, a period or a parenthesis after it may start a line (Chromium breaks next to an inline block
+   whatever touches it), and in the display font it drops the kerning between the word and the space after
+   it (the next word moves by up to 1 px in a 34 px heading). */
+.hy { white-space: nowrap; }
+@container art (width < 14.5em) { .hy { white-space: normal; } }
 .blk-black .caption, .blk-blue .caption { color: #fff; }
 
 /* --- footer: the operator's data ------------------------------------------------ */
@@ -1131,20 +1408,28 @@ kbd {
   border-top: 0;
 }
 .page-hero-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; align-items: center; }
-.h-page { font-size: clamp(52px, calc(30px + 6vw), 112px); line-height: .92; letter-spacing: -.045em; text-wrap: balance; }
+/* under 390 px the size follows the window, so the longest word (Csoportoknak, csomagokban in their
+   colour block) fits the line instead of being cut at the window's edge (v0.4.0) */
+/* --fit is the longest word of the heading in em (6.8 fits csomagokban and Csoportoknak in their colour
+   block); the demo page's longest, bemutatót, is 5.0, so its column says so and keeps a larger size */
+.h-page { font-size: clamp(34px, min(max(52px, calc(30px + 6vw)), calc((100vw - 36px) / 6.6), calc(100cqi / var(--fit, 6.8))), 112px); line-height: .92; letter-spacing: -.045em; text-wrap: balance; }
+.demo-intro { --fit: 5.2; }
 .page-hero .lead { margin: 26px 0 0; max-width: 32em; }
 .page-hero .cta-row { margin-top: 30px; }
 .hero-note { margin: 16px 0 0; font: 700 clamp(18px, calc(16px + .4vw), 21px)/1.35 var(--font-d); letter-spacing: -.01em; max-width: 30em; }
+/* v0.4.0: the sticker is part of the heading's line, right after its word, and wraps with the words
+   (it hung beside the word, where it ran into the illustration from 1000 px and off the window at
+   760 to 999; below 760 it stood under the heading). */
+.h-page .w-stk { position: static; display: inline; }
 .sticker-page {
-  position: absolute; left: calc(100% + .16em); top: 8%;
+  position: relative; display: inline-block; vertical-align: middle;
+  margin: 10px 0 0 .3em;
   font-size: 17px; padding: 8px 14px; white-space: nowrap;
+  letter-spacing: -.01em; line-height: 1.15;
   background: var(--paper); transform: rotate(6deg);
 }
 .blk-lilac .sticker-page, .blk-green .sticker-page { background: var(--yellow); }
-@media (max-width: 759.98px) {
-  .page-hero .w-stk { position: static; }
-  .sticker-page { position: relative; left: auto; top: auto; display: table; margin: 18px 0 0; transform: rotate(-3deg); font-size: 16px; }
-}
+@media (max-width: 759.98px) { .sticker-page { font-size: 16px; transform: rotate(-3deg); } }
 @media (min-width: 1000px) {
   .page-hero { padding-top: calc(var(--head-h) + 52px); padding-bottom: 88px; }
   .page-hero-grid { grid-template-columns: minmax(0, 1fr) auto; column-gap: 56px; }
@@ -1179,10 +1464,10 @@ kbd {
 .tour-report { justify-items: stretch; max-width: 460px; width: 100%; justify-self: center; }
 .tour-report .report-tilt { transform: rotate(-1.5deg); }
 .tour-report .caption { margin-top: 44px; }
-.tour-fact { margin: 18px 0 0; font-size: 18px; line-height: 1.5; max-width: 36em; }
+.tour-fact { margin: 18px 0 0; font-size: 18px; line-height: 1.5; max-width: 34em; }
 .tour-note { margin: 22px 0 0; padding: 18px 20px; font-size: 17px; line-height: 1.5; max-width: 36em; box-shadow: 5px 5px 0 var(--ink); }
 .tour-note-ok { display: flex; gap: 14px; align-items: flex-start; background: var(--tint-pos); }
-.tour-card { margin: 26px 0 0; padding: 22px 22px 24px; max-width: 36em; }
+.tour-card { margin: 26px 0 0; padding: 22px 22px 24px; max-width: 34em; }
 .tour-card h3 { font-size: clamp(22px, calc(18px + .6vw), 27px); }
 .tour-card p { margin: 10px 0 0; font-size: 17px; line-height: 1.5; }
 .list-title { margin: 26px 0 10px; font: 700 18px/1.2 var(--font-d); }
@@ -1190,22 +1475,36 @@ kbd {
 .check-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 18px; line-height: 1.4; }
 .check-ic {
   flex: none; display: grid; place-items: center; width: 28px; height: 28px; margin-top: 1px;
+  margin-top: calc((1lh - 28px) / 2);
   background: var(--ink); color: var(--yellow); border-radius: 50%;
 }
 .check-ic .ic { width: 16px; height: 16px; stroke-width: 2.25; }
 .blk-yellow .check-ic { color: var(--yellow); }
-.help-link { margin: 26px 0 0; display: flex; gap: 10px; align-items: center; font: 600 17px/1.3 var(--font-d); }
+.help-link { margin: 26px 0 0; display: flex; gap: 10px; align-items: flex-start; font: 600 17px/1.3 var(--font-d); }
 .help-link a { font-weight: 700; }
-.help-link .ic { flex: none; }
-.more-link a { gap: 8px; }
+.help-link .ic { flex: none; margin-top: calc((1lh - 24px) / 2); }
 .blk-blue .more-link a, .blk-black .more-link a { color: #fff; }
 @media (min-width: 1000px) {
   .tour-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: 72px; }
   .tour-flip { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
   .tour-flip .tour-text { order: 2; }
   .tour-flip .tour-visual { order: 1; }
-  .tour-visual { position: sticky; top: 112px; }
+  .tour-visual { align-self: start; }
   .tour-text { padding-top: 8px; }
+}
+
+/* A visual beside its text stays in view while the text scrolls, only where the window is tall
+   enough to show all of it under the header (v0.4.0; it stuck at any height, and in a short window
+   the bottom of the phone was never on screen): the chat about 500 px tall, the report about 690, the
+   phone about 730. */
+@media (min-width: 1000px) and (min-height: 780px) {
+  .tour-visual:has(.chat) { position: sticky; top: calc(var(--clear) + 12px); }
+}
+@media (min-width: 1000px) and (min-height: 820px) {
+  .tour-report { position: sticky; top: calc(var(--clear) + 12px); }
+}
+@media (min-width: 1000px) and (min-height: 900px) {
+  .tour-visual { position: sticky; top: calc(var(--clear) + 12px); }
 }
 
 /* A whole phone, drawn in CSS around a real capture of the demo account. */
@@ -1251,7 +1550,7 @@ a.chip[aria-current="true"] .chip-dot { border-color: #fff; }
 }
 .role:nth-child(2) .role-ic { background: var(--cyan); }
 .role h3 { font-size: clamp(24px, calc(19px + .8vw), 30px); }
-.role p { margin: 8px 0 0; font-size: 17px; line-height: 1.5; }
+.role p { margin: 8px 0 0; font-size: 17px; line-height: 1.5; max-width: 36em; }
 @media (min-width: 900px) { .roles-wide { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; } }
 
 /* The assistant, as on the landing: a question and an answer with its source. */
@@ -1292,7 +1591,7 @@ a.chip[aria-current="true"] .chip-dot { border-color: #fff; }
 .plan-name { font-size: clamp(32px, calc(24px + 1.2vw), 42px); letter-spacing: -.03em; }
 .plan-list { list-style: none; margin: 0; padding: 20px 24px 8px; display: grid; gap: 12px; }
 .plan-list li { display: flex; gap: 10px; align-items: flex-start; font-size: 17px; line-height: 1.4; }
-.plan-list .check-ic { width: 24px; height: 24px; margin-top: 0; }
+.plan-list .check-ic { width: 24px; height: 24px; margin-top: 0; margin-top: calc((1lh - 24px) / 2); }
 .plan-list .check-ic .ic { width: 14px; height: 14px; }
 .plan-list li:first-child { font-weight: 700; }
 .addon-name { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; font-size: clamp(26px, calc(20px + 1vw), 34px); }
@@ -1333,7 +1632,7 @@ form.demo .btn[disabled] { cursor: progress; background: var(--muted); }
 .status { margin: 0; font: 700 16px/1.4 var(--font-d); }
 .status:empty { display: none; }
 .status.err { padding: 12px 14px; color: var(--neg); background: var(--tint-neg); border: 2px solid var(--neg); border-radius: var(--r-md); }
-.formnote { margin: 0; font-size: 15px; line-height: 1.45; color: var(--muted); }
+.formnote { margin: 0; font-size: 15px; line-height: 1.45; color: var(--muted); max-width: 36em; }
 .formnote a { color: var(--ink); font-weight: 700; }
 .thanks { padding: 8px 0; }
 .thanks:focus { outline: none; }
@@ -1363,8 +1662,9 @@ form.demo .btn[disabled] { cursor: progress; background: var(--muted); }
 .cat-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 26px; align-items: start; }
 @media (min-width: 760px) { .cat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 1150px) { .cat-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-.cat-card { overflow: hidden; scroll-margin-top: 110px; }
-.cat-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 18px; background: var(--c); border-bottom: 2px solid var(--ink); }
+.cat-card { overflow: hidden; }
+.cat-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; padding: 16px 18px; background: var(--c); border-bottom: 2px solid var(--ink); }
+.cat-top h3 { min-width: 0; }
 .cat-top h3 { font-size: clamp(24px, calc(19px + .7vw), 30px); }
 .cat-count { flex: none; padding: 4px 10px; background: var(--paper); border: 2px solid var(--ink); border-radius: 999px; font: 700 14px/1.1 var(--font-d); }
 .cat-list { list-style: none; margin: 0; padding: 0; }
@@ -1376,16 +1676,16 @@ form.demo .btn[disabled] { cursor: progress; background: var(--muted); }
 .cat-list a:hover .cat-a-title { text-decoration: underline; }
 .cat-a-sum { font-size: 16px; line-height: 1.4; color: var(--muted); }
 .cat-a-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; margin-top: 4px; font: 600 14px/1.2 var(--font-d); color: var(--muted); }
-.cat-a-meta .ic { width: 18px; height: 18px; margin-right: 4px; vertical-align: -4px; }
+.cat-a-meta .ic { width: 18px; height: 18px; margin-right: 4px; }
 .cat-a-vid { display: inline-flex; align-items: center; padding: 2px 8px 2px 4px; background: var(--yellow); color: var(--ink); border: 2px solid var(--ink); border-radius: 999px; }
 
 .vid-cards { list-style: none; margin: 36px 0 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
 @media (min-width: 700px) { .vid-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 1100px) { .vid-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-.vid-mini a { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 16px; align-items: center; padding: 14px; color: var(--ink); text-decoration: none; }
+.vid-mini a { display: grid; grid-template-columns: clamp(64px, 22vw, 96px) minmax(0, 1fr); gap: 16px; align-items: center; padding: 14px; color: var(--ink); text-decoration: none; }
 .vid-mini-thumb { display: block; aspect-ratio: 780 / 1000; overflow: hidden; background: #fff6ea; border: 5px solid var(--ink); border-radius: 18px; }
 .vid-mini-thumb img { display: block; width: 100%; height: auto; }
-.vid-mini-body { display: grid; gap: 10px; }
+.vid-mini-body { display: grid; gap: 10px; min-width: 0; }
 .vid-mini-t { font: 700 21px/1.15 var(--font-d); letter-spacing: -.015em; }
 .vid-mini a:hover .vid-mini-t { text-decoration: underline; }
 .vid-mini-meta { display: inline-flex; align-items: center; gap: 10px; font: 700 16px/1 var(--font-d); }
@@ -1409,14 +1709,13 @@ form.demo .btn[disabled] { cursor: progress; background: var(--muted); }
 /* The article body: the CONTENT-FORMAT subset, set in Pop. */
 /* A long compound in a heading (Tripadvisor-értékelések) may break at its hyphen on a phone. */
 .art-head h1, .h-page, .legal h1 { overflow-wrap: break-word; }
-.art-head .mk, .h-page .mk { white-space: normal; }
-.art-head .art-intro { margin: 26px 0 0; font-size: clamp(19px, calc(16px + .55vw), 23px); line-height: 1.45; max-width: 34em; }
+.art-head .art-intro { margin: 26px 0 0; font-size: clamp(19px, calc(16px + .55vw), 23px); line-height: 1.45; max-width: 32em; }
 .art-body { margin-top: 8px; }
-.art-body > h2 { margin: 64px 0 0; font-size: clamp(34px, calc(22px + 2.4vw), 56px); scroll-margin-top: 110px; }
-.art-body > p { margin: 22px 0 0; font-size: 18px; line-height: 1.6; max-width: 38em; }
+.art-body > h2 { margin: 64px 0 0; font-size: clamp(34px, calc(22px + 2.4vw), 56px); }
+.art-body > p { margin: 22px 0 0; font-size: 18px; line-height: 1.6; max-width: 36em; }
 .art-body > .hsteps { margin-top: 28px; }
 .art-body .hstep-body p + p { margin-top: 10px; }
-.art-list { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 10px; max-width: 38em; }
+.art-list { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 10px; max-width: 36em; }
 .art-list li { position: relative; padding-left: 28px; font-size: 18px; line-height: 1.5; }
 .art-list li::before { content: ""; position: absolute; left: 4px; top: .55em; width: 12px; height: 12px; background: var(--yellow); border: 2px solid var(--ink); border-radius: 3px; transform: rotate(45deg); }
 .art-body kbd, .callout kbd {
@@ -1445,13 +1744,13 @@ form.demo .btn[disabled] { cursor: progress; background: var(--muted); }
 
 /* --- legal pages ----------------------------------------------------------------------------- */
 .legal-page { border-top: 0; padding-top: 24px; }
-.legal-wrap { max-width: calc(880px + 2 * var(--gutter)); }
+.legal-wrap { max-width: calc(880px + var(--gl) + var(--gr)); }
 .back { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font: 700 17px/1.2 var(--font-d); color: var(--ink); }
 .legal { margin-top: 18px; }
 .legal h1 { font-size: clamp(38px, calc(24px + 3.2vw), 68px); line-height: .98; letter-spacing: -.035em; }
 .legal h2 { margin: 48px 0 0; font-size: clamp(24px, calc(19px + 1vw), 32px); line-height: 1.12; letter-spacing: -.02em; }
 .legal h3 { margin: 30px 0 0; font-size: 21px; line-height: 1.2; letter-spacing: -.01em; }
-.legal p, .legal li { font-size: 17px; line-height: 1.6; }
+.legal p, .legal li { font-size: 17px; line-height: 1.6; max-width: 36em; }
 .legal p { margin: 14px 0 0; }
 .legal ul { margin: 14px 0 0; padding-left: 22px; }
 .legal li + li { margin-top: 6px; }
@@ -1475,7 +1774,7 @@ form.demo .btn[disabled] { cursor: progress; background: var(--muted); }
 @media (min-width: 700px) { .imprint-dl div { grid-template-columns: 180px minmax(0, 1fr); gap: 16px; } }
 
 /* --- 404 --------------------------------------------------------------------------------------- */
-.nf { min-height: 70vh; }
+.nf { min-height: 70vh; min-height: 70svh; }
 .nf-links { list-style: none; margin: 30px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 14px 16px; }
 
 @media (prefers-reduced-motion: no-preference) {

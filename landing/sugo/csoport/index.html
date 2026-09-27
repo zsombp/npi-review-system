@@ -2,7 +2,7 @@
 <html lang="hu" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Több fiók egy csoportban · BistroTech súgó</title>
 <meta name="description" content="Ha több fiókot vezetsz, a Csoport oldal egy táblában mutatja a számaikat, és hetente összefoglalót készít róluk.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/hu/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Mozgás megállítása" data-label-on="Mozgás megállítása" data-label-off="Mozgás indítása">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Mozgás</span>
+        </button>
         <p class="lang"><span class="lang-on" aria-current="true">HU</span><a href="../../en/help/several-accounts-in-a-group/" hreflang="en" lang="en">EN</a></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen</a>
       </div>
@@ -184,12 +189,12 @@
 <ol class="hsteps" role="list" id="lepesek"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Nyisd meg a <b class="ui">Csoport</b> oldalt a menü <b class="ui">Fiók</b> csoportjában.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Az <b class="ui">Új csoport</b> kártyán töltsd ki <b class="ui">A csoport neve</b> mezőt, és nyomd meg a <b class="ui">Csoport létrehozása</b> gombot.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>A <b class="ui">Fiókok</b> résznél válaszd ki a fiókot a <b class="ui">Felvehető fiók</b> listából, és nyomd meg a <b class="ui">Fiók hozzáadása</b> gombot.</p></div></li></ol>
 <p>Csak olyan fiókot vehetsz fel, amelynek tulajdonosa vagy.</p>
 <h2 id="a-fiok-beleegyezese">A fiók beleegyezése</h2>
-<p>Minden fiók a saját <b class="ui">Beállítások</b> oldalán, a <b class="ui">Csoportos megosztás</b> kártyán dönti el, <span class="nw">megosztja-e</span> az összesítését. A fiók tulajdonosa a <b class="ui">Megosztom</b> és a <b class="ui">Nem osztom meg</b> gomb közül választ. Amelyik fiók nem osztja meg, arról a csoport semmit nem lát.</p>
+<p>Minden fiók a saját <b class="ui">Beállítások</b> oldalán, a <b class="ui">Csoportos megosztás</b> kártyán dönti el, <span class="hy">megosztja-e</span> az összesítését. A fiók tulajdonosa a <b class="ui">Megosztom</b> és a <b class="ui">Nem osztom meg</b> gomb közül választ. Amelyik fiók nem osztja meg, arról a csoport semmit nem lát.</p>
 <h2 id="mit-lat-a-csoport">Mit lát a csoport</h2>
 <p>A <b class="ui">Fiókonként</b> táblázat minden fióknak egy sort ad. Benne az új értékelések, az átlag, a válaszra váró negatívok, a módosított értékelések és a helyezések mozgása. Az időszakot a <b class="ui">7 nap</b> és a <b class="ui">30 nap</b> gombbal választod.</p>
 <p>A csoport csak darabszámot és átlagot lát. Értékelést, vendégnevet és választ nem.</p>
 <h2 id="heti-osszefoglalo-a-csoportrol">Heti összefoglaló a csoportról</h2>
-<p>Hétfő reggel a csoportról is készül egy összefoglaló, a legfontosabb teendőkkel. Ha <b class="ui">A csoport beállításai</b> kártyán kitöltöd <b class="ui">A <span class="nw">Telegram-beszélgetés</span> azonosítója</b> mezőt, oda küldjük. Ha üresen marad, a <b class="ui">Legutóbbi heti összefoglaló</b> alatt olvashatod.</p>
+<p>Hétfő reggel a csoportról is készül egy összefoglaló, a legfontosabb teendőkkel. Ha <b class="ui">A csoport beállításai</b> kártyán kitöltöd <b class="ui">A <span class="hy">Telegram-beszélgetés</span> azonosítója</b> mezőt, oda küldjük. Ha üresen marad, a <b class="ui">Legutóbbi heti összefoglaló</b> alatt olvashatod.</p>
 <p>A beszélgetés azonosítóját egy fiók <b class="ui">Beállítások</b> oldalán látod, miután ugyanazt a beszélgetést összekötötted azzal a fiókkal.</p>
 <h2 id="csoport-torlese">Csoport törlése</h2>
 <p>Előbb vedd ki a fiókokat a csoportból a <b class="ui">Kiveszem</b> gombbal. Utána <b class="ui">A csoport beállításai</b> kártyán nyomd meg a <b class="ui">Csoport törlése</b>, majd a <b class="ui">Törlöm</b> gombot. A fiókok, az éttermek és az értékelések érintetlenek maradnak.</p>
@@ -316,11 +321,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

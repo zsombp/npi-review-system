@@ -2,7 +2,7 @@
 <html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>BistroTech, your venues&#x27; Google reviews in one place</title>
 <meta name="description" content="All your venues&#x27; Google reviews, the replies and the numbers in one place. The report arrives every morning. Free for 14 days.">
 <meta name="theme-color" content="#ffe500">
@@ -25,10 +25,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/en/; edit those and rebuild, never dist/ by hand. -->
 
@@ -116,6 +116,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Stop motion" data-label-on="Stop motion" data-label-off="Start motion">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Motion</span>
+        </button>
         <p class="lang"><a href="../" hreflang="hu" lang="hu">HU</a><span class="lang-on" aria-current="true">EN</span></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup?lang=en">Start free</a>
       </div>
@@ -127,10 +132,14 @@
 <main id="main">
 
   <!-- Hero: the deck's shorter H1, set as a poster. The report bubble is the landing's markup
-       (content/hu/report.json; build.py checks that its numbers add up). -->
+       (content/hu/report.json; build.py checks that its numbers add up). Site v0.6.0, 2026-09-27: the
+       heading and its words are one column (hero-main, which the heading sizes itself from) and the
+       grid sits in hero-wrap, the room the two columns really have (site.css, the hero). -->
   <section class="blk blk-yellow hero" aria-labelledby="hero-title">
     <span id="daily-report" class="anchor" aria-hidden="true"></span>
-    <div class="wrap hero-grid">
+    <div class="wrap hero-wrap">
+     <div class="hero-grid">
+      <div class="hero-main">
       <h1 id="hero-title" class="h-hero"><span class="line"><span class="w-stk">Every<span class="sticker sticker-free" aria-hidden="true"><span>14 days</span><span>free</span></span></span></span> <span class="line">review.</span> <span class="line">One <span class="mk mk-pink">place.<svg class="mk-line" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M2 8.5C18 4 36 9.5 54 6.5S86 4 98 7.5"/></svg></span></span></h1>
 
       <div class="hero-copy">
@@ -146,6 +155,7 @@
           <li><span class="trust-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#g-check"/></svg></span>Free for 14 days, no minimum term.</li>
           
         </ul>
+      </div>
       </div>
 
       <figure class="hero-report">
@@ -223,15 +233,17 @@
         </div>
         <figcaption class="caption">Illustration, shown in Hungarian. You choose the report&#x27;s language for your account. The venue names, the texts and the numbers are made up. The structure is the real daily report.</figcaption>
       </figure>
+     </div>
     </div>
   </section>
 
-  <!-- The marquee: short fictional reviews, each marked as an example, pausable, still under
-       reduced motion. The second list is the loop's copy and is hidden from assistive tech. -->
+  <!-- The marquee: short fictional reviews, each marked as an example, pausable (its button is
+       the page pause, one state with the header's Mozgás), still under reduced motion and while
+       paused. The second list is the loop's copy and is hidden from assistive tech. -->
   <section class="blk blk-black band" aria-label="Example reviews">
     <div class="wrap band-head">
       <p class="band-label"><span class="band-tag">Examples</span>This is how the reviews come in, from every venue to one place.</p>
-      <button class="band-toggle" type="button" data-paused="false">
+      <button class="band-toggle" type="button" data-motion-toggle data-paused="false">
         <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
         <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
         <span class="band-toggle-tx" data-on="Pause" data-off="Play">Pause</span>
@@ -264,7 +276,7 @@
         
       </div>
     </div>
-    <p class="wrap caption band-caption">Illustration. The guests, the venues and the texts are made up.</p>
+    <div class="wrap"><p class="caption band-caption">Illustration. The guests, the venues and the texts are made up.</p></div>
   </section>
 
   <!-- The morning: one idea per card, the four tabs of the app, real captures of the demo
@@ -328,7 +340,7 @@
 
 The Példa Bisztró team</textarea>
             <p class="stamp stamp-ok" aria-hidden="true">Approved</p>
-            <p class="stamp stamp-skip" aria-hidden="true">Skipped</p>
+            <p class="stamp stamp-skip" aria-hidden="true">No reply</p>
           </div>
           <div class="try-chips" role="group" aria-labelledby="try-chips-label">
             <span class="try-chips-label" id="try-chips-label">Rewrite</span>
@@ -341,7 +353,7 @@ The Példa Bisztró team</textarea>
           </div>
           <div class="try-actions">
             <button type="button" class="btn btn-blue" data-act="approve">Approve</button>
-            <button type="button" class="btn btn-white" data-act="skip">Skip</button>
+            <button type="button" class="btn btn-white" data-act="skip">No reply</button>
             <button type="button" class="btn-text" data-act="restore">Restore original</button>
           </div>
           <div class="try-after try-after-ok">
@@ -350,7 +362,7 @@ The Példa Bisztró team</textarea>
           </div>
           <div class="try-after try-after-skip">
             <span class="try-after-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-info"/></svg></span>
-            <p>A skipped review stays without a reply. You can still find it later under Reviews.</p>
+            <p>We closed the review without a reply. You can still find it later under Reviews.</p>
           </div>
           <button type="button" class="btn btn-white try-reset" data-act="reset">Start again</button>
         </div>
@@ -366,7 +378,7 @@ The Példa Bisztró team</textarea>
 
       <!-- The deck's pre-written variants, read by site.js; in the page so the copy checker
            reads them too. -->
-      <div class="variants" id="try-variants" hidden data-signature="The Példa Bisztró team" data-toast-ok="Approved." data-toast-skip="Skipped.">
+      <div class="variants" id="try-variants" hidden data-signature="The Példa Bisztró team" data-toast-ok="Approved." data-toast-skip="Closed without a reply.">
         <p data-v="eredeti">Dear Katalin, thank you for writing to us. We are sorry the soup was lukewarm and that you had to wait so long for the bill. We have passed this on to the kitchen and the waiting staff. We hope you will come back, and then everything will be as it should be. The Példa Bisztró team</p>
         <p data-v="rovidebb">Dear Katalin, thank you, and we are sorry about the lukewarm soup and the long wait. We have passed it on to the team. The Példa Bisztró team</p>
         <p data-v="melegebb">Dear Katalin, thank you so much for taking the time to write to us. It bothers us that the soup was lukewarm and that you had to wait so long for the bill. We have passed this on to the kitchen and the waiting staff. Next time we would like you to leave the table happy. The Példa Bisztró team</p>
@@ -374,7 +386,7 @@ The Példa Bisztró team</textarea>
         <p data-v="magazo">Dear Katalin, thank you for writing to us. We are sorry the soup was lukewarm and that you had to wait so long for the bill. We have passed this on to the kitchen and the waiting staff. We hope you will come back, and then everything will be as it should be. The Példa Bisztró team</p>
         <p data-v="tegezo">Hi Katalin, thanks for writing to us. Sorry the soup was lukewarm and you had to wait so long for the bill. We&#x27;ve passed it on to the kitchen and the waiting staff. Hope you&#x27;ll come back, and then everything will be as it should be. The Példa Bisztró team</p>
         <p data-say="approve">Approved. If you have added us as a manager on Google, we post it within a few minutes. If not, you copy it with one button, and we open Google for you.</p>
-        <p data-say="skip">Skipped. A skipped review stays without a reply.</p>
+        <p data-say="skip">Closed without a reply. You can still find it later under Reviews.</p>
         <p data-say="undo">Undone. The reply is waiting for approval again.</p>
         <p data-say="reset">The reply is waiting for approval again.</p>
         <p data-say="restore">The original is back.</p>
@@ -400,7 +412,7 @@ The Példa Bisztró team</textarea>
         <li class="tile c-yellow tilt"><span class="tile-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-tag"/></svg></span><h3>Themes and dishes</h3><p>We read out what keeps repeating in what guests write, and what they say about each dish.</p></li>
         
       </ul>
-      <p class="more-link"><a href="how-it-works/">See how it works<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></p>
+      <p class="more-link"><a href="how-it-works/">See how it <span class="link-end">works<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a></p>
     </div>
   </section>
 
@@ -501,7 +513,7 @@ The Példa Bisztró team</textarea>
           </p>
 
       </div>
-      <p class="more-link"><a href="packages/">All the details on the Packages page<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></p>
+      <p class="more-link"><a href="packages/">All the details on the Packages <span class="link-end">page<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a></p>
     </div>
   </section>
 
@@ -524,7 +536,7 @@ The Példa Bisztró team</textarea>
         <h2 id="groups-title">For <span class="hl hl-white">groups</span></h2>
         <p>Several venues in one account, side by side. You decide who sees which venue. Above ten venues, we go through the package and the price with you in person.</p>
         <a class="btn btn-white" href="demo/">Ask for a demo</a>
-        <p class="more-link"><a href="for-groups/">All the details on the For groups page<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></p>
+        <p class="more-link"><a href="for-groups/">All the details on the For groups <span class="link-end">page<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></span></a></p>
       </div>
     </section>
   </div>
@@ -572,7 +584,7 @@ The Példa Bisztró team</textarea>
 
   <section class="blk blk-blue final" id="start" aria-labelledby="final-title">
   <div class="wrap final-in">
-    <h2 id="final-title" class="h-final">Start <span class="hl hl-yellow">free</span> for 14 <span class="w-stk">days<span class="sticker sticker-final" aria-hidden="true">no minimum term</span></span></h2>
+    <h2 id="final-title" class="h-final">Start <span class="hl hl-yellow">free</span> for <span class="w-stk"><span class="nw">14 days</span><span class="sticker sticker-final" aria-hidden="true">no minimum term</span></span></h2>
     <p class="lead">You sign up, add the venue, and a few minutes later you see your reviews. The first report arrives the next morning.</p>
     <div class="cta-row">
       <a class="btn btn-yellow btn-lg" href="https://zsombp.github.io/npi-review-system/signup?lang=en">Start free for 14 days<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
@@ -660,11 +672,11 @@ The Példa Bisztró team</textarea>
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../js/site.js?v=2f3910565a" defer></script>
+<script src="../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

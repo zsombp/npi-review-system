@@ -2,7 +2,7 @@
 <html lang="hu" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>A jelentés külön sorai és a havi összefoglaló · BistroTech súgó</title>
 <meta name="description" content="Négy kapcsoló a Beállításokban, három külön sor a napi jelentésben és egy havi összefoglaló.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/hu/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Mozgás megállítása" data-label-on="Mozgás megállítása" data-label-off="Mozgás indítása">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Mozgás</span>
+        </button>
         <p class="lang"><span class="lang-on" aria-current="true">HU</span><a href="../../en/help/extra-report-lines/" hreflang="en" lang="en">EN</a></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen</a>
       </div>
@@ -184,7 +189,7 @@
 <ol class="hsteps" role="list" id="lepesek"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Nyisd meg a <b class="ui">Beállítások</b> oldalt, és keresd meg a <b class="ui">Jelentés</b> kártyát.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Kapcsold be vagy ki, amit szeretnél.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Nyomd meg az oldal alján a <b class="ui">Mentés</b> gombot.</p></div></li></ol>
 <p>A kapcsolókat a fiók tulajdonosa állítja.</p>
 <h2 id="a-negy-kapcsolo">A négy kapcsoló</h2>
-<ul class="art-list" role="list"><li><b class="ui">Válaszra váró negatívak étterem szerint</b>: minden étterem sora alatt kiírjuk, hány egy-, két- és háromcsillagos értékelés vár még válaszra. Azt is, mióta vár a legrégebbi. Csak azokat számoljuk, amelyek azóta érkeztek, hogy az éttermet figyeljük.</li><li><b class="ui">Napszak sor</b>: ha a nap negatívjaiból legalább három érkezett, és a többségük egy napszakba esik, a jelentés megnevezi a napszakot. Négy napszak van: déli, délutáni, esti és éjszakai. Az időpont az, amikor a vendég megírta az értékelést, nem az, amikor nálad járt.</li><li><b class="ui">Google eltávolítás sor</b>: ha a <span class="nw">Google-on</span> látható értékelésszám az előző méréshez képest legalább kettővel csökkent, a jelentés kiírja, mennyivel. Egyetlen értékelés esését nem jelezzük, mert az a Google saját mozgása.</li><li><b class="ui">Havi összefoglaló a csoportba</b>: minden hónap elsején egy rövid szöveg az elmúlt hónapról. Oda küldjük, ahová a napi jelentés megy Telegramon. Ha nincs összekötött Telegram, havi összefoglalót sem kapsz.</li></ul>
+<ul class="art-list" role="list"><li><b class="ui">Válaszra váró negatívak étterem szerint</b>: minden étterem sora alatt kiírjuk, hány egy-, két- és háromcsillagos értékelés vár még válaszra. Azt is, mióta vár a legrégebbi. Csak azokat számoljuk, amelyek azóta érkeztek, hogy az éttermet figyeljük.</li><li><b class="ui">Napszak sor</b>: ha a nap negatívjaiból legalább három érkezett, és a többségük egy napszakba esik, a jelentés megnevezi a napszakot. Négy napszak van: déli, délutáni, esti és éjszakai. Az időpont az, amikor a vendég megírta az értékelést, nem az, amikor nálad járt.</li><li><b class="ui">Google eltávolítás sor</b>: ha a <span class="hy">Google-on</span> látható értékelésszám az előző méréshez képest legalább kettővel csökkent, a jelentés kiírja, mennyivel. Egyetlen értékelés esését nem jelezzük, mert az a Google saját mozgása.</li><li><b class="ui">Havi összefoglaló a csoportba</b>: minden hónap elsején egy rövid szöveg az elmúlt hónapról. Oda küldjük, ahová a napi jelentés megy Telegramon. Ha nincs összekötött Telegram, havi összefoglalót sem kapsz.</li></ul>
 <h2 id="a-jelentes-neve">A jelentés neve</h2>
 <p>Ugyanezen a kártyán, <b class="ui">A jelentés neve</b> mezőben nevet adhatsz a jelentésnek. Ez áll a napi jelentés és a heti összefoglaló fejlécében, nagybetűvel. Üresen hagyva a BistroTech név kerül oda.</p>
 <h2 id="a-heti-osszefoglaloban">A heti összefoglalóban</h2>
@@ -311,11 +316,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

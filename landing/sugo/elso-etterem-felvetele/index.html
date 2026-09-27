@@ -2,7 +2,7 @@
 <html lang="hu" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Az első étterem felvétele · BistroTech súgó</title>
 <meta name="description" content="Megkeresed az éttermet a Google-on, felveszed, és pár perc múlva látod a legutóbbi értékeléseit.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/hu/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Mozgás megállítása" data-label-on="Mozgás megállítása" data-label-off="Mozgás indítása">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Mozgás</span>
+        </button>
         <p class="lang"><span class="lang-on" aria-current="true">HU</span><a href="../../en/help/adding-your-first-venue/" hreflang="en" lang="en">EN</a></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen</a>
       </div>
@@ -181,16 +186,16 @@
 
         <div class="art-body">
           <h2 id="igy-veszed-fel">Így veszed fel</h2>
-<ol class="hsteps" role="list" id="lepesek"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Nyisd meg az <b class="ui">Éttermek</b> oldalt a menü <b class="ui">Fiók</b> csoportjában. Új fióknál ehelyett az <b class="ui">Első lépések</b> útmutató nyílik meg magától.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Az <b class="ui">Új étterem</b> kártyán írd be az étterem nevét, akár a várossal együtt. Például: „Példa Bisztró Budapest”.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Nyomd meg a <b class="ui">Keresés</b> gombot.</p></div></li><li class="hstep"><span class="hstep-n c-green" aria-hidden="true">4</span><div class="hstep-body"><p>A találatoknál nézd meg a címet és az értékelések számát, hogy biztosan a te éttermedet válaszd.</p></div></li><li class="hstep"><span class="hstep-n c-orange" aria-hidden="true">5</span><div class="hstep-body"><p>Nyomd meg a <b class="ui">Hozzáadás</b> gombot.</p></div></li><li class="hstep"><span class="hstep-n c-lilac" aria-hidden="true">6</span><div class="hstep-body"><p>Az <b class="ui">Első letöltés</b> kártya mutatja, hol tart a letöltés. Először a <span class="nw">Google-on</span> látható értékelésszámot és átlagot írja ki, aztán azt, hány értékelést töltöttünk le.</p></div></li></ol>
-<p>A letöltés általában <span class="nw">egy-két</span> perc. Közben továbbléphetsz az útmutató következő lépésére.</p>
+<ol class="hsteps" role="list" id="lepesek"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Nyisd meg az <b class="ui">Éttermek</b> oldalt a menü <b class="ui">Fiók</b> csoportjában. Új fióknál ehelyett az <b class="ui">Első lépések</b> útmutató nyílik meg magától.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Az <b class="ui">Új étterem</b> kártyán írd be az étterem nevét, akár a várossal együtt. Például: „Példa Bisztró Budapest”.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Nyomd meg a <b class="ui">Keresés</b> gombot.</p></div></li><li class="hstep"><span class="hstep-n c-green" aria-hidden="true">4</span><div class="hstep-body"><p>A találatoknál nézd meg a címet és az értékelések számát, hogy biztosan a te éttermedet válaszd.</p></div></li><li class="hstep"><span class="hstep-n c-orange" aria-hidden="true">5</span><div class="hstep-body"><p>Nyomd meg a <b class="ui">Hozzáadás</b> gombot.</p></div></li><li class="hstep"><span class="hstep-n c-lilac" aria-hidden="true">6</span><div class="hstep-body"><p>Az <b class="ui">Első letöltés</b> kártya mutatja, hol tart a letöltés. Először a <span class="hy">Google-on</span> látható értékelésszámot és átlagot írja ki, aztán azt, hány értékelést töltöttünk le.</p></div></li></ol>
+<p>A letöltés általában <span class="hy">egy-két</span> perc. Közben továbbléphetsz az útmutató következő lépésére.</p>
 <h2 id="amit-utana-latsz">Amit utána látsz</h2>
 <p>Amíg az első napi jelentés el nem készül, a <b class="ui">Ma</b> fül a letöltött értékelésekből dolgozik. Megmutatja, hány értékelést töltöttünk le, mennyi az átlaguk, és hány negatív értékelés vár válaszra az elmúlt 30 napból. A friss, még megválaszolatlan értékelésekre közben megírjuk a választ. A válaszokat a <b class="ui">Válaszok</b> fülön találod.</p>
 <h2 id="mit-toltunk-le-elsore">Mit töltünk le elsőre</h2>
 <ul class="art-list" role="list"><li>Az étterem legutóbbi értékeléseit, nem a teljes múltját.</li><li>A régebbi értékelésekre nem írunk választ. Ezeket az <b class="ui">Értékelések</b> fülön látod.</li><li>Az első letöltés régebbi értékeléseit a napi jelentés nem számolja újnak.</li></ul>
 <p>Az első napi jelentés a beállított órában érkezik. Ha az ma már elmúlt, holnap.</p>
 <h2 id="ha-elakadsz">Ha elakadsz</h2>
-<ul class="art-list" role="list"><li>Ha nincs találat, írd be a várost is, vagy a nevet úgy, ahogy a <span class="nw">Google-on</span> áll.</li><li>Ha egy találat mellett „Már a listán van” áll, azt az éttermet már felvetted.</li><li>Ha a mostani csomagba nem fér több étterem, az oldal kiírja. Ilyenkor írj nekünk.</li><li>Ha a letöltés nem sikerült, reggel újra próbáljuk. Neked nincs teendőd.</li></ul>
-<aside class="callout callout-tip" role="note"><p class="callout-label"><span class="callout-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-bulb"/></svg></span>Tipp</p><p>A Google cégprofilod összekapcsolása külön lépés. Az értékelések letöltéséhez nincs rá szükség, a válaszok kitételéhez igen. Lásd: <a href="../../sugo/kezelo-hozzaferes/">Kezelőnek felveszel minket a <span class="nw">Google-on</span></a>.</p></aside>
+<ul class="art-list" role="list"><li>Ha nincs találat, írd be a várost is, vagy a nevet úgy, ahogy a <span class="hy">Google-on</span> áll.</li><li>Ha egy találat mellett „Már a listán van” áll, azt az éttermet már felvetted.</li><li>Ha a mostani csomagba nem fér több étterem, az oldal kiírja. Ilyenkor írj nekünk.</li><li>Ha a letöltés nem sikerült, reggel újra próbáljuk. Neked nincs teendőd.</li></ul>
+<aside class="callout callout-tip" role="note"><p class="callout-label"><span class="callout-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-bulb"/></svg></span>Tipp</p><p>A Google cégprofilod összekapcsolása külön lépés. Az értékelések letöltéséhez nincs rá szükség, a válaszok kitételéhez igen. Lásd: <a href="../../sugo/kezelo-hozzaferes/">Kezelőnek felveszel minket a <span class="hy">Google-on</span></a>.</p></aside>
 <h2 id="ha-szuneteltetnel-egy-ettermet">Ha szüneteltetnél egy éttermet</h2>
 <p>Az <b class="ui">Éttermek</b> oldalon az étterem sorában vedd ki a jelölést az <b class="ui">Aktív</b> mezőből. A kikapcsolt étterem értékeléseit nem töltjük le, és kimarad a napi jelentésből. Semmi nem vész el, bármikor visszakapcsolhatod.</p>
         </div>
@@ -316,11 +321,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

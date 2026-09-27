@@ -2,7 +2,7 @@
 <html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>The weekly summary · BistroTech help</title>
 <meta name="description" content="Every Monday you get the past week, venue by venue, against the week before.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/en/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Stop motion" data-label-on="Stop motion" data-label-off="Start motion">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Motion</span>
+        </button>
         <p class="lang"><a href="../../../sugo/heti-osszefoglalo/" hreflang="hu" lang="hu">HU</a><span class="lang-on" aria-current="true">EN</span></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup?lang=en">Start free</a>
       </div>
@@ -183,7 +188,7 @@
           <h2 id="which-week">Which week</h2>
 <p>The summary looks at the last seven days, up to and including yesterday. We compare every number with the seven days before that.</p>
 <h2 id="what-is-in-it">What is in it</h2>
-<ul class="art-list" role="list"><li>For each venue, the number of new reviews and the direction of the change against the week before.</li><li>For each venue, the number of <span class="nw">five-star</span>, <span class="nw">two-star</span> and <span class="nw">one-star</span> reviews, and the weekly average.</li><li>The totals for the whole account.</li><li>The names mentioned most, venue by venue.</li><li>The themes that kept coming back during the week.</li><li>Your guests' language mix, when we know the language of enough reviews.</li><li>The “This week” list, with at most three items.</li></ul>
+<ul class="art-list" role="list"><li>For each venue, the number of new reviews and the direction of the change against the week before.</li><li>For each venue, the number of <span class="hy">five-star</span>, <span class="hy">two-star</span> and <span class="hy">one-star</span> reviews, and the weekly average.</li><li>The totals for the whole account.</li><li>The names mentioned most, venue by venue.</li><li>The themes that kept coming back during the week.</li><li>Your guests' language mix, when we know the language of enough reviews.</li><li>The “This week” list, with at most three items.</li></ul>
 <p>If part of the week has no data, the heading says how many days the summary was made from.</p>
 <figure class="shot shot-phone"><div class="shot-frame"><img src="../../../img/help/weekly-summary.png" width="780" height="1688" loading="lazy" decoding="async" alt="The end of a weekly summary on the Sent messages page, from the demo account: the last two themes, the language split and the This week list, headed Teendők a héten, with one item. The summary is in Hungarian, the account&#x27;s report language."></div><figcaption>The picture is from the demo account. The venue names, the guest texts and the numbers are made up.</figcaption></figure>
 <h2 id="the-weekly-rank-summary">The weekly rank summary</h2>
@@ -311,11 +316,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

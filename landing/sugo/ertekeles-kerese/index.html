@@ -2,7 +2,7 @@
 <html lang="hu" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Értékelés kérése a vendégektől · BistroTech súgó</title>
 <meta name="description" content="Rövid linket és QR-kódot készítesz, amelyről a vendég a Google-on értékelést írhat.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/hu/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Mozgás megállítása" data-label-on="Mozgás megállítása" data-label-off="Mozgás indítása">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Mozgás</span>
+        </button>
         <p class="lang"><span class="lang-on" aria-current="true">HU</span><a href="../../en/help/asking-guests-for-reviews/" hreflang="en" lang="en">EN</a></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen</a>
       </div>
@@ -174,7 +179,7 @@
             <li><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>3 perc olvasás</li>
             
           </ul>
-          <p class="art-intro">Minden étteremhez készíthetsz rövid linket <span class="nw">QR-kóddal</span>. Aki megnyitja, az étterem nevét és egy gombot lát, amellyel a <span class="nw">Google-on</span> értékelést írhat. Ha a Tripadvisort is összekötötted, ott is. Linket a fiók tulajdonosa és a tagok készíthetnek.</p>
+          <p class="art-intro">Minden étteremhez készíthetsz rövid linket <span class="hy">QR-kóddal</span>. Aki megnyitja, az étterem nevét és egy gombot lát, amellyel a <span class="hy">Google-on</span> értékelést írhat. Ha a Tripadvisort is összekötötted, ott is. Linket a fiók tulajdonosa és a tagok készíthetnek.</p>
         </header>
 
         
@@ -182,13 +187,13 @@
         <div class="art-body">
           <h2 id="link-keszitese">Link készítése</h2>
 <ol class="hsteps" role="list" id="lepesek"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Nyisd meg az <b class="ui">Éttermek</b> oldalt, és kattints az étterem nevére.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Az <b class="ui">Értékelés kérése</b> kártyán írd be, hová kerül a link, például „asztali kártya”. Ezt csak te látod, a vendég nem.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Nyomd meg az <b class="ui">Új link</b> gombot.</p></div></li><li class="hstep"><span class="hstep-n c-green" aria-hidden="true">4</span><div class="hstep-body"><p>A <b class="ui">Link másolása</b> gombbal kimásolod, és elküldheted üzenetben vagy hírlevélben.</p></div></li></ol>
-<p>A kártya kiírja, hányszor nyitották meg a linket az utolsó 30 napban. Mellette a <span class="nw">Google-értékelések</span> számát is látod ugyanarra az időre. A kettő együtt mozoghat, de ebből nem következik, hogy az egyik okozza a másikat.</p>
+<p>A kártya kiírja, hányszor nyitották meg a linket az utolsó 30 napban. Mellette a <span class="hy">Google-értékelések</span> számát is látod ugyanarra az időre. A kettő együtt mozoghat, de ebből nem következik, hogy az egyik okozza a másikat.</p>
 <h2 id="amit-a-vendeg-lat">Amit a vendég lát</h2>
 <p>A vendég egy rövid oldalt lát. Megköszönjük a látogatást, és megkérjük, hogy írja meg, milyen volt. Az oldal a vendég telefonjának nyelvén szól: magyarul, angolul, németül, franciául, olaszul vagy spanyolul, más nyelven angolul. A nyelvtől eltekintve minden vendég ugyanazt látja.</p>
 <h2 id="a-szabalyok-amelyeket-a-link-betart">A szabályok, amelyeket a link betart</h2>
-<ul class="art-list" role="list"><li>Mindenkit ugyanúgy kérünk. Nem kérdezzük meg előre, hogy elégedett <span class="nw">volt-e</span>.</li><li>Nem ígérünk érte semmit, se kedvezményt, se ajándékot. A Google ezt tiltja, és törölheti miatta az értékeléseket.</li><li>Nem kérjük, hogy a vendég valakit név szerint említsen, és nincs pincérenkénti kód.</li></ul>
+<ul class="art-list" role="list"><li>Mindenkit ugyanúgy kérünk. Nem kérdezzük meg előre, hogy elégedett <span class="hy">volt-e</span>.</li><li>Nem ígérünk érte semmit, se kedvezményt, se ajándékot. A Google ezt tiltja, és törölheti miatta az értékeléseket.</li><li>Nem kérjük, hogy a vendég valakit név szerint említsen, és nincs pincérenkénti kód.</li></ul>
 <h2 id="nyomtatas">Nyomtatás</h2>
-<p>A nyomtatható kártya és a <span class="nw">QR-kód</span> letöltése hamarosan elérhető. Addig a linket kipróbálhatod és megoszthatod, de a címe később megváltozik. Ezért most a képernyőn látható <span class="nw">QR-kódot</span> se nyomtasd ki.</p>
+<p>A nyomtatható kártya és a <span class="hy">QR-kód</span> letöltése hamarosan elérhető. Addig a linket kipróbálhatod és megoszthatod, de a címe később megváltozik. Ezért most a képernyőn látható <span class="hy">QR-kódot</span> se nyomtasd ki.</p>
 <h2 id="kikapcsolas-es-torles">Kikapcsolás és törlés</h2>
 <p>A <b class="ui">Kikapcsolás</b> után a link egy olyan oldalt mutat, amely szerint a link már nem él. Törölni csak kikapcsolt linket tudsz, a <b class="ui">Törlés</b> gombbal. A törléssel a megnyitások száma is elvész.</p>
         </div>
@@ -314,11 +319,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

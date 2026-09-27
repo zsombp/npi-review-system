@@ -2,7 +2,7 @@
 <html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>The extra report lines and the monthly summary · BistroTech help</title>
 <meta name="description" content="Four switches in Settings: three extra lines in the daily report, and a monthly summary.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/en/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Stop motion" data-label-on="Stop motion" data-label-off="Start motion">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Motion</span>
+        </button>
         <p class="lang"><a href="../../../sugo/jelentes-kulon-sorai/" hreflang="hu" lang="hu">HU</a><span class="lang-on" aria-current="true">EN</span></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup?lang=en">Start free</a>
       </div>
@@ -184,7 +189,7 @@
 <ol class="hsteps" role="list" id="steps"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Open the <b class="ui">Settings</b> page and find the <b class="ui">Report</b> card.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Switch on or off what you want.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Press the <b class="ui">Save</b> button at the bottom of the page.</p></div></li></ol>
 <p>The account owner sets the switches.</p>
 <h2 id="the-four-switches">The four switches</h2>
-<ul class="art-list" role="list"><li><b class="ui">Negatives waiting for a reply, per venue</b>: under each venue's line, we show how many <span class="nw">one-star</span>, <span class="nw">two-star</span> and <span class="nw">three-star</span> reviews are still waiting for a reply. We also show how long the oldest has waited. We only count the ones that arrived after we started watching the venue.</li><li><b class="ui">Time of day line</b>: if at least three negatives arrived in the day, and most of them fall in one part of the day, the report names that part. There are four: lunch, afternoon, evening and night. The time is when the guest wrote the review, not when they ate with you.</li><li><b class="ui">Google removal line</b>: if the review count Google shows has fallen by two or more since the previous reading, the report says by how much. We do not flag a fall of one, because that is Google's own churn.</li><li><b class="ui">Monthly summary to the group</b>: on the first of each month, a short text about the past month. We send it where the daily report goes on Telegram. If no Telegram chat is connected, you get no monthly summary either.</li></ul>
+<ul class="art-list" role="list"><li><b class="ui">Negatives waiting for a reply, per venue</b>: under each venue's line, we show how many <span class="hy">one-star</span>, <span class="hy">two-star</span> and <span class="hy">three-star</span> reviews are still waiting for a reply. We also show how long the oldest has waited. We only count the ones that arrived after we started watching the venue.</li><li><b class="ui">Time of day line</b>: if at least three negatives arrived in the day, and most of them fall in one part of the day, the report names that part. There are four: lunch, afternoon, evening and night. The time is when the guest wrote the review, not when they ate with you.</li><li><b class="ui">Google removal line</b>: if the review count Google shows has fallen by two or more since the previous reading, the report says by how much. We do not flag a fall of one, because that is Google's own churn.</li><li><b class="ui">Monthly summary to the group</b>: on the first of each month, a short text about the past month. We send it where the daily report goes on Telegram. If no Telegram chat is connected, you get no monthly summary either.</li></ul>
 <h2 id="the-report-s-name">The report's name</h2>
 <p>On the same card, in <b class="ui">The report's name</b> field, you can give the report a name. It stands at the top of the daily report and the weekly summary, in capitals. Left empty, the name BistroTech goes there.</p>
 <h2 id="in-the-weekly-summary">In the weekly summary</h2>
@@ -312,11 +317,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

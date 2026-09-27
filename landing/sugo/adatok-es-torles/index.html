@@ -2,7 +2,7 @@
 <html lang="hu" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Adatok letöltése és a fiók törlése · BistroTech súgó</title>
 <meta name="description" content="Letöltöd a fiók vagy a saját belépésed adatait, és ha kell, törölsz egy éttermet, a fiókot vagy a belépésedet.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/hu/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Mozgás megállítása" data-label-on="Mozgás megállítása" data-label-off="Mozgás indítása">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Mozgás</span>
+        </button>
         <p class="lang"><span class="lang-on" aria-current="true">HU</span><a href="../../en/help/downloading-data-and-deleting/" hreflang="en" lang="en">EN</a></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen</a>
       </div>
@@ -184,7 +189,7 @@
 <p>A fiók tulajdonosa a <b class="ui">Beállítások</b> oldal alján, <b class="ui">A fiók adatainak letöltése</b> kártyán tölti le az adatokat.</p>
 <ul class="art-list" role="list"><li><b class="ui">Minden adat (JSON)</b>: az éttermek, az értékelések az elemzéssel, a válaszok és a beállítások egy fájlban.</li><li><b class="ui">Értékelések táblázatban (CSV)</b>: csak az értékelések, táblázatként. A magyar Excel közvetlenül megnyitja.</li></ul>
 <h2 id="a-sajat-adataid">A saját adataid</h2>
-<p>A <b class="ui">Fiókom</b> oldalon az <b class="ui">Adataim letöltése</b> gombbal a belépésed adatait kapod meg. Benne van az <span class="nw">e-mail-címed</span>, a regisztrációd napja, a fiókjaid és a feltételek elfogadásának dátuma.</p>
+<p>A <b class="ui">Fiókom</b> oldalon az <b class="ui">Adataim letöltése</b> gombbal a belépésed adatait kapod meg. Benne van az <span class="hy">e-mail-címed</span>, a regisztrációd napja, a fiókjaid és a feltételek elfogadásának dátuma.</p>
 <h2 id="egy-etterem-torlese">Egy étterem törlése</h2>
 <ol class="hsteps" role="list" id="lepesek"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Az <b class="ui">Éttermek</b> oldalon, az étterem sorában kattints a <b class="ui">Hangvétel</b> linkre.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Nyisd ki az <b class="ui">Étterem törlése</b> részt, és írd be az étterem nevét.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Nyomd meg a <b class="ui">Végleges törlés</b> gombot, és erősítsd meg.</p></div></li></ol>
 <p>Az étterem minden értékelése, válasza és statisztikája végleg törlődik. Ha csak szüneteltetnéd, inkább kapcsold ki az <b class="ui">Aktív</b> mezővel: akkor semmi nem vész el.</p>
@@ -319,11 +324,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

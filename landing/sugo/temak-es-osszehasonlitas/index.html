@@ -2,7 +2,7 @@
 <html lang="hu" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Témák és az éttermek összehasonlítása · BistroTech súgó</title>
 <meta name="description" content="A Kimutatások fül megmutatja, mi ismétlődik a vendégek szövegeiben, és hogyan állnak az éttermeid egymás mellett.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/hu/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Mozgás megállítása" data-label-on="Mozgás megállítása" data-label-off="Mozgás indítása">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Mozgás</span>
+        </button>
         <p class="lang"><span class="lang-on" aria-current="true">HU</span><a href="../../en/help/themes-and-venue-comparison/" hreflang="en" lang="en">EN</a></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen</a>
       </div>
@@ -183,7 +188,7 @@
           <h2 id="a-fo-szamok">A fő számok</h2>
 <ul class="art-list" role="list"><li><b class="ui">Új értékelés</b> és <b class="ui">Új értékelések átlaga</b>: az időszakban érkezett értékelések.</li><li><b class="ui">1 vagy 2 csillagos arány</b>: az új értékelések közül.</li><li><b class="ui">Megválaszolatlan negatív</b>: háromcsillagos vagy gyengébb, tulajdonosi válasz nélkül.</li><li><b class="ui">Elemzett értékelések</b>: az új értékelések hány százalékát elemeztük már.</li></ul>
 <h2 id="a-ket-grafikon">A két grafikon</h2>
-<ul class="art-list" role="list"><li><b class="ui"><span class="nw">Google-értékelés</span> alakulása</b>: éttermenként, a napi ellenőrzés szerint. Egy étterem nevére kattintva elrejted vagy megjeleníted a vonalát.</li><li><b class="ui">Új értékelések naponta</b>: az összes étterem együtt.</li></ul>
+<ul class="art-list" role="list"><li><b class="ui"><span class="hy">Google-értékelés</span> alakulása</b>: éttermenként, a napi ellenőrzés szerint. Egy étterem nevére kattintva elrejted vagy megjeleníted a vonalát.</li><li><b class="ui">Új értékelések naponta</b>: az összes étterem együtt.</li></ul>
 <p>Mindkettő alatt a <b class="ui">Táblázatként</b> linkkel számokban is látod ugyanezt.</p>
 <figure class="shot shot-wide"><div class="shot-frame"><img src="../../img/help/temak-es-osszehasonlitas.png" width="2260" height="1662" loading="lazy" decoding="async" alt="A Kimutatások fül 30 napra: fent az időszak gombjai, alatta az öt szám, majd a Google-értékelés alakulása grafikon a három étterem vonalával."></div><figcaption>A kép a bemutatófiókról készült. Az éttermek nevei, a vendégek szövegei és a számok kitaláltak.</figcaption></figure>
 <h2 id="temak">Témák</h2>
@@ -193,7 +198,7 @@
 <h2 id="munkatarsak-emlitese">Munkatársak említése</h2>
 <p>Ez a táblázat a vendégek által név szerint említett munkatársakat mutatja, a vendégek saját írásmódjával. Pozitív az említés, ha négy- vagy ötcsillagos értékelésben szerepel. Negatív, ha háromcsillagosban vagy gyengébben. A részleteket a <b class="ui">Dicséretek</b> oldalon látod, lásd: <a href="../../sugo/dicseretek/">Dicséretek és névemlítések</a>.</p>
 <h2 id="ettermek-osszehasonlitasa">Éttermek összehasonlítása</h2>
-<p>Az utolsó táblázat egymás mellé teszi az éttermeidet. Az oszlopok: új értékelés, átlag, egy- és kétcsillagosok, megválaszolatlan negatívok, mostani <span class="nw">Google-értékelés</span>, változás és összes értékelés. A változás az időszak első és utolsó napi ellenőrzése közötti különbség.</p>
+<p>Az utolsó táblázat egymás mellé teszi az éttermeidet. Az oszlopok: új értékelés, átlag, egy- és kétcsillagosok, megválaszolatlan negatívok, mostani <span class="hy">Google-értékelés</span>, változás és összes értékelés. A változás az időszak első és utolsó napi ellenőrzése közötti különbség.</p>
         </div>
 
         <section class="feedback" aria-labelledby="fb-q">
@@ -317,11 +322,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

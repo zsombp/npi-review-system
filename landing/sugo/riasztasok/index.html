@@ -2,7 +2,7 @@
 <html lang="hu" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Riasztások · BistroTech súgó</title>
 <meta name="description" content="Mikor szólunk a napi jelentésen kívül, és hová megy a jelzés.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/hu/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Mozgás megállítása" data-label-on="Mozgás megállítása" data-label-off="Mozgás indítása">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Mozgás</span>
+        </button>
         <p class="lang"><span class="lang-on" aria-current="true">HU</span><a href="../../en/help/alerts/" hreflang="en" lang="en">EN</a></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen</a>
       </div>
@@ -185,9 +190,9 @@
 <p>Új fióknál 2 csillag a beállítás. Amint egy ilyen értékelés megérkezik hozzánk, negyedórán belül szólunk. Ami az éjszakai csend alatt érkezik, azt egyben küldjük, amint a csend véget ér.</p>
 <p>Ha a <b class="ui">Riasztás</b> címzett nincs összekötve, ez a jelzés a napi jelentés beszélgetésébe megy. Ha egyik sincs összekötve, nem tudunk szólni.</p>
 <h2 id="mintariasztas">Mintariasztás</h2>
-<p>Napközben két mintát figyelünk éttermenként. Az egyik, ha rövid idő alatt több egycsillagos értékelés érkezik. A másik, ha néhány napon belül több vendég is lerontja a korábbi értékelését. Csak a <span class="nw">Google-értékeléseket</span> figyeljük.</p>
+<p>Napközben két mintát figyelünk éttermenként. Az egyik, ha rövid idő alatt több egycsillagos értékelés érkezik. A másik, ha néhány napon belül több vendég is lerontja a korábbi értékelését. Csak a <span class="hy">Google-értékeléseket</span> figyeljük.</p>
 <ul class="art-list" role="list"><li>Ugyanarról a mintáról naponta egyszer szólunk.</li><li>Ez a jelzés csak a <b class="ui">Riasztás</b> címzetthez megy.</li><li>A jelzés megnevezheti, kit kell értesíteni. Ezt a <b class="ui">Beállítások</b> oldalon, az <b class="ui">Értesítendő személy riasztásnál</b> mezőben adod meg.</li></ul>
-<p>Ha egy étteremnél 24 órán belül több egycsillagos értékelés érkezett, a <b class="ui">Ma</b> fülön is figyelmeztető kártya jelenik meg. Ha a minta gyanús, nyiss rá ügyet, lásd: <a href="../../sugo/panasz-a-google-nal/">Panasz a <span class="nw">Google-nál</span></a>.</p>
+<p>Ha egy étteremnél 24 órán belül több egycsillagos értékelés érkezett, a <b class="ui">Ma</b> fülön is figyelmeztető kártya jelenik meg. Ha a minta gyanús, nyiss rá ügyet, lásd: <a href="../../sugo/panasz-a-google-nal/">Panasz a <span class="hy">Google-nál</span></a>.</p>
 <h2 id="hibauzenet">Hibaüzenet</h2>
 <p>Ha nálunk valami hibára fut, például egy étterem letöltése, a <b class="ui">Riasztás</b> címzett rövid üzenetet kap. Teendőd általában nincs: a következő ütemezett futás pótolja.</p>
 <aside class="callout callout-tip" role="note"><p class="callout-label"><span class="callout-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-bulb"/></svg></span>Tipp</p><p>A gyenge értékelésről a telefonod is szólhat. Lásd: <a href="../../sugo/telefonra-teves/">Tedd fel a telefonodra</a>.</p></aside>
@@ -312,11 +317,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 

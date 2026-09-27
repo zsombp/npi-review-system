@@ -2,7 +2,7 @@
 <html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Password and two-step sign-in · BistroTech help</title>
 <meta name="description" content="On the My login page you change your password, sign out of your other devices, and turn on two-step sign-in.">
 <meta name="theme-color" content="#38d6e0">
@@ -24,10 +24,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../../css/site.css?v=256fefbed7">
+<link rel="stylesheet" href="../../../css/site.css?v=dc93e4933a">
 <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
-<script>document.documentElement.className = "js";</script>
+<script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
 <!-- BistroTech website v0.1.0. Built by platform/website/build.py from templates/pages/ and
      content/en/; edit those and rebuild, never dist/ by hand. -->
 
@@ -115,6 +115,11 @@
         </ul>
       </nav>
       <div class="nav-end">
+        <button class="motion-btn" type="button" data-motion-toggle data-paused="false" aria-label="Stop motion" data-label-on="Stop motion" data-label-off="Start motion">
+          <svg class="ic ic-pause" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pause"/></svg>
+          <svg class="ic ic-play" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-play"/></svg>
+          <span class="motion-btn-tx">Motion</span>
+        </button>
         <p class="lang"><a href="../../../sugo/ketlepcsos-belepes/" hreflang="hu" lang="hu">HU</a><span class="lang-on" aria-current="true">EN</span></p>
         <a class="btn btn-blue btn-sm" href="https://zsombp.github.io/npi-review-system/signup?lang=en">Start free</a>
       </div>
@@ -180,11 +185,11 @@
         
 
         <div class="art-body">
-          <h2 id="two-step-sign-in"><span class="nw">Two-step</span> <span class="nw">sign-in</span></h2>
-<p>Besides the password, you need a <span class="nw">six-digit</span> code from your phone's authenticator app, for example Google Authenticator. Even if your password leaks, nobody can sign in to your account with it.</p>
-<ol class="hsteps" role="list" id="steps"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>On the <b class="ui"><span class="nw">Two-step</span> <span class="nw">sign-in</span></b> card, press the <b class="ui">Turn on</b> button.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Scan the code that appears with the authenticator app, or type the key in by hand.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Type the app's <span class="nw">six-digit</span> code and press the <b class="ui">Check and turn on</b> button.</p></div></li></ol>
+          <h2 id="two-step-sign-in"><span class="hy">Two-step</span> <span class="hy">sign-in</span></h2>
+<p>Besides the password, you need a <span class="hy">six-digit</span> code from your phone's authenticator app, for example Google Authenticator. Even if your password leaks, nobody can sign in to your account with it.</p>
+<ol class="hsteps" role="list" id="steps"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>On the <b class="ui"><span class="hy">Two-step</span> <span class="hy">sign-in</span></b> card, press the <b class="ui">Turn on</b> button.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Scan the code that appears with the authenticator app, or type the key in by hand.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Type the app's <span class="hy">six-digit</span> code and press the <b class="ui">Check and turn on</b> button.</p></div></li></ol>
 <p>From then on, we ask for the code after the password when you sign in. If the code is not accepted, check that your phone's clock is accurate. You turn it off with the <b class="ui">Turn off</b> button, which also needs a fresh code.</p>
-<aside class="callout callout-warn" role="note"><p class="callout-label"><span class="callout-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#g-warn"/></svg></span>Warning</p><p>If you lose the phone with the authenticator app, you cannot sign in by yourself. Then only we can turn off <span class="nw">two-step</span> <span class="nw">sign-in</span>. Save the key in a second place too, for example in a password manager.</p></aside>
+<aside class="callout callout-warn" role="note"><p class="callout-label"><span class="callout-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#g-warn"/></svg></span>Warning</p><p>If you lose the phone with the authenticator app, you cannot sign in by yourself. Then only we can turn off <span class="hy">two-step</span> <span class="hy">sign-in</span>. Save the key in a second place too, for example in a password manager.</p></aside>
 <h2 id="changing-your-password">Changing your password</h2>
 <ol class="hsteps" role="list"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>On the <b class="ui">Password</b> card, type your current password in the <b class="ui">Current password</b> field.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Type the new one in the <b class="ui">New password</b> and <b class="ui">New password again</b> fields. It must be at least 8 characters.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>If you want to sign out of your other devices too, tick the <b class="ui">Also sign me out on other devices</b> box.</p></div></li><li class="hstep"><span class="hstep-n c-green" aria-hidden="true">4</span><div class="hstep-body"><p>Press the <b class="ui">Change password</b> button.</p></div></li></ol>
 <h2 id="signing-out-of-other-devices">Signing out of other devices</h2>
@@ -311,11 +316,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.1.0, 2026-09-26.</span></p>
+    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.6.0, 2026-09-27.</span></p>
   </div>
 </footer>
 
-<script src="../../../js/site.js?v=2f3910565a" defer></script>
+<script src="../../../js/site.js?v=7d1cac42bb" defer></script>
 </body>
 </html>
 
