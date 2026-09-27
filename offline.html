@@ -3,19 +3,29 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#ffe500" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
 <title>BistroTech</title>
 <!-- The page the service worker serves when a navigation cannot reach the network.
+     v0.2.2, 2026-09-27: we speak for ourselves (COPY-GUIDE: the product never refers to itself in the third person).
+     v0.2.1, 2026-09-26: the browser bar takes the page's ground by night too (a theme colour per scheme).
+     v0.2.0, 2026-09-26 (candy, docs/reviews/CANDY-2026-09-26.md item 5): Pop, the identity since D-050, with
+     the coffee cup of the Ma screen drawn inline and one playful line, "A net most kávészünetet tart." What it
+     says about the app is what public/sw.js does: this file is precached and is the answer to a page opened
+     with no network; no Supabase answer is ever kept, so there is nothing to show until the connection is
+     back; the button and the connection coming back both reload. The two paragraphs are the ones v0.1.0 had.
      v0.1.0, 2026-09-17 (public/sw.js).
 
-     It is one file with no request of its own: the palette, the type and the mark are
+     It is one file with no request of its own: the palette, the type and the drawings are
      inline, because the one thing this page can rely on is that nothing can be fetched.
      The font is the system stack rather than the product's self-hosted faces for the
      same reason; a page about a missing connection that waits on a webfont is a joke at
      the reader's expense.
 
-     The palette is the app's own, src/styles.css, hex for hex, so the screen the reader
-     lands on is recognisably the screen they left. Hungarian first and English under it,
+     The palette is Pop's default pair (docs/brand/pop-tokens.json): Citrom by day, the yellow block with a
+     paper card, and Éjfél at night, ink with a yellow shadow. Every pair is at least 4.5:1: ink on yellow
+     15.52, ink on paper 19.80, muted on paper 7.46, white on blue 6.28; at night white on #161616 18.10,
+     #b0b0b0 on it 8.34, ink on yellow 15.52 (computed, WCAG 2.x). Hungarian first and English under it,
      both always visible: the worker has no way to know which locale the account is in,
      and guessing from the browser would get it wrong for a Hungarian restaurant whose
      phone is set to English.
@@ -25,37 +35,71 @@
      the list of accounts did not arrive, which is the same news later and in worse
      words. -->
 <style>
-  :root { color-scheme: light dark; --bg: #f6f6f4; --fg: #1d1d1b; --muted: #6b6b66; --line: #e2e2dd; --card: #ffffff; --accent: #1a5fb4; --on-accent: #ffffff; }
-  @media (prefers-color-scheme: dark) { :root { --bg: #151514; --fg: #ececea; --muted: #9a9a94; --line: #2c2c2a; --card: #1f1f1d; --accent: #6ea8ff; --on-accent: #0d1b30; } }
+  :root { color-scheme: light; --page: #ffe500; --card: #ffffff; --fg: #0a0a0a; --muted: #555555; --line: #0a0a0a; --shadow: #0a0a0a; --btn: #2a48f5; --on-btn: #ffffff; }
+  @media (prefers-color-scheme: dark) { :root { color-scheme: dark; --page: #0a0a0a; --card: #161616; --fg: #ffffff; --muted: #b0b0b0; --line: #ffffff; --shadow: #ffe500; --btn: #ffe500; --on-btn: #0a0a0a; } }
   * { box-sizing: border-box; }
   html, body { height: 100%; margin: 0; }
   /* Flex rather than a centred grid: in a place-items:center grid the single column is
-     sized from the item's own 26rem, so max-width:100% resolves against 26rem and a
-     390 px phone is handed a page 45 px wider than itself. A flex container's width is
+     sized from the item's own width, so max-width:100% resolves against it and a
+     390 px phone is handed a page wider than itself. A flex container's width is
      the viewport's, and the item is capped against that. */
-  body { font: 15px/1.5 -apple-system, system-ui, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--fg); display: flex; align-items: center; justify-content: center; padding: 2rem 1.2rem; }
-  main { width: 26rem; max-width: 100%; }
-  .mark { color: var(--accent); display: block; margin-bottom: 1.4rem; }
-  h1 { font-size: 1.4rem; font-weight: 600; margin: 0 0 .6rem; }
-  h2 { font-size: 1.05rem; font-weight: 600; margin: 0 0 .5rem; }
-  p { margin: 0 0 1.2rem; max-width: 34em; }
-  .en { border-top: 1px solid var(--line); padding-top: 1.2rem; margin-top: 1.6rem; color: var(--muted); }
+  body { font: 16px/1.5 -apple-system, system-ui, "Segoe UI", Roboto, sans-serif; background: var(--page); color: var(--fg); display: flex; align-items: center; justify-content: center; padding: 2rem 16px; }
+  main { width: 30rem; max-width: 100%; padding: 26px 24px 24px; background: var(--card); border: 2px solid var(--line); border-radius: 18px; box-shadow: 6px 6px 0 var(--shadow); }
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .mark { color: var(--fg); flex: none; }
+  .cup { width: 104px; height: auto; flex: none; margin: -14px -6px -10px 0; color: var(--fg); transform: rotate(6deg); overflow: visible; }
+  h1 { font-size: 1.6rem; line-height: 1.15; font-weight: 800; letter-spacing: -.02em; margin: .6rem 0 .4rem; }
+  h2 { font-size: 1.15rem; line-height: 1.2; font-weight: 800; margin: 0 0 .35rem; }
+  .play { display: inline-block; margin: 0 0 1rem; padding: 4px 12px 6px; font-weight: 800; color: #0a0a0a; background: #ffe500; border: 2px solid var(--line); border-radius: 12px; box-shadow: 3px 3px 0 var(--shadow); transform: rotate(-2deg); }
+  p { margin: 0 0 1.1rem; max-width: 34em; }
+  .en { border-top: 2px solid var(--line); padding-top: 1.1rem; margin-top: 1.4rem; color: var(--muted); }
   .en h2 { color: var(--fg); }
-  button { font: inherit; padding: .5rem .9rem; border-radius: 6px; border: 1px solid var(--accent); background: var(--accent); color: var(--on-accent); cursor: pointer; min-height: 40px; }
-  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+  .en .play { margin-bottom: .8rem; }
+  button { font: inherit; font-weight: 800; padding: .6rem 1.4rem; border-radius: 999px; border: 2px solid var(--line); background: var(--btn); color: var(--on-btn); cursor: pointer; min-height: 48px; box-shadow: 4px 4px 0 var(--shadow); }
+  button:active { transform: translate(4px, 4px); box-shadow: none; }
+  :focus-visible { outline: 3px solid var(--fg); outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) { button:active { transform: none; } }
 </style>
 </head>
 <body>
 <main>
-  <svg class="mark" width="34" height="34" viewBox="0 0 24 24" role="img" aria-label="BistroTech" focusable="false">
-    <path fill="currentColor" fill-rule="evenodd" d="M 4.01 13.41 A 8.5 8.5 0 1 1 6.31 16.82 L 2.6 20.4 Z M 7.2 14.6 V 11.8 A 1.2 1.2 0 0 1 9.6 11.8 V 14.6 Z M 10.8 14.6 V 9.8 A 1.2 1.2 0 0 1 13.2 9.8 V 14.6 Z M 14.4 14.6 V 7.8 A 1.2 1.2 0 0 1 16.8 7.8 V 14.6 Z"/>
-  </svg>
+  <div class="top">
+    <svg class="mark" width="34" height="34" viewBox="0 0 24 24" role="img" aria-label="BistroTech" focusable="false">
+      <path fill="currentColor" fill-rule="evenodd" d="M 4.01 13.41 A 8.5 8.5 0 1 1 6.31 16.82 L 2.6 20.4 Z M 7.2 14.6 V 11.8 A 1.2 1.2 0 0 1 9.6 11.8 V 14.6 Z M 10.8 14.6 V 9.8 A 1.2 1.2 0 0 1 13.2 9.8 V 14.6 Z M 14.4 14.6 V 7.8 A 1.2 1.2 0 0 1 16.8 7.8 V 14.6 Z"/>
+    </svg>
+    <!-- public/illo/kave.svg, the drawing's own group unchanged (docs/design/lab/illustration-2026-09-26/tools/build_svg.py) -->
+    <svg class="cup" viewBox="0 0 240 240" aria-hidden="true" focusable="false">
+      <g stroke-linejoin="round" stroke-linecap="round">
+        <g transform="translate(7 7)" fill="currentColor" stroke="currentColor" stroke-width="2.5">
+          <g>
+            <path d="M166 112C200 106 204 162 160 156Z"/>
+            <path d="M36 184H204Q204 198 190 200H50Q36 198 36 184Z"/>
+            <path d="M58 100H174L166 162Q162 184 140 184H92Q70 184 66 162Z"/>
+            <ellipse cx="116" cy="100" rx="58" ry="12"/>
+          </g>
+        </g>
+        <g stroke="currentColor" stroke-width="2.5">
+          <path d="M166 112C200 106 204 162 160 156Z" fill="#38d6e0"/>
+          <ellipse cx="180" cy="134" rx="7" ry="11" fill="#0a0a0a" stroke="none"/>
+          <path d="M36 184H204Q204 198 190 200H50Q36 198 36 184Z" fill="#ffe500"/>
+          <path d="M58 100H174L166 162Q162 184 140 184H92Q70 184 66 162Z" fill="#38d6e0"/>
+          <ellipse cx="116" cy="100" rx="58" ry="12" fill="#38d6e0"/>
+          <ellipse cx="116" cy="101" rx="46" ry="7" fill="#0a0a0a" stroke="none"/>
+          <g class="p-steam"><path d="M96 76C88 64 104 58 96 44" fill="none" stroke-width="6"/></g>
+          <g class="p-steam"><path d="M120 74C112 60 128 54 120 38" fill="none" stroke-width="6"/></g>
+          <g class="p-steam"><path d="M144 76C136 64 152 58 144 44" fill="none" stroke-width="6"/></g>
+        </g>
+      </g>
+    </svg>
+  </div>
   <h1>Nincs internetkapcsolat</h1>
-  <p>A BistroTech az interneten keresztül olvassa be az értékeléseket, kapcsolat nélkül tehát nincs mit mutatnia. Ellenőrizd a wifit vagy a mobilnetet, aztán próbáld újra. A beállításaid és az adataid a helyükön vannak.</p>
+  <p class="play">A net most kávészünetet tart.</p>
+  <p>Az értékeléseidet az interneten keresztül olvassuk be, kapcsolat nélkül ezért most nincs mit mutatnunk. Ellenőrizd a wifit vagy a mobilnetet, aztán próbáld újra. A beállításaid és az adataid a helyükön vannak.</p>
   <button type="button" id="retry">Újra</button>
   <div class="en" lang="en">
     <h2>No internet connection</h2>
-    <p>BistroTech reads your reviews over the internet, so with no connection there is nothing for it to show. Check the wifi or the mobile data, then try again. Your settings and your data are where you left them.</p>
+    <p class="play">The internet is on a coffee break.</p>
+    <p>We read your reviews over the internet, so with no connection there is nothing we can show you right now. Check the wifi or the mobile data, then try again. Your settings and your data are where you left them.</p>
   </div>
 </main>
 <script>

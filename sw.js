@@ -1,3 +1,7 @@
+// Service worker, v0.2.1, 2026-09-27 (candy fix: docs/reviews/CODEX-CANDY-REVIEW-2026-09-27.md finding 8). v0.2.1: the
+// interface sounds (sounds/*.mp3, lib/sound.ts) are kept like the drawings, on first use, stale while revalidate, so a
+// sound that was heard once plays offline too; the map pin of the missing page (illo/terkeptu-480.webp) was already
+// kept by the same rule. Nothing is precached for them: with Hangok Ki nothing may be fetched. Supabase untouched.
 // Service worker, v0.2.0, 2026-09-22 (push and notification click; v0.1.0, 2026-09-17). Registered by src/lib/pwa.ts.
 //
 // Written by hand, not generated. Workbox would be a build step, a dependency and a
@@ -62,7 +66,7 @@ function isSupabase(url) {
 }
 
 // Everything this worker is allowed to keep: the build's own hashed output, the fonts,
-// the icons and the manifest. Never sw.js itself, which the browser fetches and
+// the icons, the drawings, the interface sounds and the manifest. Never sw.js itself, which the browser fetches and
 // compares on its own and must never be answered from a cache; never an HTML file,
 // which is what the navigation rule is for.
 function isAsset(url) {
@@ -72,7 +76,7 @@ function isAsset(url) {
   const path = url.pathname.slice(BASE.length);
   if (path === "sw.js") return false;
   if (path.startsWith("assets/") || path.startsWith("fonts/") || path.startsWith("icons/")) return true;
-  return /\.(js|css|woff2?|png|jpe?g|webp|avif|svg|ico|webmanifest)$/.test(path);
+  return /\.(js|css|woff2?|png|jpe?g|webp|avif|svg|ico|webmanifest|mp3)$/.test(path);
 }
 
 self.addEventListener("install", (event) => {
@@ -122,7 +126,9 @@ async function onNavigate(request) {
 
 // Stale while revalidate. The cached copy is served at once and the network copy
 // replaces it in the background. Safe here because every URL this applies to is either
-// content-hashed by the build or a font file that does not change under its own name.
+// content-hashed by the build, a font file that does not change under its own name, or a
+// file of public/ (an icon, a drawing, a sound) whose content does not change within one
+// build; the cache is named for the build, so a deploy starts it afresh.
 function onAsset(event) {
   return caches.open(CACHE).then(async (cache) => {
     const cached = await cache.match(event.request);
