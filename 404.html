@@ -2,6 +2,18 @@
 <script>
 // GitHub Pages serves this for unknown paths; hand the path to the app and let the router take it.
 // v0.2.0: storage can throw (a private window, an in-app webview); the redirect must still happen.
-try { sessionStorage.setItem("npi.redirect", location.pathname + location.search + location.hash); } catch (e) {}
-location.replace("/npi-review-system/");
+// v0.3.0, 2026-09-28 (critical review C-048): the base is opened with a one-time query, so the browser
+// asks the server for index.html instead of taking the copy in its HTTP cache (GitHub Pages sends
+// max-age=600). After a deploy that copy names the old build's chunks, which the deploy deleted, and
+// every reload of a deep path came back to the same crash screen for up to ten minutes. index.html puts
+// the stored path back before the app starts, so the query never shows.
+// v0.4.0, 2026-09-28 (the integration, the website's item for the lead, C-180): an unknown path under the website
+// (landing/) is the website's own not-found page, in its language, and never the app's sign-in.
+var L = "/npi-review-system/landing/", p = location.pathname;
+if (p.indexOf(L) === 0) {
+  location.replace(L + (p.indexOf(L + "en/") === 0 ? "en/" : "") + "404.html");
+} else {
+  try { sessionStorage.setItem("npi.redirect", location.pathname + location.search + location.hash); } catch (e) {}
+  location.replace("/npi-review-system/?fresh=" + Date.now());
+}
 </script></head><body></body></html>

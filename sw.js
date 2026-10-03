@@ -1,3 +1,6 @@
+// Service worker, v0.2.2, 2026-09-28 (critical review C-048): a navigation asks the server (cache mode no-cache,
+// which revalidates with the ETag) instead of taking the HTTP cache's copy of index.html, which after a deploy names
+// chunks that no longer exist. Network first now means the network.
 // Service worker, v0.2.1, 2026-09-27 (candy fix: docs/reviews/CODEX-CANDY-REVIEW-2026-09-27.md finding 8). v0.2.1: the
 // interface sounds (sounds/*.mp3, lib/sound.ts) are kept like the drawings, on first use, stale while revalidate, so a
 // sound that was heard once plays offline too; the map pin of the missing page (illo/terkeptu-480.webp) was already
@@ -112,7 +115,8 @@ self.addEventListener("activate", (event) => {
 async function onNavigate(request) {
   const cache = await caches.open(CACHE);
   try {
-    const response = await fetch(request);
+    // v0.2.2: revalidate, never the HTTP cache's copy as it stands (C-048)
+    const response = await fetch(request, { cache: "no-cache" });
     if (response.status >= 500) {
       const shell = await cache.match(SHELL);
       if (shell) return shell;

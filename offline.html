@@ -43,7 +43,9 @@
      sized from the item's own width, so max-width:100% resolves against it and a
      390 px phone is handed a page wider than itself. A flex container's width is
      the viewport's, and the item is capped against that. */
-  body { font: 16px/1.5 -apple-system, system-ui, "Segoe UI", Roboto, sans-serif; background: var(--page); color: var(--fg); display: flex; align-items: center; justify-content: center; padding: 2rem 16px; }
+  /* v0.2.3, 2026-09-28 (critical review C-201): safe centring, so a card taller than the window (a small phone, a
+     phone on its side, large text) starts at the top and scrolls instead of losing its top above the page */
+  body { font: 16px/1.5 -apple-system, system-ui, "Segoe UI", Roboto, sans-serif; background: var(--page); color: var(--fg); display: flex; align-items: safe center; justify-content: safe center; padding: 2rem 16px; }
   main { width: 30rem; max-width: 100%; padding: 26px 24px 24px; background: var(--card); border: 2px solid var(--line); border-radius: 18px; box-shadow: 6px 6px 0 var(--shadow); }
   .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
   .mark { color: var(--fg); flex: none; }

@@ -9,7 +9,7 @@
   "scope": "/npi-review-system/",
   "display": "standalone",
   "theme_color": "#FFFFFF",
-  "background_color": "#F6F6F4",
+  "background_color": "#FFFFFF",
   "icons": [
     {
       "src": "/npi-review-system/icons/icon-192.png",
