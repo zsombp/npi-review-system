@@ -2,7 +2,7 @@ WEBVTT
 
 NOTE
 Válasz jóváhagyása, BistroTech súgó. Feliratok a record_valasz.mjs futásából,
-a felvett koppintások idejéhez igazítva. v0.2.0, 2026-09-26.
+a felvett koppintások idejéhez igazítva. v0.2.1, 2026-09-28: a 10. felirat a meghívás elfogadását és a negyedórát mondja (C-045, C-302).
 
 1
 00:00:00.300 --> 00:00:02.902 line:2% size:92% align:center
@@ -50,8 +50,8 @@ visszavonhatod.
 10
 00:00:28.672 --> 00:00:34.663 line:2% size:92% align:center
 Ha a Google-on kezelőnek vettél
-fel minket, pár percen belül
-kitesszük a választ.
+fel minket, és elfogadtuk a meghívást,
+negyedórán belül kitesszük.
 
 11
 00:00:34.663 --> 00:00:38.965 line:2% size:92% align:center

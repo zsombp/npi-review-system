@@ -9,6 +9,7 @@
 <link rel="canonical" href="https://zsombp.github.io/npi-review-system/landing/">
 
 <link rel="alternate" hreflang="hu" href="https://zsombp.github.io/npi-review-system/landing/">
+<link rel="alternate" hreflang="x-default" href="https://zsombp.github.io/npi-review-system/landing/">
 <link rel="alternate" hreflang="en" href="https://zsombp.github.io/npi-review-system/landing/en/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BistroTech">
@@ -25,7 +26,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/site.css?v=dc93e4933a">
+<link rel="preload" href="fonts/spacegrotesk-display-lat-ext.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/sourcesans3-lat-ext.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/site.css?v=665db7053c">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
@@ -35,10 +38,10 @@
 </head>
 <body class="pg-home">
 <a class="skip" href="#main">Ugrás a tartalomra</a>
-<!-- Pictograms. 24 px grid, 1.5 px stroke, currentColor, round caps and joins (BRAND
+<!-- Pictograms (2026-09-28, C-255: the chart and the bell centred on their grid as in the app, web/src/components/Icon.tsx v0.1.1). 24 px grid, 1.5 px stroke, currentColor, round caps and joins (BRAND
      section 7). The star is the one filled shape and appears only as data. -->
 <svg class="sprite" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false">
-  <symbol id="g-chart" viewBox="0 0 24 24"><path d="M5 20v-6M12 20V7M19 20v-9"/></symbol>
+  <symbol id="g-chart" viewBox="0 0 24 24"><path d="M5 18.5v-6M12 18.5V5.5M19 18.5v-9"/></symbol>
   <symbol id="g-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
   <symbol id="g-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
   <symbol id="g-warn" viewBox="0 0 24 24"><path d="M12 4.5 21 19.5H3z"/><path d="M12 10v4M12 17h.01"/></symbol>
@@ -53,11 +56,12 @@
   <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></symbol>
   <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></symbol>
   <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
-  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16.5V11a6 6 0 1 1 12 0v5.5l1.5 1.5h-15z"/><path d="M10 20.5a2.2 2.2 0 0 0 4 0"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 15.1V9.6a6 6 0 1 1 12 0v5.5l1.5 1.5h-15z"/><path d="M10 19.1a2.2 2.2 0 0 0 4 0"/></symbol>
   <symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8.5h14.5M15 5l3.5 3.5L15 12M20 15.5H5.5M9 12l-3.5 3.5L9 19"/></symbol>
   <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6.5h11M9 12h11M9 17.5h6M4.5 6.5h.01M4.5 12h.01M4.5 17.5h.01"/></symbol>
   <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3.5"/><path d="M3 19.5c.8-3.2 3.2-5 6-5s5.2 1.8 6 5M15.5 5.2a3.5 3.5 0 0 1 0 6.6M17.5 14.8c1.8.6 3 2.2 3.5 4.7"/></symbol>
   <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c.9-3.6 3.7-5.5 7-5.5s6.1 1.9 7 5.5"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.75 12S6.25 5.75 12 5.75 21.25 12 21.25 12 17.75 18.25 12 18.25 2.75 12 2.75 12z"/><circle cx="12" cy="12" r="3"/></symbol>
   <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15.5" r="4"/><path d="M11 12.5 19.5 4M16 7.5l2.5 2.5M13.5 10l2 2"/></symbol>
   <symbol id="i-ask" viewBox="0 0 24 24"><path d="M4 5.5h16v10.5H10.5L6 19.5V16H4z"/><path d="M10.1 9a1.9 1.9 0 1 1 2.7 1.7c-.5.3-.8.6-.8 1.2v.2M12 14h.01"/></symbol>
   <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></symbol>
@@ -143,7 +147,7 @@
       <h1 id="hero-title" class="h-hero"><span class="line"><span class="w-stk">Minden<span class="sticker sticker-free" aria-hidden="true"><span>14 napig</span><span>ingyen</span></span></span></span> <span class="line">értékelés.</span> <span class="line">Egy <span class="mk mk-pink">helyen.<svg class="mk-line" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M2 7C20 3.5 40 9.5 58 6S88 4.5 98 8"/></svg></span></span></h1>
 
       <div class="hero-copy">
-        <p class="lead">A BistroTech letölti az éttermeid Google-értékeléseit, megírja rájuk a választ, és reggelente elküldi, mi történt tegnap. Minden választ te hagysz jóvá.</p>
+        <p class="lead">A BistroTech letölti az éttermeid Google-értékeléseit, megírja a választ a szöveges és a gyengébb értékelésekre, és reggelente elküldi, mi történt tegnap. Minden választ te hagysz jóvá.</p>
         <div class="cta-row">
           <a class="btn btn-blue btn-lg" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen, 14 napig<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
           <a class="btn btn-white btn-lg" href="hogyan-mukodik/">Nézd meg, hogyan működik</a>
@@ -292,22 +296,22 @@
         <li class="day-card c-yellow tilt">
           <h3>Ma</h3>
           <p>Egy mondatban megmondja, mi a teendő. Alatta kártyákon a részletek.</p>
-          <div class="phone"><div class="phone-screen"><img src="img/help/app-overview-mobile.png" width="780" height="1688" loading="lazy" decoding="async" alt="A Ma képernyő telefonon: fent a dátum és a mondat, hogy ma 6 válasz vár, alatta az értékelés, amellyel kezdeni érdemes, a Válasz átnézése gombbal."></div></div>
+          <div class="phone"><div class="phone-screen"><img src="img/help/app-overview-mobile.webp" width="780" height="1688" loading="lazy" decoding="async" alt="A Ma képernyő telefonon: fent a dátum és a mondat, hogy ma 6 válasz vár, alatta az értékelés, amellyel kezdeni érdemes, a Válasz átnézése gombbal."></div></div>
         </li>
         <li class="day-card c-pink tilt">
           <h3>Válaszok</h3>
           <p>A válaszok sorban állnak, elöl a legrosszabb értékelés. Elolvasod, ha kell, átírod, jóváhagyod.</p>
-          <div class="phone"><div class="phone-screen"><img src="img/help/app-drafts-mobile.png" width="780" height="1688" loading="lazy" decoding="async" alt="A Válaszok képernyő telefonon: az első a hat váró válasz közül, fent az értékelés, alatta a kész válasz, lent a Jóváhagyás és a Nem válaszolok gomb."></div></div>
+          <div class="phone"><div class="phone-screen"><img src="img/help/app-drafts-mobile.webp" width="780" height="1688" loading="lazy" decoding="async" alt="A Válaszok képernyő telefonon: az első a hat váró válasz közül, fent az értékelés, alatta a kész válasz, lent a Jóváhagyás és a Nem válaszolok gomb."></div></div>
         </li>
         <li class="day-card c-cyan tilt">
           <h3>Értékelések</h3>
           <p>Minden értékelés egy helyen, kereshetően, étterem és csillag szerint.</p>
-          <div class="phone"><div class="phone-screen"><img src="img/help/app-reviews-mobile.png" width="780" height="1688" loading="lazy" decoding="async" alt="Az Értékelések képernyő telefonon: keresőmező, a Szűrők gomb és az értékelések listája."></div></div>
+          <div class="phone"><div class="phone-screen"><img src="img/help/app-reviews-mobile.webp" width="780" height="1688" loading="lazy" decoding="async" alt="Az Értékelések képernyő telefonon: keresőmező, a Szűrők gomb és az értékelések listája."></div></div>
         </li>
         <li class="day-card c-green tilt">
           <h3>Kimutatások</h3>
           <p>Megnézed, mi ismétlődik: témák, éttermek egymás mellett, napszakok.</p>
-          <div class="phone"><div class="phone-screen"><img src="img/help/app-insights-mobile.png" width="780" height="1688" loading="lazy" decoding="async" alt="A Kimutatások képernyő telefonon: az időszak választója a 30 nappal, alatta az időszak számai színes kártyákon."></div></div>
+          <div class="phone"><div class="phone-screen"><img src="img/help/app-insights-mobile.webp" width="780" height="1688" loading="lazy" decoding="async" alt="A Kimutatások képernyő telefonon: az időszak választója a 30 nappal, alatta az időszak számai színes kártyákon."></div></div>
         </li>
         
       </ul>
@@ -351,6 +355,7 @@ A Példa Bisztró csapata</textarea>
             <button type="button" class="chip" data-variant="tegezo" data-say="Tegezőre fordítottuk." aria-pressed="false">Tegező</button>
             
           </div>
+          <p class="try-nojs">A kipróbáláshoz JavaScript kell, és most nincs bekapcsolva.</p>
           <div class="try-actions">
             <button type="button" class="btn btn-blue" data-act="approve">Jóváhagyás</button>
             <button type="button" class="btn btn-white" data-act="skip">Nem válaszolok</button>
@@ -358,7 +363,7 @@ A Példa Bisztró csapata</textarea>
           </div>
           <div class="try-after try-after-ok">
             <span class="try-after-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#g-check"/></svg></span>
-            <p>Ha a Google-on kezelőnek vettél fel minket, pár percen belül kitesszük. Ha még nem, egy gombbal kimásolod, és megnyitjuk neked a Google-t.</p>
+            <p>Ha a Google-on kezelőnek vettél fel minket, és elfogadtuk a meghívást, negyedórán belül kitesszük. Ha még nem, egy gombbal kimásolod, és megnyitjuk neked a Google-t.</p>
           </div>
           <div class="try-after try-after-skip">
             <span class="try-after-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-info"/></svg></span>
@@ -385,7 +390,7 @@ A Példa Bisztró csapata</textarea>
         <p data-v="hatarozottabb">Kedves Katalin, köszönjük a visszajelzést. A leves hőmérséklete és a húsz perc várakozás a számlára nem felel meg annak, ahogy dolgozni szeretnénk. Mindkettőt továbbadtuk a konyhának és a felszolgálóknak. A Példa Bisztró csapata</p>
         <p data-v="magazo">Kedves Katalin, köszönjük, hogy megírta. Sajnáljuk, hogy langyos volt a leves, és sokat kellett várnia a számlára. Továbbadtuk a konyhának és a felszolgálóknak. Reméljük, visszatér, és akkor minden a helyén lesz. A Példa Bisztró csapata</p>
         <p data-v="tegezo">Kedves Katalin, köszönjük, hogy megírtad. Sajnáljuk, hogy langyos volt a leves, és sokat kellett várnod a számlára. Továbbadtuk a konyhának és a felszolgálóknak. Reméljük, visszajössz, és akkor minden a helyén lesz. A Példa Bisztró csapata</p>
-        <p data-say="approve">Jóváhagyva. Ha a Google-on kezelőnek vettél fel minket, pár percen belül kitesszük. Ha még nem, egy gombbal kimásolod, és megnyitjuk neked a Google-t.</p>
+        <p data-say="approve">Jóváhagyva. Ha a Google-on kezelőnek vettél fel minket, és elfogadtuk a meghívást, negyedórán belül kitesszük. Ha még nem, egy gombbal kimásolod, és megnyitjuk neked a Google-t.</p>
         <p data-say="skip">Válasz nélkül lezárva. Az Értékelések között később is megtalálod.</p>
         <p data-say="undo">Visszavontuk. A válasz újra jóváhagyásra vár.</p>
         <p data-say="reset">A válasz újra jóváhagyásra vár.</p>
@@ -402,7 +407,7 @@ A Példa Bisztró csapata</textarea>
       </div>
       <ul class="tiles" role="list">
         <li class="tile c-yellow tilt"><span class="tile-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg></span><h3>Napi jelentés</h3><p>Abban az órában érkezik, amit beállítasz. Telegramon, ha összekötöd, és mindig a fiókodban.</p></li>
-        <li class="tile c-orange tilt"><span class="tile-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-bell"/></svg></span><h3>Riasztás</h3><p>Szólunk, ha egy étteremnél egycsillagos sorozat jön, vagy esik az átlag.</p></li>
+        <li class="tile c-orange tilt"><span class="tile-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-bell"/></svg></span><h3>Riasztás</h3><p>Telegramon szólunk, ha egy étteremnél egycsillagos sorozat jön, vagy sok vendég rontja le az értékelését.</p></li>
         <li class="tile c-lilac tilt"><span class="tile-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-swap"/></svg></span><h3>Módosításfigyelő</h3><p>Látod, ha egy vendég utólag átírja az értékelését, és azt is, miről mire.</p></li>
         <li class="tile c-cyan tilt"><span class="tile-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-list"/></svg></span><h3>Listafigyelő</h3><p>Ha a Google értékeléseket vesz le a profilodról, a jelentésben látod.</p></li>
         <li class="tile c-blue tilt"><span class="tile-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-users"/></svg></span><h3>Csapat</h3><p>Meghívod a kollégákat, és te döntöd el, ki melyik éttermet látja.</p></li>
@@ -442,14 +447,14 @@ A Példa Bisztró csapata</textarea>
           <span class="step-n" aria-hidden="true">3</span>
           <div class="step-card card">
             <h3>Kezelőnek felveszel minket</h3>
-            <p>A Google cégprofilon kezelőként felveszed a mi fiókunkat. Ettől kezdve ki tudjuk tenni a jóváhagyott válaszokat. Amíg ez nincs meg, a kész választ egy gombbal kimásolod, és magad illeszted be. A hozzáférést bármikor visszaveheted.</p>
+            <p>A Google cégprofilon kezelőként felveszed a mi fiókunkat: a címét az Éttermek oldalon találod. Amint elfogadtuk a meghívást, a jóváhagyott válaszokat mi tesszük ki. Addig a kész választ egy gombbal kimásolod, és magad illeszted be. A hozzáférést bármikor visszaveheted.</p>
           </div>
         </li>
         <li class="step">
           <span class="step-n" aria-hidden="true">4</span>
           <div class="step-card card">
             <h3>Beállítod a napi jelentést</h3>
-            <p>Összekötöd a Telegramot, és kiválasztod az időpontot. Az első napi jelentés a következő reggelen érkezik, utána minden nap ugyanakkor. A fiókodban akkor is megtalálod, ha nem kötsz össze semmit.</p>
+            <p>Összekötöd a Telegramot, és kiválasztod az időpontot. Az első napi jelentés a beállított órában érkezik, utána minden nap ugyanakkor. A fiókodban akkor is megtalálod, ha nem kötsz össze semmit.</p>
           </div>
         </li>
         
@@ -458,28 +463,31 @@ A Példa Bisztró csapata</textarea>
   </section>
 
   <!-- D-004: the reference installation is described and nothing more. No name, no venue, no
-     review, no count of anything, no logo. -->
+     review, no logo. It is our own group, said as such: nothing we publish presents it as an
+     arm's-length customer (D-011's scope boundary, C-073 of the 2026-09-28 review). Its one number
+     is the venue count of the group's account today, 13 since D-055 (2026-09-26); when the account
+     gains or loses a venue, content/*/strings.json reference changes the same day. -->
 <section class="blk blk-black ref" id="referencia" aria-labelledby="ref-title">
   <div class="wrap ref-grid">
-    <h2 id="ref-title">Tizenegy étterem, minden <span class="mk mk-pink">reggel<svg class="mk-line" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M2 6.5C22 9.5 44 3.5 64 6.5S90 8.5 98 5.5"/></svg></span></h2>
-    <p class="ref-lead">A BistroTech egy tizenegy éttermet üzemeltető budapesti csoportnál fut, minden reggel. Ott kezdődött, és ott megy élesben azóta is.</p>
-    <p class="ref-note"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-info"/></svg><span>A csoportot és az éttermeit nem nevezzük meg, és nem mutatunk tőlük értékelést. Ez a mi döntésünk, nem az ügyfél kérése.</span></p>
+    <h2 id="ref-title">Tizenhárom étterem, minden <span class="mk mk-pink">reggel<svg class="mk-line" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M2 8.5C18 4 36 9.5 54 6.5S86 4 98 7.5"/></svg></span></h2>
+    <p class="ref-lead">A BistroTech a saját budapesti éttermeinkben kezdődött, és mind a tizenháromban ott fut minden reggel.</p>
+    <p class="ref-note"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-info"/></svg><span>Az éttermeket nem nevezzük meg, és nem mutatunk tőlük értékelést.</span></p>
   </div>
 </section>
 
 
-  <!-- D-006: every price slot says exactly "Ár hamarosan" until site.json prices.public is true. -->
+  <!-- D-006: every price slot says exactly "Ár hamarosan" until site.json prices.public is true, and the
+       per-venue label shows only then (C-074: per-venue pricing is Q-018, not a fact yet). -->
   <section class="blk blk-lilac" id="csomagok" aria-labelledby="plans-title">
     <div class="wrap">
       <div class="sec-head">
         <h2 id="plans-title">Mi van a <span class="hl hl-yellow">csomagokban</span></h2>
-        <p class="sec-intro">Három csomag. A figyelés, a napi jelentés és a válaszok mindháromban benne vannak. A különbség az, hogy mennyit olvasunk ki a vendégek szövegeiből.</p>
+        <p class="sec-intro">Három csomagot tervezünk. A figyelés, a napi jelentés és a válaszok mindháromban benne lesznek, a különbség az, mennyit olvasunk ki a vendégek szövegeiből. A tartalmuk és az áruk még nem végleges.</p>
       </div>
       <ul class="plans" role="list">
         <li class="plan card tilt">
           <div class="plan-top c-yellow"><h3>Induló</h3><p>Az alap, minden étteremhez.</p></div>
           <p class="plan-price">
-            <span class="plan-label">Havi díj éttermenként, + áfa</span>
             <span class="plan-value">Ár hamarosan</span>
           </p>
 
@@ -487,7 +495,6 @@ A Példa Bisztró csapata</textarea>
         <li class="plan card tilt">
           <div class="plan-top c-cyan"><h3>Elemző</h3><p>Arra válaszol, mit mondanak folyton.</p></div>
           <p class="plan-price">
-            <span class="plan-label">Havi díj éttermenként, + áfa</span>
             <span class="plan-value">Ár hamarosan</span>
           </p>
 
@@ -495,7 +502,6 @@ A Példa Bisztró csapata</textarea>
         <li class="plan card tilt">
           <div class="plan-top c-pink"><h3>Teljes</h3><p>Arra válaszol, kiről és miről beszélnek.</p></div>
           <p class="plan-price">
-            <span class="plan-label">Havi díj éttermenként, + áfa</span>
             <span class="plan-value">Ár hamarosan</span>
           </p>
 
@@ -504,11 +510,10 @@ A Példa Bisztró csapata</textarea>
       </ul>
       <div class="addon card">
         <div class="addon-text">
-          <h3>Automata válasz <span class="addon-sub">bármelyik csomaghoz</span></h3>
+          <h3>Automatikus válasz <span class="addon-sub">bármelyik csomaghoz</span></h3>
           <p>Alapból csak a pozitív értékelésekre megy ki válasz úgy, hogy előtte senki nem olvassa el. Az egy- és kétcsillagosakra csak akkor, ha te kapcsolod be.</p>
         </div>
         <p class="plan-price">
-            <span class="plan-label">Havi díj éttermenként, + áfa</span>
             <span class="plan-value">Ár hamarosan</span>
           </p>
 
@@ -521,7 +526,7 @@ A Példa Bisztró csapata</textarea>
     <section class="blk blk-cyan split-half" id="sugo-es-videok" aria-labelledby="help-title">
       <div class="split-in">
         <h2 id="help-title">Súgó és <span class="hl hl-white">videók</span></h2>
-        <p>Minden lépéshez leírás képekkel és egy rövid videó a fiókból. Magyarul.</p>
+        <p>Leírás minden lépéshez, néhol képekkel, és egy első videó a bemutatófiókból. Magyarul.</p>
         <ul class="link-list" role="list">
           <li><a href="sugo/valasz-jovahagyasa/">Válasz jóváhagyása<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></li>
           <li><a href="sugo/napi-jelentes-beallitasa/">A napi jelentés beállítása<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></li>
@@ -554,11 +559,11 @@ A Példa Bisztró csapata</textarea>
   </details>
   <details class="faq-item">
     <summary><h3>Hozzányúltok a Google-profilomhoz?</h3><span class="faq-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg></span></summary>
-    <p>Csak akkor, ha kezelőként felveszel minket. Akkor a jóváhagyott válaszokat mi tesszük ki. A hozzáférést bármikor visszaveheted.</p>
+    <p>Csak akkor, ha kezelőként felveszel minket. Amint elfogadtuk a meghívást, a jóváhagyott válaszokat mi tesszük ki. A hozzáférést bármikor visszaveheted.</p>
   </details>
   <details class="faq-item">
     <summary><h3>Kimehet válasz a tudtom nélkül?</h3><span class="faq-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg></span></summary>
-    <p>Nem. Minden választ te hagysz jóvá. Az automata válasz külön kapcsolható be, és alapból csak a pozitív értékelésekre megy.</p>
+    <p>Csak ha bekapcsolod az automatikus választ. Enélkül minden választ te hagysz jóvá. Bekapcsolva is alapból csak a pozitív értékelésekre megy ki magától.</p>
   </details>
   <details class="faq-item">
     <summary><h3>Milyen nyelven írjátok a választ?</h3><span class="faq-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg></span></summary>
@@ -574,7 +579,7 @@ A Példa Bisztró csapata</textarea>
   </details>
   <details class="faq-item">
     <summary><h3>Több étterem is mehet egy fiókba?</h3><span class="faq-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg></span></summary>
-    <p>Igen. Tíz étterem fölött a csomagot személyesen végigvesszük veled.</p>
+    <p>Igen. A próbaidőszak alatt legfeljebb öt. Ha ennél több éttermed van, kérj bemutatót, és személyesen végigvesszük veled.</p>
   </details>
   
 </div>
@@ -585,7 +590,7 @@ A Példa Bisztró csapata</textarea>
   <section class="blk blk-blue final" id="kezdes" aria-labelledby="final-title">
   <div class="wrap final-in">
     <h2 id="final-title" class="h-final">Kezdd el <span class="hl hl-yellow">ingyen,</span> <span class="w-stk"><span class="nw">14 napig</span><span class="sticker sticker-final" aria-hidden="true">kötöttség nélkül</span></span></h2>
-    <p class="lead">Regisztrálsz, felveszed az éttermet, és pár perc múlva látod az értékeléseidet. Az első jelentés másnap reggel jön.</p>
+    <p class="lead">Regisztrálsz, felveszed az éttermet, és pár perc múlva látod az értékeléseidet. Az első jelentés a beállított órában jön.</p>
     <div class="cta-row">
       <a class="btn btn-yellow btn-lg" href="https://zsombp.github.io/npi-review-system/signup">Kezdd el ingyen, 14 napig<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
       <a class="btn btn-white btn-lg" href="bemutato/">Kérj bemutatót</a>
@@ -594,7 +599,8 @@ A Példa Bisztró csapata</textarea>
 </section>
 
 
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Kell hozzá bármit telepíteni?", "acceptedAnswer": {"@type": "Answer", "text": "Nem. Böngészőben megy, telefonon és gépen is. Ha szeretnéd, a telefonod kezdőképernyőjére is felteheted."}}, {"@type": "Question", "name": "Hozzányúltok a Google-profilomhoz?", "acceptedAnswer": {"@type": "Answer", "text": "Csak akkor, ha kezelőként felveszel minket. Akkor a jóváhagyott válaszokat mi tesszük ki. A hozzáférést bármikor visszaveheted."}}, {"@type": "Question", "name": "Kimehet válasz a tudtom nélkül?", "acceptedAnswer": {"@type": "Answer", "text": "Nem. Minden választ te hagysz jóvá. Az automata válasz külön kapcsolható be, és alapból csak a pozitív értékelésekre megy."}}, {"@type": "Question", "name": "Milyen nyelven írjátok a választ?", "acceptedAnswer": {"@type": "Answer", "text": "Azon a nyelven, amelyen a vendég írt."}}, {"@type": "Question", "name": "Kell Telegram?", "acceptedAnswer": {"@type": "Answer", "text": "Nem. A jelentés minden reggel a fiókodban is megvan. Telegramra akkor küldjük, ha összekötöd."}}, {"@type": "Question", "name": "Mennyibe kerül?", "acceptedAnswer": {"@type": "Answer", "text": "A csomagok árát hamarosan közzétesszük. A 14 napos próbaidő alatt nem állítunk ki számlát."}}, {"@type": "Question", "name": "Több étterem is mehet egy fiókba?", "acceptedAnswer": {"@type": "Answer", "text": "Igen. Tíz étterem fölött a csomagot személyesen végigvesszük veled."}}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Kell hozzá bármit telepíteni?", "acceptedAnswer": {"@type": "Answer", "text": "Nem. Böngészőben megy, telefonon és gépen is. Ha szeretnéd, a telefonod kezdőképernyőjére is felteheted."}}, {"@type": "Question", "name": "Hozzányúltok a Google-profilomhoz?", "acceptedAnswer": {"@type": "Answer", "text": "Csak akkor, ha kezelőként felveszel minket. Amint elfogadtuk a meghívást, a jóváhagyott válaszokat mi tesszük ki. A hozzáférést bármikor visszaveheted."}}, {"@type": "Question", "name": "Kimehet válasz a tudtom nélkül?", "acceptedAnswer": {"@type": "Answer", "text": "Csak ha bekapcsolod az automatikus választ. Enélkül minden választ te hagysz jóvá. Bekapcsolva is alapból csak a pozitív értékelésekre megy ki magától."}}, {"@type": "Question", "name": "Milyen nyelven írjátok a választ?", "acceptedAnswer": {"@type": "Answer", "text": "Azon a nyelven, amelyen a vendég írt."}}, {"@type": "Question", "name": "Kell Telegram?", "acceptedAnswer": {"@type": "Answer", "text": "Nem. A jelentés minden reggel a fiókodban is megvan. Telegramra akkor küldjük, ha összekötöd."}}, {"@type": "Question", "name": "Mennyibe kerül?", "acceptedAnswer": {"@type": "Answer", "text": "A csomagok árát hamarosan közzétesszük. A 14 napos próbaidő alatt nem állítunk ki számlát."}}, {"@type": "Question", "name": "Több étterem is mehet egy fiókba?", "acceptedAnswer": {"@type": "Answer", "text": "Igen. A próbaidőszak alatt legfeljebb öt. Ha ennél több éttermed van, kérj bemutatót, és személyesen végigvesszük veled."}}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "BistroTech", "url": "https://zsombp.github.io/npi-review-system/landing/", "logo": "https://zsombp.github.io/npi-review-system/landing/apple-touch-icon.png", "parentOrganization": {"@type": "Organization", "name": "Netpromotion Invest Kereskedelmi és Szolgáltató Korlátolt Felelősségű Társaság (Netpromotion Invest Kft.)", "taxID": "10907850-2-41", "telephone": "+36 30 2222 444", "address": "1056 Budapest, Duna utca 3. földszint 1."}}</script>
   <script type="application/json" id="legacy-anchors">{"napi-jelentes": "", "az-oldal": "#hogyan-mukodik", "indulas": "#hogyan-indul", "asszisztens": "hogyan-mukodik/#asszisztens", "bemutato": "bemutato/"}</script>
 </main>
 <footer class="site-foot">
@@ -643,9 +649,6 @@ A Példa Bisztró csapata</textarea>
       <div><dt>Adószám</dt><dd>10907850-2-41</dd></div>
       <div><dt>Telefon</dt><dd><a href="tel:+36302222444">+36 30 2222 444</a></dd></div>
     </dl>
-    <!-- TODO-PROOF: cégjegyzékszám to be checked against the official cégkivonat before publication (carried over from docs/legal/aszf-hu.md section 1). -->
-    <!-- TODO-PROOF: no e-mail address is published here. The company's general address is a personal Gmail account; the BistroTech address on a company domain does not exist yet. Until it does, the form and the phone number are the only contact routes. Same TODO as in aszf-hu.md section 1. -->
-    
   </div></div>
   <div class="wrap foot-mega">
     <a class="logo logo-mega" href="./" aria-label="BistroTech, főoldal">
@@ -671,11 +674,11 @@ A Példa Bisztró csapata</textarea>
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.6.0, 2026-09-27.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.7.0, 2026-09-28.</span></p>
   </div>
 </footer>
 
-<script src="js/site.js?v=7d1cac42bb" defer></script>
+<script src="js/site.js?v=fc4a4deefd" defer></script>
 </body>
 </html>
 

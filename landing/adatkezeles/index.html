@@ -23,7 +23,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../css/site.css?v=dc93e4933a">
+<link rel="preload" href="../fonts/spacegrotesk-display-lat-ext.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/sourcesans3-lat-ext.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../css/site.css?v=665db7053c">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
@@ -33,10 +35,10 @@
 </head>
 <body class="pg-privacy">
 <a class="skip" href="#main">Ugrás a tartalomra</a>
-<!-- Pictograms. 24 px grid, 1.5 px stroke, currentColor, round caps and joins (BRAND
+<!-- Pictograms (2026-09-28, C-255: the chart and the bell centred on their grid as in the app, web/src/components/Icon.tsx v0.1.1). 24 px grid, 1.5 px stroke, currentColor, round caps and joins (BRAND
      section 7). The star is the one filled shape and appears only as data. -->
 <svg class="sprite" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false">
-  <symbol id="g-chart" viewBox="0 0 24 24"><path d="M5 20v-6M12 20V7M19 20v-9"/></symbol>
+  <symbol id="g-chart" viewBox="0 0 24 24"><path d="M5 18.5v-6M12 18.5V5.5M19 18.5v-9"/></symbol>
   <symbol id="g-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
   <symbol id="g-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
   <symbol id="g-warn" viewBox="0 0 24 24"><path d="M12 4.5 21 19.5H3z"/><path d="M12 10v4M12 17h.01"/></symbol>
@@ -51,11 +53,12 @@
   <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></symbol>
   <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></symbol>
   <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
-  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16.5V11a6 6 0 1 1 12 0v5.5l1.5 1.5h-15z"/><path d="M10 20.5a2.2 2.2 0 0 0 4 0"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 15.1V9.6a6 6 0 1 1 12 0v5.5l1.5 1.5h-15z"/><path d="M10 19.1a2.2 2.2 0 0 0 4 0"/></symbol>
   <symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8.5h14.5M15 5l3.5 3.5L15 12M20 15.5H5.5M9 12l-3.5 3.5L9 19"/></symbol>
   <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6.5h11M9 12h11M9 17.5h6M4.5 6.5h.01M4.5 12h.01M4.5 17.5h.01"/></symbol>
   <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3.5"/><path d="M3 19.5c.8-3.2 3.2-5 6-5s5.2 1.8 6 5M15.5 5.2a3.5 3.5 0 0 1 0 6.6M17.5 14.8c1.8.6 3 2.2 3.5 4.7"/></symbol>
   <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c.9-3.6 3.7-5.5 7-5.5s6.1 1.9 7 5.5"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.75 12S6.25 5.75 12 5.75 21.25 12 21.25 12 17.75 18.25 12 18.25 2.75 12 2.75 12z"/><circle cx="12" cy="12" r="3"/></symbol>
   <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15.5" r="4"/><path d="M11 12.5 19.5 4M16 7.5l2.5 2.5M13.5 10l2 2"/></symbol>
   <symbol id="i-ask" viewBox="0 0 24 24"><path d="M4 5.5h16v10.5H10.5L6 19.5V16H4z"/><path d="M10.1 9a1.9 1.9 0 1 1 2.7 1.7c-.5.3-.8.6-.8 1.2v.2M12 14h.01"/></symbol>
   <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></symbol>
@@ -133,62 +136,77 @@
       <a class="back" href="../"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-back"/></svg>Vissza a főoldalra</a>
       <article class="legal">
 <!-- copy-check: off. Everything down to "copy-check: on" is the document text of
-     platform/landing/legal/adatkezeles.html word for word, itself generated from
-     platform/docs/legal/*-hu.md: a draft the lawyer has not read. Its wording is not this site's
-     to change; build.py copies content/hu/legal/adatkezeles.html as it is, and only the frame
-     around it is re-templated. The copy checker skips it for that reason. -->
+     content/hu/legal/adatkezeles.html, kept word for word with platform/landing/legal/adatkezeles.html,
+     itself from platform/docs/legal/*-hu.md: a draft the lawyer has not read. build.py warns when the
+     two differ. On 2026-09-28 the critical review corrected product facts here and turned the editor
+     notes into "Függőben" marks (C-066 to C-072); the same edits are for the sources. Only the frame
+     around the text is re-templated, and the copy checker skips the text. -->
   <h1>BistroTech Adatkezelési tájékoztató</h1>
-  <p class="status-line">v0.1.0, 2026-09-15<br><strong>STATUS: DRAFT, not reviewed by a lawyer. Do not publish before review.</strong><br>Ez a dokumentum tervezet. Ügyvédi ellenőrzés előtt nem hatályos.</p>
+  <p class="status-line">v0.1.1, 2026-09-28 (v0.1.0: 2026-09-15)<br><strong>Ez a dokumentum tervezet. Ügyvédi ellenőrzés előtt nem hatályos.</strong><br>Ahol egy pont még nincs eldöntve vagy ellenőrizve, ott a „Függőben” szó áll.</p>
 <h2>1. Bevezetés</h2>
 <p>Ez a tájékoztató a Netpromotion Invest Kft. BistroTech szolgáltatásával kapcsolatos személyesadat-kezelést írja le az Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR) és az információs önrendelkezési jogról és az információszabadságról szóló 2011. évi CXII. törvény (Infotv.) alapján.</p>
 <p>A BistroTech kétféle szerepben kezel személyes adatot:</p>
 <ul><li>adatkezelőként az ügyfélfiókok adatai tekintetében (3. pont),</li><li>adatfeldolgozóként az ügyfél megbízásából feldolgozott értékelési adatok tekintetében (4. pont).</li></ul>
-<p>A tájékoztató azokra vonatkozik, akik a BistroTech ügyfélfiókját használják, akik a szolgáltatás üzeneteit Telegramon fogadják, és akiknek az adatai az ügyfél Google Cégprofilján közzétett értékelésekben szerepelnek.</p>
+<p>A tájékoztató azokra vonatkozik, akik a BistroTech ügyfélfiókját használják, akik a szolgáltatás üzeneteit Telegramon fogadják, akik a weboldalt látogatják vagy ott bemutatót kérnek, és akiknek az adatai az ügyfél Google Cégprofilján vagy Tripadvisor-oldalán közzétett értékelésekben szerepelnek.</p>
 <h2>2. Az adatkezelő</h2>
-<p>Név: Netpromotion Invest Kereskedelmi és Szolgáltató Korlátolt Felelősségű Társaság (Netpromotion Invest Kft.)<br>Székhely: 1056 Budapest, Duna utca 3. földszint 1.<br>Cégjegyzékszám: 01-09-269936 (Fővárosi Törvényszék Cégbírósága). TODO-PROOF: a hivatalos cégkivonattal egyeztetendő.<br>Adószám: 10907850-2-41<br>E-mail: TODO-PROOF. A cég impresszumaiban szereplő általános cím az info.netpromotioninvest@gmail.com; a BistroTech saját, céges domainen működő adatvédelmi kapcsolattartó címe egyeztetendő. Személyes Gmail cím nem használható.<br>Telefon: +36 30 2222 444</p>
-<p>Adatvédelmi tisztviselő: a Netpromotion Invest Kft. adatvédelmi tisztviselőt nem jelölt ki. TODO-PROOF: az ügyvéd erősíti meg, hogy a GDPR 37. cikke alapján a kijelölés nem kötelező.</p>
+<p>Név: Netpromotion Invest Kereskedelmi és Szolgáltató Korlátolt Felelősségű Társaság (Netpromotion Invest Kft.)<br>Székhely: 1056 Budapest, Duna utca 3. földszint 1.<br>Cégjegyzékszám: 01-09-269936 (Fővárosi Törvényszék Cégbírósága).<br>Adószám: 10907850-2-41<br>E-mail: függőben, a cím még nincs kijelölve. Addig postán a székhely címén vagy telefonon érhető el.<br>Telefon: +36 30 2222 444</p>
+<p>Adatvédelmi tisztviselő: a Netpromotion Invest Kft. adatvédelmi tisztviselőt nem jelölt ki. Függőben: annak ügyvédi megerősítése, hogy a kijelölés a GDPR 37. cikke alapján nem kötelező.</p>
 <h2>3. Adatkezelés adatkezelőként: ügyfélfiók adatok</h2>
 <h3>3.1. Kezelt adatok</h3>
-<ul><li>A felhasználó neve, e-mail címe és szerepe a fiókban (tulajdonos vagy tag).</li><li>Az ügyfél cégadatai: cégnév, székhely, adószám, számlázási adatok, kapcsolattartó neve és elérhetősége.</li><li>Telegram csevegés-azonosítók (chat id), amelyekre az összefoglalók érkeznek, valamint a bot által az összekapcsolás során fogadott üzenetek és az elküldött üzenetek naplója.</li><li>A kapcsolt egységek Google helyazonosítója és Business Profile azonosítója.</li><li>Beállítások, például az Automatikus válasz modul állapota és hatóköre.</li><li>Használati és technikai naplók: bejelentkezések, futtatások, hibák, IP-cím, időbélyeg.</li><li>A kapcsolattartás során keletkezett levelezés.</li></ul>
+<ul><li>A felhasználó neve, e-mail-címe és szerepe a fiókban (tulajdonos, tag vagy megfigyelő), és ha a tulajdonos korlátozza, az éttermek, amelyeket láthat.</li><li>Az ügyfél cégadatai: cégnév, székhely, adószám, számlázási adatok, kapcsolattartó neve és elérhetősége.</li><li>Telegram csevegés-azonosítók (chat id), amelyekre az összefoglalók érkeznek, a bot által az összekapcsolás során fogadott üzenetek, a csoportban a /kerdes paranccsal feltett kérdések, és az elküldött üzenetek naplója.</li><li>A kapcsolt egységek Google helyazonosítója és Business Profile azonosítója.</li><li>Beállítások, például az Automatikus válasz modul állapota és hatóköre.</li><li>Használati és technikai naplók: bejelentkezések, a fiókban végzett műveletek (például ki hagyott jóvá egy választ), futtatások, hibák, IP-cím, időbélyeg.</li><li>Amit a felhasználó a fiókban ír: az asszisztensnek feltett kérdések és a válaszok, a jegyzetek, és a Visszajelzés gombbal küldött üzenetek, a képernyő nevével és a böngésző típusával.</li><li>Ha a felhasználó bekapcsolja a telefonos értesítéseket: a böngésző értesítési feliratkozásának adatai.</li><li>A kapcsolattartás során keletkezett levelezés.</li></ul>
 <h3>3.2. Célok és jogalapok</h3>
-<div class="table-wrap"><table><thead><tr><th>Cél</th><th>Jogalap</th></tr></thead><tbody><tr><td>Fiók létrehozása, a szolgáltatás nyújtása, a napi összefoglaló kézbesítése</td><td>Szerződés teljesítése (GDPR 6. cikk (1) b). Az ügyfél képviselőinek és munkatársainak adatai esetében a Netpromotion Invest Kft. jogos érdeke (6. cikk (1) f): a szerződés teljesítése az ügyfél-vállalkozással.</td></tr><tr><td>Számlázás, könyvelés</td><td>Jogi kötelezettség (6. cikk (1) c), a számvitelről szóló 2000. évi C. törvény 169. §.</td></tr><tr><td>A rendszer biztonsága, hibák elhárítása, visszaélés megelőzése</td><td>Jogos érdek (6. cikk (1) f).</td></tr><tr><td>A szolgáltatás működésével kapcsolatos értesítések</td><td>Szerződés teljesítése (6. cikk (1) b).</td></tr><tr><td>Marketing üzenetek meglévő ügyfeleknek</td><td>Hozzájárulás (6. cikk (1) a). TODO-PROOF: csak akkor marad a táblázatban, ha a Szolgáltató ilyen üzeneteket küld.</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>Cél</th><th>Jogalap</th></tr></thead><tbody><tr><td>Fiók létrehozása, a szolgáltatás nyújtása, a napi összefoglaló kézbesítése</td><td>Szerződés teljesítése (GDPR 6. cikk (1) b). Az ügyfél képviselőinek és munkatársainak adatai esetében a Netpromotion Invest Kft. jogos érdeke (6. cikk (1) f): a szerződés teljesítése az ügyfél-vállalkozással.</td></tr><tr><td>Számlázás, könyvelés</td><td>Jogi kötelezettség (6. cikk (1) c), a számvitelről szóló 2000. évi C. törvény 169. §.</td></tr><tr><td>A rendszer biztonsága, hibák elhárítása, visszaélés megelőzése</td><td>Jogos érdek (6. cikk (1) f).</td></tr><tr><td>A szolgáltatás működésével kapcsolatos értesítések</td><td>Szerződés teljesítése (6. cikk (1) b).</td></tr><tr><td>Marketing üzenetek meglévő ügyfeleknek</td><td>Hozzájárulás (6. cikk (1) a). Függőben: ilyen üzenetet jelenleg nem küldünk.</td></tr></tbody></table></div>
 <h3>3.3. Megőrzés</h3>
-<p>TODO-PROOF: a megőrzési időket a Szolgáltató még nem döntötte el. Javaslat:</p>
+<p>Függőben: a megőrzési időket még nem döntöttük el. A tervezet, amely még nem döntés:</p>
 <ul><li>Fiók- és szerződéses adatok: a szerződés fennállása alatt, majd a megszűnést követő 5 évig (a polgári jogi igények általános elévülési ideje, Ptk. 6:22. §).</li><li>Számviteli bizonylatok és a bennük szereplő adatok: 8 év (Számv. tv. 169. §).</li><li>Technikai naplók: 90 nap.</li><li>Telegram üzenetnapló: a szerződés fennállása alatt, majd 30 nap.</li></ul>
+<p>Ahogy ma működik, a döntésig: a fiók Napló oldalának bejegyzéseit, bennük a felhasználó nevével és e-mail-címével, 180 nap után töröljük. Az értékelésekhez írt belső megjegyzések mellett a szerzőjük neve és e-mail-címe akkor is megmarad, ha a belépését törli; a törlésüket a 9. pont szerint lehet kérni.</p>
 <h3>3.4. Címzettek</h3>
-<p>Az adatokhoz a Netpromotion Invest Kft. erre kijelölt munkatársai, valamint az 5. pontban felsorolt adatfeldolgozók férnek hozzá. A számviteli adatokat a cég könyvelője kapja meg. TODO-PROOF: a könyvelő neve és székhelye. Hatóságoknak az adatokat csak jogszabályi kötelezettség alapján adjuk át.</p>
+<p>Az adatokhoz a Netpromotion Invest Kft. erre kijelölt munkatársai, valamint az 5. pontban felsorolt adatfeldolgozók férnek hozzá. A számviteli adatokat a cég könyvelője kapja meg (függőben: a könyvelő neve és székhelye). Hatóságoknak az adatokat csak jogszabályi kötelezettség alapján adjuk át.</p>
+<h3>3.5. Bemutató kérése a weboldalon</h3>
+<p>Aki a weboldalon bemutatót kér, annak ezeket az adatait kezeljük: a név, az étterem neve, az e-mail-cím, és ha megadja, a telefonszám, az éttermek száma és az üzenet. Mellettük tároljuk, melyik nyelvű oldalról érkezett a kérés, a böngésző azonosító szövegét (user agent), és az IP-cím sózott kivonatát (hash), amellyel egy címről óránként legfeljebb öt kérést fogadunk el.</p>
+<p>Cél: a megkeresés megválaszolása és a bemutató megszervezése, valamint a tömeges, gépi küldés kiszűrése.</p>
+<p>Jogalap: függőben (ügyvédi ellenőrzés).</p>
+<p>Címzettek: az adatokat a Supabase-ben tároljuk (5. pont). A megkeresésről a csapatunk Telegram-csevegésébe értesítés mehet a névvel, az étterem nevével, az e-mail-címmel, a telefonszámmal és az üzenettel (Telegram, 5. pont).</p>
+<p>Megőrzés: függőben.</p>
 <h2>4. Adatkezelés adatfeldolgozóként: értékelési adatok</h2>
-<p>4.1. A szolgáltatás az ügyfél Google Cégprofilján nyilvánosan közzétett értékeléseket dolgozza fel. Ezek az adatok nyilvánosak, de az értékelő neve, profilképe, az értékelés szövege és annak tartalma (például egy vendég által leírt személyes élmény vagy egy munkatárs neve) személyes adat marad.</p>
-<p>4.2. Ezen adatok tekintetében az adatkezelő az ügyfél, aki a saját vendégei értékeléseit a saját üzleti céljaira kezeli. A Netpromotion Invest Kft. adatfeldolgozó: kizárólag az ügyfél utasítása szerint, a szerződés és az Adatfeldolgozási melléklet (dpa-hu.md) alapján jár el.</p>
+<p>4.1. A szolgáltatás az ügyfél Google Cégprofilján, és ha az ügyfél megadja, a Tripadvisor-oldalán nyilvánosan közzétett értékeléseket dolgozza fel. Ezek az adatok nyilvánosak, de az értékelő neve, profilképe, az értékelés szövege és annak tartalma (például egy vendég által leírt személyes élmény vagy egy munkatárs neve) személyes adat marad.</p>
+<p>4.2. Ezen adatok tekintetében az adatkezelő az ügyfél, aki a saját vendégei értékeléseit a saját üzleti céljaira kezeli. A Netpromotion Invest Kft. adatfeldolgozó: kizárólag az ügyfél utasítása szerint, a szerződés és az Adatfeldolgozási melléklet alapján jár el. Függőben: a mellékletet ügyvédi ellenőrzés után tesszük közzé.</p>
 <p>4.3. Feldolgozott adatok: az értékelő megjelenített neve, profilképének hivatkozása, csillagszám, az értékelés szövege és dátuma, az értékelés Google-azonosítója; az ügyfél válaszai; az elemzés kimenete (hangulat, témák, említett munkatársak neve, kivonatok).</p>
-<p>4.4. Feldolgozási műveletek: lekérés a Google-tól, tárolás, elemzés mesterséges intelligencia modellel, összefoglaló készítése és kézbesítése Telegramon, válaszjavaslat készítése, és az ügyfél döntése alapján a válasz közzététele a Google Cégprofilon az ügyfél nevében.</p>
+<p>4.4. Feldolgozási műveletek: az értékelések lekérése (5. pont: Apify, Google), tárolás, elemzés mesterséges intelligencia modellel, napi jelentés készítése, amely a fiókban olvasható, és ha az ügyfél összeköti, Telegramon is megérkezik, válaszjavaslat készítése, és az ügyfél döntése alapján a válasz közzététele a Google Cégprofilon az ügyfél nevében.</p>
 <p>4.5. Az érintettek (az értékelést író vendégek és az értékelésekben említett munkatársak) a jogaikat az ügyfélnél, mint adatkezelőnél gyakorolhatják. A Netpromotion Invest Kft. az ügyfelet ebben segíti, és a hozzá érkező kérelmet az ügyfélnek továbbítja.</p>
-<p>4.6. Megőrzés: TODO-PROOF. Javaslat: a szerződés fennállása alatt, majd a megszűnést követő 30 napon belül törlés, vagy az ügyfél választása szerint visszaadás és törlés.</p>
+<p>4.6. Megőrzés: függőben. A tervezet, amely még nem döntés: a szerződés fennállása alatt, majd a megszűnést követő 30 napon belül törlés, vagy az ügyfél választása szerint visszaadás és törlés. A Google Business Profile API szabályai a tőle kapott tartalom tárolását korlátozzák; hogy ez mit jelent a megőrzésre, ügyvédi ellenőrzés alatt áll.</p>
 <h2>5. Igénybe vett adatfeldolgozók</h2>
 <p>A szolgáltatás a következő szolgáltatókat használja. Mindegyik szerződés alapján, a mi utasításunk szerint jár el, kivéve, ahol a táblázat önálló adatkezelői szerepet jelez.</p>
-<div class="table-wrap"><table><thead><tr><th>Szolgáltató</th><th>Cél</th><th>Régió, székhely</th><th>Továbbítás az EGT-n kívülre és a garancia</th></tr></thead><tbody><tr><td>Supabase, Inc.</td><td>Adatbázis, felhasználói hitelesítés, titkok tárolása, a szolgáltatás futtatókörnyezete (Edge Functions), tárhely</td><td>TODO-PROOF: a projekt régiója a Supabase felületén ellenőrzendő; a helyi konfiguráció nem tartalmaz régiót</td><td>TODO-PROOF: ha a régió az EGT-n kívüli, vagy a szolgáltató támogatói hozzáférése EGT-n kívüli: általános szerződési feltételek (SCC) vagy EU-US Data Privacy Framework tagság ellenőrzendő</td></tr><tr><td>Anthropic, PBC (USA)</td><td>Az értékelések elemzése, összefoglalók és válaszjavaslatok készítése a Claude API-n keresztül</td><td>USA. TODO-PROOF: a szerződő fél (Anthropic, PBC vagy Anthropic Ireland, Limited) ellenőrzendő</td><td>Továbbítás az EGT-n kívülre. Garancia: TODO-PROOF (SCC az Anthropic kereskedelmi feltételeiben, vagy DPF tagság). Az API-n küldött adatokat az Anthropic modelltanításra alapértelmezetten nem használja. TODO-PROOF: a hatályos kereskedelmi feltétel ellenőrzendő</td></tr><tr><td>Apify Technologies s.r.o. (Prága, Csehország)</td><td>Nyilvános Google-értékelések lekérése tartalék útvonalon, ha a Google API nem elérhető</td><td>Csehország (EU). TODO-PROOF: a futtatás tényleges régiója ellenőrzendő</td><td>TODO-PROOF</td></tr><tr><td>Google Ireland Limited</td><td>Places API (egység keresése az összekapcsoláskor), Business Profile API (értékelések olvasása, válaszok közzététele)</td><td>Írország (EU)</td><td>A Google saját feltételei szerint. Az értékelések tekintetében a Google önálló adatkezelő. TODO-PROOF: a Google Cloud adatfeldolgozási feltételeinek elfogadása ellenőrzendő</td></tr><tr><td>Telegram Messenger Inc.</td><td>A napi összefoglaló és az értesítések kézbesítése a Telegram Bot API-n keresztül</td><td>TODO-PROOF: a szerződő fél és a székhely ellenőrzendő; a szerverek elhelyezkedését a Telegram nem teszi közzé</td><td>Továbbítás az EGT-n kívülre valószínű. Garancia: TODO-PROOF. A Telegramot, mint kézbesítési csatornát az ügyfél választja és kapcsolja össze</td></tr></tbody></table></div>
-<p>Az operátor saját vendéglátóhelyeinek referencia-telepítése az n8n cloud szolgáltatást is használja vékony ütemezőként. Külső ügyfelek adatai az n8n-en nem haladnak át. TODO-PROOF: ha ez változik, az n8n a táblázatba felveendő.</p>
+<div class="table-wrap"><table><thead><tr><th>Szolgáltató</th><th>Cél</th><th>Régió, székhely</th><th>Továbbítás az EGT-n kívülre és a garancia</th></tr></thead><tbody><tr><td>Supabase, Inc.</td><td>Adatbázis, felhasználói hitelesítés, titkok tárolása, a szolgáltatás futtatókörnyezete (Edge Functions), tárhely</td><td>Az adatbázis az AWS eu-west-1 régiójában (Írország, EU) fut. A szolgáltató székhelye: USA</td><td>Függőben (ügyvédi ellenőrzés): az EGT-n kívüli támogatói hozzáférés és a garancia (általános szerződési feltételek, SCC, vagy EU-US Data Privacy Framework tagság)</td></tr>
+<tr><td>Anthropic, PBC (USA)</td><td>Az értékelések elemzése, összefoglalók és válaszjavaslatok készítése, az asszisztensnek és a /kerdes paranccsal feltett kérdések megválaszolása, a Claude API-n keresztül</td><td>USA. Függőben: a szerződő fél (Anthropic, PBC vagy Anthropic Ireland, Limited)</td><td>Továbbítás az EGT-n kívülre. Garancia: függőben (SCC az Anthropic kereskedelmi feltételeiben, vagy DPF tagság). Az API-n küldött adatokat az Anthropic modelltanításra alapértelmezetten nem használja; függőben: a hatályos kereskedelmi feltétel ellenőrzése</td></tr>
+<tr><td>Apify Technologies s.r.o. (Prága, Csehország)</td><td>Az értékelések lekérése a Google és, ha az ügyfél megadja, a Tripadvisor nyilvános oldalairól. Ez az értékelések fő forrása; ahol a menedzser Google-fiók kezelő, a Google Business Profile API-t használhatjuk helyette</td><td>Csehország (EU). Függőben: a futtatás tényleges régiója</td><td>Függőben (ügyvédi ellenőrzés)</td></tr>
+<tr><td>Google Ireland Limited</td><td>Places API (étterem keresése a felvételkor, az értékelések számának és az átlagnak a napi lekérése, a keresési helyezés figyelése), Business Profile API (a cégprofilok összekapcsolása, a válaszok közzététele, és a saját éttermeinknél az értékelések olvasása)</td><td>Írország (EU)</td><td>A Google saját feltételei szerint. Az értékelések tekintetében a Google önálló adatkezelő. Függőben: a Google Cloud adatfeldolgozási feltételeinek elfogadása</td></tr>
+<tr><td>Telegram Messenger Inc.</td><td>A napi jelentés, az értesítések és a /kerdes válaszok kézbesítése, a bemutatókérések értesítője, a Telegram Bot API-n keresztül</td><td>Függőben: a szerződő fél és a székhely. A szerverek elhelyezkedését a Telegram nem teszi közzé</td><td>Továbbítás az EGT-n kívülre valószínű. Garancia: függőben. A Telegramot mint kézbesítési csatornát az ügyfél választja és kapcsolja össze</td></tr>
+<tr><td>GitHub, Inc. (USA)</td><td>A weboldal és az ügyfélfelület fájljainak tárhelye (GitHub Pages). A látogatók IP-címét a GitHub a saját naplóiban kezeli</td><td>USA</td><td>Továbbítás az EGT-n kívülre. Garancia: függőben (ügyvédi ellenőrzés)</td></tr>
+<tr><td>A böngészők értesítési szolgáltatásai (a böngészőtől függően Google, Apple vagy Mozilla)</td><td>A telefonos értesítések kézbesítése, ha a felhasználó bekapcsolja őket. Az értesítés tartalma titkosítva halad át rajtuk</td><td>A böngésző gyártójától függ</td><td>Függőben (ügyvédi ellenőrzés)</td></tr>
+</tbody></table></div>
+<p>Az operátor saját vendéglátóhelyeinek referencia-telepítése az n8n cloud szolgáltatást is használja vékony ütemezőként. Külső ügyfelek adatai az n8n-en nem haladnak át.</p>
+<p>E-mail-szolgáltatót jelenleg nem használunk: a szolgáltatás levélben nem küld jelentést. Ha e-mail-szolgáltatót veszünk igénybe, előbb ebbe a táblázatba felvesszük.</p>
 <p>Az adatfeldolgozók listájának változásáról az ügyfeleket az Adatfeldolgozási melléklet szerint értesítjük.</p>
 <h2>6. Google-adatok felhasználása</h2>
-<p>A Google Business Profile API-n és a Places API-n keresztül megszerzett adatokat kizárólag a szolgáltatás fent leírt működésére használjuk. Nem adjuk el, nem használjuk hirdetésre, és nem adjuk át harmadik félnek az 5. pontban felsorolt adatfeldolgozókon kívül. A Google API-kból származó adatok kezelése megfelel a Google API Services User Data Policy előírásainak, ideértve a korlátozott felhasználásra (Limited Use) vonatkozó követelményeket.</p>
+<p>A Google Business Profile API-n és a Places API-n keresztül megszerzett adatokat kizárólag a szolgáltatás fent leírt működésére használjuk. Nem adjuk el, nem használjuk hirdetésre, és nem adjuk át harmadik félnek az 5. pontban felsorolt adatfeldolgozókon kívül. Függőben: annak ügyvédi ellenőrzése, hogy a Google-tól kapott adatok tárolása és felhasználása megfelel-e a Google szabályainak (a Google API Services User Data Policy, a Business Profile API tartalmi szabályai és a Google Maps Platform feltételei).</p>
 <p>A szolgáltatás egyetlen, a Netpromotion Invest Kft. által üzemeltetett menedzser Google-fiókon keresztül éri el az ügyfél Google Cégprofilját. Az ügyfél ezt a fiókot adja hozzá kezelőként, és a hozzáférést a Google Cégprofil felületén bármikor visszavonhatja.</p>
 <h2>7. Sütik és helyi tárolás</h2>
-<p>A BistroTech ügyfélfelülete a bejelentkezés fenntartásához a böngésző helyi tárolóját használja. Elemző vagy marketing sütit nem használunk. TODO-PROOF: a kiadott webalkalmazás ellenőrzendő, és ha bármilyen külső szkript vagy betűtípus betöltődik, az itt felsorolandó.</p>
+<p>A BistroTech ügyfélfelülete a bejelentkezés fenntartásához és a felhasználó saját beállításaihoz (például a megjelenés és a mozgás) a böngésző helyi tárolóját használja, a gyorsabb betöltéshez pedig a saját fájljait a böngészőben tárolja. A weboldal csak azt jegyzi meg, ha a látogató megállította rajta a mozgást. Elemző vagy marketing sütit nem használunk, és sem a weboldal, sem az ügyfélfelület nem tölt be külső szkriptet vagy betűtípust.</p>
 <h2>8. Adatbiztonság</h2>
-<p>Az adatokat titkosított kapcsolaton keresztül továbbítjuk. Az adatbázisban minden ügyfél adata el van választva a többi ügyfélétől, és a hozzáférést sorszintű jogosultsági szabályok korlátozzák. A Google-hozzáféréshez és a külső szolgáltatásokhoz tartozó titkokat a futtatókörnyezet titoktárolójában tartjuk, nem a kódban. A menedzser Google-fiókhoz csak a kijelölt munkatársak férnek hozzá. TODO-PROOF: kétlépcsős azonosítás a menedzser fiókon, és a hozzáféréssel rendelkezők névsora. A részletes intézkedések az Adatfeldolgozási mellékletben szerepelnek.</p>
+<p>Az adatokat titkosított kapcsolaton keresztül továbbítjuk. Az adatbázisban minden ügyfél adata el van választva a többi ügyfélétől, és a hozzáférést sorszintű jogosultsági szabályok korlátozzák. A Google-hozzáféréshez és a külső szolgáltatásokhoz tartozó titkokat a futtatókörnyezet titoktárolójában tartjuk, nem a kódban. A menedzser Google-fiókhoz csak a kijelölt munkatársak férnek hozzá. Függőben: a menedzser fiók kétlépcsős azonosításának és a hozzáféréssel rendelkezők névsorának rögzítése. A részletes intézkedések az Adatfeldolgozási mellékletben szerepelnek (a melléklet közzététele függőben).</p>
 <h2>9. Az érintettek jogai</h2>
 <p>Az érintett kérheti:</p>
 <ul><li>a hozzáférést a róla kezelt adatokhoz (GDPR 15. cikk),</li><li>a helyesbítést (16. cikk),</li><li>a törlést (17. cikk),</li><li>az adatkezelés korlátozását (18. cikk),</li><li>az adathordozhatóságot (20. cikk),</li><li>tiltakozhat a jogos érdeken alapuló adatkezelés ellen (21. cikk),</li><li>a hozzájárulását bármikor visszavonhatja; a visszavonás a korábbi adatkezelés jogszerűségét nem érinti.</li></ul>
-<p>A kérelmet a 2. pontban megadott e-mail címre lehet küldeni. A kérelemre indokolatlan késedelem nélkül, legkésőbb egy hónapon belül válaszolunk. Az értékelésekben szereplő adatokkal kapcsolatos kérelmeket az érintett ügyfélnek továbbítjuk, mert azok adatkezelője az ügyfél.</p>
+<p>A kérelmet a 2. pontban megadott elérhetőségeken lehet benyújtani: amíg nincs kijelölt e-mail-cím, postán a székhely címére vagy telefonon. A kérelemre indokolatlan késedelem nélkül, legkésőbb egy hónapon belül válaszolunk. Az értékelésekben szereplő adatokkal kapcsolatos kérelmeket az érintett ügyfélnek továbbítjuk, mert azok adatkezelője az ügyfél.</p>
 <h2>10. Jogorvoslat</h2>
 <p>Panasszal a Nemzeti Adatvédelmi és Információszabadság Hatósághoz (NAIH) lehet fordulni.</p>
 <p>Cím: 1055 Budapest, Falk Miksa utca 9-11.<br>Postacím: 1363 Budapest, Pf. 9.<br>Telefon: +36 1 391 1400<br>E-mail: ugyfelszolgalat@naih.hu<br>Honlap: https://naih.hu</p>
-<p>TODO-PROOF: a NAIH elérhetőségei közzététel előtt a naih.hu oldalon ellenőrzendők.</p>
 <p>Az érintett a jogai megsértése esetén bírósághoz is fordulhat. A per a törvényszék hatáskörébe tartozik, és az érintett választása szerint a lakóhelye vagy tartózkodási helye szerinti törvényszék előtt is megindítható.</p>
 <h2>11. A tájékoztató módosítása</h2>
 <p>A tájékoztató verziószámot és dátumot visel. A módosított változatot a szolgáltatás felületén tesszük közzé, és az ügyfeleket lényeges változás esetén e-mailben értesítjük.</p>
 <h2>12. Nyelv</h2>
-<p>A tájékoztató magyar nyelven készült. Az angol nyelvű változat tájékoztató jellegű; eltérés esetén a magyar szöveg az irányadó.</p>
+<p>A tájékoztató magyar nyelven készült. Angol nyelvű változatot még nem tettünk közzé. Ha közzéteszünk, az tájékoztató jellegű lesz, és eltérés esetén a magyar szöveg az irányadó.</p>
 
 <!-- copy-check: on -->
       </article>
@@ -241,9 +259,6 @@
       <div><dt>Adószám</dt><dd>10907850-2-41</dd></div>
       <div><dt>Telefon</dt><dd><a href="tel:+36302222444">+36 30 2222 444</a></dd></div>
     </dl>
-    <!-- TODO-PROOF: cégjegyzékszám to be checked against the official cégkivonat before publication (carried over from docs/legal/aszf-hu.md section 1). -->
-    <!-- TODO-PROOF: no e-mail address is published here. The company's general address is a personal Gmail account; the BistroTech address on a company domain does not exist yet. Until it does, the form and the phone number are the only contact routes. Same TODO as in aszf-hu.md section 1. -->
-    
   </div></div>
   <div class="wrap foot-mega">
     <a class="logo logo-mega" href="../" aria-label="BistroTech, főoldal">
@@ -269,11 +284,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.6.0, 2026-09-27.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.7.0, 2026-09-28.</span></p>
   </div>
 </footer>
 
-<script src="../js/site.js?v=7d1cac42bb" defer></script>
+<script src="../js/site.js?v=fc4a4deefd" defer></script>
 </body>
 </html>
 

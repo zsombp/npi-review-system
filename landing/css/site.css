@@ -1,5 +1,8 @@
-/* BistroTech website, Pop: site.css, v0.4.3, 2026-09-27 (v0.4.2, v0.4.1 and v0.4.0 the same day; v0.3.1, v0.3.0,
-   v0.2.0 and v0.1.0 on 2026-09-26).
+/* BistroTech website, Pop: site.css, v0.4.4, 2026-09-28 (v0.4.3, v0.4.2, v0.4.1 and v0.4.0 on 2026-09-27; v0.3.1,
+   v0.3.0, v0.2.0 and v0.1.0 on 2026-09-26).
+   v0.4.4, the critical review of 2026-09-28 (docs/reviews/critical-2026-09-28/MERGED.md, the Website and Legal
+   clusters; the fix agent's report is fix/website.md there): the three roles in a row (C-176); the rest of the
+   changes of that pass are listed where they sit, each with its cluster id.
    v0.4.3, the Codex review's last website exchange (CODEX-LAYOUT-REVIEW-2026-09-26.md): under enlarged text
    two things still scrolled a phone sideways. A link list's label may break inside a word that cannot fit
    (overflow-wrap: anywhere, which a flex row's text can shrink by) and its arrow never shrinks, so the arrow
@@ -160,6 +163,19 @@ body {
   overflow-wrap: break-word;
 }
 @media (min-width: 1024px) { body { font-size: 18px; } }
+/* C-208 (2026-09-28): twice the text (Android's largest font) cuts nothing. A long word may break inside
+   itself, which is the chosen way to degrade under text-only zoom (tools/layout_matrix.mjs), so every grid
+   or flex child that holds text may shrink below its longest word, a number tie lets go in a column
+   narrower than 12 of its own em (at the normal size the narrowest column is 14.6 em, so every tie holds
+   there), and the hero's stickered word is plain text on a phone. */
+.ref-grid > *, .roles > *, .addon > *, .cta-block > *, .tour-visual > *, .vid-stack > *, .vid-mini-body > *,
+.cat-card a > *, .contact .btn > span { min-width: 0; }
+.tour-visual { grid-template-columns: minmax(0, 1fr); }
+.final-in, .vid-screen, .intro-sec > .wrap { container-type: inline-size; }
+@media (max-width: 599.98px) { .h-hero .w-stk { display: inline; } }
+.side-box a, .vid-empty, .chat { overflow-wrap: anywhere; }
+.contact .btn > span { overflow-wrap: break-word; }
+.vid-play-t { min-width: 0; overflow-wrap: anywhere; }
 img, svg, video { max-width: 100%; }
 img { height: auto; }
 h1, h2, h3 {
@@ -177,6 +193,8 @@ h2 { font-size: clamp(32px, min(max(40px, calc(24px + 4.3vw)), calc((100vw - 32p
 .sec-head, .tour-text, .split-in, .page-hero-main, .demo-intro { container-type: inline-size; }
 h3 { font-size: clamp(23px, calc(19px + .8vw), 30px); line-height: 1.08; letter-spacing: -.02em; }
 p { margin: 0 0 1em; text-wrap: pretty; }
+/* C-301 (2026-09-28): list items and answers too, so a short word is not left alone on their last line */
+li, dd { text-wrap: pretty; }
 /* short display text breaks into even lines, like the headings (v0.4.0) */
 .btn, .chip, .sticker, .foot-line, .contact-t, .fb-q, .cat-a-title, .vid-mini-t, .res-title, .try-venue,
 .qa dt, .vid-lead, .snip-q, .more-link a, .link-list a, .plan-value, .ref-lead, .note-card p { text-wrap: balance; }
@@ -325,7 +343,9 @@ button { -webkit-tap-highlight-color: transparent; }
 .btn-white { --btn-bg: var(--paper); --btn-fg: var(--ink); }
 .btn-ink { --btn-bg: var(--ink); --btn-fg: #fff; }
 .btn-lg { min-height: 60px; padding: 14px 26px; font-size: 19px; }
-.btn-sm { min-height: 44px; padding: 8px 18px; font-size: 16px; box-shadow: 3px 3px 0 var(--ink); }
+/* C-296 (2026-09-28): the small button's 3 px shadow is its --sh, so the hover (lift 2, shadow 5) and the
+   press (into its shadow, 3) follow it; it pressed 4 px into a 3 px shadow. */
+.btn-sm { --sh: 3px; min-height: 44px; padding: 8px 18px; font-size: 16px; box-shadow: var(--sh) var(--sh) 0 var(--sh-c, var(--ink)); }
 .blk-blue .btn, .blk-black .btn { --focus: var(--yellow); }
 .btn:active { transform: translate(var(--sh), var(--sh)); box-shadow: 0 0 0 var(--sh-c, var(--ink)); }
 .btn-text {
@@ -358,6 +378,16 @@ button { -webkit-tap-highlight-color: transparent; }
 }
 .logo { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink); text-decoration: none; flex: none; --bt-mark: var(--blue); --bt-ink: var(--ink); }
 .lockup { display: block; width: clamp(120px, 38vw, 162px); height: auto; aspect-ratio: 760 / 131; }
+/* C-209 (2026-09-28): under the 280 px floor (a 360 px phone at 150 to 200 percent zoom) the lockup keeps
+   shrinking with the window, so the bar holds the logo and the menu button down to 176 px. */
+@media (max-width: 279.98px) {
+  .site-head .lockup { width: max(64px, 38vw); }
+  /* the help's contact block gives its button the room: less padding, and the phone icon goes */
+  .contact { padding: 22px 16px; }
+  .contact .btn { padding-inline: 14px; }
+  .contact .btn .ic { display: none; }
+}
+.art-list > * { min-width: 0; }
 .bt-mark { fill: var(--bt-mark); }
 .bt-word { fill: none; stroke: var(--bt-ink); stroke-width: 12; stroke-linecap: butt; stroke-linejoin: round; }
 .bt-dot { fill: var(--bt-ink); stroke: none; }
@@ -423,6 +453,19 @@ button { -webkit-tap-highlight-color: transparent; }
    With nothing floating, the first block keeps no room for the header (--head-h is 0, so its padding is
    the same as with script, minus the header) and anchors and sticky blocks keep 12 px (--clear). */
 html.no-js { --head-h: 0px; }
+/* C-321 (2026-09-28): on a phone turned on its side the floating header took a quarter of the window for
+   good; there it scrolls away with the page (POP-IDENTITY section 4, as the app does), and anchors and
+   sticky blocks keep only the 12 px. */
+@media (orientation: landscape) and (max-height: 500px) {
+  .js .site-head { position: relative; }
+  html.js { --clear: 12px; }
+}
+/* C-316 (2026-09-28): controls that need the script are not shown without it: the try-it card's buttons
+   (a line says why), the help search, the video's own play button (the native controls stay) and its
+   chapter buttons. */
+.try-nojs { display: none; }
+.no-js .try-nojs { display: block; margin: 0; font: 700 16px/1.4 var(--font-d); }
+.no-js .try-chips, .no-js .try-actions, .no-js .help-search, .no-js .vid-play, .no-js .chapters { display: none; }
 .no-js .site-head { position: relative; height: auto; padding-bottom: 12px; }
 @container head (width >= 59em) {
   .menu-btn { display: none; }
@@ -474,10 +517,15 @@ html.no-js { --head-h: 0px; }
 
 .hero-report { position: relative; margin: 60px 0 0; }
 .report-tilt { position: relative; transform: rotate(2deg); }
+/* C-208: under enlarged text the card grows so tall that its 2deg tilt swings the lower corner, and the
+   sticker on it, past the gutter; with less than 12 em of room (twice the text on a phone) it tilts 1deg. */
+@container hero (max-width: 12em) { .hero-report .report-tilt { transform: rotate(1deg); } }
+/* C-293 (2026-09-28): below 600 px the tilted report card swings its lower left corner past the gutter, and
+   the sticker's own tilt and drift took it up to 5.5 px past the window's edge; it starts 10 px in. */
 .sticker-note {
-  position: absolute; z-index: 2; left: 0; bottom: -22px;
+  position: absolute; z-index: 2; left: 10px; bottom: -22px;
   background: var(--ink); color: var(--yellow);
-  font-size: clamp(14px, 4.6vw, 17px); padding: 10px 16px; max-width: 100%; text-wrap: balance;
+  font-size: clamp(14px, 4.6vw, 17px); padding: 10px 16px; max-width: calc(100% - 20px); text-wrap: balance;
   transform: rotate(-5deg);
   box-shadow: 3px 3px 0 var(--pink);
 }
@@ -635,7 +683,9 @@ html.no-js { --head-h: 0px; }
 .band-caption { margin-top: 6px; color: #fff; }
 
 /* --- the morning: four cards --------------------------------------------- */
-.day-cards { list-style: none; margin: 48px 0 0; padding: 0; display: grid; gap: 28px; grid-template-columns: minmax(0, 1fr); }
+/* C-322 (2026-09-28): the card grids take the identity's tile gap, 22 px and 26 px from 1100 px (the morning
+   cards had 28 on a phone and 24 on a desktop, the plans and topics 26 and the videos 24 at every width). */
+.day-cards { list-style: none; margin: 48px 0 0; padding: 0; display: grid; gap: 22px; grid-template-columns: minmax(0, 1fr); }
 .day-card {
   display: flex; flex-direction: column;
   padding: 24px 24px 0;
@@ -664,7 +714,7 @@ html.no-js { --head-h: 0px; }
   .phone-screen { aspect-ratio: 780 / 1030; }
 }
 @media (min-width: 1100px) {
-  .day-cards { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+  .day-cards { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 26px; }
   .day-card:nth-child(odd) { transform: rotate(-1deg); }
   .day-card:nth-child(even) { transform: rotate(1deg) translateY(14px); }
 }
@@ -837,7 +887,7 @@ html.no-js { --head-h: 0px; }
 }
 
 /* --- packages ------------------------------------------------------------------ */
-.plans { list-style: none; margin: 48px 0 0; padding: 0; display: grid; gap: 26px; grid-template-columns: minmax(0, 1fr); }
+.plans { list-style: none; margin: 48px 0 0; padding: 0; display: grid; gap: 22px; grid-template-columns: minmax(0, 1fr); }
 .plan { display: flex; flex-direction: column; overflow: hidden; }
 .plan-top { padding: 22px 24px 24px; background: var(--c); border-bottom: 2px solid var(--ink); }
 .plan-top h3 { font-size: clamp(32px, calc(24px + 1.2vw), 42px); letter-spacing: -.03em; }
@@ -861,6 +911,7 @@ html.no-js { --head-h: 0px; }
 .addon { margin-top: 30px; display: grid; gap: 8px; background: var(--ink); color: #fff; box-shadow: 6px 6px 0 var(--ink); }
 .addon-text { padding: 24px 24px 0; }
 .addon h3 { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; font-size: clamp(26px, calc(20px + 1vw), 34px); }
+.addon h3, .addon-name { overflow-wrap: anywhere; } /* C-208: the name's long word may break under twice the text */
 .addon-sub { display: inline-block; padding: 5px 10px; border-radius: 8px; background: var(--yellow); color: var(--ink); font-size: 15px; letter-spacing: 0; transform: rotate(-2deg); }
 .addon-text p { margin: 12px 0 0; max-width: 34em; }
 .addon .plan-label { color: #fff; }
@@ -910,7 +961,8 @@ html.no-js { --head-h: 0px; }
 }
 
 /* --- FAQ ------------------------------------------------------------------------ */
-.faq-grid { display: grid; gap: 40px; }
+.faq-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 40px; }
+.faq-grid > *, .faq > *, .faq-item summary > * { min-width: 0; } /* C-209: nothing in the FAQ is wider than its column */
 .faq-more { margin: 22px 0 0; font-size: 18px; }
 .faq-more a { font-weight: 700; }
 .faq { display: grid; gap: 16px; }
@@ -960,9 +1012,12 @@ html.no-js { --head-h: 0px; }
   .sticker-final {
     display: inline-grid; place-items: center; width: max(92px, 6.1em); height: max(92px, 6.1em); padding: 10px; margin: 0 0 0 .6em;
     border-radius: 50%; white-space: normal; font-size: 15px; line-height: 1.05; transform: rotate(12deg);
+    /* C-312 (2026-09-28): the circle is taller than its line and reached up to 5.1 px into the highlight
+       above; it sits a little lower, out of the layout's way (top on a relative box moves nothing else). */
+    top: 9px;
   }
 }
-@media (min-width: 1100px) { .sticker-final { width: max(122px, 6.4em); height: max(122px, 6.4em); font-size: 19px; transform: rotate(9deg); } }
+@media (min-width: 1100px) { .sticker-final { width: max(122px, 6.4em); height: max(122px, 6.4em); font-size: 19px; transform: rotate(9deg); top: 10px; } }
 
 /* --- footer ---------------------------------------------------------------------- */
 .site-foot { container: foot / inline-size; background: var(--ink); color: #fff; border-top: 2px solid var(--ink); padding: 64px 0 36px; --focus: var(--yellow); }
@@ -1042,7 +1097,8 @@ html[data-paused] :is(.motion-btn, .band-toggle) .ic-play { display: block; }
   .btn:active { transform: translate(var(--sh), var(--sh)); box-shadow: 0 0 0 var(--sh-c, var(--ink)); }
   .tilt { transition: transform var(--m-lift) var(--e-pop), box-shadow var(--m-lift) ease; }
   .report-tilt:hover { transform: rotate(-1deg) translate(-4px, -4px); }
-  .day-card:hover, .tile:hover, .plan:hover { transform: rotate(-1.4deg) translate(-3px, -3px); box-shadow: 10px 10px 0 var(--ink); }
+  /* C-296: the 3 px lift grows the 6 px shadow by 3, so its outer corner stays where it was (it grew by 4) */
+  .day-card:hover, .tile:hover, .plan:hover { transform: rotate(-1.4deg) translate(-3px, -3px); box-shadow: 9px 9px 0 var(--ink); }
   .day-card:nth-child(even):hover, .tile:nth-child(even):hover, .plan:nth-child(even):hover { transform: rotate(1.4deg) translate(-3px, -3px); }
   .faq-ic { transition: transform .2s ease; }
   .link-list .ic, .more-link .ic, .btn .ic { transition: transform .15s ease; }
@@ -1056,7 +1112,7 @@ html[data-paused] :is(.motion-btn, .band-toggle) .ic-play { display: block; }
   html.js .marquee-copy { display: flex; }
   html.js:not([data-paused]) .marquee:not([data-row]) { overflow: hidden; }
   html.js:not([data-paused]) .marquee:not([data-row]) .marquee-inner { animation: marquee var(--m-band) linear infinite var(--loop-play, running); }
-  @keyframes marquee { to { transform: translateX(-50%); } }
+  @keyframes marquee { to { transform: translateX(calc(-100% / var(--band-n, 2))); } }
 
   /* F8 the page arrives: the first heading's phrase slaps on at 120 ms and its marker draws from
      200 ms, once per load; the stickers are stuck on at 350 ms */
@@ -1232,9 +1288,15 @@ html[data-paused] :is(.motion-btn, .band-toggle) .ic-play { display: block; }
 }
 .vid-empty span { justify-self: center; padding: 4px 10px; border-radius: 8px; background: var(--ink); color: var(--yellow); font-size: 14px; letter-spacing: 0; }
 .vid-el { position: relative; display: block; width: 100%; height: 100%; object-fit: cover; background: transparent; }
+/* C-207 (2026-09-28): the video fills a frame that clips its outline, so the ring is drawn on the frame. */
+.vid-screen:has(.vid-el:focus-visible) { outline: 3px solid var(--focus); outline-offset: 3px; }
+.vid-el:focus-visible { outline: none; }
 .vid-el::cue { font-family: var(--font-t); font-size: 15px; line-height: 1.3; }
+/* C-208: centred by its insets and auto margins (it was left: 50% and translate(-50%)), so it may use the
+   screen's whole width: under twice the text its word breaks once instead of letter by letter. */
 .vid-play {
-  position: absolute; left: 50%; top: 56%; transform: translate(-50%, -50%);
+  position: absolute; left: 0; right: 0; top: 56%; transform: translateY(-50%);
+  margin: 0 auto; width: fit-content;
   display: inline-flex; align-items: center; gap: 12px;
   min-height: 60px; padding: 8px 22px 8px 8px;
   background: var(--paper); color: var(--ink);
@@ -1242,9 +1304,10 @@ html[data-paused] :is(.motion-btn, .band-toggle) .ic-play { display: block; }
   box-shadow: 5px 5px 0 var(--ink);
   font: 700 19px/1.1 var(--font-d); cursor: pointer; white-space: nowrap;
 }
-.vid-play-ic { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--ink); color: var(--yellow); }
+@container (max-width: 12em) { .vid-play { white-space: normal; } }
+.vid-play-ic { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--ink); color: var(--yellow); }
 .vid-play-ic .ic { width: 22px; height: 22px; stroke-width: 2; margin-left: 3px; }
-.vid-play:active { transform: translate(calc(-50% + 5px), calc(-50% + 5px)); box-shadow: none; }
+.vid-play:active { transform: translate(5px, calc(-50% + 5px)); box-shadow: none; }
 .vid-missing {
   position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-3deg);
   width: 86%; margin: 0; padding: 16px 16px 18px;
@@ -1372,6 +1435,9 @@ kbd {
 
 .anchor { position: absolute; top: 0; left: 0; width: 1px; height: 1px; pointer-events: none; }
 .nw { white-space: nowrap; }
+/* C-208: in a column narrower than 12 of its own em (twice the text on a phone) the tie lets go; its
+   no-break space still holds, and the pair breaks only where it cannot fit (overflow-wrap: break-word). */
+@container (max-width: 12em) { .nw { white-space: normal; } }
 /* A help article's hyphenated word (build.py's .hy, "Google-kapcsolat", 22 characters at most) stays on one
    line, as .nw did. Only where the article is narrower than 14.5 of its own em may it break after its hyphen:
    at the normal size the article is never that narrow (248 px of 17 px text is 14.59 em at a 280 px window),
@@ -1540,7 +1606,7 @@ a.chip[aria-current="true"] .chip-dot { border-color: #fff; }
 .addon-inline .addon-text { padding: 22px 22px 24px; }
 .addon-inline h3 { font-size: clamp(24px, calc(19px + .8vw), 30px); }
 
-/* Roles: owner and member. */
+/* Roles: owner, member and viewer (the app's three, C-176). */
 .roles { list-style: none; margin: 30px 0 0; padding: 0; display: grid; gap: 22px; }
 .role { position: relative; padding: 22px 22px 24px; }
 .role-ic {
@@ -1549,9 +1615,11 @@ a.chip[aria-current="true"] .chip-dot { border-color: #fff; }
   border: 2px solid var(--ink); border-radius: 50%; box-shadow: 3px 3px 0 var(--ink);
 }
 .role:nth-child(2) .role-ic { background: var(--cyan); }
+.role:nth-child(3) .role-ic { background: var(--green); }
 .role h3 { font-size: clamp(24px, calc(19px + .8vw), 30px); }
 .role p { margin: 8px 0 0; font-size: 17px; line-height: 1.5; max-width: 36em; }
-@media (min-width: 900px) { .roles-wide { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; } }
+@media (min-width: 900px) { .roles-wide { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .roles { gap: 26px; } }
 
 /* The assistant, as on the landing: a question and an answer with its source. */
 .chat {
@@ -1627,7 +1695,11 @@ form.demo input:focus-visible, form.demo textarea:focus-visible { outline: 3px s
 form.demo .two { display: grid; gap: 18px; }
 @media (min-width: 600px) { form.demo .two { grid-template-columns: 1fr 1fr; } }
 form.demo .btn { justify-self: start; }
-form.demo .btn[disabled] { cursor: progress; background: var(--muted); }
+form.demo .btn[disabled], form.demo .btn[aria-disabled="true"] { cursor: progress; background: var(--muted); }
+/* C-181, C-294: the field the lead function refused, and a limit that bites, said beside the field. */
+form.demo input[aria-invalid="true"], form.demo textarea[aria-invalid="true"] { border-color: var(--neg); box-shadow: 3px 3px 0 var(--neg); }
+.field-note { margin: -8px 0 0; font-size: 14px; line-height: 1.45; color: var(--muted); }
+.field-note[hidden] { display: none; }
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .status { margin: 0; font: 700 16px/1.4 var(--font-d); }
 .status:empty { display: none; }
@@ -1659,7 +1731,7 @@ form.demo .btn[disabled] { cursor: progress; background: var(--muted); }
 .results-list .res-main { min-width: 0; }
 
 .help-cats .sec-head { margin-bottom: 36px; }
-.cat-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 26px; align-items: start; }
+.cat-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; align-items: start; }
 @media (min-width: 760px) { .cat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 1150px) { .cat-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .cat-card { overflow: hidden; }
@@ -1679,7 +1751,7 @@ form.demo .btn[disabled] { cursor: progress; background: var(--muted); }
 .cat-a-meta .ic { width: 18px; height: 18px; margin-right: 4px; }
 .cat-a-vid { display: inline-flex; align-items: center; padding: 2px 8px 2px 4px; background: var(--yellow); color: var(--ink); border: 2px solid var(--ink); border-radius: 999px; }
 
-.vid-cards { list-style: none; margin: 36px 0 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
+.vid-cards { list-style: none; margin: 36px 0 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; }
 @media (min-width: 700px) { .vid-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 1100px) { .vid-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .vid-mini a { display: grid; grid-template-columns: clamp(64px, 22vw, 96px) minmax(0, 1fr); gap: 16px; align-items: center; padding: 14px; color: var(--ink); text-decoration: none; }
@@ -1779,7 +1851,7 @@ form.demo .btn[disabled] { cursor: progress; background: var(--muted); }
 
 @media (prefers-reduced-motion: no-preference) {
   .role, .cat-card, .vid-mini, .note-card { transition: transform .22s cubic-bezier(.2, .9, .3, 1.3), box-shadow .22s ease; }
-  .vid-mini:hover { transform: rotate(-1deg) translate(-3px, -3px); box-shadow: 10px 10px 0 var(--ink); }
+  .vid-mini:hover { transform: rotate(-1deg) translate(-3px, -3px); box-shadow: 9px 9px 0 var(--ink); }
   .illo-slot { transition: transform .3s cubic-bezier(.2, .9, .3, 1.3); }
   .illo-slot:hover { transform: rotate(3deg); }
 }
@@ -1794,3 +1866,28 @@ form.demo .btn[disabled] { cursor: progress; background: var(--muted); }
 .illo-art img { width: 74%; height: auto; display: block; }
 .illo-render img { width: 118%; max-width: none; margin: -4% -9% -8%; filter: none; }
 @media (prefers-reduced-motion: no-preference) { .illo-render img { transition: transform .4s cubic-bezier(.2, .9, .3, 1.3); } .illo-render:hover img { transform: rotate(-4deg) scale(1.03); } }
+
+/* --- C-209 (2026-09-28), last in the file so it outranks the base rules it relaxes ------------------ */
+/* C-209: under 240 px (a phone at up to 200 percent zoom) every box may shrink and every word may break, so
+   nothing is cut by a block's overflow: clip; a word broken inside itself is the chosen way to degrade here. */
+@media (max-width: 239.98px) {
+  body * { min-width: 0; }
+  body { overflow-wrap: anywhere; }
+  /* but a control and an icon disc keep their size (44 px to tap), and a sticker wraps instead of running out */
+  .menu-btn, .vid-mini-play, .vid-play-ic, .faq-ic, .role-ic, .check-ic, .callout-ic, .step-n { flex-shrink: 0; }
+  .sticker { white-space: normal; max-width: 100%; }
+  .sticker-note { max-width: calc(100% - 24px); }
+  /* the video's play button is its icon alone in so small a frame; its word stays for screen readers */
+  .vid-play { padding: 6px; }
+  .vid-play-t { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  /* the small video card and a chapter row stack: picture over words, time over label */
+  .vid-mini a { grid-template-columns: minmax(0, 1fr); }
+  .vid-mini-meta { flex-wrap: wrap; }
+  .chapter { flex-wrap: wrap; padding: 6px 10px; }
+  .chapter .ch-l { flex: 1 1 100%; }
+  .sticker-final { font-size: 14px; white-space: normal; }
+  .vid-mini-body > .vid-mini-meta { min-width: 40px; }
+}
+
+/* C-322: the card grids' 26 px from 1100 px (see .day-cards) */
+@media (min-width: 1100px) { .plans, .cat-grid, .vid-cards { gap: 26px; } }

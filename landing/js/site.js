@@ -1,5 +1,9 @@
-/* BistroTech website, Pop: site.js, v0.3.3, 2026-09-27 (v0.3.2 the same day; v0.3.1, v0.3.0, v0.2.0 and
-   v0.1.0 on 2026-09-26).
+/* BistroTech website, Pop: site.js, v0.3.4, 2026-09-28 (v0.3.3 and v0.3.2 on 2026-09-27; v0.3.1, v0.3.0,
+   v0.2.0 and v0.1.0 on 2026-09-26).
+   v0.3.4, the critical review of 2026-09-28 (docs/reviews/critical-2026-09-28/, fix/website.md there): the
+   demo form keeps the focus, says when it is slow, gives up after fifteen seconds, points at the field the
+   lead function refuses, and shows its limits (initForm; C-181, C-182, C-183, C-294). The other parts of
+   that pass name their cluster where they sit.
    v0.3.3, the layout audit's Part 6 follow-up: the introduction video's cut check also runs when full
    screen ends and when the phone turns, so a cut hidden on leaving full screen is paused (initIntroCuts).
    v0.3.2, the layout audit's Part 5 follow-up (LAYOUT-AUDIT-WEBSITE-2026-09-26.md): the introduction
@@ -66,6 +70,13 @@
     document.addEventListener("click", function (e) {
       if (isOpen() && !e.target.closest(".nav-bar")) setOpen(false);
     });
+    // C-313 (2026-09-28): the keyboard leaving the open menu closes it, so the focus never lands on a
+    // control the panel still covers (WCAG 2.4.11). A blur to nowhere is left to the click rule above.
+    var bar = btn.closest(".nav-bar");
+    if (bar) bar.addEventListener("focusout", function (e) {
+      var to = e.relatedTarget;
+      if (isOpen() && to && !bar.contains(to)) setOpen(false);
+    });
   }
 
   /* ---- motion: the page pause, in view, asleep, hidden, under a finger (WCAG 2.2.2) ---------------
@@ -106,6 +117,19 @@
     var firstList = inner && inner.querySelector(".marquee-list");
     var ROUND_MS = 64000; // --m-band
     function span() { return firstList ? firstList.getBoundingClientRect().width : 0; }
+    // C-318 (2026-09-28): enough copies of the set to cover the window and one set more, and the loop
+    // moves by one set (site.css: -100% / --band-n), so the band never runs empty and never jumps, at any
+    // width (with two copies it ran out past a 2 512 px window). Copies are only added, never removed.
+    function fillBand() {
+      if (!inner || !firstList) return;
+      var set = span();
+      var proto = inner.querySelector(".marquee-copy");
+      if (!set || !proto) return;
+      var copies = inner.querySelectorAll(".marquee-list").length;
+      var need = Math.max(2, Math.ceil(window.innerWidth / set) + 1);
+      while (copies < need) { inner.appendChild(proto.cloneNode(true)); copies++; }
+      inner.style.setProperty("--band-n", String(copies));
+    }
     function wrap(x, m) { return m > 0 ? ((x % m) + m) % m : 0; }
     function toRow() {
       if (!mq || mq.hasAttribute("data-row")) return;
@@ -141,6 +165,8 @@
     buttons.forEach(function (b) { b.addEventListener("click", function () { setPaused(!paused()); }); });
     sync();
     if (mq) {
+      fillBand();
+      window.addEventListener("resize", fillBand);
       if (paused() || reduceMotion.matches) mq.setAttribute("data-row", "");
       mq.addEventListener("focusin", function () { window.setTimeout(marqueeFollows, 0); });
       mq.addEventListener("focusout", function () { window.setTimeout(marqueeFollows, 0); });
@@ -466,14 +492,25 @@
         .catch(function () { loading = null; return []; });
       return loading;
     }
+    // C-314 (2026-09-28): a word shorter than four letters ("ár") counts only at the start of a word, so it
+    // no longer finds itself inside "versenytársak" or "zárul"; a longer one still matches anywhere.
+    function has(text, w) {
+      if (w.length >= 4) return text.indexOf(w) !== -1;
+      var i = text.indexOf(w);
+      while (i !== -1) {
+        if (i === 0 || !/[a-z0-9]/.test(text.charAt(i - 1))) return true;
+        i = text.indexOf(w, i + 1);
+      }
+      return false;
+    }
     function search(words) {
       var hits = [];
       index.forEach(function (row) {
         var score = 0;
         var ok = words.every(function (w) {
-          var inT = row.t.indexOf(w) !== -1;
-          var inS = row.s.indexOf(w) !== -1;
-          var inB = row.b.indexOf(w) !== -1;
+          var inT = has(row.t, w);
+          var inS = has(row.s, w);
+          var inB = has(row.b, w);
           score += (inT ? 6 : 0) + (inS ? 3 : 0) + (inB ? 1 : 0);
           return inT || inS || inB;
         });
@@ -651,6 +688,11 @@
   // supabase/functions/lead/README.md: the same endpoint, the same anon key in the two
   // headers, the same field names and limits, the same honeypot, the same 429 answer.
   function initForm() {
+    // v0.3.4 (the critical review of 2026-09-28, C-181, C-182, C-183, C-294): the button keeps the
+    // keyboard focus while sending (aria-disabled, not disabled); after four seconds it says it is still
+    // sending, and after fifteen the request is given up with the error message; a field the lead
+    // function names (400 { field }) is marked and focused with its own line; the name and the message
+    // say their limit where it bites. What is sent is unchanged (supabase/functions/lead/README.md).
     var form = document.getElementById("demo-form");
     if (!form) return;
 
@@ -662,6 +704,9 @@
     var panel = document.getElementById("form-panel");
     var button = form.querySelector("button[type=submit]");
     var buttonLabel = button ? button.textContent : "";
+    var sending = false;
+    var SLOW_MS = 4000;
+    var GIVE_UP_MS = 15000;
 
     function tell(text, isError) {
       if (!status) return;
@@ -674,11 +719,66 @@
       return el && typeof el.value === "string" ? el.value.trim() : "";
     }
 
+    function clearInvalid() {
+      $all("[aria-invalid=true]", form).forEach(function (el) { el.removeAttribute("aria-invalid"); });
+    }
+
+    // The limit where it bites: the note appears from nine tenths of the field's maxlength.
+    function watchLimit(name, noteId) {
+      var el = form.elements[name];
+      var note = document.getElementById(noteId);
+      var tpl = form.getAttribute("data-limit");
+      if (!el || !note || !tpl) return;
+      var max = parseInt(el.getAttribute("maxlength"), 10);
+      if (!max) return;
+      function update() {
+        var n = el.value.length;
+        if (n >= Math.floor(max * 0.9)) {
+          note.textContent = tpl.replace("{n}", String(n)).replace("{max}", String(max));
+          note.hidden = false;
+        } else {
+          note.hidden = true;
+          note.textContent = "";
+        }
+      }
+      el.addEventListener("input", update);
+      update();
+    }
+    watchLimit("name", "name-limit");
+    watchLimit("message", "message-limit");
+
+    form.addEventListener("input", function (event) {
+      if (event.target && event.target.getAttribute && event.target.getAttribute("aria-invalid") === "true") {
+        event.target.removeAttribute("aria-invalid");
+      }
+    });
+
+    function done() {
+      sending = false;
+      if (button) {
+        button.removeAttribute("aria-disabled");
+        button.textContent = buttonLabel;
+      }
+    }
+
+    function fail(text, field) {
+      tell(text, true);
+      var el = field ? form.elements[field] : null;
+      if (el && typeof el.focus === "function" && el.type !== "hidden") {
+        el.setAttribute("aria-invalid", "true");
+        el.focus();
+      } else if (status) {
+        status.focus();
+      }
+    }
+
     form.addEventListener("submit", function (event) {
       event.preventDefault();
+      if (sending) return;
       tell("");
+      clearInvalid();
 
-      // The browser's own required and type=email checks run first.
+      // The browser's own required, type=email and pattern checks run first.
       if (typeof form.reportValidity === "function" && !form.reportValidity()) return;
 
       var payload = {
@@ -693,10 +793,16 @@
         source: source
       };
 
+      sending = true;
       if (button) {
-        button.disabled = true;
+        button.setAttribute("aria-disabled", "true");
         button.textContent = form.getAttribute("data-sending") || buttonLabel;
       }
+      var slow = window.setTimeout(function () {
+        if (sending && button) button.textContent = form.getAttribute("data-sending-slow") || button.textContent;
+      }, SLOW_MS);
+      var ctrl = typeof AbortController === "function" ? new AbortController() : null;
+      var giveUp = window.setTimeout(function () { if (ctrl) ctrl.abort(); }, GIVE_UP_MS);
 
       fetch(endpoint, {
         method: "POST",
@@ -705,7 +811,8 @@
           "apikey": key,
           "Authorization": "Bearer " + key
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
+        signal: ctrl ? ctrl.signal : undefined
       })
         .then(function (res) {
           return res.json().catch(function () { return {}; }).then(function (body) {
@@ -713,6 +820,9 @@
           });
         })
         .then(function (res) {
+          window.clearTimeout(slow);
+          window.clearTimeout(giveUp);
+          done();
           if (res.ok) {
             if (panel) panel.hidden = true;
             if (thanks) {
@@ -722,19 +832,18 @@
             }
             return;
           }
-          var msg = res.status === 429
-            ? form.getAttribute("data-error-rate")
-            : form.getAttribute("data-error");
-          tell(msg, true);
+          if (res.status === 429) return fail(form.getAttribute("data-error-rate"));
+          var field = res.status === 400 && res.body && typeof res.body.field === "string" ? res.body.field : "";
+          if (field && form.elements[field]) {
+            return fail(form.getAttribute(field === "email" ? "data-error-email" : "data-error-field"), field);
+          }
+          fail(form.getAttribute("data-error"));
         })
         .catch(function () {
-          tell(form.getAttribute("data-error"), true);
-        })
-        .then(function () {
-          if (button) {
-            button.disabled = false;
-            button.textContent = buttonLabel;
-          }
+          window.clearTimeout(slow);
+          window.clearTimeout(giveUp);
+          done();
+          fail(form.getAttribute("data-error"));
         });
     });
   }

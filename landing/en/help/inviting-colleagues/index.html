@@ -4,17 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Inviting colleagues · BistroTech help</title>
-<meta name="description" content="You bring your colleagues into the account with an invite link or by email address.">
+<meta name="description" content="You bring your colleagues into the account with an invite link or by email address, with their role and their venues.">
 <meta name="theme-color" content="#38d6e0">
 <link rel="canonical" href="https://zsombp.github.io/npi-review-system/landing/en/help/inviting-colleagues/">
 
 <link rel="alternate" hreflang="hu" href="https://zsombp.github.io/npi-review-system/landing/sugo/kollegak-meghivasa/">
+<link rel="alternate" hreflang="x-default" href="https://zsombp.github.io/npi-review-system/landing/sugo/kollegak-meghivasa/">
 <link rel="alternate" hreflang="en" href="https://zsombp.github.io/npi-review-system/landing/en/help/inviting-colleagues/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BistroTech">
 <meta property="og:locale" content="en_GB">
 <meta property="og:title" content="Inviting colleagues · BistroTech help">
-<meta property="og:description" content="You bring your colleagues into the account with an invite link or by email address.">
+<meta property="og:description" content="You bring your colleagues into the account with an invite link or by email address, with their role and their venues.">
 <meta property="og:url" content="https://zsombp.github.io/npi-review-system/landing/en/help/inviting-colleagues/">
 
 <meta property="og:image" content="https://zsombp.github.io/npi-review-system/landing/img/og-en.png">
@@ -24,7 +25,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../../css/site.css?v=dc93e4933a">
+<link rel="stylesheet" href="../../../css/site.css?v=665db7053c">
 <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
@@ -34,10 +35,10 @@
 </head>
 <body class="pg-article">
 <a class="skip" href="#main">Skip to the content</a>
-<!-- Pictograms. 24 px grid, 1.5 px stroke, currentColor, round caps and joins (BRAND
+<!-- Pictograms (2026-09-28, C-255: the chart and the bell centred on their grid as in the app, web/src/components/Icon.tsx v0.1.1). 24 px grid, 1.5 px stroke, currentColor, round caps and joins (BRAND
      section 7). The star is the one filled shape and appears only as data. -->
 <svg class="sprite" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false">
-  <symbol id="g-chart" viewBox="0 0 24 24"><path d="M5 20v-6M12 20V7M19 20v-9"/></symbol>
+  <symbol id="g-chart" viewBox="0 0 24 24"><path d="M5 18.5v-6M12 18.5V5.5M19 18.5v-9"/></symbol>
   <symbol id="g-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
   <symbol id="g-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
   <symbol id="g-warn" viewBox="0 0 24 24"><path d="M12 4.5 21 19.5H3z"/><path d="M12 10v4M12 17h.01"/></symbol>
@@ -52,11 +53,12 @@
   <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></symbol>
   <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></symbol>
   <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
-  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16.5V11a6 6 0 1 1 12 0v5.5l1.5 1.5h-15z"/><path d="M10 20.5a2.2 2.2 0 0 0 4 0"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 15.1V9.6a6 6 0 1 1 12 0v5.5l1.5 1.5h-15z"/><path d="M10 19.1a2.2 2.2 0 0 0 4 0"/></symbol>
   <symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8.5h14.5M15 5l3.5 3.5L15 12M20 15.5H5.5M9 12l-3.5 3.5L9 19"/></symbol>
   <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6.5h11M9 12h11M9 17.5h6M4.5 6.5h.01M4.5 12h.01M4.5 17.5h.01"/></symbol>
   <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3.5"/><path d="M3 19.5c.8-3.2 3.2-5 6-5s5.2 1.8 6 5M15.5 5.2a3.5 3.5 0 0 1 0 6.6M17.5 14.8c1.8.6 3 2.2 3.5 4.7"/></symbol>
   <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c.9-3.6 3.7-5.5 7-5.5s6.1 1.9 7 5.5"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.75 12S6.25 5.75 12 5.75 21.25 12 21.25 12 17.75 18.25 12 18.25 2.75 12 2.75 12z"/><circle cx="12" cy="12" r="3"/></symbol>
   <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15.5" r="4"/><path d="M11 12.5 19.5 4M16 7.5l2.5 2.5M13.5 10l2 2"/></symbol>
   <symbol id="i-ask" viewBox="0 0 24 24"><path d="M4 5.5h16v10.5H10.5L6 19.5V16H4z"/><path d="M10.1 9a1.9 1.9 0 1 1 2.7 1.7c-.5.3-.8.6-.8 1.2v.2M12 14h.01"/></symbol>
   <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></symbol>
@@ -133,7 +135,7 @@
   <div class="wrap help-hero-grid">
     <div class="help-hero-main">
       <p class="help-kicker"><a href="../../help/"><span class="w-stk">Help<span class="sticker sticker-help" aria-hidden="true">in English</span></span></a></p>
-      <p class="help-sub">Every step written up with pictures, and a short video from the account. In English.</p>
+      <p class="help-sub">Every step written up in English, some with pictures, and a first video from the demo account: the Hungarian app with English captions.</p>
       <form class="help-search" role="search" action="../../help/" method="get" novalidate data-index="../../help/search.json" data-root="../../" data-count="Articles found: {n}" data-none="No article matches. Try another word.">
         <label for="help-q">Search the help centre</label>
         <div class="search-field">
@@ -186,26 +188,26 @@
 
         <div class="art-body">
           <h2 id="invite-link">Invite link</h2>
-<ol class="hsteps" role="list" id="steps"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>On the <b class="ui">Create an invite link</b> card, choose in the <b class="ui">Role</b> field whether they will be a <b class="ui">Member</b>, an <b class="ui">Owner</b> or a <b class="ui">Viewer</b>.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Press the <b class="ui">Create link</b> button.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Copy the link with the <b class="ui">Copy link</b> button. Do it now, because we cannot show it again later.</p></div></li><li class="hstep"><span class="hstep-n c-green" aria-hidden="true">4</span><div class="hstep-body"><p>Send it to your colleague in a message. The link works for seven days, and it can be used to join once.</p></div></li></ol>
-<p>On the link, your colleague sees the account's name and their role. If they have no login yet, they sign up with the <b class="ui">Sign up</b> button. If they have one, they sign in with the <b class="ui">I have an account, sign in</b> button. Then the <b class="ui">Join account</b> button puts them in the account.</p>
+<ol class="hsteps" role="list" id="steps"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>On the <b class="ui">Create an invite link</b> card, choose in the <b class="ui">Role</b> field whether they will be a <b class="ui">Member</b>, an <b class="ui">Owner</b> or a <b class="ui">Viewer</b>.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Under <b class="ui">Venues</b>, decide what they see. <b class="ui">All of them</b> gives every venue, the ones added later too. If they should see only a few, untick the <b class="ui">All of them</b> box, and tick their venues.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Press the <b class="ui">Create link</b> button.</p></div></li><li class="hstep"><span class="hstep-n c-green" aria-hidden="true">4</span><div class="hstep-body"><p>Copy the link with the <b class="ui">Copy link</b> button. Do it now, because we cannot show it again later.</p></div></li><li class="hstep"><span class="hstep-n c-orange" aria-hidden="true">5</span><div class="hstep-body"><p>Send it to your colleague in a message. The link works for seven days, and it can be used to join once.</p></div></li></ol>
+<p>The <b class="ui">Venues</b> part shows once the account has a venue. An owner always sees every venue, so you do not choose venues for one.</p>
+<p>On the link, your colleague sees the account's name, their role and their venues. If they have no login yet, they sign up with the <b class="ui">Sign up</b> button, and they are in the account straight after. If they have one, they sign in with the <b class="ui">I have an account, sign in</b> button, and they are in at once too. If they open the link already signed in, the <b class="ui">Join account</b> button puts them in the account.</p>
+<h2 id="another-link-or-a-replacement">Another link, or a replacement</h2>
+<p>Above the finished link, the card says what the link gives: the role and the venues.</p>
+<ul class="art-list" role="list"><li>With the <b class="ui">Another link</b> button you make one more link with the same access, and the earlier one still works. That way you invite several colleagues, each with their own link.</li><li>With the <b class="ui">Replace link</b> button the earlier link stops working at once, and you get a new one in its place. Use it when you sent the link to the wrong person.</li></ul>
+<p>If you change the <b class="ui">Role</b> or the <b class="ui">Venues</b> after the link is made, the link leaves the card, but it keeps working. You see it under <b class="ui">Pending invitations</b>, and you can revoke it there.</p>
 <h2 id="inviting-by-email-address">Inviting by email address</h2>
 <p>If your colleague already has a BistroTech login, you can also invite them by their email address.</p>
-<ol class="hsteps" role="list"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>On the <b class="ui">Invite someone</b> card, type their address in the <b class="ui">Email address</b> field, and choose their role.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Press the <b class="ui">Invite</b> button.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Tell them to sign in. The next time they sign in, they are in the account.</p></div></li></ol>
+<ol class="hsteps" role="list"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>On the <b class="ui">Invite someone</b> card, type their address in the <b class="ui">Email address</b> field, and choose their role.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>For a member or a viewer, you choose under <b class="ui">Venues</b> the same way as for a link.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Press the <b class="ui">Invite</b> button.</p></div></li><li class="hstep"><span class="hstep-n c-green" aria-hidden="true">4</span><div class="hstep-body"><p>Tell them to sign in. The next time they sign in, they are in the account, with the venues you chose.</p></div></li></ol>
 <p>If your colleague has no login yet, use the invite link.</p>
 <h2 id="pending-invitations">Pending invitations</h2>
-<p>Invitations not used yet stand in the <b class="ui">Pending invitations</b> list, with their expiry date. The <b class="ui">Revoke</b> button cancels any of them.</p>
+<p>Invitations not used yet stand in the <b class="ui">Pending invitations</b> list, with the role, the venues and their expiry date. The <b class="ui">Revoke</b> button cancels any of them.</p>
+<p>If you deleted every venue an invitation names, the list says “No venue left” beside it. Nobody can join with that invitation any more. Revoke it and make a new one.</p>
+<h2 id="if-they-are-already-in-the-account">If they are already in the account</h2>
+<p>If the person you invite is already on the account, the invitation changes nothing: their role and their venues stay. You change their role and their venues on the <b class="ui">Team</b> page, see <a href="../../help/roles-and-access/">Roles and access per venue</a>.</p>
 <h2 id="inviting-a-viewer">Inviting a viewer</h2>
-<p>A viewer sees everything, but changes nothing. You can invite one by link or by <span class="hy">e-mail</span> address: choose <b class="ui">Viewer</b> in the <b class="ui">Role</b> field. More about roles: <a href="../../help/roles-and-access/">Roles and access per venue</a>.</p>
+<p>A viewer changes nothing. They see every venue, or only the ones you tick on the invitation. You can invite one by link or by email address: choose <b class="ui">Viewer</b> in the <b class="ui">Role</b> field. More about roles: <a href="../../help/roles-and-access/">Roles and access per venue</a>.</p>
         </div>
 
-        <section class="feedback" aria-labelledby="fb-q">
-          <p class="fb-q" id="fb-q">Did this article help?</p>
-          <div class="fb-btns" role="group" aria-labelledby="fb-q">
-            <button type="button" class="btn btn-white" data-fb="igen" aria-pressed="false">Yes</button>
-            <button type="button" class="btn btn-white" data-fb="nem" aria-pressed="false">No</button>
-          </div>
-          <p class="fb-done" role="status" aria-live="polite" data-done="Thank you."></p>
-        </section>
         
 
         <section class="related" id="related" aria-labelledby="rel-title">
@@ -220,11 +222,11 @@
         
 
         <section class="contact" aria-labelledby="contact-t">
-  <p class="contact-t" id="contact-t">Can&#x27;t find what you need? Write to us. We answer in Hungarian and English.</p>
-  <a class="btn btn-yellow" href="../../demo/"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>Write to us</a>
+  <p class="contact-t" id="contact-t">Can&#x27;t find what you need? If you have an account, write to us with the Feedback button in the menu. If you don&#x27;t, or you cannot sign in, call us.</p>
+  <a class="btn btn-yellow" href="tel:+36302222444"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><span>Call us: +36 30 2222 444</span></a>
 </section>
 
-        <p class="art-updated">Updated: 26 September 2026</p>
+        <p class="art-updated">Updated: 3 October 2026</p>
       </article>
 
       <aside class="help-side" aria-label="In this article">
@@ -232,10 +234,12 @@
           <h2>In this article</h2>
           <ol>
             <li class="c-yellow"><a href="#invite-link">Invite link</a></li>
-            <li class="c-pink"><a href="#inviting-by-email-address">Inviting by email address</a></li>
-            <li class="c-cyan"><a href="#pending-invitations">Pending invitations</a></li>
-            <li class="c-green"><a href="#inviting-a-viewer">Inviting a viewer</a></li>
-            <li class="c-orange"><a href="#related">Related articles</a></li>
+            <li class="c-pink"><a href="#another-link-or-a-replacement">Another link, or a replacement</a></li>
+            <li class="c-cyan"><a href="#inviting-by-email-address">Inviting by email address</a></li>
+            <li class="c-green"><a href="#pending-invitations">Pending invitations</a></li>
+            <li class="c-orange"><a href="#if-they-are-already-in-the-account">If they are already in the account</a></li>
+            <li class="c-lilac"><a href="#inviting-a-viewer">Inviting a viewer</a></li>
+            <li class="c-yellow"><a href="#related">Related articles</a></li>
             
           </ol>
         </div>
@@ -291,9 +295,6 @@
       <div><dt>Tax number</dt><dd>10907850-2-41</dd></div>
       <div><dt>Phone</dt><dd><a href="tel:+36302222444">+36 30 2222 444</a></dd></div>
     </dl>
-    <!-- TODO-PROOF: cégjegyzékszám to be checked against the official cégkivonat before publication (carried over from docs/legal/aszf-hu.md section 1). -->
-    <!-- TODO-PROOF: no e-mail address is published here. The company's general address is a personal Gmail account; the BistroTech address on a company domain does not exist yet. Until it does, the form and the phone number are the only contact routes. Same TODO as in aszf-hu.md section 1. -->
-    
   </div></div>
   <div class="wrap foot-mega">
     <a class="logo logo-mega" href="../../" aria-label="BistroTech, home page">
@@ -319,11 +320,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.6.0, 2026-09-27.</span></p>
+    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.7.0, 2026-09-28.</span></p>
   </div>
 </footer>
 
-<script src="../../../js/site.js?v=7d1cac42bb" defer></script>
+<script src="../../../js/site.js?v=fc4a4deefd" defer></script>
 </body>
 </html>
 

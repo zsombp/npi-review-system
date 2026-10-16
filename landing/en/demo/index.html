@@ -9,6 +9,7 @@
 <link rel="canonical" href="https://zsombp.github.io/npi-review-system/landing/en/demo/">
 
 <link rel="alternate" hreflang="hu" href="https://zsombp.github.io/npi-review-system/landing/bemutato/">
+<link rel="alternate" hreflang="x-default" href="https://zsombp.github.io/npi-review-system/landing/bemutato/">
 <link rel="alternate" hreflang="en" href="https://zsombp.github.io/npi-review-system/landing/en/demo/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BistroTech">
@@ -24,7 +25,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=dc93e4933a">
+<link rel="stylesheet" href="../../css/site.css?v=665db7053c">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
@@ -34,10 +35,10 @@
 </head>
 <body class="pg-demo">
 <a class="skip" href="#main">Skip to the content</a>
-<!-- Pictograms. 24 px grid, 1.5 px stroke, currentColor, round caps and joins (BRAND
+<!-- Pictograms (2026-09-28, C-255: the chart and the bell centred on their grid as in the app, web/src/components/Icon.tsx v0.1.1). 24 px grid, 1.5 px stroke, currentColor, round caps and joins (BRAND
      section 7). The star is the one filled shape and appears only as data. -->
 <svg class="sprite" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false">
-  <symbol id="g-chart" viewBox="0 0 24 24"><path d="M5 20v-6M12 20V7M19 20v-9"/></symbol>
+  <symbol id="g-chart" viewBox="0 0 24 24"><path d="M5 18.5v-6M12 18.5V5.5M19 18.5v-9"/></symbol>
   <symbol id="g-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
   <symbol id="g-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
   <symbol id="g-warn" viewBox="0 0 24 24"><path d="M12 4.5 21 19.5H3z"/><path d="M12 10v4M12 17h.01"/></symbol>
@@ -52,11 +53,12 @@
   <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></symbol>
   <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></symbol>
   <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
-  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16.5V11a6 6 0 1 1 12 0v5.5l1.5 1.5h-15z"/><path d="M10 20.5a2.2 2.2 0 0 0 4 0"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 15.1V9.6a6 6 0 1 1 12 0v5.5l1.5 1.5h-15z"/><path d="M10 19.1a2.2 2.2 0 0 0 4 0"/></symbol>
   <symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8.5h14.5M15 5l3.5 3.5L15 12M20 15.5H5.5M9 12l-3.5 3.5L9 19"/></symbol>
   <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6.5h11M9 12h11M9 17.5h6M4.5 6.5h.01M4.5 12h.01M4.5 17.5h.01"/></symbol>
   <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3.5"/><path d="M3 19.5c.8-3.2 3.2-5 6-5s5.2 1.8 6 5M15.5 5.2a3.5 3.5 0 0 1 0 6.6M17.5 14.8c1.8.6 3 2.2 3.5 4.7"/></symbol>
   <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c.9-3.6 3.7-5.5 7-5.5s6.1 1.9 7 5.5"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.75 12S6.25 5.75 12 5.75 21.25 12 21.25 12 17.75 18.25 12 18.25 2.75 12 2.75 12z"/><circle cx="12" cy="12" r="3"/></symbol>
   <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15.5" r="4"/><path d="M11 12.5 19.5 4M16 7.5l2.5 2.5M13.5 10l2 2"/></symbol>
   <symbol id="i-ask" viewBox="0 0 24 24"><path d="M4 5.5h16v10.5H10.5L6 19.5V16H4z"/><path d="M10.1 9a1.9 1.9 0 1 1 2.7 1.7c-.5.3-.8.6-.8 1.2v.2M12 14h.01"/></symbol>
   <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></symbol>
@@ -136,12 +138,8 @@
       <div class="demo-intro">
         <h1 id="page-title" class="h-page">Ask for a <span class="hl hl-yellow">demo</span></h1>
         <p class="lead">We look at your venues&#x27; Google profiles, show you what the first daily report would look like with your own data, and answer your questions.</p>
-        <p class="hero-note">Above ten venues, we go through the package and the price with you in person.</p>
+        <p class="hero-note">During the trial an account holds up to five venues. If you have more, ask for a demo and we go through it with you in person.</p>
         <p class="demo-op">BistroTech is operated by Netpromotion Invest Kft. We speak Hungarian and English.</p>
-        <!-- TODO-PROOF: no response-time promise on this page. The thank-you state says "egy
-             munkanapon belül", which is the operator's own working intention and the weakest
-             claim that is still useful. If it cannot be held, change it. (Carried over from
-             platform/landing/index.html.) -->
         <!-- ILLUSTRATION "demo": Suggested object: a coffee cup, or a calendar. Pop illustrations (POP-SYSTEM-v0.1.0 section 7, D-049) come from
      docs/design/lab/illustration-2026-09-26 (svg/ by tools/build_svg.py, renders/ by blender/). Decorative, so aria-hidden. -->
 <div class="illo-slot illo-art illo-md c-yellow" data-illo="demo" aria-hidden="true">
@@ -156,22 +154,29 @@
                the same endpoint, the same public anon key in both headers, the same field names
                and limits, the same company_website honeypot, the same 429 answer, the same source
                tag (site.json lead). -->
-          <form class="demo" id="demo-form" novalidate
+          <!-- method="post": without the script the browser posts to this static page, which fails in the
+               open and never puts a name, an address or a phone number into the address bar (C-168). -->
+          <form class="demo" id="demo-form" method="post" novalidate
                 data-endpoint="https://jumaxvgckuxbwaiwjdte.supabase.co/functions/v1/lead"
                 data-key="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1bWF4dmdja3V4YndhaXdqZHRlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc1NzkwMTQsImV4cCI6MjEwMzE1NTAxNH0.fh_xIhYKBGY_RbcG-9giQ9ZM9X1ODhbVa1QW5nbp00Y"
                 data-source="landing-en"
                 data-sending="Sending"
+                data-sending-slow="Still sending"
                 data-error="The message did not go through just now. Try again, or call us on the number at the bottom of the page."
-                data-error-rate="Too many attempts came from this connection. Wait an hour, or call us on the number at the bottom of the page.">
+                data-error-rate="Too many attempts came from this connection. Wait an hour, or call us on the number at the bottom of the page."
+                data-error-email="That email address does not look complete. Check it and send again."
+                data-error-field="Check the marked field and send again."
+                data-limit="{n} of {max} characters. No more will fit.">
             <label>Your name
-              <input type="text" name="name" autocomplete="name" maxlength="120" required>
+              <input type="text" name="name" autocomplete="name" maxlength="120" required aria-describedby="name-limit">
             </label>
+            <p class="field-note" id="name-limit" hidden></p>
             <label>Restaurant or company name
               <input type="text" name="restaurant" autocomplete="organization" maxlength="160" required>
             </label>
             <div class="two">
               <label>Email address
-                <input type="email" name="email" autocomplete="email" maxlength="254" required>
+                <input type="email" name="email" autocomplete="email" maxlength="254" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="For example: name@restaurant.com">
               </label>
               <label>Phone number (optional)
                 <input type="tel" name="phone" autocomplete="tel" maxlength="40">
@@ -181,8 +186,9 @@
               <input type="number" name="venues" min="1" max="500" step="1" inputmode="numeric" required>
             </label>
             <label>Message (optional)
-              <textarea name="message" maxlength="2000" rows="4"></textarea>
+              <textarea name="message" maxlength="2000" rows="4" aria-describedby="message-limit"></textarea>
             </label>
+            <p class="field-note" id="message-limit" hidden></p>
             <!-- Honeypot. Hidden from people, filled in by bots, rejected by the function. -->
             <div class="hp" aria-hidden="true">
               <label>Website
@@ -190,7 +196,8 @@
               </label>
             </div>
             <button class="btn btn-blue btn-lg" type="submit">Ask for a demo</button>
-            <p class="status" id="form-status" role="status" aria-live="polite"></p>
+            <p class="status" id="form-status" role="status" aria-live="polite" tabindex="-1"></p>
+            <noscript><p class="status err">Sending needs JavaScript, which is switched off now. Call us: <a href="tel:+36302222444">+36 30 2222 444</a></p></noscript>
             <p class="formnote">We use what you write here to get in touch and to prepare an offer. The details are in the <a href="../../adatkezeles/" hreflang="hu">privacy notice</a> (in Hungarian).</p>
           </form>
         </div>
@@ -208,7 +215,7 @@
     <div class="wrap cta-block">
       <h2 id="d-self">Start <span class="hl hl-yellow">free</span> for 14 days</h2>
       <div class="cta-block-text">
-        <p class="lead">You sign up, add the venue, and a few minutes later you see your reviews. The first report arrives the next morning.</p>
+        <p class="lead">You sign up, add the venue, and a few minutes later you see your reviews. The first report arrives at the hour you set.</p>
         <div class="cta-row">
           <a class="btn btn-yellow btn-lg" href="https://zsombp.github.io/npi-review-system/signup?lang=en">Start free for 14 days<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
           <a class="btn btn-white btn-lg" href="../how-it-works/">See how it works</a>
@@ -264,9 +271,6 @@
       <div><dt>Tax number</dt><dd>10907850-2-41</dd></div>
       <div><dt>Phone</dt><dd><a href="tel:+36302222444">+36 30 2222 444</a></dd></div>
     </dl>
-    <!-- TODO-PROOF: cégjegyzékszám to be checked against the official cégkivonat before publication (carried over from docs/legal/aszf-hu.md section 1). -->
-    <!-- TODO-PROOF: no e-mail address is published here. The company's general address is a personal Gmail account; the BistroTech address on a company domain does not exist yet. Until it does, the form and the phone number are the only contact routes. Same TODO as in aszf-hu.md section 1. -->
-    
   </div></div>
   <div class="wrap foot-mega">
     <a class="logo logo-mega" href="../" aria-label="BistroTech, home page">
@@ -292,11 +296,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.6.0, 2026-09-27.</span></p>
+    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.7.0, 2026-09-28.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=7d1cac42bb" defer></script>
+<script src="../../js/site.js?v=fc4a4deefd" defer></script>
 </body>
 </html>
 

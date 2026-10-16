@@ -9,6 +9,7 @@
 <link rel="canonical" href="https://zsombp.github.io/npi-review-system/landing/sugo/atiras-es-szabalyok/">
 
 <link rel="alternate" hreflang="hu" href="https://zsombp.github.io/npi-review-system/landing/sugo/atiras-es-szabalyok/">
+<link rel="alternate" hreflang="x-default" href="https://zsombp.github.io/npi-review-system/landing/sugo/atiras-es-szabalyok/">
 <link rel="alternate" hreflang="en" href="https://zsombp.github.io/npi-review-system/landing/en/help/rewriting-and-reply-rules/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BistroTech">
@@ -24,7 +25,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=dc93e4933a">
+<link rel="preload" href="../../fonts/spacegrotesk-display-lat-ext.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../fonts/sourcesans3-lat-ext.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../css/site.css?v=665db7053c">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
@@ -34,10 +37,10 @@
 </head>
 <body class="pg-article">
 <a class="skip" href="#main">Ugrás a tartalomra</a>
-<!-- Pictograms. 24 px grid, 1.5 px stroke, currentColor, round caps and joins (BRAND
+<!-- Pictograms (2026-09-28, C-255: the chart and the bell centred on their grid as in the app, web/src/components/Icon.tsx v0.1.1). 24 px grid, 1.5 px stroke, currentColor, round caps and joins (BRAND
      section 7). The star is the one filled shape and appears only as data. -->
 <svg class="sprite" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false">
-  <symbol id="g-chart" viewBox="0 0 24 24"><path d="M5 20v-6M12 20V7M19 20v-9"/></symbol>
+  <symbol id="g-chart" viewBox="0 0 24 24"><path d="M5 18.5v-6M12 18.5V5.5M19 18.5v-9"/></symbol>
   <symbol id="g-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
   <symbol id="g-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
   <symbol id="g-warn" viewBox="0 0 24 24"><path d="M12 4.5 21 19.5H3z"/><path d="M12 10v4M12 17h.01"/></symbol>
@@ -52,11 +55,12 @@
   <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></symbol>
   <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></symbol>
   <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
-  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16.5V11a6 6 0 1 1 12 0v5.5l1.5 1.5h-15z"/><path d="M10 20.5a2.2 2.2 0 0 0 4 0"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 15.1V9.6a6 6 0 1 1 12 0v5.5l1.5 1.5h-15z"/><path d="M10 19.1a2.2 2.2 0 0 0 4 0"/></symbol>
   <symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8.5h14.5M15 5l3.5 3.5L15 12M20 15.5H5.5M9 12l-3.5 3.5L9 19"/></symbol>
   <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6.5h11M9 12h11M9 17.5h6M4.5 6.5h.01M4.5 12h.01M4.5 17.5h.01"/></symbol>
   <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3.5"/><path d="M3 19.5c.8-3.2 3.2-5 6-5s5.2 1.8 6 5M15.5 5.2a3.5 3.5 0 0 1 0 6.6M17.5 14.8c1.8.6 3 2.2 3.5 4.7"/></symbol>
   <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c.9-3.6 3.7-5.5 7-5.5s6.1 1.9 7 5.5"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.75 12S6.25 5.75 12 5.75 21.25 12 21.25 12 17.75 18.25 12 18.25 2.75 12 2.75 12z"/><circle cx="12" cy="12" r="3"/></symbol>
   <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15.5" r="4"/><path d="M11 12.5 19.5 4M16 7.5l2.5 2.5M13.5 10l2 2"/></symbol>
   <symbol id="i-ask" viewBox="0 0 24 24"><path d="M4 5.5h16v10.5H10.5L6 19.5V16H4z"/><path d="M10.1 9a1.9 1.9 0 1 1 2.7 1.7c-.5.3-.8.6-.8 1.2v.2M12 14h.01"/></symbol>
   <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></symbol>
@@ -133,7 +137,7 @@
   <div class="wrap help-hero-grid">
     <div class="help-hero-main">
       <p class="help-kicker"><a href="../../sugo/"><span class="w-stk">Súgó<span class="sticker sticker-help" aria-hidden="true">magyarul</span></span></a></p>
-      <p class="help-sub">Minden lépéshez leírás képekkel és egy rövid videó a fiókból. Magyarul.</p>
+      <p class="help-sub">Leírás minden lépéshez, néhol képekkel, és egy első videó a bemutatófiókból. Magyarul.</p>
       <form class="help-search" role="search" action="../../sugo/" method="get" novalidate data-index="../../sugo/kereses.json" data-root="../../" data-count="{n} cikk" data-none="Nincs ilyen cikk. Próbáld másik szóval.">
         <label for="help-q">Keresés a súgóban</label>
         <div class="search-field">
@@ -179,43 +183,35 @@
             <li><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>3 perc olvasás</li>
             
           </ul>
-          <p class="art-intro">A válaszokat a te beállításaid szerint írjuk meg, mindig a vendég nyelvén. Ha a vendég csak csillagot adott, a fiók nyelvén.</p>
+          <p class="art-intro">A válaszokat a te beállításaid szerint írjuk meg, mindig a vendég nyelvén. Ha a vendég csak csillagot adott, a fiók nyelvén. A szöveg nélküli négy- és ötcsillagos értékelésekre nem írunk választ.</p>
         </header>
 
         
 
         <div class="art-body">
           <h2 id="az-atiras-gombok">Az átírás gombok</h2>
-<p>A <b class="ui">Válaszok</b> fülön a válasz alatt öt gomb áll: <b class="ui">Rövidebb</b>, <b class="ui">Melegebb</b>, <b class="ui">Határozottabb</b>, <b class="ui">Magázó</b> és <b class="ui">Tegező</b>.</p>
+<p>A <b class="ui">Válaszok</b> fülön a válasz alatt öt gomb áll: <b class="ui">Rövidebb</b>, <b class="ui">Melegebb</b>, <b class="ui">Határozottabb</b>, <b class="ui">Magázó</b> és <b class="ui">Tegező</b>. Telefonon előbb nyisd ki az <b class="ui">Átírás</b> részt.</p>
 <ul class="art-list" role="list"><li>Egy gombnyomás egy átírás. Az új szöveg a régi helyére kerül.</li><li>A <b class="ui">Vissza az előzőre</b> linkkel visszakapod az átírás előtti szöveget.</li><li>Az <b class="ui">Eredeti visszaállítása</b> linkkel az általunk írt első változatot kapod vissza.</li><li>Az átírt válasz is csak akkor megy ki, ha jóváhagyod.</li></ul>
 <p>Ha egy órán belül sok átírást kérsz, az átírás egy időre szünetel. Addig kézzel is szerkesztheted a szöveget.</p>
-<figure class="shot shot-wide"><div class="shot-frame"><img src="../../img/help/atiras-es-szabalyok.png" width="1628" height="1588" loading="lazy" decoding="async" alt="A Válaszok fül egyik válasza: egy háromcsillagos értékelés, alatta a kész válasz, az Átírás alatt az öt gomb, lent a Jóváhagyás és a Nem válaszolok gomb."></div><figcaption>A kép a bemutatófiókról készült. Az éttermek nevei, a vendégek szövegei és a számok kitaláltak.</figcaption></figure>
+<figure class="shot shot-wide"><div class="shot-frame"><img src="../../img/help/atiras-es-szabalyok.webp" width="1628" height="1588" loading="lazy" decoding="async" alt="A Válaszok fül egyik válasza: egy háromcsillagos értékelés, alatta a kész válasz, az Átírás alatt az öt gomb, lent a Jóváhagyás és a Nem válaszolok gomb."></div><figcaption>A kép a bemutatófiókról készült. Az éttermek nevei, a vendégek szövegei és a számok kitaláltak.</figcaption></figure>
 <h2 id="a-hangvetel">A hangvétel</h2>
-<ol class="hsteps" role="list" id="lepesek"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Nyisd meg a <b class="ui">Beállítások</b> oldalt, és keresd meg a <b class="ui">Válaszok hangvétele</b> kártyát.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>A <b class="ui">Hangvétel</b> mezőbe írd le, hogyan szóljanak a válaszok: milyen megszólítást használjunk, mit kerüljünk, hogyan írjuk alá.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Nyomd meg az oldal alján a <b class="ui">Mentés</b> gombot.</p></div></li></ol>
-<p><span class="hy">Egy-egy</span> étteremnek saját kiegészítést is adhatsz. Az <b class="ui">Éttermek</b> oldalon az étterem sorában kattints a <b class="ui">Hangvétel</b> linkre.</p>
+<ol class="hsteps" role="list" id="lepesek"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Nyisd meg a <b class="ui">Beállítások</b> oldalt, és keresd meg a <b class="ui">Válaszok hangvétele</b> kártyát.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>A <b class="ui">Hangvétel</b> mezőbe írd le, hogyan szóljanak a válaszok: milyen megszólítást használjunk, mit kerüljünk, hogyan írjuk alá.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Nyomd meg a <b class="ui">Beállítási útmutató</b> kártya alatti <b class="ui">Mentés</b> gombot.</p></div></li></ol>
+<p><span class="hy">Egy-egy</span> étteremnek saját kiegészítést is adhatsz. Az <b class="ui">Éttermek</b> oldalon, az étterem kártyáján nyomd meg a <b class="ui">Beállítások</b> gombot, és írd a <b class="ui">Hangvétel</b> részbe.</p>
 <h2 id="a-szabalyok">A szabályok</h2>
 <p>A <b class="ui">Beállítások</b> oldal <b class="ui">Válaszok szabályai</b> kártyáján néhány kemény szabályt adsz meg. A kártyának saját <b class="ui">Mentés</b> gombja van.</p>
-<ul class="art-list" role="list"><li><b class="ui">Megszólítás</b>: <b class="ui">Ahogy a vendég írt (bizonytalan esetben magázás)</b>, <b class="ui">Mindig magázás</b> vagy <b class="ui">Mindig tegezés</b>.</li><li><b class="ui">Aláírás a válasz végén</b>: ha üresen hagyod, az étterem neve zárja a választ. Éttermenként felülírhatod az <b class="ui">Éttermek</b> oldalon, a <b class="ui">Hangvétel</b> panel <b class="ui">Aláírás a válaszok végén</b> mezőjében.</li><li><b class="ui">Amit soha ne írjon</b>: vesszővel elválasztott szavak. A toldalékos alakokat is figyeljük. Ha a válasz mégis tartalmazná valamelyiket, nem készül el.</li><li><b class="ui">Legfeljebb ennyi szó</b>: alapból pozitív értékelésre 70, negatívra 120 szó.</li></ul>
+<ul class="art-list" role="list"><li><b class="ui">Megszólítás</b>: <b class="ui">Ahogy a vendég írt (bizonytalan esetben magázás)</b>, <b class="ui">Mindig magázás</b> vagy <b class="ui">Mindig tegezés</b>.</li><li><b class="ui">Aláírás a válasz végén</b>: ha üresen hagyod, az étterem neve zárja a választ. Éttermenként felülírhatod az <b class="ui">Éttermek</b> oldalon, az étterem <b class="ui">Beállítások</b> paneljének <b class="ui">Aláírás a válaszok végén</b> mezőjében.</li><li><b class="ui">Amit soha ne írjon</b>: vesszővel elválasztott szavak. A toldalékos alakokat is figyeljük. Ha a válasz mégis tartalmazná valamelyiket, nem készül el.</li><li><b class="ui">Legfeljebb ennyi szó</b>: alapból pozitív értékelésre 70, negatívra 120 szó.</li></ul>
 <p>A szabályok a következő értékeléstől érvényesek. A már megírt válaszokat nem írjuk át. A hangvételt és a szabályokat a fiók tulajdonosa állítja.</p>
 <h2 id="amit-mindig-betartunk">Amit mindig betartunk</h2>
 <ul class="art-list" role="list"><li>Nem ígérünk visszatérítést, kedvezményt, ingyen ételt vagy más kárpótlást.</li><li>Nem írunk a válaszba telefonszámot, <span class="hy">e-mail-címet</span> vagy linket.</li><li>Negatív értékelésnél egyszer kérünk elnézést, nem vitatkozunk, és nem hibáztatjuk a vendéget.</li></ul>
         </div>
 
-        <section class="feedback" aria-labelledby="fb-q">
-          <p class="fb-q" id="fb-q">Segített ez a leírás?</p>
-          <div class="fb-btns" role="group" aria-labelledby="fb-q">
-            <button type="button" class="btn btn-white" data-fb="igen" aria-pressed="false">Igen</button>
-            <button type="button" class="btn btn-white" data-fb="nem" aria-pressed="false">Nem</button>
-          </div>
-          <p class="fb-done" role="status" aria-live="polite" data-done="Köszönjük."></p>
-        </section>
         
 
         <section class="related" id="kapcsolodo" aria-labelledby="rel-title">
           <h2 id="rel-title">Kapcsolódó leírások</h2>
           <ul class="link-list" role="list">
             <li><a href="../../sugo/valasz-jovahagyasa/">Válasz jóváhagyása<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></li>
-            <li><a href="../../sugo/automata-valasz/">Az automata válasz bekapcsolása<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></li>
+            <li><a href="../../sugo/automata-valasz/">Az automatikus válasz bekapcsolása<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></li>
             <li><a href="../../sugo/kezi-kozzetetel/">Válasz kézzel, Google-hozzáférés nélkül<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></li>
             
           </ul>
@@ -223,11 +219,11 @@
         
 
         <section class="contact" aria-labelledby="contact-t">
-  <p class="contact-t" id="contact-t">Nem találod, amit keresel? Írj nekünk, magyarul válaszolunk.</p>
-  <a class="btn btn-yellow" href="../../bemutato/"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>Írj nekünk</a>
+  <p class="contact-t" id="contact-t">Nem találod, amit keresel? Ha van fiókod, írj nekünk a menü Visszajelzés gombjával. Ha nincs, vagy nem tudsz belépni, hívj minket.</p>
+  <a class="btn btn-yellow" href="tel:+36302222444"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><span>Hívj minket: +36 30 2222 444</span></a>
 </section>
 
-        <p class="art-updated">Frissítve: 2026. szeptember 26.</p>
+        <p class="art-updated">Frissítve: 2026. szeptember 28.</p>
       </article>
 
       <aside class="help-side" aria-label="Ebben a leírásban">
@@ -293,9 +289,6 @@
       <div><dt>Adószám</dt><dd>10907850-2-41</dd></div>
       <div><dt>Telefon</dt><dd><a href="tel:+36302222444">+36 30 2222 444</a></dd></div>
     </dl>
-    <!-- TODO-PROOF: cégjegyzékszám to be checked against the official cégkivonat before publication (carried over from docs/legal/aszf-hu.md section 1). -->
-    <!-- TODO-PROOF: no e-mail address is published here. The company's general address is a personal Gmail account; the BistroTech address on a company domain does not exist yet. Until it does, the form and the phone number are the only contact routes. Same TODO as in aszf-hu.md section 1. -->
-    
   </div></div>
   <div class="wrap foot-mega">
     <a class="logo logo-mega" href="../../" aria-label="BistroTech, főoldal">
@@ -321,11 +314,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.6.0, 2026-09-27.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok tervezetek, ügyvédi ellenőrzés előtt.</span> <span>Oldal v0.7.0, 2026-09-28.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=7d1cac42bb" defer></script>
+<script src="../../js/site.js?v=fc4a4deefd" defer></script>
 </body>
 </html>
 

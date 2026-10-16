@@ -9,6 +9,7 @@
 <link rel="canonical" href="https://zsombp.github.io/npi-review-system/landing/en/for-groups/">
 
 <link rel="alternate" hreflang="hu" href="https://zsombp.github.io/npi-review-system/landing/csoportoknak/">
+<link rel="alternate" hreflang="x-default" href="https://zsombp.github.io/npi-review-system/landing/csoportoknak/">
 <link rel="alternate" hreflang="en" href="https://zsombp.github.io/npi-review-system/landing/en/for-groups/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BistroTech">
@@ -24,7 +25,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=dc93e4933a">
+<link rel="stylesheet" href="../../css/site.css?v=665db7053c">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
@@ -34,10 +35,10 @@
 </head>
 <body class="pg-groups">
 <a class="skip" href="#main">Skip to the content</a>
-<!-- Pictograms. 24 px grid, 1.5 px stroke, currentColor, round caps and joins (BRAND
+<!-- Pictograms (2026-09-28, C-255: the chart and the bell centred on their grid as in the app, web/src/components/Icon.tsx v0.1.1). 24 px grid, 1.5 px stroke, currentColor, round caps and joins (BRAND
      section 7). The star is the one filled shape and appears only as data. -->
 <svg class="sprite" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false">
-  <symbol id="g-chart" viewBox="0 0 24 24"><path d="M5 20v-6M12 20V7M19 20v-9"/></symbol>
+  <symbol id="g-chart" viewBox="0 0 24 24"><path d="M5 18.5v-6M12 18.5V5.5M19 18.5v-9"/></symbol>
   <symbol id="g-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
   <symbol id="g-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
   <symbol id="g-warn" viewBox="0 0 24 24"><path d="M12 4.5 21 19.5H3z"/><path d="M12 10v4M12 17h.01"/></symbol>
@@ -52,11 +53,12 @@
   <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></symbol>
   <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></symbol>
   <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
-  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16.5V11a6 6 0 1 1 12 0v5.5l1.5 1.5h-15z"/><path d="M10 20.5a2.2 2.2 0 0 0 4 0"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 15.1V9.6a6 6 0 1 1 12 0v5.5l1.5 1.5h-15z"/><path d="M10 19.1a2.2 2.2 0 0 0 4 0"/></symbol>
   <symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8.5h14.5M15 5l3.5 3.5L15 12M20 15.5H5.5M9 12l-3.5 3.5L9 19"/></symbol>
   <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6.5h11M9 12h11M9 17.5h6M4.5 6.5h.01M4.5 12h.01M4.5 17.5h.01"/></symbol>
   <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3.5"/><path d="M3 19.5c.8-3.2 3.2-5 6-5s5.2 1.8 6 5M15.5 5.2a3.5 3.5 0 0 1 0 6.6M17.5 14.8c1.8.6 3 2.2 3.5 4.7"/></symbol>
   <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c.9-3.6 3.7-5.5 7-5.5s6.1 1.9 7 5.5"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.75 12S6.25 5.75 12 5.75 21.25 12 21.25 12 17.75 18.25 12 18.25 2.75 12 2.75 12z"/><circle cx="12" cy="12" r="3"/></symbol>
   <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15.5" r="4"/><path d="M11 12.5 19.5 4M16 7.5l2.5 2.5M13.5 10l2 2"/></symbol>
   <symbol id="i-ask" viewBox="0 0 24 24"><path d="M4 5.5h16v10.5H10.5L6 19.5V16H4z"/><path d="M10.1 9a1.9 1.9 0 1 1 2.7 1.7c-.5.3-.8.6-.8 1.2v.2M12 14h.01"/></symbol>
   <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></symbol>
@@ -154,82 +156,82 @@
     <div class="wrap tour-grid">
       <div class="tour-text">
         <h2 id="g-report">Every venue, every day, in one <span class="mk mk-pink">report<svg class="mk-line" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M2 8C20 4 42 9 60 6.5S88 4.5 98 7"/></svg></span></h2>
-        <p class="sec-intro">The report shows, per venue, how many reviews came in at each star, five down to one. What you do with those numbers inside the restaurant is your own business.</p>
+        <p class="sec-intro">The report shows, per venue, how many reviews came in at each star, five down to one. You get the numbers by venue and by star, and you decide how to use them.</p>
         <p class="tour-fact">Every message we sent is kept: the Sent messages page shows what went out, where and when.</p>
       </div>
       <figure class="tour-visual tour-report">
         <div class="report-tilt tilt">
-          <div class="report" lang="hu">
+          <div class="report" lang="en">
   <div class="report-head">
     <svg class="glyph" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-chart"/></svg>
-    <span class="report-title">BISTROTECH NAPI JELENTÉS</span>
+    <span class="report-title">BISTROTECH DAILY REPORT</span>
   </div>
   <p class="line line-date">
     <svg class="glyph quiet" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-cal"/></svg>
-    <span class="muted sm">2026. szept. 15., kedd</span>
+    <span class="muted sm">Tuesday 15 Sep 2026</span>
   </p>
   <hr>
   <div class="venue">
     <p class="line">
       <svg class="glyph" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-pin"/></svg>
-      <span><b>Példa Bisztró</b> · <b>3</b> új · átlag <b>4,33</b></span>
+      <span><b>Példa Bisztró</b> · <b>3</b> new · average <b>4.33</b></span>
     </p>
     <p class="stars">
-      <span class="s5"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">5<span class="sr-only"> csillagos</span>:</span><b>2</b></span>
-      <span class="s4"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">4<span class="sr-only"> csillagos</span>:</span><span>0</span></span>
-      <span class="s3"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">3<span class="sr-only"> csillagos</span>:</span><span>1</span></span>
-      <span class="s2"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">2<span class="sr-only"> csillagos</span>:</span><b>0</b></span>
-      <span class="s1"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">1<span class="sr-only"> csillagos</span>:</span><b>0</b></span>
+      <span class="s5"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">5<span class="sr-only"> star</span>:</span><b>2</b></span>
+      <span class="s4"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">4<span class="sr-only"> star</span>:</span><span>0</span></span>
+      <span class="s3"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">3<span class="sr-only"> star</span>:</span><span>1</span></span>
+      <span class="s2"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">2<span class="sr-only"> star</span>:</span><b>0</b></span>
+      <span class="s1"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">1<span class="sr-only"> star</span>:</span><b>0</b></span>
       
     </p>
-    <p class="google">Google: 4,6 (1284)</p>
+    <p class="google">Google: 4.6 (1,284)</p>
   </div>
   <div class="venue">
     <p class="line">
       <svg class="glyph" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-pin"/></svg>
-      <span><b>Minta Étterem</b> · <b>1</b> új · átlag <b>2,00</b><span class="dot-neg" aria-hidden="true"></span></span>
+      <span><b>Minta Étterem</b> · <b>1</b> new · average <b>2.00</b><span class="dot-neg" aria-hidden="true"></span></span>
     </p>
     <p class="stars">
-      <span class="s5"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">5<span class="sr-only"> csillagos</span>:</span><b>0</b></span>
-      <span class="s4"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">4<span class="sr-only"> csillagos</span>:</span><span>0</span></span>
-      <span class="s3"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">3<span class="sr-only"> csillagos</span>:</span><span>0</span></span>
-      <span class="s2"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">2<span class="sr-only"> csillagos</span>:</span><b>1</b></span>
-      <span class="s1"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">1<span class="sr-only"> csillagos</span>:</span><b>0</b></span>
+      <span class="s5"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">5<span class="sr-only"> star</span>:</span><b>0</b></span>
+      <span class="s4"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">4<span class="sr-only"> star</span>:</span><span>0</span></span>
+      <span class="s3"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">3<span class="sr-only"> star</span>:</span><span>0</span></span>
+      <span class="s2"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">2<span class="sr-only"> star</span>:</span><b>1</b></span>
+      <span class="s1"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">1<span class="sr-only"> star</span>:</span><b>0</b></span>
       
     </p>
-    <p class="google">Google: 4,4 (612)</p>
+    <p class="google">Google: 4.4 (612)</p>
   </div>
   <div class="venue">
     <p class="line quiet-venue">
       <svg class="glyph quiet" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-pin"/></svg>
-      <span><b>Teszt Kávézó</b> · 0 új · Google: 4,7 (238)</span>
+      <span><b>Teszt Kávézó</b> · 0 new · Google: 4.7 (238)</span>
     </p>
   </div>
   <hr>
-  <p class="line total"><span>Σ Összesen: 4 új értékelés</span></p>
+  <p class="line total"><span>Σ Total: 4 new reviews</span></p>
   <p class="stars">
-    <span class="s5"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">5<span class="sr-only"> csillagos</span>:</span><b>2</b></span>
-    <span class="s4"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">4<span class="sr-only"> csillagos</span>:</span><span>0</span></span>
-    <span class="s3"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">3<span class="sr-only"> csillagos</span>:</span><span>1</span></span>
-    <span class="s2"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">2<span class="sr-only"> csillagos</span>:</span><b>1</b></span>
-    <span class="s1"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">1<span class="sr-only"> csillagos</span>:</span><b>0</b></span>
+    <span class="s5"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">5<span class="sr-only"> star</span>:</span><b>2</b></span>
+    <span class="s4"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">4<span class="sr-only"> star</span>:</span><span>0</span></span>
+    <span class="s3"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">3<span class="sr-only"> star</span>:</span><span>1</span></span>
+    <span class="s2"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">2<span class="sr-only"> star</span>:</span><b>1</b></span>
+    <span class="s1"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="st-k">1<span class="sr-only"> star</span>:</span><b>0</b></span>
     
   </p>
   <hr>
   <p class="line">
     <svg class="glyph warn" width="16" height="16" aria-hidden="true" focusable="false"><use href="#g-warn"/></svg>
-    <span><b>Megválaszolatlan negatívok</b> · 1</span>
+    <span><b>Unanswered negatives</b> · 1</span>
   </p>
   <p class="line line-neg">
     <span class="dot-neg dot-lead" aria-hidden="true"></span>
-    <span>Minta Étterem · 2<svg class="star-neg" width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="sr-only"> csillag</span> · szept. 12.</span>
+    <span>Minta Étterem · 2<svg class="star-neg" width="12" height="12" aria-hidden="true" focusable="false"><use href="#g-star"/></svg><span class="sr-only"> star</span> · 12 Sep</span>
   </p>
-  <p class="quote">„A leves langyos volt, és húsz percet vártunk a számlára.”</p>
-  <p class="report-time">7:45</p>
+  <p class="quote">“The soup was lukewarm, and we waited twenty minutes for the bill.”</p>
+  <p class="report-time">07:45</p>
 </div>
 
         </div>
-        <figcaption class="caption">Illustration, shown in Hungarian. You choose the report&#x27;s language for your account. The venue names, the texts and the numbers are made up. The structure is the real daily report.</figcaption>
+        <figcaption class="caption">Illustration. You choose the report&#x27;s language for your account. The venue names, the texts and the numbers are made up. The structure is the real daily report.</figcaption>
       </figure>
     </div>
   </section>
@@ -238,11 +240,12 @@
     <div class="wrap">
       <div class="sec-head">
         <h2 id="g-access">Who sees <span class="hl hl-yellow">what</span></h2>
-        <p class="sec-intro">You invite your colleagues and decide who sees which venue.</p>
+        <p class="sec-intro">You invite your colleagues and decide who sees which venue. Someone who sees only some venues does not see the account totals, the team or the activity log.</p>
       </div>
       <ul class="roles roles-wide" role="list">
         <li class="role card"><span class="role-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-key"/></svg></span><h3>Owner</h3><p>Sees and does everything a member does. On top of that, invites and removes people, adds and switches off venues, changes the settings, and manages the search phrases.</p></li>
-        <li class="role card"><span class="role-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-user"/></svg></span><h3>Member</h3><p>Sees every page and can work on the replies, but cannot change the account settings.</p></li>
+        <li class="role card"><span class="role-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-user"/></svg></span><h3>Member</h3><p>Can work on the replies: approve, skip, rewrite. Cannot change the account settings.</p></li>
+        <li class="role card"><span class="role-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-eye"/></svg></span><h3>Viewer</h3><p>Sees, but changes nothing: no approving and no settings.</p></li>
         
       </ul>
     </div>
@@ -261,13 +264,13 @@
         </ul>
       </div>
       <figure class="tour-visual">
-        <div class="phone phone-full"><div class="phone-screen"><img src="../../img/help/app-insights-mobile.png" width="780" height="1688" loading="lazy" decoding="async" alt="The Analysis screen on a phone: the period picker on 30 days, and the period&#x27;s numbers on coloured cards below it."></div></div>
+        <div class="phone phone-full"><div class="phone-screen"><img src="../../img/help/app-insights-mobile.webp" width="780" height="1688" loading="lazy" decoding="async" alt="The Analysis screen on a phone: the period picker on 30 days, and the period&#x27;s numbers on coloured cards below it."></div></div>
         <figcaption class="caption">The picture is from the demo account, in the Hungarian version of the app. The venue names, the guest texts and the numbers are made up.</figcaption>
       </figure>
     </div>
     <div class="wrap">
       <ul class="tiles tiles-3" role="list">
-        <li class="tile c-orange tilt"><span class="tile-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-bell"/></svg></span><h3>Alert</h3><p>We tell you when one-star reviews come in a run at a venue, or its average slips.</p></li>
+        <li class="tile c-orange tilt"><span class="tile-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-bell"/></svg></span><h3>Alert</h3><p>We tell you on Telegram when one-star reviews come in a run at a venue, or many guests lower their rating.</p></li>
         <li class="tile c-cyan tilt"><span class="tile-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#g-chart"/></svg></span><h3>Group</h3><p>The Group page shows several accounts in one table: one line per account, with the new reviews, the average, the one-star reviews and what is waiting for a reply. It is worth having when you run more than one account.</p></li>
         <li class="tile c-yellow tilt"><span class="tile-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-users"/></svg></span><h3>Recognition</h3><p>The Recognition page holds the names guests wrote in their reviews. This list is for saying thank you, not for appraising anybody.</p></li>
         
@@ -276,12 +279,15 @@
   </section>
 
   <!-- D-004: the reference installation is described and nothing more. No name, no venue, no
-     review, no count of anything, no logo. -->
+     review, no logo. It is our own group, said as such: nothing we publish presents it as an
+     arm's-length customer (D-011's scope boundary, C-073 of the 2026-09-28 review). Its one number
+     is the venue count of the group's account today, 13 since D-055 (2026-09-26); when the account
+     gains or loses a venue, content/*/strings.json reference changes the same day. -->
 <section class="blk blk-black ref" id="reference" aria-labelledby="ref-title">
   <div class="wrap ref-grid">
-    <h2 id="ref-title">Eleven venues, every <span class="mk mk-pink">morning<svg class="mk-line" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M2 7C20 3.5 40 9.5 58 6S88 4.5 98 8"/></svg></span></h2>
-    <p class="ref-lead">BistroTech runs every morning at a Budapest group with eleven venues. That is where it started, and it has run live there ever since.</p>
-    <p class="ref-note"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-info"/></svg><span>We do not name the group or its venues, and we show no reviews from them. That is our own decision, not a customer&#x27;s request.</span></p>
+    <h2 id="ref-title">Thirteen venues, every <span class="mk mk-pink">morning<svg class="mk-line" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M2 7.5C20 4 40 9.5 60 6.5S88 4.5 98 7.5"/></svg></span></h2>
+    <p class="ref-lead">BistroTech started in our own Budapest restaurants, and it runs in all thirteen of them every morning.</p>
+    <p class="ref-note"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-info"/></svg><span>We do not name the restaurants, and we show no reviews from them.</span></p>
   </div>
 </section>
 
@@ -308,15 +314,15 @@
       <div class="faq">
   <details class="faq-item" open>
     <summary><h3>Can several venues go in one account?</h3><span class="faq-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg></span></summary>
-    <p>Yes. Above ten venues, we go through the package with you in person.</p>
+    <p>Yes. During the trial, up to five. If you have more venues than that, ask for a demo and we go through it with you in person.</p>
   </details>
   <details class="faq-item">
     <summary><h3>Do you touch my Google Business Profile?</h3><span class="faq-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg></span></summary>
-    <p>Only if you add us as a manager. Then we post the replies you approved. You can take the access back at any time.</p>
+    <p>Only if you add us as a manager. Once we have accepted the invitation, we post the replies you approved. You can take the access back at any time.</p>
   </details>
   <details class="faq-item">
     <summary><h3>Can a reply go out without me knowing?</h3><span class="faq-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg></span></summary>
-    <p>No. You approve every reply. Auto-answer is switched on separately, and by default it only answers positive reviews.</p>
+    <p>Only if you switch on auto-answer. Without it, you approve every reply. Even when it is on, by default it only answers positive reviews by itself.</p>
   </details>
   
 </div>
@@ -371,9 +377,6 @@
       <div><dt>Tax number</dt><dd>10907850-2-41</dd></div>
       <div><dt>Phone</dt><dd><a href="tel:+36302222444">+36 30 2222 444</a></dd></div>
     </dl>
-    <!-- TODO-PROOF: cégjegyzékszám to be checked against the official cégkivonat before publication (carried over from docs/legal/aszf-hu.md section 1). -->
-    <!-- TODO-PROOF: no e-mail address is published here. The company's general address is a personal Gmail account; the BistroTech address on a company domain does not exist yet. Until it does, the form and the phone number are the only contact routes. Same TODO as in aszf-hu.md section 1. -->
-    
   </div></div>
   <div class="wrap foot-mega">
     <a class="logo logo-mega" href="../" aria-label="BistroTech, home page">
@@ -399,11 +402,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.6.0, 2026-09-27.</span></p>
+    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are drafts, not yet reviewed by a lawyer.</span> <span>Page v0.7.0, 2026-09-28.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=7d1cac42bb" defer></script>
+<script src="../../js/site.js?v=fc4a4deefd" defer></script>
 </body>
 </html>
 
