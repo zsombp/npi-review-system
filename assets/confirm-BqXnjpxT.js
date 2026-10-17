@@ -1,0 +1,1 @@
+import{F as e,M as t,t as n}from"./jsx-runtime-DN2mzIOV.js";import{t as r}from"./Modal-5ChNLi4v.js";var i=e(t(),1),a=n();function o(){let[e,t]=(0,i.useState)(null);return[(0,i.useCallback)(e=>new Promise(n=>{t(t=>(t?.resolve(!1),{o:e,resolve:n}))}),[]),e?(0,a.jsx)(r,{o:e.o,onDone:n=>{e.resolve(n),t(null)}}):null]}export{o as t};

@@ -1,3 +1,7 @@
+// Service worker, v0.2.3, 2026-10-17 (D-070, D-071; BUILD-PLAN K0 section 5). v0.2.3: the interface sounds are three
+// sets now, sounds/<set>/<name>.mp3 (lib/sound.ts loads only the chosen set's), and each file is kept by its own address
+// under the same rule as before: on first use, stale while revalidate, nothing precached. The six at sounds/<name>.mp3
+// (v2.0.0's Pop, for a tab still on the old build) keep the rule they had. Only the sounds' lines changed.
 // Service worker, v0.2.2, 2026-09-28 (critical review C-048): a navigation asks the server (cache mode no-cache,
 // which revalidates with the ETag) instead of taking the HTTP cache's copy of index.html, which after a deploy names
 // chunks that no longer exist. Network first now means the network.
@@ -79,7 +83,9 @@ function isAsset(url) {
   const path = url.pathname.slice(BASE.length);
   if (path === "sw.js") return false;
   if (path.startsWith("assets/") || path.startsWith("fonts/") || path.startsWith("icons/")) return true;
-  return /\.(js|css|woff2?|png|jpe?g|webp|avif|svg|ico|webmanifest|mp3)$/.test(path);
+  // v0.2.3: the interface sounds, each set's files by their own address, and the old build's six at the root
+  if (/^sounds\/(?:(?:pop|papir|uveg)\/)?[a-z]+\.mp3$/.test(path)) return true;
+  return /\.(js|css|woff2?|png|jpe?g|webp|avif|svg|ico|webmanifest)$/.test(path);
 }
 
 self.addEventListener("install", (event) => {
