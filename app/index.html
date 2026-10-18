@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<noscript><meta http-equiv="refresh" content="0; url=../"></noscript>
+<title>BistroTech</title>
+<!-- The stable address of the app, <app origin>/app (D-087, G10.13). v0.1.0, 2026-10-18. It sends the visitor to the
+     app's base and keeps the query and the hash, so a link printed on a card or in a message never has to change when
+     the app moves. No absolute address and no domain is written here: the target is a path worked out from this
+     page's own, so the page works under the GitHub Pages project path today and under a bare domain later.
+     It is a navigation, so the service worker's network rule answers it and it is never precached. Without
+     script the meta refresh (in noscript, so it never races the script) does the same minus the query, and the link
+     below is the last resort. -->
+<script>
+(function () {
+  var here = location.pathname;
+  var base = here.replace(/app(?:\/(?:index\.html)?)?$/, "");
+  if (base === here) base = "../";
+  location.replace(base + location.search + location.hash);
+})();
+</script>
+<style>
+  body { font: 16px/1.5 -apple-system, system-ui, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 2rem 16px; background: #ffe500; color: #0a0a0a; }
+  a { color: inherit; font-weight: 800; }
+  @media (prefers-color-scheme: dark) { body { background: #0a0a0a; color: #ffffff; } }
+</style>
+</head>
+<body>
+<p><a href="../">Megnyitás</a> / <a href="../">Open</a></p>
+</body>
+</html>

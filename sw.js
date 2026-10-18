@@ -1,3 +1,12 @@
+// Service worker, v0.3.0, 2026-10-18 (Round C, D-087; BUILD-PLAN "Push payload", G10.1, G10.3). v0.3.0: the push handler
+// reads the payload {title, body, path, tag, kind, acct, count, test, lang}. Per kind it picks the notification's
+// actions, vibration and sound (a low review: Open and Replies, vibration; the morning report: Replies, silent; a test:
+// no actions); an unknown or missing kind keeps the old behaviour exactly, so a push in the old shape still works. A
+// count sets the app badge (0 clears it) and every open window is told the push arrived (PUSH_SEEN, which is how the
+// notification card learns that a test push reached this device). The badge glyph is its own monochrome file
+// (icons/badge-96.png). A tap on the Replies action opens drafts for the pushed account; every target stays inside
+// BASE. The action titles come from the payload's lang (hu by default), because the worker has no locale of its own.
+// No skipWaiting, same registration URL scheme: an installed phone takes this worker like any other deploy.
 // Service worker, v0.2.3, 2026-10-17 (D-070, D-071; BUILD-PLAN K0 section 5). v0.2.3: the interface sounds are three
 // sets now, sounds/<set>/<name>.mp3 (lib/sound.ts loads only the chosen set's), and each file is kept by its own address
 // under the same rule as before: on first use, stale while revalidate, nothing precached. The six at sounds/<name>.mp3
@@ -59,6 +68,7 @@ const PRECACHE = [
   BASE + "icons/icon-512.png",
   BASE + "icons/icon-maskable-512.png",
   BASE + "icons/apple-touch-icon-180.png",
+  BASE + "icons/badge-96.png",
 ];
 
 // The hosts a font may come from. The product self-hosts its faces under BASE + fonts/,
@@ -185,24 +195,109 @@ self.addEventListener("message", (event) => {
 // v0.2.0, 2026-09-22 (completeness audit 5.3): push. The payload is ours (title, body,
 // path); the path is opened inside the app's own base only, so a payload can never
 // send a person to another site. A tap focuses an open window if there is one.
+// v0.3.0, 2026-10-18 (Round C): kinds, actions, badge count, PUSH_SEEN. The pure part comes first (pushOptions,
+// clickTarget, no browser object in them) so scripts/sw_unit.mjs can drive it; the two handlers below only call it.
 // ---------------------------------------------------------------------------
-self.addEventListener("push", (event) => {
-  let data = { title: "BistroTech", body: "", path: "/", tag: "bt" };
-  try { data = { ...data, ...event.data.json() }; } catch { /* a push with no body */ }
-  const path = typeof data.path === "string" && data.path.startsWith("/") && !data.path.startsWith("//") ? data.path : "/";
-  event.waitUntil(self.registration.showNotification(String(data.title).slice(0, 80), {
-    body: String(data.body).slice(0, 160),
-    tag: String(data.tag).slice(0, 60),
-    icon: BASE + "icons/icon-192.png",
-    badge: BASE + "icons/icon-192.png",
-    data: { url: BASE.replace(/\/$/, "") + path },
+const KINDS = ["low_reviews", "daily_report", "test"];
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+// The label of an action, by the payload's own lang. hu unless the payload says en.
+const ACTION_TITLES = { hu: { open: "Megnyitom", replies: "Válaszok" }, en: { open: "Open", replies: "Replies" } };
+
+function actionList(lang, names) {
+  const t = ACTION_TITLES[lang === "en" ? "en" : "hu"];
+  return names.map((action) => ({ action, title: t[action] }));
+}
+
+// An account id is only ever UUID shaped here; anything else is dropped, never passed on.
+function acctOf(value) {
+  return typeof value === "string" && UUID.test(value) ? value : null;
+}
+
+// What the payload asks for, as the notification's options. data is the parsed payload (any shape, none of it
+// trusted); base is the app's path ("/npi-review-system/"). Returns {title, options, count, test, kind, acct}:
+// count is an integer 0..9999 (a larger one is shown as 9999) or null, test a nonce string or null. Unknown or missing kind: no actions and no
+// per-kind options, exactly what v0.2.x showed.
+function pushOptions(data, base) {
+  const d = data && typeof data === "object" && !Array.isArray(data) ? data : {};
+  const title = typeof d.title === "string" && d.title ? d.title : "BistroTech";
+  const body = typeof d.body === "string" ? d.body : "";
+  const tag = typeof d.tag === "string" && d.tag ? d.tag : "bt";
+  const path = typeof d.path === "string" && d.path.startsWith("/") && !d.path.startsWith("//") ? d.path : "/";
+  const kind = KINDS.includes(d.kind) ? d.kind : null;
+  const acct = acctOf(d.acct);
+  // Codex whole-diff review (finding 3): one contract with the engine, which sends any non-negative integer; the icon shows at most 9999
+  const count = Number.isInteger(d.count) && d.count >= 0 ? Math.min(d.count, 9999) : null;
+  const test = typeof d.test === "string" && d.test ? d.test.slice(0, 64) : null;
+  const options = {
+    body: body.slice(0, 160),
+    tag: tag.slice(0, 60),
+    icon: base + "icons/icon-192.png",
+    badge: base + "icons/badge-96.png",
+    data: { url: base.replace(/\/$/, "") + path, kind, acct },
     renotify: false,
-  }));
+  };
+  if (kind === "low_reviews") {
+    options.vibrate = [200, 100, 200];
+    options.requireInteraction = false;
+    options.actions = actionList(d.lang, ["open", "replies"]);
+  } else if (kind === "daily_report") {
+    options.silent = true;
+    options.actions = actionList(d.lang, ["replies"]);
+  }
+  return { title: title.slice(0, 80), options, count, test, kind, acct };
+}
+
+// Where a tap goes: a path inside base, never anything else. data is the notification's data ({url, kind, acct}),
+// action the button that was pressed ("" for a plain tap). The Replies button opens the drafts of the pushed
+// account (acct only when UUID shaped); Open and a plain tap use the stored address when it stays inside base.
+function clickTarget(data, action, base) {
+  const d = data && typeof data === "object" ? data : {};
+  if (action === "replies") {
+    const acct = acctOf(d.acct);
+    return base + "drafts" + (acct ? "?acct=" + acct : "");
+  }
+  if (typeof d.url === "string" && d.url.startsWith("/") && !d.url.startsWith("//")) {
+    try {
+      // resolved against a dummy origin: dot segments and backslashes are normalised before the base check
+      const u = new URL(d.url, "https://app.invalid");
+      const root = base.replace(/\/$/, "");
+      if (u.origin === "https://app.invalid" && (u.pathname === root || u.pathname.startsWith(base))) {
+        return (u.pathname === root ? base : u.pathname) + u.search + u.hash;
+      }
+    } catch { /* an address that does not parse is not ours */ }
+  }
+  return base;
+}
+
+self.addEventListener("push", (event) => {
+  let payload = {};
+  try { const parsed = event.data.json(); if (parsed && typeof parsed === "object") payload = parsed; } catch { /* a push with no body */ }
+  const push = pushOptions(payload, BASE);
+  event.waitUntil((async () => {
+    // every open window learns the push arrived, before the notification is shown; a failure here costs nothing
+    try {
+      // Codex review of C2 (finding 1): only this app's own windows hear it; another project on the same origin never does
+      const windows = (await self.clients.matchAll({ type: "window", includeUncontrolled: true })).filter((c) => { try { return new URL(c.url).pathname.startsWith(BASE); } catch { return false; } });
+      for (const client of windows) {
+        try { client.postMessage({ type: "PUSH_SEEN", test: push.test, kind: push.kind, acct: push.acct }); } catch { /* a window that is going away */ }
+      }
+    } catch { /* no windows to tell */ }
+    // the badge: a count from the engine, 0 clears; absent API or a refusal is no error
+    try {
+      const nav = self.navigator;
+      if (push.count !== null && nav && typeof nav.setAppBadge === "function") {
+        if (push.count === 0 && typeof nav.clearAppBadge === "function") await nav.clearAppBadge();
+        else await nav.setAppBadge(push.count);
+      }
+    } catch { /* the Badging API refused */ }
+    await self.registration.showNotification(push.title, push.options);
+  })());
 });
 
 self.addEventListener("notificationclick", (event) => {
   event.notification.close();
-  const url = (event.notification.data && event.notification.data.url) || BASE;
+  const url = clickTarget(event.notification.data, event.action || "", BASE);
   event.waitUntil((async () => {
     const all = await self.clients.matchAll({ type: "window", includeUncontrolled: true });
     for (const c of all) {
