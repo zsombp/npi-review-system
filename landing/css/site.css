@@ -1891,3 +1891,22 @@ form.demo input[aria-invalid="true"], form.demo textarea[aria-invalid="true"] { 
 
 /* C-322: the card grids' 26 px from 1100 px (see .day-cards) */
 @media (min-width: 1100px) { .plans, .cat-grid, .vid-cards { gap: 26px; } }
+
+/* ---- website v0.15.0: the walk through the demo account (G17.4) and the free checks (G17.1 to G17.3) ---- */
+.walk-tabs { display: flex; flex-wrap: wrap; gap: 12px; margin: 0 0 40px; }
+.walk-tabs[hidden], .walk-panel[hidden] { display: none; }
+.walk-panel + .walk-panel { margin-top: 64px; }
+.walk-tabs:not([hidden]) ~ .walk-panel + .walk-panel { margin-top: 0; }
+.walk-more { margin: 56px 0 0; }
+.tool-sec .tool-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; }
+@media (min-width: 900px) { .tool-sec .tool-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; } }
+.tool { display: grid; gap: 16px; align-content: start; }
+.tool h2, .tool h3 { margin: 0; font: 700 clamp(24px, 3vw, 32px)/1.1 var(--font-d); letter-spacing: -0.01em; }
+.walk-hero .jump-tag { margin-top: 22px; }
+.tool select { font: inherit; padding: 12px 14px; border: 2px solid var(--ink); border-radius: var(--r-md); background: #fff; color: var(--ink); }
+.tool .tool-result { display: grid; gap: 12px; padding: 16px; border: 2px solid var(--ink); border-radius: var(--r-md); background: var(--tint-pos, #f1ffe3); }
+.tool .tool-result[hidden] { display: none; }
+.tool-line, .tool-reply { margin: 0; font: 700 18px/1.35 var(--font-d); }
+.tool-line:empty { display: none; }
+.tool-reply { font: 400 17px/1.5 var(--font-b, inherit); white-space: pre-wrap; }
+.try-own { margin-top: 40px; }

@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Az automatikus válasz bekapcsolása · BistroTech súgó</title>
-<meta name="description" content="Ha bekapcsolod, a jó értékelésekre magától kimegy a válasz, úgy, hogy előtte senki nem olvassa el.">
+<meta name="description" content="Ha bekapcsolod, a jó értékelések válasza jóváhagyás nélkül is kimehet. Előtte 30 percig megállíthatod.">
 <meta name="theme-color" content="#38d6e0">
+<meta name="bt:signup" content="https://zsombp.github.io/npi-review-system/signup">
 <link rel="canonical" href="https://zsombp.github.io/npi-review-system/landing/sugo/automata-valasz/">
 
 <link rel="alternate" hreflang="hu" href="https://zsombp.github.io/npi-review-system/landing/sugo/automata-valasz/">
@@ -15,7 +16,7 @@
 <meta property="og:site_name" content="BistroTech">
 <meta property="og:locale" content="hu_HU">
 <meta property="og:title" content="Az automatikus válasz bekapcsolása · BistroTech súgó">
-<meta property="og:description" content="Ha bekapcsolod, a jó értékelésekre magától kimegy a válasz, úgy, hogy előtte senki nem olvassa el.">
+<meta property="og:description" content="Ha bekapcsolod, a jó értékelések válasza jóváhagyás nélkül is kimehet. Előtte 30 percig megállíthatod.">
 <meta property="og:url" content="https://zsombp.github.io/npi-review-system/landing/sugo/automata-valasz/">
 
 <meta property="og:image" content="https://zsombp.github.io/npi-review-system/landing/img/og.png">
@@ -27,7 +28,7 @@
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/spacegrotesk-display-lat-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-lat-ext.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=665db7053c">
+<link rel="stylesheet" href="../../css/site.css?v=77c05bf26e">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
@@ -194,9 +195,12 @@
 <p>Nem kell menteni: minden választás azonnal elmentődik, és mellette megjelenik az <b class="ui">Elmentve</b> felirat.</p>
 <figure class="shot shot-phone"><div class="shot-frame"><img src="../../img/help/automata-valasz.webp" width="720" height="1164" loading="lazy" decoding="async" alt="Az Automatikus válaszolás kártya bekapcsolva, kiválasztva „A 4 és 5 csillagosakra”, alatta A rossz értékelésekre rész kikapcsolva."></div><figcaption>Kép a bemutatófiókból, kitalált adatokkal.</figcaption></figure>
 <h2 id="mit-jelent">Mit jelent</h2>
-<ul class="art-list" role="list"><li>Ha egy értékelés eléri a beállított csillagszámot, a válasza nem vár jóváhagyásra. Negyedórán belül kitesszük a <span class="hy">Google-re</span>, és előtte senki nem olvassa el.</li><li>A szöveg nélküli 4 és 5 csillagos értékelésekre nem írunk választ, így automatikusan sem megy ki rájuk semmi.</li><li>A gyengébb értékelések válasza továbbra is a <b class="ui">Válaszok</b> fülön vár rád.</li><li>Az így kitett válaszok mellett a listában és az előzményekben is ott áll, hogy „automatikus”.</li><li>Csak a <span class="hy">Google-értékelésekre</span> szól, a Tripadvisor-értékelések válasza mindig a jóváhagyásodra vár.</li><li>A <b class="ui">Kényes értékelés</b> jelölésű értékelésekre (fenyegetés, vád vagy egészségügyi állítás) soha nem megy ki magától válasz. Ezek a <b class="ui">Válaszok</b> fülön várnak rád.</li><li>Kell hozzá az is, hogy ugyanezen a lapon, a <b class="ui">Válaszírás</b> kártyán be legyen kapcsolva a <b class="ui">Válaszírás bekapcsolva</b> kapcsoló.</li><li>A választ csak ott tudjuk kitenni, ahol kezelőként felvettél minket a Google cégprofilodon, és mi elfogadtuk a meghívást. Máshol a válasz elkészül, de neked kell beillesztened (lásd <a href="../../sugo/kezelo-hozzaferes/">Kezelőnek felveszel minket a <span class="hy">Google-on</span></a>).</li></ul>
+<ul class="art-list" role="list"><li>Ha egy értékelés eléri a beállított csillagszámot, a válasza nem vár a jóváhagyásodra. Közzététel előtt 30 percig vár. Ezalatt a <b class="ui">Válaszok</b> oldalon a <b class="ui">Jóváhagyva, közzététel előtt</b> alatt a <b class="ui">Visszaveszem szerkesztésre</b> gombbal visszaveheted, és akkor rád vár. Ha nem állítod meg, emberi átnézés nélkül is kimehet.</li><li>A szöveg nélküli 4 és 5 csillagos értékelésekre nem írunk választ, így automatikusan sem megy ki rájuk semmi.</li><li>A gyengébb értékelések válasza továbbra is a <b class="ui">Válaszok</b> fülön vár rád.</li><li>Az így kitett válaszok mellett a listában és az előzményekben is ott áll, hogy „automatikus”.</li><li>Csak a <span class="hy">Google-értékelésekre</span> szól, a Tripadvisor-értékelések válasza mindig a jóváhagyásodra vár.</li><li>A <b class="ui">Kényes értékelés</b> jelölésű értékelésekre (fenyegetés, vád vagy egészségügyi állítás) soha nem megy ki magától válasz. Ezek a <b class="ui">Válaszok</b> fülön várnak rád.</li><li>Kell hozzá az is, hogy ugyanezen a lapon, a <b class="ui">Válaszírás</b> kártyán be legyen kapcsolva a <b class="ui">Válaszírás bekapcsolva</b> kapcsoló.</li><li>A választ csak ott tudjuk kitenni, ahol kezelőként felvettél minket a Google cégprofilodon, és mi elfogadtuk a meghívást. Máshol a válasz elkészül, de neked kell beillesztened (lásd <a href="../../sugo/kezelo-hozzaferes/">Kezelőnek felveszel minket a <span class="hy">Google-on</span></a>).</li></ul>
+<p>Ha a vendég még közzététel előtt átírja az értékelést vagy módosítja a csillagszámot, a jóváhagyott válasz visszajön a várakozók közé. Nézd át újra. Addig nem megy ki, amíg újra jóvá nem hagyod.</p>
+<h2 id="egy-etteremnel-kikapcsolhatod">Egy étteremnél kikapcsolhatod</h2>
+<p>Ha a fiókban be van kapcsolva az automatikus válasz, <span class="hy">egy-egy</span> étteremnél külön kikapcsolhatod az <b class="ui">Éttermek</b> oldal <b class="ui">Beállítás</b> fülén. Annál az étteremnél minden válasz megvár téged.</p>
 <h2 id="ha-a-gyengebb-ertekelesekre-is-kiterjeszted">Ha a gyengébb értékelésekre is kiterjeszted</h2>
-<aside class="callout callout-warn" role="note"><p class="callout-label"><span class="callout-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#g-warn"/></svg></span>Figyelem</p><p>Ha a kártya <b class="ui">A rossz értékelésekre</b> részében bekapcsolod <b class="ui">Az 1–3 csillagosakra is magunk válaszolunk</b> kapcsolót, a gyengébb értékelésekre is magától kimegy a válasz, úgy, hogy előtte senki nem olvassa el. A saját Google cégprofilodon jelenik meg, ahol a vendégeid is látják.</p></aside>
+<aside class="callout callout-warn" role="note"><p class="callout-label"><span class="callout-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#g-warn"/></svg></span>Figyelem</p><p>Ha a kártya <b class="ui">A rossz értékelésekre</b> részében bekapcsolod <b class="ui">Az 1–3 csillagosakra is magunk válaszolunk</b> kapcsolót, a gyengébb értékelések válasza is kimehet emberi átnézés nélkül. A 30 perces várakozás alatt ezt is megállíthatod. A saját Google cégprofilodon jelenik meg, ahol a vendégeid is látják.</p></aside>
 <p>Az oldal ezt a kapcsoló fölött is kiírja, és bekapcsolás előtt még egyszer rákérdez. Csak az <b class="ui">Igen, bekapcsolom</b> gombbal indul el. Ekkor először a 3 csillagosakra válaszolunk. A <b class="ui">Melyikekre válaszoljunk magunk?</b> résznél lejjebb is mehetsz (<b class="ui">A 2 és 3 csillagosakra</b>, <b class="ui">Mindegyikre, az 1 csillagosakra is</b>), és minden lépésnél újra rákérdezünk. Amíg ez be van kapcsolva, a 4 és 5 csillagosakra is mi válaszolunk. Egy negatív értékelésre adott rossz válasz nyilvános. Érdemes előbb jóváhagyással kipróbálni, hogyan szólnak a válaszaid. Ebben az <a href="../../sugo/atiras-es-szabalyok/">Átírás és a válaszok szabályai</a> cikk segít.</p>
 <h2 id="kikapcsolas">Kikapcsolás</h2>
 <p>Kapcsold ki az <b class="ui">Automatikus válaszolás bekapcsolva</b> kapcsolót. Ez is azonnal elmentődik. Ami már kiment, az a <span class="hy">Google-on</span> marad, az új válaszok viszont megint a jóváhagyásodra várnak. A be- és kikapcsolást a <b class="ui">Napló</b> oldal is feljegyzi.</p>
@@ -222,7 +226,7 @@
   <a class="btn btn-yellow" href="tel:+36302222444"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><span>Hívj minket: +36 30 2222 444</span></a>
 </section>
 
-        <p class="art-updated">Frissítve: 2026. október 17.</p>
+        <p class="art-updated">Frissítve: 2026. október 19.</p>
       </article>
 
       <aside class="help-side" aria-label="Ebben a leírásban">
@@ -231,10 +235,11 @@
           <ol>
             <li class="c-yellow"><a href="#bekapcsolas">Bekapcsolás</a></li>
             <li class="c-pink"><a href="#mit-jelent">Mit jelent</a></li>
-            <li class="c-cyan"><a href="#ha-a-gyengebb-ertekelesekre-is-kiterjeszted">Ha a gyengébb értékelésekre is kiterjeszted</a></li>
-            <li class="c-green"><a href="#kikapcsolas">Kikapcsolás</a></li>
-            <li class="c-orange"><a href="#az-elofizetesben">Az előfizetésben</a></li>
-            <li class="c-lilac"><a href="#kapcsolodo">Kapcsolódó leírások</a></li>
+            <li class="c-cyan"><a href="#egy-etteremnel-kikapcsolhatod">Egy étteremnél kikapcsolhatod</a></li>
+            <li class="c-green"><a href="#ha-a-gyengebb-ertekelesekre-is-kiterjeszted">Ha a gyengébb értékelésekre is kiterjeszted</a></li>
+            <li class="c-orange"><a href="#kikapcsolas">Kikapcsolás</a></li>
+            <li class="c-lilac"><a href="#az-elofizetesben">Az előfizetésben</a></li>
+            <li class="c-yellow"><a href="#kapcsolodo">Kapcsolódó leírások</a></li>
             
           </ol>
         </div>
@@ -265,6 +270,7 @@
       <ul>
         <li><a href="../../sugo/">Súgó</a></li>
         <li><a href="../../sugo/videok/">Videók</a></li>
+        <li><a href="../../nezd-meg/">Nézd meg adatokkal</a></li>
         <li><a href="../../bemutato/">Kérj bemutatót</a></li>
         
       </ul>
@@ -314,11 +320,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok még tervezetek, ügyvéd nem nézte át őket.</span> <span>Oldal v0.14.0, 2026-10-17.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok még tervezetek, ügyvéd nem nézte át őket.</span> <span>Oldal v0.15.0, 2026-10-19.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=fc4a4deefd" defer></script>
+<script src="../../js/site.js?v=4f76abcd76" defer></script>
 </body>
 </html>
 

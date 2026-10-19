@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>The extra report lines and the monthly summary · BistroTech</title>
-<meta name="description" content="4 switches in Settings, for 3 extra lines in the daily report and a monthly summary.">
+<meta name="description" content="Separate switches for lines and links in the daily report and weekly summary, plus the monthly summary.">
 <meta name="theme-color" content="#38d6e0">
+<meta name="bt:signup" content="https://zsombp.github.io/npi-review-system/signup?lang=en">
 <link rel="canonical" href="https://zsombp.github.io/npi-review-system/landing/en/help/extra-report-lines/">
 
 <link rel="alternate" hreflang="hu" href="https://zsombp.github.io/npi-review-system/landing/sugo/jelentes-kulon-sorai/">
@@ -15,7 +16,7 @@
 <meta property="og:site_name" content="BistroTech">
 <meta property="og:locale" content="en_GB">
 <meta property="og:title" content="The extra report lines and the monthly summary · BistroTech">
-<meta property="og:description" content="4 switches in Settings, for 3 extra lines in the daily report and a monthly summary.">
+<meta property="og:description" content="Separate switches for lines and links in the daily report and weekly summary, plus the monthly summary.">
 <meta property="og:url" content="https://zsombp.github.io/npi-review-system/landing/en/help/extra-report-lines/">
 
 <meta property="og:image" content="https://zsombp.github.io/npi-review-system/landing/img/og-en.png">
@@ -25,7 +26,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../../css/site.css?v=665db7053c">
+<link rel="stylesheet" href="../../../css/site.css?v=77c05bf26e">
 <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
@@ -178,10 +179,10 @@
           <h1 id="art-title">The extra report lines and the monthly <span class="mk mk-pink">summary<svg class="mk-line" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M2 6.5C22 9.5 44 3.5 64 6.5S90 8.5 98 5.5"/></svg></span></h1>
           <ul class="meta" aria-label="About this article">
             <li class="c-orange"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-tag"/></svg>The daily report</li>
-            <li><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>2 min read</li>
+            <li><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>4 min read</li>
             
           </ul>
-          <p class="art-intro">On top of what's always in it, the daily report can carry 3 more lines. You'll only see them when there's something to say. In a new account, all 4 switches are on.</p>
+          <p class="art-intro">The daily report and weekly summary have extra lines and links to help you find what needs attention. Signals only appear when there's something to say.</p>
         </header>
 
         
@@ -190,12 +191,29 @@
           <h2 id="where-to-switch-them">Where to switch them</h2>
 <ol class="hsteps" role="list" id="steps"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Open the <b class="ui">Notifications and reports</b> page of <b class="ui">Settings</b> and find the <b class="ui">Report</b> card.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Switch on or off what you want. Each switch is saved at once, and <b class="ui">Saved</b> appears next to it.</p></div></li></ol>
 <p>The account owner sets the switches.</p>
-<h2 id="the-four-switches">The four switches</h2>
-<ul class="art-list" role="list"><li><b class="ui">Negatives waiting for a reply, per venue</b>: under each venue's line, you'll see how many 1-, 2- and <span class="hy">3-star</span> reviews are still waiting for a reply, and how long the oldest one has waited. We only count the ones that came in after we started watching the venue.</li><li><b class="ui">Time of day line</b>: if at least 3 negative reviews came in that day, and most of them fall in the same part of the day, the report tells you which. It's lunch, afternoon, evening or night. What counts is when the guest wrote the review, not when they visited your venue.</li><li><b class="ui">Google removal line</b>: if the review count Google shows has dropped by 2 or more since the last reading, the report says by how much. We don't flag a drop of 1, because that's just Google's own churn.</li><li><b class="ui">Monthly summary to the group</b>: on the first of each month, a short piece about the month before. We send it to the same Telegram chat as the daily report. If you haven't connected Telegram, you won't get a monthly summary either.</li></ul>
+<h2 id="the-original-signals-and-the-monthly-summary">The original signals and the monthly summary</h2>
+<ul class="art-list" role="list"><li><b class="ui">Negatives waiting for a reply, per venue</b>: under each venue's line, you'll see how many 1-, 2- and <span class="hy">3-star</span> reviews are still waiting for a reply, and how long the oldest one has waited. We only count the ones that came in after we started watching the venue.</li><li><b class="ui">Time of day line</b>: if at least 3 negative reviews came in that day, and most of them fall in the same part of the day, the report tells you which. It's lunch, afternoon, evening or night. What counts is when the guest wrote the review, not when they visited your venue.</li><li><b class="ui">Review count drop</b>: if the review count Google shows has dropped by 2 or more since the last reading, the report says by how much. We don't flag a drop of 1, because that's just Google's own churn.</li><li><b class="ui">Monthly summary to the group</b>: on the first of each month, a short piece about the month before. We send it to the same Telegram chat as the daily report. If you haven't connected Telegram, you won't get a monthly summary either.</li></ul>
+<h2 id="links-and-further-signals">Links and further signals</h2>
+<p>The daily report and weekly summary show the lines below when there's something to show.</p>
+<h2 id="links-in-the-report">Links in the report</h2>
+<p>In the daily report and weekly summary, a venue's name opens its reviews for that report in the app. <b class="ui">Válaszra vár</b>, meaning waiting for a reply, opens the unanswered negatives. The total opens the day's reviews.</p>
+<p>The weekly summary's <b class="ui">Teendők</b> lines, for things to do, open the venue or reviews they name. In the daily report, on the first of each month, a line opens the previous month's <a href="../../help/printable-summary/">printable summary</a>.</p>
+<h2 id="what-doubled-this-week">What doubled this week</h2>
+<p>The daily report can flag a complaint theme at one venue when it has at least 5 mentions this week and reaches at least twice its own weekly average over the previous 8 weeks. It can flag a dish with 3 negative mentions this week. Up to 3 themes and 3 dishes appear.</p>
+<p>The comparison uses the venue's own data.</p>
+<h2 id="when-a-venue-is-quiet">When a venue is quiet</h2>
+<p>Under a venue, the daily report can show how many days have passed without a review and the usual gap between reviews. This needs at least 1 week and at least 3 times the usual gap without a new review.</p>
+<p>The line also needs a <span class="hy">review-count</span> check from the report day or the day before. When there are <span class="hy">venue-level</span> signals, they replace <b class="ui">Gyanúsan üres nap</b>, the <span class="hy">account-wide</span> warning about a suspiciously empty day. When there are no such signals, the <span class="hy">account-wide</span> line stays.</p>
+<h2 id="when-the-google-rating-falls">When the Google rating falls</h2>
+<p>The daily report flags a venue whose public Google rating fell by at least 0.1 over the last 7 days. The line shows the earlier value and the value at the latest check.</p>
+<h2 id="how-long-replies-have-waited">How long replies have waited</h2>
+<p>A separate daily report line shows how many replies are waiting and since when.</p>
+<h2 id="further-lines-in-the-weekly-summary">Further lines in the weekly summary</h2>
+<p>The weekly summary can have a line about the actions behind replies and one about a filed case without an answer.</p>
 <h2 id="the-report-s-name">The report's name</h2>
 <p>On the same card, you can give the report a name in <b class="ui">The report's name</b> field. It goes at the top of the daily report and the weekly summary, in capitals. If you leave it empty, it says BistroTech. Press the <b class="ui">Save</b> button under the field to keep the name.</p>
 <h2 id="in-the-weekly-summary">In the weekly summary</h2>
-<p>The weekly summary's “This week” list is partly built from the same 3 signals. So if you switch a line off, it drops out of the weekly list too (see <a href="../../help/weekly-summary/">The weekly summary</a>).</p>
+<p>The weekly summary's <b class="ui">Teendők</b> list, for things to do, draws partly on negatives waiting for a reply, the <span class="hy">time-of-day</span> signal and the <span class="hy">review-count-drop</span> signal. If one of these is left out of the report, it's left out of the weekly list. Read more in <a href="../../help/weekly-summary/">The weekly summary</a>.</p>
         </div>
 
         
@@ -216,7 +234,7 @@
   <a class="btn btn-yellow" href="tel:+36302222444"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><span>Call us: +36 30 2222 444</span></a>
 </section>
 
-        <p class="art-updated">Updated: 17 October 2026</p>
+        <p class="art-updated">Updated: 19 October 2026</p>
       </article>
 
       <aside class="help-side" aria-label="In this article">
@@ -224,10 +242,17 @@
           <h2>In this article</h2>
           <ol>
             <li class="c-yellow"><a href="#where-to-switch-them">Where to switch them</a></li>
-            <li class="c-pink"><a href="#the-four-switches">The four switches</a></li>
-            <li class="c-cyan"><a href="#the-report-s-name">The report&#x27;s name</a></li>
-            <li class="c-green"><a href="#in-the-weekly-summary">In the weekly summary</a></li>
-            <li class="c-orange"><a href="#related">Related articles</a></li>
+            <li class="c-pink"><a href="#the-original-signals-and-the-monthly-summary">The original signals and the monthly summary</a></li>
+            <li class="c-cyan"><a href="#links-and-further-signals">Links and further signals</a></li>
+            <li class="c-green"><a href="#links-in-the-report">Links in the report</a></li>
+            <li class="c-orange"><a href="#what-doubled-this-week">What doubled this week</a></li>
+            <li class="c-lilac"><a href="#when-a-venue-is-quiet">When a venue is quiet</a></li>
+            <li class="c-yellow"><a href="#when-the-google-rating-falls">When the Google rating falls</a></li>
+            <li class="c-pink"><a href="#how-long-replies-have-waited">How long replies have waited</a></li>
+            <li class="c-cyan"><a href="#further-lines-in-the-weekly-summary">Further lines in the weekly summary</a></li>
+            <li class="c-green"><a href="#the-report-s-name">The report&#x27;s name</a></li>
+            <li class="c-orange"><a href="#in-the-weekly-summary">In the weekly summary</a></li>
+            <li class="c-lilac"><a href="#related">Related articles</a></li>
             
           </ol>
         </div>
@@ -258,6 +283,7 @@
       <ul>
         <li><a href="../../help/">Help centre</a></li>
         <li><a href="../../help/videos/">Videos</a></li>
+        <li><a href="../../see-it/">See it with data</a></li>
         <li><a href="../../demo/">Ask for a demo</a></li>
         
       </ul>
@@ -308,11 +334,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are still drafts. A lawyer hasn&#x27;t reviewed them yet.</span> <span>Page v0.14.0, 2026-10-17.</span></p>
+    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are still drafts. A lawyer hasn&#x27;t reviewed them yet.</span> <span>Page v0.15.0, 2026-10-19.</span></p>
   </div>
 </footer>
 
-<script src="../../../js/site.js?v=fc4a4deefd" defer></script>
+<script src="../../../js/site.js?v=4f76abcd76" defer></script>
 </body>
 </html>
 

@@ -6,6 +6,7 @@
 <title>Keresés és szűrők az értékelések között · BistroTech súgó</title>
 <meta name="description" content="Így találod meg egy étterem, egy csillagszám vagy egy szó összes értékelését.">
 <meta name="theme-color" content="#38d6e0">
+<meta name="bt:signup" content="https://zsombp.github.io/npi-review-system/signup">
 <link rel="canonical" href="https://zsombp.github.io/npi-review-system/landing/sugo/kereses-es-szurok/">
 
 <link rel="alternate" hreflang="hu" href="https://zsombp.github.io/npi-review-system/landing/sugo/kereses-es-szurok/">
@@ -27,7 +28,7 @@
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/spacegrotesk-display-lat-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-lat-ext.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=665db7053c">
+<link rel="stylesheet" href="../../css/site.css?v=77c05bf26e">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
@@ -180,7 +181,7 @@
           <h1 id="art-title">Keresés és szűrők az értékelések <span class="mk mk-pink">között<svg class="mk-line" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M2 8C20 4 42 9 60 6.5S88 4.5 98 7"/></svg></span></h1>
           <ul class="meta" aria-label="A leírásról">
             <li class="c-cyan"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-tag"/></svg>Értékelések</li>
-            <li><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>3 perc olvasás</li>
+            <li><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>5 perc olvasás</li>
             
           </ul>
           <p class="art-intro">Az <b class="ui">Értékelések</b> fülön az összes letöltött értékelést látod, a legújabbal kezdve. Fent van egy keresőmező és néhány gyors szűrő, telefonon is. A többi szűrőt a <b class="ui">Szűrők</b> gomb nyitja meg.</p>
@@ -191,6 +192,11 @@
         <div class="art-body">
           <h2 id="kereses">Keresés</h2>
 <p>Írj be egy szót a <b class="ui">Keresés az értékelésekben</b> mezőbe, például „gulyás” vagy „pincér”, és megkeressük az értékelések szövegében. Az ékezet nem számít, a „gulyas” is megtalálja a „gulyás”-t.</p>
+<h2 id="kereses-az-egesz-fiokban">Keresés az egész fiókban</h2>
+<p>A <kbd>Ctrl</kbd> + <kbd>K</kbd>, Macen a <kbd>Cmd</kbd> + <kbd>K</kbd> az egész fiók keresőjét nyitja meg. Számítógépen a bal oldali sáv <b class="ui">Keresés</b> gombjával, telefonon a <b class="ui">Több</b> alatti <b class="ui">Keresés</b> sorral is eléred.</p>
+<p>Éttermek, értékelésszövegek és vendégnevek között kereshetsz, de az elküldött válaszokat, a válaszjavaslatokat, a jegyzeteket és a súgót is megtalálod. A <b class="ui">Napló</b> találatait a tulajdonosok és az összes étteremhez hozzáférő tagok látják. Csak olyasmi jelenik meg, amit a szereped és az éttermi hozzáférésed megenged.</p>
+<p>Ékezet nélkül is kereshetsz, a „gulyas” megtalálja a „gulyásleves” szót. Minden találaton látszik a típusa, és megnyitja a hozzá tartozó képernyőt. Értékelés, válasz, jegyzet, étterem, naplóbejegyzés, súgórész, beállítás és cikk is lehet találat.</p>
+<p>Ugyanitt az <b class="ui">Ugrás</b> alatt az összes céloldalt megtalálod. Ha legalább 2 fiókod van, a <b class="ui">Fiókváltás</b> is megjelenik. A súgó saját keresőjéről <a href="../../sugo/sugo-az-alkalmazasban/">külön cikk szól</a>.</p>
 <h2 id="gyors-szurok">Gyors szűrők</h2>
 <ul class="art-list" role="list"><li><b class="ui">Összes</b>: minden szűrőt levesz.</li><li><b class="ui">Válaszra vár</b>: azok az értékelések, amelyekre megírtuk a választ, és a válasz még jóváhagyásra vár.</li><li><b class="ui">1 és 2 csillag</b>: a legrosszabb értékelések.</li><li><b class="ui">5 csillag</b>: a legjobbak.</li><li><b class="ui">Rám bízva</b>: azok, amelyeknél téged jelöltek meg felelősnek. Csak akkor látod, ha van ilyen.</li></ul>
 <h2 id="tovabbi-szurok">További szűrők</h2>
@@ -198,6 +204,15 @@
 <p>Ami szűrő be van kapcsolva, az a lista fölött külön címkén látszik. A címke <span class="hy">x-ével</span> egyenként leveszed, a <b class="ui">Mind le</b> linkkel egyszerre.</p>
 <aside class="callout callout-tip" role="note"><p class="callout-label"><span class="callout-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-bulb"/></svg></span>Tipp</p><p>A szűrés a böngésző címsorában is benne van. Ha kimásolod a címet, és elküldöd egy kollégádnak, ő is ugyanezt a listát nyitja meg.</p></aside>
 <figure class="shot shot-phone"><div class="shot-frame"><img src="../../img/help/kereses-es-szurok.webp" width="780" height="1688" loading="lazy" decoding="async" alt="Az Értékelések fül telefonon: a keresőmező, a Szűrők gomb és a gyors szűrők, a Válaszra vár bekapcsolva, alatta a találatok közül az első."></div><figcaption>Kép a bemutatófiókból, kitalált adatokkal.</figcaption></figure>
+<h2 id="mentett-nezetek">Mentett nézetek</h2>
+<p>Állítsd be a szűrőket, majd válaszd a <b class="ui">Mentés nézetként</b> lehetőséget, és adj nevet a nézetnek. Legfeljebb 8 nézetet menthetsz.</p>
+<p>A mentett nézetek a lista fölött jelennek meg. Egy érintéssel alkalmazhatod őket, a mellettük lévő <span class="hy">x-szel</span> pedig törölheted. A nézeteid személyenként és fiókonként külön vannak elmentve.</p>
+<h2 id="billentyuk-az-ertekeleseknel">Billentyűk az értékeléseknél</h2>
+<p>Az egybetűs parancsok alapból be vannak kapcsolva. A <b class="ui">Beállítások</b> oldal <b class="ui">Megjelenés</b> lapján, a <b class="ui">Billentyűparancsok</b> résznél az <b class="ui">Egybetűs parancsok (Válaszok, Értékelések, ugrás <span class="hy">g-vel</span>)</b> kapcsolóval kikapcsolhatod őket. A kapcsoló csak arra az eszközre szól, ahol átállítod.</p>
+<ul class="art-list" role="list"><li>A <kbd>J</kbd> és a <kbd>K</kbd> a sorok között lép.</li><li>Az <kbd>O</kbd> megnyitja az értékelést a <span class="hy">Google-on</span>.</li><li>Az <kbd>N</kbd> megnyitja a megjegyzéseit.</li><li>Az <kbd>Enter</kbd> az <b class="ui">Átnézem</b> lehetőséget nyitja meg, ha a válasz jóváhagyásra vár.</li><li>A <kbd>?</kbd> megmutatja a billentyűk listáját.</li></ul>
+<p>A kapcsoló az egybetűs parancsokat a <b class="ui">Válaszok</b> és az <b class="ui">Értékelések</b> oldalon, valamint a <kbd>g</kbd>-vel kezdődő ugrásokat szabályozza. A <kbd>Ctrl</kbd> + <kbd>K</kbd>, illetve Macen a <kbd>Cmd</kbd> + <kbd>K</kbd> akkor is működik, ha kikapcsolod.</p>
+<p>Az ugrások mindenhol használhatók, ha a kapcsoló be van kapcsolva. Nyomd meg a <kbd>g</kbd>-t, utána a céloldal betűjét.</p>
+<ul class="art-list" role="list"><li><kbd>m</kbd> megnyitja a <b class="ui">Ma</b> oldalt.</li><li><kbd>e</kbd> megnyitja az <b class="ui">Értékelések</b> oldalt.</li><li><kbd>v</kbd> megnyitja a <b class="ui">Válaszok</b> oldalt.</li><li><kbd>k</kbd> megnyitja a <b class="ui">Kimutatások</b> oldalt.</li><li><kbd>b</kbd> megnyitja a <b class="ui">Beállítások</b> oldalt.</li><li><kbd>s</kbd> megnyitja a <b class="ui">Súgó</b> oldalt.</li><li><kbd>f</kbd> megnyitja a <b class="ui">Fiókom</b> oldalt.</li></ul>
 <h2 id="egy-ertekeles-kartyaja">Egy értékelés kártyája</h2>
 <ul class="art-list" role="list"><li>A csillagok, a vendég neve, az időpont és a nyelv.</li><li>Az elemzés, vagyis a hangulat, legfeljebb 2 téma és a megnevezett munkatársak.</li><li><b class="ui">Új</b> jelölés, ha azóta jött, hogy utoljára itt jártál.</li><li>Hogy <span class="hy">van-e</span> már válasz, és egy link, amely megnyitja az értékelést a <span class="hy">Google-on</span> vagy a Tripadvisoron.</li></ul>
 <h2 id="megjegyzes-es-felelos">Megjegyzés és felelős</h2>
@@ -224,7 +239,7 @@
   <a class="btn btn-yellow" href="tel:+36302222444"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><span>Hívj minket: +36 30 2222 444</span></a>
 </section>
 
-        <p class="art-updated">Frissítve: 2026. október 17.</p>
+        <p class="art-updated">Frissítve: 2026. október 19.</p>
       </article>
 
       <aside class="help-side" aria-label="Ebben a leírásban">
@@ -232,11 +247,14 @@
           <h2>Ebben a leírásban</h2>
           <ol>
             <li class="c-yellow"><a href="#kereses">Keresés</a></li>
-            <li class="c-pink"><a href="#gyors-szurok">Gyors szűrők</a></li>
-            <li class="c-cyan"><a href="#tovabbi-szurok">További szűrők</a></li>
-            <li class="c-green"><a href="#egy-ertekeles-kartyaja">Egy értékelés kártyája</a></li>
-            <li class="c-orange"><a href="#megjegyzes-es-felelos">Megjegyzés és felelős</a></li>
-            <li class="c-lilac"><a href="#kapcsolodo">Kapcsolódó leírások</a></li>
+            <li class="c-pink"><a href="#kereses-az-egesz-fiokban">Keresés az egész fiókban</a></li>
+            <li class="c-cyan"><a href="#gyors-szurok">Gyors szűrők</a></li>
+            <li class="c-green"><a href="#tovabbi-szurok">További szűrők</a></li>
+            <li class="c-orange"><a href="#mentett-nezetek">Mentett nézetek</a></li>
+            <li class="c-lilac"><a href="#billentyuk-az-ertekeleseknel">Billentyűk az értékeléseknél</a></li>
+            <li class="c-yellow"><a href="#egy-ertekeles-kartyaja">Egy értékelés kártyája</a></li>
+            <li class="c-pink"><a href="#megjegyzes-es-felelos">Megjegyzés és felelős</a></li>
+            <li class="c-cyan"><a href="#kapcsolodo">Kapcsolódó leírások</a></li>
             
           </ol>
         </div>
@@ -267,6 +285,7 @@
       <ul>
         <li><a href="../../sugo/">Súgó</a></li>
         <li><a href="../../sugo/videok/">Videók</a></li>
+        <li><a href="../../nezd-meg/">Nézd meg adatokkal</a></li>
         <li><a href="../../bemutato/">Kérj bemutatót</a></li>
         
       </ul>
@@ -316,11 +335,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok még tervezetek, ügyvéd nem nézte át őket.</span> <span>Oldal v0.14.0, 2026-10-17.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok még tervezetek, ügyvéd nem nézte át őket.</span> <span>Oldal v0.15.0, 2026-10-19.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=fc4a4deefd" defer></script>
+<script src="../../js/site.js?v=4f76abcd76" defer></script>
 </body>
 </html>
 

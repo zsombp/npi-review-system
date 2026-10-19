@@ -6,6 +6,7 @@
 <title>Melyik fogásról mit írnak a vendégek · BistroTech súgó</title>
 <meta name="description" content="Az Ételek oldal éttermenként mutatja, melyik fogást említik a vendégek, és milyen értékelésben.">
 <meta name="theme-color" content="#38d6e0">
+<meta name="bt:signup" content="https://zsombp.github.io/npi-review-system/signup">
 <link rel="canonical" href="https://zsombp.github.io/npi-review-system/landing/sugo/etelek/">
 
 <link rel="alternate" hreflang="hu" href="https://zsombp.github.io/npi-review-system/landing/sugo/etelek/">
@@ -27,7 +28,7 @@
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/spacegrotesk-display-lat-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-lat-ext.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=665db7053c">
+<link rel="stylesheet" href="../../css/site.css?v=77c05bf26e">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
@@ -190,10 +191,12 @@
 
         <div class="art-body">
           <h2 id="a-tablazat">A táblázat</h2>
-<ul class="art-list" role="list"><li>Fent választod ki az időszakot: <b class="ui">7 nap</b>, <b class="ui">30 nap</b> vagy <b class="ui">90 nap</b>.</li><li>Minden sor egy étel egy étteremben. Egy sorra kattintva megnyílnak az értékelések, amelyek megnevezik.</li><li>Az <b class="ui">Említés</b> oszlop azt mutatja, hány értékelés nevezte meg az ételt.</li><li>Az <b class="ui">Átlag</b> az ételt említő értékelések csillagátlaga.</li><li><b class="ui">Az étterem átlagához</b> oszlop azt mutatja, mennyivel jobb vagy rosszabb ez az átlag az étterem saját átlagánál ugyanebben az időszakban. A +0,30 azt jelenti, hogy aki ezt az ételt említette, jobban szerette, mint a hely egészét.</li></ul>
+<ul class="art-list" role="list"><li>Fent 7, 30 vagy 90 napot választhatsz. Ha az <b class="ui">Áttekintés</b> nézeten hónapot választottál, itt a mögötte álló 30 nap látszik. A választás a munkamenet végéig megmarad.</li><li>Minden sor egy étel egy étteremben. Egy sorra kattintva megnyílnak az értékelések, amelyek megnevezik.</li><li>Az <b class="ui">Említés</b> oszlop azt mutatja, hány értékelés nevezte meg az ételt.</li><li>Az <b class="ui">Átlag</b> az ételt említő értékelések csillagátlaga.</li><li><b class="ui">Az étterem átlagához</b> oszlop azt mutatja, mennyivel jobb vagy rosszabb ez az átlag az étterem saját átlagánál ugyanebben az időszakban. A +0,30 azt jelenti, hogy aki ezt az ételt említette, jobban szerette, mint a hely egészét.</li></ul>
 <p>Elöl a 30 legtöbbször említett étel áll, a többit a <b class="ui">Mind a … sor</b> gomb hozza elő. Az <b class="ui">Étterem</b> mezőben egy éttermre szűkítheted a listát.</p>
 <h2 id="rendezes">Rendezés</h2>
 <p>Számítógépen a táblázat fejlécére kattintva rendezheted a sorokat. Étel szerint rendezve ugyanannak a fogásnak az éttermi sorai egymás közelébe kerülnek, így össze tudod hasonlítani, hol sikerül jobban. Ha ugyanaz a fogás 2 étteremben nagyon máshogy áll, érdemes ránézni, mi történik a konyhán.</p>
+<h2 id="letoltes">Letöltés</h2>
+<p>A <b class="ui">Letöltés táblázatba</b> gombbal fájlba mentheted a listát. A fájlnév a fiókod nevével kezdődik.</p>
 <h2 id="ahogy-a-vendeg-irta">Ahogy a vendég írta</h2>
 <p>Az ételeket úgy látod, ahogy a vendégek leírták, a saját nyelvükön. Nem fordítjuk le őket, és nem párosítjuk az étlapod tételeivel. A „gulyás”, a „goulash” és a „gulasch” így 3 külön sor.</p>
 <h2 id="ha-ures-a-tablazat">Ha üres a táblázat</h2>
@@ -218,7 +221,7 @@
   <a class="btn btn-yellow" href="tel:+36302222444"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><span>Hívj minket: +36 30 2222 444</span></a>
 </section>
 
-        <p class="art-updated">Frissítve: 2026. október 17.</p>
+        <p class="art-updated">Frissítve: 2026. október 19.</p>
       </article>
 
       <aside class="help-side" aria-label="Ebben a leírásban">
@@ -227,9 +230,10 @@
           <ol>
             <li class="c-yellow"><a href="#a-tablazat">A táblázat</a></li>
             <li class="c-pink"><a href="#rendezes">Rendezés</a></li>
-            <li class="c-cyan"><a href="#ahogy-a-vendeg-irta">Ahogy a vendég írta</a></li>
-            <li class="c-green"><a href="#ha-ures-a-tablazat">Ha üres a táblázat</a></li>
-            <li class="c-orange"><a href="#kapcsolodo">Kapcsolódó leírások</a></li>
+            <li class="c-cyan"><a href="#letoltes">Letöltés</a></li>
+            <li class="c-green"><a href="#ahogy-a-vendeg-irta">Ahogy a vendég írta</a></li>
+            <li class="c-orange"><a href="#ha-ures-a-tablazat">Ha üres a táblázat</a></li>
+            <li class="c-lilac"><a href="#kapcsolodo">Kapcsolódó leírások</a></li>
             
           </ol>
         </div>
@@ -260,6 +264,7 @@
       <ul>
         <li><a href="../../sugo/">Súgó</a></li>
         <li><a href="../../sugo/videok/">Videók</a></li>
+        <li><a href="../../nezd-meg/">Nézd meg adatokkal</a></li>
         <li><a href="../../bemutato/">Kérj bemutatót</a></li>
         
       </ul>
@@ -309,11 +314,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok még tervezetek, ügyvéd nem nézte át őket.</span> <span>Oldal v0.14.0, 2026-10-17.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok még tervezetek, ügyvéd nem nézte át őket.</span> <span>Oldal v0.15.0, 2026-10-19.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=fc4a4deefd" defer></script>
+<script src="../../js/site.js?v=4f76abcd76" defer></script>
 </body>
 </html>
 

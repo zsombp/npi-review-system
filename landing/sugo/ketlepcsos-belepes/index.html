@@ -6,6 +6,7 @@
 <title>Jelszó és kétlépcsős belépés · BistroTech súgó</title>
 <meta name="description" content="A Fiókom oldalon cseréled a jelszavad és bekapcsolod a kétlépcsős belépést. Innen a többi eszközről is kiléphetsz.">
 <meta name="theme-color" content="#38d6e0">
+<meta name="bt:signup" content="https://zsombp.github.io/npi-review-system/signup">
 <link rel="canonical" href="https://zsombp.github.io/npi-review-system/landing/sugo/ketlepcsos-belepes/">
 
 <link rel="alternate" hreflang="hu" href="https://zsombp.github.io/npi-review-system/landing/sugo/ketlepcsos-belepes/">
@@ -27,7 +28,7 @@
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/spacegrotesk-display-lat-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-lat-ext.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=665db7053c">
+<link rel="stylesheet" href="../../css/site.css?v=77c05bf26e">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
@@ -180,7 +181,7 @@
           <h1 id="art-title">Jelszó és kétlépcsős <span class="mk mk-pink">belépés<svg class="mk-line" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M2 8.5C18 4 36 9.5 54 6.5S86 4 98 7.5"/></svg></span></h1>
           <ul class="meta" aria-label="A leírásról">
             <li class="c-lilac"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-tag"/></svg>Csapat és fiók</li>
-            <li><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>3 perc olvasás</li>
+            <li><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>6 perc olvasás</li>
             
           </ul>
           <p class="art-intro">A <b class="ui">Fiókom</b> oldal a saját belépésedről szól, nem az éttermek fiókjáról. Számítógépen kattints a nevedre a bal oldali sáv alján, és a megnyíló panelen válaszd a <b class="ui">Fiókom</b> sort, mellette az <span class="hy">e-mail-címeddel</span>. Telefonon ugyanez a sor a <b class="ui">Több</b> fül alján van.</p>
@@ -193,11 +194,27 @@
 <p>Bekapcsolva a jelszó mellé egy 6 jegyű kód is kell, amit a telefonodon egy hitelesítő alkalmazás ad, például a Google Authenticator. Így ha a jelszavad ki is szivárog, akkor sem lehet vele belépni a fiókodba.</p>
 <ol class="hsteps" role="list" id="lepesek"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>A <b class="ui">Kétlépcsős belépés</b> kártyán nyomd meg a <b class="ui">Bekapcsolás</b> gombot.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Olvasd be a megjelenő kódot a hitelesítő alkalmazással, vagy írd be a kulcsot kézzel.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Írd be az alkalmazás 6 jegyű kódját, és nyomd meg az <b class="ui">Ellenőrzés és bekapcsolás</b> gombot.</p></div></li></ol>
 <p>Innentől belépéskor a jelszó után a kódot is kérjük. Ha a kód nem stimmel, nézd meg, jól <span class="hy">jár-e</span> a telefonod órája. Kikapcsolni a <b class="ui">Kikapcsolás</b> gombbal tudod, ehhez is friss kód kell.</p>
-<aside class="callout callout-warn" role="note"><p class="callout-label"><span class="callout-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#g-warn"/></svg></span>Figyelem</p><p>Ha elveszted a telefont, amelyen a hitelesítő alkalmazás van, egyedül nem tudsz belépni, és a kétlépcsős belépést csak mi tudjuk kikapcsolni. Ezért mentsd el a kulcsot máshová is, például egy jelszókezelőbe.</p></aside>
+<h2 id="helyreallito-kodok">Helyreállító kódok</h2>
+<p>A bekapcsolás végén 10 helyreállító kódot kapsz. A <b class="ui">Helyreállító kódok</b> csak ekkor látszanak, később nem nézheted meg őket újra. Mindegyik egyszer használható.</p>
+<p>Mentsd el őket a <b class="ui">Másolás</b> vagy a <b class="ui">Letöltés</b> gombbal, aztán nyomd meg a <b class="ui">Megvan, elmentettem</b> gombot. A kártyán látod, hány kódod maradt. Az <b class="ui">Új kódok</b> gombbal új készletet kérhetsz, ehhez előbb a hitelesítő alkalmazás friss kódját kell megadnod.</p>
+<p>Ha nincs nálad a telefon, a belépés kódkérő képernyőjén válaszd a <b class="ui">Nincs nálad a telefon? Használj helyreállító kódot.</b> lehetőséget. Itt adhatod meg az egyik elmentett kódot.</p>
+<p>A helyreállító kóddal való belépés kikapcsolja a kétlépcsős belépést. Ezt a képernyő már a gomb megnyomása előtt jelzi, és belépés után is emlékeztet rá. Állítsd be újra a <b class="ui">Fiókom</b> oldalon.</p>
+<p>Ha sem a telefon, sem helyreállító kód nincs meg, a belépő oldalon a <b class="ui">Nem jutsz be?</b> linken írj nekünk.</p>
 <h2 id="jelszo-modositasa">Jelszó módosítása</h2>
 <ol class="hsteps" role="list"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>A <b class="ui">Jelszó</b> kártyán írd be a mostani jelszavadat a <b class="ui">Jelenlegi jelszó</b> mezőbe.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Írd be az újat az <b class="ui">Új jelszó</b> és az <b class="ui">Új jelszó még egyszer</b> mezőbe. Legalább 8 karakter legyen.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Ha a többi eszközön is ki akarsz lépni, jelöld be <b class="ui">A többi eszközön is jelentkeztess ki</b> mezőt.</p></div></li><li class="hstep"><span class="hstep-n c-green" aria-hidden="true">4</span><div class="hstep-body"><p>Nyomd meg a <b class="ui">Jelszó módosítása</b> gombot.</p></div></li></ol>
+<h2 id="elfelejtett-jelszo">Elfelejtett jelszó</h2>
+<p>Amíg a levélküldés ki van kapcsolva, az <b class="ui">Elfelejtett jelszó</b> után a belépő oldal azt írja, hogy egyelőre nem tud jelszócserélő levelet küldeni, ezért itt nem kérhetsz új jelszót. Ilyenkor nem megy ki levél. Ha egy másik eszközön be vagy lépve, a <b class="ui">Fiókom</b> oldalon beállíthatsz újat. A belépő oldal alján azt is olvasod, hogyan írhatsz nekünk: „Írj nekünk a Visszajelzés gombbal. Az <span class="hy">e-mail-címedre</span> válaszolunk.”</p>
+<p>A <b class="ui">Nem jutsz be?</b> link belépés nélkül megnyitja az <b class="ui">Írj nekünk</b> panelt. Add meg az <span class="hy">e-mail-címedet</span> és az üzenetedet.</p>
+<p>Bekapcsolt levélküldésnél az <b class="ui">Elfelejtett jelszó</b> után ezt látod: „Megkaptuk a kérést. Ha ezzel a címmel van fiók, indul rá egy levél az új jelszóhoz. Ha nem érkezik meg, nézd meg a spam mappát, vagy írj nekünk.” Ugyanez jelenik meg akkor is, ha a címhez nem tartozik belépés.</p>
+<p>Az <b class="ui">Új jelszó a BistroTechhez</b> tárgyú levél linkje 1 óráig érvényes. Az <b class="ui">Új jelszó</b> képernyőt nyitja meg, ahol megadhatod az új jelszavadat. A <b class="ui">Mutasd</b> gombbal láthatóvá teheted.</p>
+<p>Lejárt vagy már használt linknél ez áll a képernyőn: „A link lejárt vagy már használtad. Kérj újat.” A <b class="ui">Kérj új linket</b> lehetőséggel kérhetsz másikat.</p>
 <h2 id="kilepes-a-tobbi-eszkozrol">Kilépés a többi eszközről</h2>
-<p>Elhagytad a telefonod, vagy egy közös gépen nyitva maradt a BistroTech? Nyomd meg a <b class="ui">Más eszközök</b> kártyán a <b class="ui">Kijelentkezés minden más eszközről</b> gombot. Azon az eszközön, amelyiken most vagy, bejelentkezve maradsz.</p>
+<p>A <b class="ui">Más eszközök</b> kártyán látod a bejelentkezett eszközöket, az utolsó használatukat és azt is, melyiket használod most. Egy eszközt a mellette lévő <b class="ui">Kiléptetés</b> gombbal léptethetsz ki. Legfeljebb 1 órán belül kilép.</p>
+<p>Elhagytad a telefonod, vagy egy közös gépen nyitva maradt a BistroTech? A <b class="ui">Kijelentkezés minden más eszközről</b> gombbal a többi eszközödet egyszerre léptetheted ki. Ezek is legfeljebb 1 órán belül lépnek ki. Azon az eszközön, amelyiken most vagy, bejelentkezve maradsz.</p>
+<h2 id="uj-eszkoz-es-a-belepeseid">Új eszköz és a belépéseid</h2>
+<p>Ha jelszóval lépsz be egy olyan eszközről, amelyet az elmúlt 90 napban nem használtál ehhez a belépéshez, értesítést kapsz a saját összekötött <span class="hy">Telegram-chatedben</span>. Bekapcsolt levélküldésnél <span class="hy">e-mailben</span> is. Ehhez kell egy korábban rögzített belépés, amihez az új összehasonlítható. A frissítés utáni első belépés adja ezt az alapot.</p>
+<p>Az értesítés címe <b class="ui">Új belépés a <span class="hy">BistroTech-fiókodba</span></b>. A linkje a <b class="ui">Fiókom</b> oldalt nyitja meg ezzel az útmutatással. „Nem te voltál? Léptesd ki a többi eszközt, és adj új jelszót.”</p>
+<p>A kártya alatt a <b class="ui">Belépéseid</b> a saját belépéseid, új eszközeid, a kétlépcsős belépés be- és kikapcsolása, a helyreállító kódok és a <span class="hy">jelszó-visszaállítások</span> legújabb 10 bejegyzését mutatja. Csak te látod őket.</p>
         </div>
 
         
@@ -218,7 +235,7 @@
   <a class="btn btn-yellow" href="tel:+36302222444"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><span>Hívj minket: +36 30 2222 444</span></a>
 </section>
 
-        <p class="art-updated">Frissítve: 2026. október 17.</p>
+        <p class="art-updated">Frissítve: 2026. október 19.</p>
       </article>
 
       <aside class="help-side" aria-label="Ebben a leírásban">
@@ -226,9 +243,12 @@
           <h2>Ebben a leírásban</h2>
           <ol>
             <li class="c-yellow"><a href="#ketlepcsos-belepes">Kétlépcsős belépés</a></li>
-            <li class="c-pink"><a href="#jelszo-modositasa">Jelszó módosítása</a></li>
-            <li class="c-cyan"><a href="#kilepes-a-tobbi-eszkozrol">Kilépés a többi eszközről</a></li>
-            <li class="c-green"><a href="#kapcsolodo">Kapcsolódó leírások</a></li>
+            <li class="c-pink"><a href="#helyreallito-kodok">Helyreállító kódok</a></li>
+            <li class="c-cyan"><a href="#jelszo-modositasa">Jelszó módosítása</a></li>
+            <li class="c-green"><a href="#elfelejtett-jelszo">Elfelejtett jelszó</a></li>
+            <li class="c-orange"><a href="#kilepes-a-tobbi-eszkozrol">Kilépés a többi eszközről</a></li>
+            <li class="c-lilac"><a href="#uj-eszkoz-es-a-belepeseid">Új eszköz és a belépéseid</a></li>
+            <li class="c-yellow"><a href="#kapcsolodo">Kapcsolódó leírások</a></li>
             
           </ol>
         </div>
@@ -259,6 +279,7 @@
       <ul>
         <li><a href="../../sugo/">Súgó</a></li>
         <li><a href="../../sugo/videok/">Videók</a></li>
+        <li><a href="../../nezd-meg/">Nézd meg adatokkal</a></li>
         <li><a href="../../bemutato/">Kérj bemutatót</a></li>
         
       </ul>
@@ -308,11 +329,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok még tervezetek, ügyvéd nem nézte át őket.</span> <span>Oldal v0.14.0, 2026-10-17.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok még tervezetek, ügyvéd nem nézte át őket.</span> <span>Oldal v0.15.0, 2026-10-19.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=fc4a4deefd" defer></script>
+<script src="../../js/site.js?v=4f76abcd76" defer></script>
 </body>
 </html>
 

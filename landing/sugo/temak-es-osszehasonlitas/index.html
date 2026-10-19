@@ -6,6 +6,7 @@
 <title>Témák és az éttermek összehasonlítása · BistroTech súgó</title>
 <meta name="description" content="A Kimutatások fülön látod, mi jön elő újra és újra abban, amit a vendégek írnak, és hogyan állnak az éttermeid egymáshoz képest.">
 <meta name="theme-color" content="#38d6e0">
+<meta name="bt:signup" content="https://zsombp.github.io/npi-review-system/signup">
 <link rel="canonical" href="https://zsombp.github.io/npi-review-system/landing/sugo/temak-es-osszehasonlitas/">
 
 <link rel="alternate" hreflang="hu" href="https://zsombp.github.io/npi-review-system/landing/sugo/temak-es-osszehasonlitas/">
@@ -27,7 +28,7 @@
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/spacegrotesk-display-lat-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-lat-ext.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=665db7053c">
+<link rel="stylesheet" href="../../css/site.css?v=77c05bf26e">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
@@ -180,30 +181,47 @@
           <h1 id="art-title">Témák és az éttermek <span class="mk mk-pink">összehasonlítása<svg class="mk-line" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M2 7.5C20 4 40 9.5 60 6.5S88 4.5 98 7.5"/></svg></span></h1>
           <ul class="meta" aria-label="A leírásról">
             <li class="c-green"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-tag"/></svg>Kimutatások</li>
-            <li><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>3 perc olvasás</li>
+            <li><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>6 perc olvasás</li>
             
           </ul>
-          <p class="art-intro">A <b class="ui">Kimutatások</b> fül egy időszak számait mutatja, éttermenként. Az időszakot fent választod, lehet <b class="ui">7 nap</b>, <b class="ui">30 nap</b> vagy <b class="ui">90 nap</b>. A fül a Google dátuma szerint számol, a mai napot is beleértve. A <b class="ui">Ma</b> fül a reggeli jelentés napjai szerint számol. Így a két szám pár értékeléssel eltérhet.</p>
+          <p class="art-intro">A <b class="ui">Kimutatások</b> fül egy időszak számait mutatja, éttermenként. Fent 7, 30 vagy 90 napot választhatsz, illetve az utolsó 3 naptári hónap egyikét, név szerint.</p>
         </header>
 
         
 
         <div class="art-body">
-          <p>A fül tetején a nézetek között is váltasz: <b class="ui">Áttekintés</b>, <b class="ui">Ételek</b>, <b class="ui">Munkatársak</b> és <b class="ui">Helyezés</b>. Az alábbiak az <b class="ui">Áttekintés</b> nézetről szólnak.</p>
+          <p>Egy teljes hónapot az előző hónappal hasonlíthatsz össze. A folyó hónap mellett az előző hónap ugyanennyi napja áll, a dátumokat a választónál látod. A választás a munkamenet végéig megmarad. Az <b class="ui">Ételek</b> és a <b class="ui">Munkatársak</b> nézetben a kiválasztott hónap 30 napnak számít.</p>
+<p>A fül a Google dátuma szerint számol. A <b class="ui">Ma</b> a reggeli jelentések napjai szerint, így a két szám pár értékeléssel eltérhet. A <a href="../../sugo/mit-jelentenek-a-szamok/">számolás részleteiről</a> külön cikkben olvashatsz.</p>
+<p>A fül tetején a nézetek között is váltasz: <b class="ui">Áttekintés</b>, <b class="ui">Ételek</b>, <b class="ui">Munkatársak</b> és <b class="ui">Helyezés</b>. Az alábbiak az <b class="ui">Áttekintés</b> nézetről szólnak.</p>
 <h2 id="a-fo-szamok">A fő számok</h2>
-<p>4 csempét látsz. Mindegyiken ott a változás az előző ugyanilyen hosszú időszakhoz képest, az első kettőn egy kis vonal is, napról napra.</p>
-<ul class="art-list" role="list"><li><b class="ui">Új értékelés</b>: az időszakban jött értékelések.</li><li><b class="ui">Átlag</b>: az új értékelések csillagainak átlaga.</li><li><b class="ui">Negatív</b>: az 1, 2 vagy 3 csillagos új értékelések. Alatta az is ott áll, hány súlyos, vagyis 1 vagy 2 csillagos.</li><li><b class="ui">Válaszra vár</b>: azok az értékelések, amelyekre megírtuk a választ, és még senki nem nézte át. Ugyanez a szám áll a <b class="ui">Válaszok</b> fülön.</li></ul>
+<p>5 csempét látsz. A változás az előző időszakhoz viszonyít, az első kettőn egy kis vonal is mutatja a napokat.</p>
+<ul class="art-list" role="list"><li><b class="ui">Új értékelés</b>: az időszakban jött értékelések.</li><li><b class="ui">Átlag</b>: az új értékelések csillagainak átlaga.</li><li><b class="ui">Negatív</b>: az 1, 2 vagy 3 csillagos új értékelések. Alatta az is ott áll, hány súlyos, vagyis 1 vagy 2 csillagos.</li><li><b class="ui">Válaszra vár</b>: azok az értékelések, amelyekre megírtuk a választ, és még senki nem nézte át. Ugyanez a szám áll a <b class="ui">Válaszok</b> fülön.</li><li><b class="ui">Válaszidő</b>. Azt mutatja, hány óra telt el az <span class="hy">1-3</span> csillagos értékelés és a tulajdonos válasza között. A középső értéket, vagyis a mediánt látod. Alatta a megválaszolt negatív értékelések aránya áll, mindkettő az előző időszakhoz képest.</li></ul>
+<p>A kézzel lezárt válaszok idejét külön számoljuk. Ugyanígy kimarad a mediánból az a válasz, amelynek ideje az értékelés idejére vagy az elé esik, illetve több mint 1 évvel későbbi. A bizonytalan idejű válaszok számát külön látod. Az étterem első jelentése előtt írt negatív értékelések is külön számítanak. Ha <span class="hy">5-nél</span> kevesebb beszámítható válasz van, a csempén „Kevés adat” áll.</p>
+<p>A csempe alatt azt is látod, a válaszok hány százaléka ment ki változtatás nélkül, és ez hány választ jelent. A kézzel közzétettként lezárt válaszok ebbe nem számítanak bele.</p>
 <p>Az első 3 csempe a mögötte lévő értékeléseket nyitja meg, a <b class="ui">Válaszra vár</b> a <b class="ui">Válaszok</b> fület. Ha az időszak értékeléseinek egy részét még nem elemeztük, a csempék alatt egy megjegyzés kiírja, hányat.</p>
-<figure class="shot shot-wide"><div class="shot-frame"><img src="../../img/help/temak-es-osszehasonlitas.webp" width="2260" height="1176" loading="lazy" decoding="async" alt="A Kimutatások fül 30 napra, egy étteremmel: fent a nézetek és az időszak, alatta a 4 csempe, majd a Google-értékelés kártya az étterem vonalával."></div><figcaption>Kép a bemutatófiókból, kitalált adatokkal.</figcaption></figure>
+<p>Minden csempén és a táblázatnál is van egy <b class="ui">?</b>. Megnyitva elolvashatod, mit jelent a szám, mely napokat fedi le a fiók időzónájában, mi számít bele, és mikor volt az utolsó ellenőrzés. Azt is elmagyarázza, miért térhet el a Google nyilvános összesítésétől.</p>
+<h2 id="mi-szamit-szokasosnak">Mi számít szokásosnak</h2>
+<p>Az új és a negatív értékelések, valamint a <b class="ui">Válaszidő</b> alatt a fiókod saját előző 90 napjához is látsz összehasonlítást. Ha az eltérés legalább 20% felfelé vagy lefelé, külön jelzés mutatja. Ha ebben a 90 napban <span class="hy">30-nál</span> kevesebb értékelés volt, a sor azt jelzi, hogy nincs még szokásos érték. Más éttermek adatai nem számítanak bele.</p>
 <h2 id="ettermenkent">Éttermenként</h2>
-<p>Az <b class="ui">Éttermenként</b> részben minden étteremnek egy sora van. Benne a mostani <span class="hy">Google-értékelés</span>, egy vonal arról, hogyan alakult az utolsó 30 napban (90 napos időszaknál az utolsó <span class="hy">90-ben</span>), a változás előjellel, és az új meg a negatív értékelések száma. A vonalak az étterem saját skáláján állnak, a pont a mai érték.</p>
-<p>Alapból elöl áll az, amelyiknek a legjobban romlott az értékelése. Számítógépen az oszlopfejre kattintva másképp is rendezheted, telefonon minden étterem egy kártya. Ha egy éttermed van, e helyett egy <b class="ui"><span class="hy">Google-értékelés</span></b> kártyát látsz, rajta a mostani értékeléssel, a változással és a vonallal.</p>
+<p>Az <b class="ui">Éttermenként</b> részben minden étteremnek egy sora van. A kiválasztott időszakról ezeket látod.</p>
+<ul class="art-list" role="list"><li>Az új értékelések számát az előző időszak számával együtt.</li><li>Az új értékelések csillagátlagát és annak változását.</li><li>Az 1 és 2 csillagos értékelések arányát és annak változását.</li><li>A csillagok szerinti bontást az előző időszakéval együtt.</li><li>A megválaszolt negatív értékelések arányát és a válaszidő mediánját.</li></ul>
+<p>A <b class="ui"><span class="hy">Google-értékelés</span></b> oszlop a nyilvános, összesített érték, mellette a <b class="ui">Változás</b> oszlop. Ez külön szám az időszak új értékeléseinek átlagától. A vonal az utolsó 30 napot mutatja, 90 napos időszaknál az utolsó <span class="hy">90-et</span>. Az étterem saját skáláján áll, a pont a mai érték.</p>
+<p>A kikapcsolt étterem is szerepel, ha volt értékelése az időszakban. A neve mellett <b class="ui">Kikapcsolva</b> jelölést látsz, így egy korábbi időszakból nem vesznek el az akkori éttermek számai.</p>
+<p>Az étterem neve alatt jelzés szólhat arról, hány napja nem jött értékelés, és általában hány nap telik el két értékelés között. Ehhez legalább 1 hétnek és a szokásos időköz legalább <span class="hy">3-szorosának</span> kell eltelnie új értékelés nélkül. A szokásos időköz az étterem saját utolsó 90 napjából számolható, az időszak végéig, legalább 10 értékelésből.</p>
+<p>Alapból elöl áll az, amelyiknek a legjobban romlott az értékelése. Számítógépen az oszlopfejre kattintva másképp is rendezheted. Telefonon az éttermek kártyákon jelennek meg, fölöttük választod ki a sorrendet.</p>
+<h2 id="ha-egy-ettermed-van">Ha egy éttermed van</h2>
+<p>Az éttermenkénti táblázat és a <b class="ui">Leginkább</b> sor nem jelenik meg. Helyettük a <b class="ui">Hetente</b> oszlopai mutatják a heteket az előző időszakkal együtt. A csillagok bontását, a <b class="ui">Válaszidő</b> csempét és a szokásos értékhez viszonyító sorokat is látod.</p>
 <h2 id="temak">Témák</h2>
 <p>A szöveges értékelésekből kiolvassuk, miről szólnak, például a kiszolgálásról, a várakozásról vagy az árakról. A <b class="ui">Miről írnak</b> alatt két listát látsz, az <b class="ui">Amit dicsérnek</b> és az <b class="ui">Amire panaszkodnak</b> listát. Mindkettőben a 10 leggyakoribb téma áll.</p>
 <ul class="art-list" role="list"><li>Minden témánál látod, 100 értékelésből hányban jött elő, és mennyit változott az előző időszakhoz képest.</li><li>Ha egy téma valamelyik étteremnél sokkal gyakoribb, mint a többinél, a „Leginkább: …” sor megmondja, melyiknél.</li><li>Ha egy téma <span class="hy">5-nél</span> kevesebbszer jött elő, változás helyett azt írjuk ki, hogy kevés hozzá az adat.</li><li>Egy értékelésben egy témát csak egyszer számolunk.</li><li>Egy téma panasznak számít, ha negatív hangulatú vagy legfeljebb 3 csillagos értékelésben jön elő.</li><li>Dicséretnek, ha pozitív hangulatú vagy legalább 4 csillagos értékelésben.</li></ul>
+<p>Minden témánál egy kis vonal mutatja az utolsó 12 hét alakulását, 100 értékelésre vetítve. Az <span class="hy">5-nél</span> kevesebb értékelést hozó hetek helyén rés marad.</p>
 <p>A témák egységes nevet kapnak, így éttermek és nyelvek között is összevetheted őket.</p>
 <h2 id="munkatarsak-emlitese">Munkatársak említése</h2>
 <p>Az <b class="ui">Akiket név szerint említenek</b> részben a legtöbbször említett 6 munkatársat látod, a vendégek írásmódjával. Egy név egy étteremben egy ember. Minden névnél ott áll, hány említése volt, és ebből hány százalék dicséret. Itt egy említés dicséret, ha 4 vagy 5 csillagos értékelésben van. A <b class="ui">Mind, éttermenként</b> link a <b class="ui">Munkatársak</b> nézetbe visz, erről a <a href="../../sugo/dicseretek/">Munkatársak és névemlítések</a> cikk szól.</p>
+<h2 id="letoltes-es-nyomtatas">Letöltés és nyomtatás</h2>
+<p>Az éttermenkénti táblázatnál, mindkét témalistánál és a névlistánál a <b class="ui">Letöltés táblázatba</b> gombbal mentheted a sorokat. A sorrend ugyanaz, mint a képernyőn, a fájlnév a fiókod nevével kezdődik.</p>
+<p>Fent a <b class="ui">Letöltés</b> menüben is megtalálod ezeket. Tulajdonosként innen a napi számok <span class="hy">CSV-fájlját</span>, az értékelések <span class="hy">CSV-fájlját</span> és a <span class="hy">JSON-exportot</span> is eléred. Ezek fájlneve is a fiókod nevével kezdődik. Róluk az <a href="../../sugo/adatok-es-torles/">adatletöltésről szóló cikkben</a> olvashatsz.</p>
+<p>A <b class="ui">Nyomtatható összefoglaló</b> egy <span class="hy">A4-es</span> lapra foglalja az időszakot. Éttermenként a <b class="ui">Konyhai kártya</b> linket is megtalálod. A tartalmukat és a nyomtatást a <a href="../../sugo/nyomtathato-osszefoglalo/">Nyomtatható összefoglaló</a> cikk mutatja be.</p>
         </div>
 
         
@@ -224,7 +242,7 @@
   <a class="btn btn-yellow" href="tel:+36302222444"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><span>Hívj minket: +36 30 2222 444</span></a>
 </section>
 
-        <p class="art-updated">Frissítve: 2026. október 17.</p>
+        <p class="art-updated">Frissítve: 2026. október 19.</p>
       </article>
 
       <aside class="help-side" aria-label="Ebben a leírásban">
@@ -232,10 +250,13 @@
           <h2>Ebben a leírásban</h2>
           <ol>
             <li class="c-yellow"><a href="#a-fo-szamok">A fő számok</a></li>
-            <li class="c-pink"><a href="#ettermenkent">Éttermenként</a></li>
-            <li class="c-cyan"><a href="#temak">Témák</a></li>
-            <li class="c-green"><a href="#munkatarsak-emlitese">Munkatársak említése</a></li>
-            <li class="c-orange"><a href="#kapcsolodo">Kapcsolódó leírások</a></li>
+            <li class="c-pink"><a href="#mi-szamit-szokasosnak">Mi számít szokásosnak</a></li>
+            <li class="c-cyan"><a href="#ettermenkent">Éttermenként</a></li>
+            <li class="c-green"><a href="#ha-egy-ettermed-van">Ha egy éttermed van</a></li>
+            <li class="c-orange"><a href="#temak">Témák</a></li>
+            <li class="c-lilac"><a href="#munkatarsak-emlitese">Munkatársak említése</a></li>
+            <li class="c-yellow"><a href="#letoltes-es-nyomtatas">Letöltés és nyomtatás</a></li>
+            <li class="c-pink"><a href="#kapcsolodo">Kapcsolódó leírások</a></li>
             
           </ol>
         </div>
@@ -266,6 +287,7 @@
       <ul>
         <li><a href="../../sugo/">Súgó</a></li>
         <li><a href="../../sugo/videok/">Videók</a></li>
+        <li><a href="../../nezd-meg/">Nézd meg adatokkal</a></li>
         <li><a href="../../bemutato/">Kérj bemutatót</a></li>
         
       </ul>
@@ -315,11 +337,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok még tervezetek, ügyvéd nem nézte át őket.</span> <span>Oldal v0.14.0, 2026-10-17.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok még tervezetek, ügyvéd nem nézte át őket.</span> <span>Oldal v0.15.0, 2026-10-19.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=fc4a4deefd" defer></script>
+<script src="../../js/site.js?v=4f76abcd76" defer></script>
 </body>
 </html>
 

@@ -6,6 +6,7 @@
 <title>Tripadvisor-értékelések · BistroTech súgó</title>
 <meta name="description" content="Ha az étterem fent van a Tripadvisoron, az ottani értékeléseket is behozzuk, a Google-számoktól külön.">
 <meta name="theme-color" content="#38d6e0">
+<meta name="bt:signup" content="https://zsombp.github.io/npi-review-system/signup">
 <link rel="canonical" href="https://zsombp.github.io/npi-review-system/landing/sugo/tripadvisor/">
 
 <link rel="alternate" hreflang="hu" href="https://zsombp.github.io/npi-review-system/landing/sugo/tripadvisor/">
@@ -27,7 +28,7 @@
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/spacegrotesk-display-lat-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-lat-ext.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=665db7053c">
+<link rel="stylesheet" href="../../css/site.css?v=77c05bf26e">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
@@ -193,6 +194,7 @@
 <ol class="hsteps" role="list" id="lepesek"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Nyisd meg a Tripadvisoron az étterem oldalát, és másold ki a címét a böngésző címsorából. A cím így kezdődik: „tripadvisor.com/Restaurant_Review-”.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>A BistroTechben nyisd meg az <b class="ui">Éttermek</b> oldalt, kattints az étterem sorára, és nyisd meg a <b class="ui">Beállítás</b> fület.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>A <b class="ui">Tripadvisor</b> kártyán illeszd be a címet <b class="ui">Az étterem <span class="hy">Tripadvisor-oldalának</span> címe</b> mezőbe.</p></div></li><li class="hstep"><span class="hstep-n c-green" aria-hidden="true">4</span><div class="hstep-body"><p>Nyomd meg az <b class="ui">Összekapcsolás</b> gombot.</p></div></li></ol>
 <p>Az első letöltés pár percig tart, és az utolsó fél év értékeléseiből legfeljebb <span class="hy">150-et</span> hoz be. Közben a kártya magától frissül. Utána naponta egyszer frissítünk, a reggeli jelentés előtt.</p>
 <h2 id="mi-valtozik-utana">Mi változik utána</h2>
+<p>Az étterem oldalán a <b class="ui">Hol van kint a hely</b> listában a Tripadvisor mellett <b class="ui">olvassuk</b> áll, amíg a Tripadvisor be van kapcsolva.</p>
 <ul class="art-list" role="list"><li>Az <b class="ui">Értékelések</b> fülön a Tripadvisor-értékeléseken külön jelölés van. A <b class="ui">Szűrők</b> panel <b class="ui">Oldal</b> sorában szűrhetsz csak rájuk, vagy csak a <span class="hy">Google-értékelésekre</span>.</li><li>A napi jelentésben az új Tripadvisor-értékelések külön sorban állnak, a <span class="hy">Google-számokba</span> nem keverednek bele.</li><li>Ezekre is megírjuk a választ. A Tripadvisorra viszont nem tudunk írni, így a választ kimásolod, és a Tripadvisor tulajdonosi fiókodból teszed ki. Hogy hogyan, azt a <a href="../../sugo/kezi-kozzetetel/">Válasz kézzel, <span class="hy">Google-hozzáférés</span> nélkül</a> cikk mutatja meg.</li><li>Tripadvisor-értékelésre az automata válasz soha nem megy ki magától.</li></ul>
 <h2 id="ha-valami-nem-sikerul">Ha valami nem sikerül</h2>
 <p>Ha a letöltés hibázik, a kártya kiírja az okát, és másnap reggel újra próbáljuk. Ha a cím nem egy Tripadvisor-étteremoldalé, azt is jelzi a kártya, és nem változik semmi.</p>
@@ -218,7 +220,7 @@
   <a class="btn btn-yellow" href="tel:+36302222444"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><span>Hívj minket: +36 30 2222 444</span></a>
 </section>
 
-        <p class="art-updated">Frissítve: 2026. október 17.</p>
+        <p class="art-updated">Frissítve: 2026. október 19.</p>
       </article>
 
       <aside class="help-side" aria-label="Ebben a leírásban">
@@ -260,6 +262,7 @@
       <ul>
         <li><a href="../../sugo/">Súgó</a></li>
         <li><a href="../../sugo/videok/">Videók</a></li>
+        <li><a href="../../nezd-meg/">Nézd meg adatokkal</a></li>
         <li><a href="../../bemutato/">Kérj bemutatót</a></li>
         
       </ul>
@@ -309,11 +312,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok még tervezetek, ügyvéd nem nézte át őket.</span> <span>Oldal v0.14.0, 2026-10-17.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok még tervezetek, ügyvéd nem nézte át őket.</span> <span>Oldal v0.15.0, 2026-10-19.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=fc4a4deefd" defer></script>
+<script src="../../js/site.js?v=4f76abcd76" defer></script>
 </body>
 </html>
 

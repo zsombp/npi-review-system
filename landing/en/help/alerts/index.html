@@ -6,6 +6,7 @@
 <title>Alerts · BistroTech help</title>
 <meta name="description" content="When we send alerts outside the daily report, and where they go.">
 <meta name="theme-color" content="#38d6e0">
+<meta name="bt:signup" content="https://zsombp.github.io/npi-review-system/signup?lang=en">
 <link rel="canonical" href="https://zsombp.github.io/npi-review-system/landing/en/help/alerts/">
 
 <link rel="alternate" hreflang="hu" href="https://zsombp.github.io/npi-review-system/landing/sugo/riasztasok/">
@@ -25,7 +26,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="../../../fonts/spacegrotesk-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../../css/site.css?v=665db7053c">
+<link rel="stylesheet" href="../../../css/site.css?v=77c05bf26e">
 <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
 <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
 <script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
@@ -178,20 +179,39 @@
           <h1 id="art-title"><span class="mk mk-pink">Alerts<svg class="mk-line" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M2 7.5C20 4 40 9.5 60 6.5S88 4.5 98 7.5"/></svg></span></h1>
           <ul class="meta" aria-label="About this article">
             <li class="c-orange"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-tag"/></svg>The daily report</li>
-            <li><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>3 min read</li>
+            <li><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>5 min read</li>
             
           </ul>
-          <p class="art-intro">Besides the daily report, we send three kinds of alert to Telegram. All three go to the <b class="ui">Alerts</b> destination, so it's worth connecting that one too, on the <b class="ui">Telegram destinations</b> card, on the <b class="ui">Notifications and reports</b> page of <b class="ui">Settings</b>. It works the same way as <a href="../../help/setting-up-the-daily-report/">for the daily report</a>.</p>
+          <p class="art-intro">Besides the daily report, we send three kinds of alert to Telegram. All three go to the <b class="ui">Alerts</b> destination, so it's worth connecting that one too, on <b class="ui">Értesítések</b>, the notifications page. It works the same way as <a href="../../help/setting-up-the-daily-report/">for the daily report</a>.</p>
         </header>
 
         
 
         <div class="art-body">
           <h2 id="instant-alert-on-a-low-review">Instant alert on a low review</h2>
-<ol class="hsteps" role="list" id="steps"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>On the same page, find the <b class="ui">Instant alert on a low review</b> card.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>In the <b class="ui">Alert when the review is at most</b> field, choose the number of stars. If you don't want the alert, choose <b class="ui">Off</b>.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Use the two <b class="ui">Quiet hours</b> fields to set when we should keep quiet.</p></div></li></ol>
+<ol class="hsteps" role="list" id="steps"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>On the same page, find the <b class="ui">Instant alert on a low review</b> card.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>In the <b class="ui">Alert when the review is at most</b> field, choose the number of stars. If you don't want the alert, choose <b class="ui">Off</b>.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Under <b class="ui">Csendes órák</b>, meaning quiet hours, set when we should keep quiet.</p></div></li></ol>
 <p>Every choice is saved at once, and <b class="ui">Saved</b> appears next to it.</p>
 <p>A new account starts at 2 stars. Once a review like that reaches us, we'll let you know within 15 minutes. Anything that comes in during quiet hours, we send together when they're over.</p>
 <p>If the <b class="ui">Alerts</b> destination isn't connected, this alert goes to the daily report's chat instead. If that isn't connected either, we've no way to tell you.</p>
+<h2 id="when-the-last-message-went-out">When the last message went out</h2>
+<p>On the <b class="ui">Notifications</b> page, under the morning report, the weekly summary and the alert, you see the last delivery. The line says when it went, on which channel, and whether it arrived. If the quiet hours held an alert back, it says so, and the <b class="ui">Quiet hours</b> section shows how many alerts are waiting and when they'll come. If sending failed, the reason is there.</p>
+<p>Owners also see the last message's state for the account's chats.</p>
+<h2 id="a-test-message-on-telegram">A test message on Telegram</h2>
+<p>Under your own Telegram chat, the <b class="ui">Küldök próbaüzenetet</b> button (send a test message) asks for a test. Owners also have the button under the account's chats. BistroTech replies with one line. You can request up to 5 tests an hour per login.</p>
+<h2 id="separate-quiet-hours-for-your-phone-and-telegram">Separate quiet hours for your phone and Telegram</h2>
+<p>Under <b class="ui">Quiet hours for your devices</b>, the <b class="ui">Use different quiet hours on my devices</b> switch lets you set another period for your phone. The phone can stay quiet at night while you still get the alert on Telegram, or the other way round. This section appears when the alert is on and you're not just a viewer.</p>
+<p>If you leave it off, the same quiet hours apply to both.</p>
+<h2 id="pausing-a-venue-s-alerts">Pausing a venue's alerts</h2>
+<p>Under <b class="ui">Which venues</b>, in the <b class="ui">Pause one venue</b> block, pick the venue from <b class="ui">Which venue</b> and choose how long: 1, 7 or 30 days, or until a day you pick. Then press the pause button. The <b class="ui">Mégis szóljon</b> button (alert me after all) turns it back on.</p>
+<p>This only pauses your own alerts. Until then we won't tell you about the venue's low reviews. The account's channel still gets them, and they're still in <b class="ui">Replies</b>.</p>
+<p>If the pause would leave nobody to get the venue's alerts, the <b class="ui">Te vagy az utolsó</b> panel (you're the last one) opens, the same as when you switch them off.</p>
+<h2 id="the-telegram-group-s-habits">The Telegram group's habits</h2>
+<p>Owners can change these settings under <b class="ui">A csoport szokásai</b> (the group's habits).</p>
+<ul class="art-list" role="list"><li>The first switch limits questions to account members: the chat answers only people on the account. BistroTech recognises them through their own linked Telegram chats.</li><li><b class="ui">Short answers in the chat</b>: when it's on, the answer is cut to 600 characters, with a line under it that opens the app.</li><li><b class="ui">Send the weekly summary without a sound</b> makes the weekly summary silent. The Monday message won't buzz.</li></ul>
+<p>For some accounts only the operator can change these settings, and the page says so.</p>
+<p>Read <a href="../../help/bistrotech-on-telegram/">BistroTech on Telegram</a> for its commands and the buttons under its messages.</p>
+<h2 id="by-mail">By mail</h2>
+<p>While email sending hasn't started, <b class="ui">Hamarosan</b> (coming soon) sits next to <b class="ui"><span class="hy">E-mail</span></b>. We aren't sending letters yet.</p>
 <h2 id="pattern-alarm">Pattern alarm</h2>
 <p>During the day, we watch for two patterns at each venue. One is several <span class="hy">one-star</span> reviews coming in over a short time. The other is several guests lowering an earlier rating within a few days. We only look at Google reviews for this.</p>
 <ul class="art-list" role="list"><li>We'll tell you about the same pattern once a day, and once more that day if the count reaches twice the threshold.</li><li>This alert only goes to the <b class="ui">Alerts</b> destination.</li><li>It can also name who needs to be told. You set that person on the same page, in the <b class="ui">Who to notify on an alert</b> field, and keep it with the <b class="ui">Save</b> button under the field.</li></ul>
@@ -208,7 +228,7 @@
           <ul class="link-list" role="list">
             <li><a href="../../help/setting-up-the-daily-report/">Setting up the daily report<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></li>
             <li><a href="../../help/disputing-reviews-with-google/">Disputing reviews with Google<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></li>
-            <li><a href="../../help/changed-and-removed-reviews/">Changed and removed reviews<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></li>
+            <li><a href="../../help/bistrotech-on-telegram/">BistroTech on Telegram<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></li>
             
           </ul>
         </section>
@@ -219,7 +239,7 @@
   <a class="btn btn-yellow" href="tel:+36302222444"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><span>Call us: +36 30 2222 444</span></a>
 </section>
 
-        <p class="art-updated">Updated: 17 October 2026</p>
+        <p class="art-updated">Updated: 19 October 2026</p>
       </article>
 
       <aside class="help-side" aria-label="In this article">
@@ -227,6 +247,12 @@
           <h2>In this article</h2>
           <ol>
             <li class="c-yellow"><a href="#instant-alert-on-a-low-review">Instant alert on a low review</a></li>
+            <li class="c-pink"><a href="#when-the-last-message-went-out">When the last message went out</a></li>
+            <li class="c-cyan"><a href="#a-test-message-on-telegram">A test message on Telegram</a></li>
+            <li class="c-green"><a href="#separate-quiet-hours-for-your-phone-and-telegram">Separate quiet hours for your phone and Telegram</a></li>
+            <li class="c-orange"><a href="#pausing-a-venue-s-alerts">Pausing a venue&#x27;s alerts</a></li>
+            <li class="c-lilac"><a href="#the-telegram-group-s-habits">The Telegram group&#x27;s habits</a></li>
+            <li class="c-yellow"><a href="#by-mail">By mail</a></li>
             <li class="c-pink"><a href="#pattern-alarm">Pattern alarm</a></li>
             <li class="c-cyan"><a href="#error-message">Error message</a></li>
             <li class="c-green"><a href="#related">Related articles</a></li>
@@ -260,6 +286,7 @@
       <ul>
         <li><a href="../../help/">Help centre</a></li>
         <li><a href="../../help/videos/">Videos</a></li>
+        <li><a href="../../see-it/">See it with data</a></li>
         <li><a href="../../demo/">Ask for a demo</a></li>
         
       </ul>
@@ -310,11 +337,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are still drafts. A lawyer hasn&#x27;t reviewed them yet.</span> <span>Page v0.14.0, 2026-10-17.</span></p>
+    <p class="foot-meta"><span>BistroTech is a service of Netpromotion Invest Kft.</span> <span>The legal documents are still drafts. A lawyer hasn&#x27;t reviewed them yet.</span> <span>Page v0.15.0, 2026-10-19.</span></p>
   </div>
 </footer>
 
-<script src="../../../js/site.js?v=fc4a4deefd" defer></script>
+<script src="../../../js/site.js?v=4f76abcd76" defer></script>
 </body>
 </html>
 

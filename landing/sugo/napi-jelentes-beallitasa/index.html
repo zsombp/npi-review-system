@@ -6,6 +6,7 @@
 <title>A napi jelentés beállítása · BistroTech súgó</title>
 <meta name="description" content="Beállítod, hány órakor jöjjön a napi jelentés, és összekötöd a Telegramot, ha oda is kéred.">
 <meta name="theme-color" content="#38d6e0">
+<meta name="bt:signup" content="https://zsombp.github.io/npi-review-system/signup">
 <link rel="canonical" href="https://zsombp.github.io/npi-review-system/landing/sugo/napi-jelentes-beallitasa/">
 
 <link rel="alternate" hreflang="hu" href="https://zsombp.github.io/npi-review-system/landing/sugo/napi-jelentes-beallitasa/">
@@ -27,7 +28,7 @@
 <link rel="preload" href="../../fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/spacegrotesk-display-lat-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../fonts/sourcesans3-lat-ext.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../css/site.css?v=665db7053c">
+<link rel="stylesheet" href="../../css/site.css?v=77c05bf26e">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <script>document.documentElement.className = "js";try{if(localStorage.getItem("motion.paused")==="1")document.documentElement.setAttribute("data-paused","true")}catch(e){}</script>
@@ -180,26 +181,32 @@
           <h1 id="art-title">A napi jelentés <span class="mk mk-pink">beállítása<svg class="mk-line" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M2 8.5C18 4 36 9.5 54 6.5S86 4 98 7.5"/></svg></span></h1>
           <ul class="meta" aria-label="A leírásról">
             <li class="c-yellow"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-tag"/></svg>Kezdés</li>
-            <li><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>3 perc olvasás</li>
+            <li><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>4 perc olvasás</li>
             
           </ul>
-          <p class="art-intro">A napi jelentés minden nap a beállított órában összefoglalja az előző jelentés óta közzétett értékeléseket, éttermenként. Az appban mindig elolvashatod, és ha összekötöd a Telegramot, oda is elküldjük. A beállításokon a fiók tulajdonosa tud változtatni.</p>
+          <p class="art-intro">A napi jelentés minden nap a beállított órában összefoglalja az előző jelentés óta közzétett értékeléseket, éttermenként. Az appban mindig elolvashatod, és ha összekötöd a Telegramot, oda is elküldjük. A jelentés időpontját és a fiók Telegram-beszélgetéseit a fiók tulajdonosa állítja be.</p>
         </header>
 
         
 
         <div class="art-body">
           <h2 id="az-idopont">Az időpont</h2>
-<ol class="hsteps" role="list" id="lepesek"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Nyisd meg a <b class="ui">Beállítások</b> oldal <b class="ui">Értesítések és jelentések</b> lapját.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p><b class="ui">A napi jelentés ideje</b> kártyán válaszd ki az időpontot. Negyedóránként választhatsz. Alatta látod, hány órakor megy ki a jelentés, és melyik időzóna szerint.</p></div></li></ol>
+<ol class="hsteps" role="list" id="lepesek"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Nyisd meg az <b class="ui">Értesítések</b> oldalt.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p><b class="ui">A napi jelentés ideje</b> kártyán válaszd ki az időpontot. Negyedóránként választhatsz. Alatta látod, hány órakor megy ki a jelentés, és melyik időzóna szerint.</p></div></li></ol>
 <p>A választás azonnal elmentődik, mellette megjelenik az <b class="ui">Elmentve</b> felirat.</p>
 <p>Új fióknál a jelentés alapból reggel 8:<span class="hy">00-kor</span> megy ki, a fiók időzónája szerint.</p>
+<p>A reggeli jelentés alatt az utolsó küldést is látod. A sor megmondja, mikor, melyik csatornán ment, és célba <span class="hy">ért-e</span>. Ha a csendes órák tartják vissza, ott az időpont, amikor jön. Sikertelen küldésnél az okot is látod.</p>
 <h2 id="telegram-osszekotese">Telegram összekötése</h2>
 <ol class="hsteps" role="list"><li class="hstep"><span class="hstep-n c-yellow" aria-hidden="true">1</span><div class="hstep-body"><p>Ugyanezen a lapon, a <b class="ui">Telegram címzettek</b> kártyán, a <b class="ui">Napi jelentés</b> sorban nyomd meg az <b class="ui">Összekötés</b> gombot.</p></div></li><li class="hstep"><span class="hstep-n c-pink" aria-hidden="true">2</span><div class="hstep-body"><p>Ha magadnak kéred, nyomd meg a <b class="ui">Megnyitás Telegramon</b> linket, és a Telegramban indítsd el a beszélgetést.</p></div></li><li class="hstep"><span class="hstep-n c-cyan" aria-hidden="true">3</span><div class="hstep-body"><p>Ha a csapatod csoportjába kéred, vedd fel a csoportba azt a <span class="hy">Telegram-fiókot</span>, amelyiknek a nevét a panelen látod.</p></div></li><li class="hstep"><span class="hstep-n c-green" aria-hidden="true">4</span><div class="hstep-body"><p>Aztán küldd el a csoportba a panelen látható parancsot. A <b class="ui">Másolás</b> gombbal ki is másolhatod.</p></div></li><li class="hstep"><span class="hstep-n c-orange" aria-hidden="true">5</span><div class="hstep-body"><p>Amikor megjön a kód, a panel megmutatja, melyik beszélgetésből jött. Ha ez a jó, nyomd meg az <b class="ui">Igen, ide</b> gombot.</p></div></li></ol>
 <p>A kód 10 percig él. Ha lejárt, nyomd meg újra az <b class="ui">Összekötés</b> gombot.</p>
+<p>A saját <span class="hy">Telegram-beszélgetésed</span> alatt a <b class="ui">Küldök próbaüzenetet</b> gombbal ellenőrizheted az összekötést. A bot egy sorral válaszol. Egy belépéssel óránként legfeljebb 5 próbát kérhetsz.</p>
+<p>Tulajdonosként a fiók beszélgetéseinél is kérhetsz próbát, és látod az utolsó üzenet állapotát. Egyes fiókok csoportja csak a jelentéseket kapja, oda próbaüzenet nem megy.</p>
+<h2 id="csendes-orak-es-a-sajat-peldanyod">Csendes órák és a saját példányod</h2>
+<p>A <b class="ui">Csendes órák</b> alatt külön időszakot adhatsz meg az eszközeidnek, az <b class="ui">Az eszközeimen más órákban legyen csend</b> kapcsolóval. Ha nem kapcsolod be, ugyanaz a csend vonatkozik mindkettőre. A részleteket a <a href="../../sugo/riasztasok/">Riasztások</a> cikkben találod. A reggeli jelentést a csendes órák nem tartják vissza.</p>
+<p>Ha a csendes órák alatt riasztások várakoztak, a reggeli jelentés saját példányában egy sor azt is megmondja, hány riasztást tartottunk vissza, az érintett éttermekkel.</p>
 <h2 id="telegram-nelkul">Telegram nélkül</h2>
 <p>Ha semmit nem kötsz össze, a jelentés akkor is elkészül a beállított órában. Az <b class="ui">Elküldött üzenetek</b> oldalon olvashatod. Ezt a bal oldali sáv <b class="ui">Fiók</b> csoportjában, telefonon a <b class="ui">Több</b> fülön találod. Ott ez áll mellette: „Csak itt, az oldalon. Nincs összekötve Telegram.”</p>
 <p>Ha szeretnéd, hogy a telefonod szóljon, amikor megjön, nézd meg a <a href="../../sugo/telefonra-teves/">Tedd fel a telefonodra</a> cikket.</p>
-<p><span class="hy">E-mailben</span> később kezdjük küldeni a jelentést. A kapcsolókat a <b class="ui">Beállítások</b> oldal <b class="ui">Értesítések és jelentések</b> lapján, a <b class="ui">Levélben is</b> kártyán már most beállíthatod.</p>
+<p><span class="hy">E-mailben</span> most nem küldünk jelentést. Az <b class="ui">Értesítések</b> oldalon a <b class="ui">Levélben</b> lehetőségnél <b class="ui">Hamarosan</b> áll.</p>
 <h2 id="a-masik-ket-cimzett">A másik két címzett</h2>
 <p>A <b class="ui">Marketing</b> címzett a helyezések heti összefoglalóját kapja, a <b class="ui">Riasztás</b> a riasztásokat. Mindkettőt ugyanígy kötöd össze. A riasztásokról a <a href="../../sugo/riasztasok/">Riasztások</a> cikkben olvashatsz.</p>
 <aside class="callout callout-tip" role="note"><p class="callout-label"><span class="callout-ic"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-bulb"/></svg></span>Tipp</p><p>Ha kérdésed van, tedd fel az <b class="ui">Asszisztens</b> oldalon. A bal oldali sáv <b class="ui">Éttermeid</b> csoportjában, telefonon a <b class="ui">Több</b> fülön találod. A saját értékeléseid alapján válaszol. Bővebben: <a href="../../sugo/asszisztens/">Az asszisztens</a>.</p></aside>
@@ -210,7 +217,7 @@
         <section class="related" id="kapcsolodo" aria-labelledby="rel-title">
           <h2 id="rel-title">Kapcsolódó leírások</h2>
           <ul class="link-list" role="list">
-            <li><a href="../../sugo/mit-jelentenek-a-szamok/">Mit jelentenek a számok a napi jelentésben<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></li>
+            <li><a href="../../sugo/telegram-bot/">A Telegram-bot<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></li>
             <li><a href="../../sugo/riasztasok/">Riasztások<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></li>
             <li><a href="../../sugo/telefonra-teves/">Tedd fel a telefonodra<svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></li>
             
@@ -223,7 +230,7 @@
   <a class="btn btn-yellow" href="tel:+36302222444"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><span>Hívj minket: +36 30 2222 444</span></a>
 </section>
 
-        <p class="art-updated">Frissítve: 2026. október 17.</p>
+        <p class="art-updated">Frissítve: 2026. október 19.</p>
       </article>
 
       <aside class="help-side" aria-label="Ebben a leírásban">
@@ -232,9 +239,10 @@
           <ol>
             <li class="c-yellow"><a href="#az-idopont">Az időpont</a></li>
             <li class="c-pink"><a href="#telegram-osszekotese">Telegram összekötése</a></li>
-            <li class="c-cyan"><a href="#telegram-nelkul">Telegram nélkül</a></li>
-            <li class="c-green"><a href="#a-masik-ket-cimzett">A másik két címzett</a></li>
-            <li class="c-orange"><a href="#kapcsolodo">Kapcsolódó leírások</a></li>
+            <li class="c-cyan"><a href="#csendes-orak-es-a-sajat-peldanyod">Csendes órák és a saját példányod</a></li>
+            <li class="c-green"><a href="#telegram-nelkul">Telegram nélkül</a></li>
+            <li class="c-orange"><a href="#a-masik-ket-cimzett">A másik két címzett</a></li>
+            <li class="c-lilac"><a href="#kapcsolodo">Kapcsolódó leírások</a></li>
             
           </ol>
         </div>
@@ -265,6 +273,7 @@
       <ul>
         <li><a href="../../sugo/">Súgó</a></li>
         <li><a href="../../sugo/videok/">Videók</a></li>
+        <li><a href="../../nezd-meg/">Nézd meg adatokkal</a></li>
         <li><a href="../../bemutato/">Kérj bemutatót</a></li>
         
       </ul>
@@ -314,11 +323,11 @@
       </svg>
 
     </a>
-    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok még tervezetek, ügyvéd nem nézte át őket.</span> <span>Oldal v0.14.0, 2026-10-17.</span></p>
+    <p class="foot-meta"><span>BistroTech, a Netpromotion Invest Kft. szolgáltatása.</span> <span>A jogi dokumentumok még tervezetek, ügyvéd nem nézte át őket.</span> <span>Oldal v0.15.0, 2026-10-19.</span></p>
   </div>
 </footer>
 
-<script src="../../js/site.js?v=fc4a4deefd" defer></script>
+<script src="../../js/site.js?v=4f76abcd76" defer></script>
 </body>
 </html>
 

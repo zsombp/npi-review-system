@@ -792,6 +792,11 @@
         company_website: value("company_website"),
         source: source
       };
+      // v0.15.0 (G17.5): only when site.json attribution.lead_send is true; the lead function must accept the two fields first
+      if (form.getAttribute("data-attribution") === "1") {
+        payload.from = window.location.pathname.slice(0, 80);
+        payload.utm = visitTags();
+      }
 
       sending = true;
       if (button) {
@@ -892,6 +897,158 @@
     location.replace(target);
   }
 
+  /* ---- where a visit came from (website v0.15.0, G17.5) ---------------------------------------------
+     The sign-up links carry the page they sit on ("from") and the utm_ tags of the visit; the demo request
+     carries the same when site.json attribution.lead_send is true (data-attribution on the form). Nothing is
+     stored: the privacy notice says this site remembers only that a visitor stopped the motion, so the tags
+     travel in the address instead, from the first page to this site's other links. Values are cut to what a
+     tag needs, so a crafted address cannot put anything else into a link. */
+  var UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+  function visitTags() {
+    var found = {};
+    var params;
+    try { params = new URLSearchParams(window.location.search); } catch (err) { return found; }
+    UTM_KEYS.forEach(function (k) {
+      var v = params.get(k);
+      if (!v) return;
+      v = v.replace(/[^A-Za-z0-9_.~-]/g, "").slice(0, 60);
+      if (v) found[k] = v;
+    });
+    return found;
+  }
+  function withParams(href, add) {
+    var hash = "";
+    var i = href.indexOf("#");
+    if (i >= 0) { hash = href.slice(i); href = href.slice(0, i); }
+    Object.keys(add).forEach(function (k) {
+      if (new RegExp("[?&]" + k + "=").test(href)) return;
+      href += (href.indexOf("?") >= 0 ? "&" : "?") + k + "=" + encodeURIComponent(add[k]);
+    });
+    return href + hash;
+  }
+  function initAttribution() {
+    var meta = document.querySelector('meta[name="bt:signup"]');
+    var tags = visitTags();
+    var from = window.location.pathname.slice(0, 80);
+    var signup = meta ? meta.getAttribute("content") : "";
+    var base = signup ? signup.split("?")[0] : "";
+    var carry = Object.keys(tags).length > 0;
+    $all("a[href]").forEach(function (a) {
+      var href = a.getAttribute("href") || "";
+      if (base && href.indexOf(base) === 0) {
+        var add = { from: from };
+        UTM_KEYS.forEach(function (k) { if (tags[k]) add[k] = tags[k]; });
+        a.setAttribute("href", withParams(href, add));
+      } else if (carry && href && !/^([a-z][a-z0-9+.-]*:|\/\/|#|mailto:|tel:)/i.test(href)) {
+        a.setAttribute("href", withParams(href, tags));
+      }
+    });
+  }
+
+  /* ---- a walk through the demo account: one screen at a time with script, all three without ----- */
+  function initWalk() {
+    var tabs = $(".walk-tabs");
+    if (!tabs) return;
+    var buttons = $all("[data-walk]", tabs);
+    var panels = $all("[data-walk-panel]");
+    function show(id, focus) {
+      buttons.forEach(function (b) {
+        var on = b.getAttribute("data-walk") === id;
+        b.setAttribute("aria-selected", on ? "true" : "false");
+        b.setAttribute("tabindex", on ? "0" : "-1");
+        if (on && focus) b.focus();
+      });
+      panels.forEach(function (p) { p.hidden = p.getAttribute("data-walk-panel") !== id; });
+    }
+    tabs.hidden = false;
+    buttons.forEach(function (b, n) {
+      b.addEventListener("click", function () { show(b.getAttribute("data-walk")); });
+      b.addEventListener("keydown", function (e) {
+        var step = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+        if (!step) return;
+        e.preventDefault();
+        show(buttons[(n + step + buttons.length) % buttons.length].getAttribute("data-walk"), true);
+      });
+    });
+    show(buttons[0].getAttribute("data-walk"));
+  }
+
+  /* ---- the free checks and the try-it with a visitor's own review (G17.1, G17.2, G17.3) ----------
+     Only on a build with site.json public_tools.enabled: the forms are not in the page otherwise. One
+     public function, public-tools; the contract is HANDOFFS j-to-lead-public-tools.md. The same honeypot,
+     limits and 429 answer as the demo form. Sentences are the page's (data-tpl-*, data-err-*); the answer
+     brings only values. */
+  function fill(tpl, values) {
+    return String(tpl || "").replace(/\{(\w+)\}/g, function (m, k) { return values[k] != null ? String(values[k]) : m; });
+  }
+  function initTools() {
+    $all("form[data-tool]").forEach(function (form) {
+      var tool = form.getAttribute("data-tool");
+      var status = $(".status", form);
+      var result = $(".tool-result", form);
+      var button = $("button[type=submit]", form);
+      var label = button ? button.textContent : "";
+      var sending = false;
+      function tell(text, isError) { if (status) { status.textContent = text || ""; status.className = "status" + (isError ? " err" : ""); } }
+      function out(name, text) { var el = $('[data-out="' + name + '"]', form); if (el) { el.textContent = text; el.hidden = !text; } }
+      function done() { sending = false; if (button) { button.removeAttribute("aria-disabled"); button.textContent = label; } }
+      function val(name) { var el = form.elements[name]; return el && typeof el.value === "string" ? el.value.trim() : ""; }
+      // a success is an explicit one with the values the tool needs; anything else is the generic error
+      function valid(body) {
+        if (!body || body.ok === false) return false;
+        if (tool === "profile") return typeof body.name === "string" && body.name !== "" && isFinite(Number(body.rating)) && isFinite(Number(body.count));
+        if (tool === "rank") return isFinite(Number(body.position)) && Number(body.checked) > 0;
+        return typeof body.reply === "string" && body.reply !== "";
+      }
+      function render(body, sent) {
+        if (tool === "profile") {
+          var total = Number(body.latest_total) || 0, open = Number(body.latest_open) || 0;
+          out("head", fill(result.getAttribute("data-tpl-head"), { name: body.name, rating: String(body.rating).replace(".", document.documentElement.lang === "hu" ? "," : "."), count: body.count }));
+          out("reviews", total ? fill(result.getAttribute(open ? "data-tpl-reviews" : "data-tpl-all"), { total: total, open: open }) : "");
+        } else if (tool === "rank") {
+          var pos = Number(body.position) || 0;
+          out("rank", fill(result.getAttribute(pos ? "data-tpl-found" : "data-tpl-notfound"), { phrase: sent.phrase, position: pos, checked: body.checked }));
+        } else if (tool === "draft") {
+          out("reply", String(body.reply || ""));
+        }
+        result.hidden = false;
+        // focus moves to the answer so a screen reader reads it
+        result.setAttribute("tabindex", "-1");
+        result.focus();
+      }
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        if (sending) return;
+        tell(""); result.hidden = true;
+        if (typeof form.reportValidity === "function" && !form.reportValidity()) { tell(form.getAttribute("data-err-empty"), true); return; }
+        var payload = { tool: tool, company_website: val("company_website") };
+        ["q", "phrase", "review", "stars", "tone"].forEach(function (k) { if (form.elements[k]) payload[k] = val(k); });
+        // required fields are checked after trimming, so spaces alone are empty
+        var blank = ["q", "phrase", "review"].some(function (k) { return form.elements[k] && !payload[k]; });
+        if (blank) { tell(form.getAttribute("data-err-empty"), true); return; }
+        sending = true;
+        if (button) { button.setAttribute("aria-disabled", "true"); button.textContent = form.getAttribute("data-sending") || label; }
+        var key = form.getAttribute("data-key");
+        var ctrl = typeof AbortController === "function" ? new AbortController() : null;
+        var giveUp = window.setTimeout(function () { if (ctrl) ctrl.abort(); }, 20000);
+        fetch(form.getAttribute("data-endpoint"), {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "apikey": key, "Authorization": "Bearer " + key },
+          body: JSON.stringify(payload),
+          signal: ctrl ? ctrl.signal : undefined
+        }).then(function (res) {
+          return res.json().catch(function () { return {}; }).then(function (body) { return { ok: res.ok, status: res.status, body: body }; });
+        }).then(function (res) {
+          window.clearTimeout(giveUp); done();
+          if (res.ok && valid(res.body)) return render(res.body, payload);
+          if (res.status === 429) return tell(form.getAttribute("data-err-rate"), true);
+          if (res.status === 404 && form.getAttribute("data-err-none")) return tell(form.getAttribute("data-err-none"), true);
+          tell(form.getAttribute("data-err"), true);
+        }).catch(function () { window.clearTimeout(giveUp); done(); tell(form.getAttribute("data-err"), true); });
+      });
+    });
+  }
+
   initLegacyAnchors();
   initMenu();
   initMotion();
@@ -902,4 +1059,7 @@
   initFeedback();
   initForm();
   initTables();
+  initAttribution();
+  initWalk();
+  initTools();
 })();
