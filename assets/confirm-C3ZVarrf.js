@@ -1,1 +1,0 @@
-import{h as e,t,v as n}from"./jsx-runtime-HntmfG2C.js";import{v as r}from"./ScreenHead-Srbe_d2K.js";var i=n(e(),1),a=t();function o(){let[e,t]=(0,i.useState)(null);return[(0,i.useCallback)(e=>new Promise(n=>{t(t=>(t?.resolve(!1),{o:e,resolve:n}))}),[]),e?(0,a.jsx)(r,{o:e.o,onDone:n=>{e.resolve(n),t(null)}}):null]}export{o as t};
