@@ -44,20 +44,47 @@
     <!-- appearance:first-paint:end -->
     <!-- 2026-10-16 (FOUNDATION, D-069): on an iPhone the root follows Dynamic Type (lib/textsize.ts says why and how) -->
     <script>try{if(CSS.supports('font','-apple-system-body')&&CSS.supports('-webkit-touch-callout','none')){var t=document.createElement('span');t.style.font='-apple-system-body';document.documentElement.appendChild(t);var x=parseFloat(getComputedStyle(t).fontSize);t.remove();if(x>0)document.documentElement.style.fontSize=(x/17*100).toFixed(2)+'%'}}catch(e){}</script>
+    <script>
+      // Round K, 2026-10-19, G18.12, G18.18, G18.20.
+      try {
+        const root = document.documentElement;
+        let raw = null;
+        try { raw = JSON.parse(localStorage.getItem('display.v1') || 'null'); } catch (e) {}
+        const d = raw && typeof raw === 'object' && !Array.isArray(raw) ? raw : {};
+        const text = d.text === 'large' || d.text === 'largest' ? d.text : 'normal';
+        const density = d.density === 'dense' ? 'dense' : 'comfy';
+        const saver = d.saver === 'on' || d.saver === 'off' ? d.saver : 'auto';
+        const hint = navigator.connection;
+        const saverOn = saver === 'on' || (saver === 'auto' && !!(hint && hint.saveData));
+        root.setAttribute('data-text', text);
+        root.setAttribute('data-density', density);
+        if (saverOn) root.setAttribute('data-saver', 'on');
+        else root.removeAttribute('data-saver');
+        const factor = text === 'large' ? 1.15 : text === 'largest' ? 1.3 : 1;
+        const previous = parseFloat(root.style.fontSize);
+        const base = Number.isFinite(previous) && previous > 0 ? previous : 100;
+        root.style.fontSize = (base * factor).toFixed(2) + '%';
+        if (saverOn && hint && ['slow-2g', '2g', '3g'].includes(hint.effectiveType)
+            && root.getAttribute('data-motion') === 'jatekos') {
+          root.setAttribute('data-motion', 'nyugodt');
+        }
+      } catch (e) {}
+    </script>
     <script>try{const r=sessionStorage.getItem('npi.redirect');if(r){sessionStorage.removeItem('npi.redirect');history.replaceState(null,'',r);}}catch(e){}</script>
-    <script type="module" crossorigin src="/npi-review-system/assets/index-DZ3g21ir.js"></script>
+    <script type="module" crossorigin src="/npi-review-system/assets/index-Cz3eLp-t.js"></script>
     <link rel="modulepreload" crossorigin href="/npi-review-system/assets/jsx-runtime-HntmfG2C.js">
     <link rel="modulepreload" crossorigin href="/npi-review-system/assets/chunk-BV7QT456-DCxKkqaX.js">
     <link rel="modulepreload" crossorigin href="/npi-review-system/assets/supabase-BfM5bDqq.js">
-    <link rel="modulepreload" crossorigin href="/npi-review-system/assets/Illo-C8BkvOIj.js">
+    <link rel="modulepreload" crossorigin href="/npi-review-system/assets/auth-WGzy00ZI.js">
     <link rel="modulepreload" crossorigin href="/npi-review-system/assets/Icon-Wd8iN2eE.js">
+    <link rel="modulepreload" crossorigin href="/npi-review-system/assets/Illo-DoNrGtYL.js">
     <link rel="modulepreload" crossorigin href="/npi-review-system/assets/reviewsLink-C1YuTiIO.js">
-    <link rel="modulepreload" crossorigin href="/npi-review-system/assets/ScreenHead-BSqcAL59.js">
+    <link rel="modulepreload" crossorigin href="/npi-review-system/assets/ScreenHead-B4eD2_3m.js">
     <link rel="modulepreload" crossorigin href="/npi-review-system/assets/refresh-Df_0vRMA.js">
     <link rel="modulepreload" crossorigin href="/npi-review-system/assets/pauseCore-DUGn0XnY.js">
-    <link rel="modulepreload" crossorigin href="/npi-review-system/assets/pwa-DLmYtSjZ.js">
+    <link rel="modulepreload" crossorigin href="/npi-review-system/assets/pwa-GPPNdi2Q.js">
     <link rel="modulepreload" crossorigin href="/npi-review-system/assets/shortcuts-XfkiwK_D.js">
-    <link rel="stylesheet" crossorigin href="/npi-review-system/assets/index-0cUoF7KW.css">
+    <link rel="stylesheet" crossorigin href="/npi-review-system/assets/index-Bse6lEzc.css">
   </head>
   <body>
     <!-- 2026-10-16 (FOUNDATION, D-069; GAPS move 11, CRIT-FLOW-006): a Pop splash instead of the boot paragraph. It is a
